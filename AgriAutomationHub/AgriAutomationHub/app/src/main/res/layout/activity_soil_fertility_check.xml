@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="14dp"
+            android:src="@drawable/back_btn" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/soil_fertility_check"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="319dp"
+        android:layout_height="85dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="50dp"
+        android:paddingTop="28dp"
+        android:text="@string/enter_the_following_values_to_check_soil_fertility"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etNitrogen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/etNitrogen"
+        android:layout_width="240dp"
+        android:layout_height="52dp"
+        android:layout_below="@id/textViewTitle"
+        android:hint="@string/nitrogen_20_50_ppm"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etPhosphorus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/etPhosphorus"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/etNitrogen"
+        android:hint="@string/phosphorus_20_50_ppm"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etPotassium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNitrogen"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/etPotassium"
+        android:layout_width="240dp"
+        android:layout_height="54dp"
+        android:layout_below="@id/etPhosphorus"
+        android:hint="@string/potassium_150_300_ppm"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etPh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPhosphorus"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/etPh"
+        android:layout_width="240dp"
+        android:layout_height="54dp"
+        android:layout_below="@id/etPotassium"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/ph_value_6_8_5"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPotassium"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/btnCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etPh"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/round_back_secondary_100"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/check_soil_fertility"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/tvResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPh"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="326dp"
+        android:layout_height="181dp"
+        android:layout_below="@id/btnCheck"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text=""
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCheck"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:itemIconTint="@color/bottom_nav_icon_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

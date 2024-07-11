@@ -1,0 +1,96 @@
+<resources>
+
+    <string name="app_name">AgriAutomationHub</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="auto_irrigation">Auto Irrigation</string>
+    <string name="soil_fertility_check">Soil Fertility Check</string>
+    <string name="livestock_monitoring">Livestock Monitoring</string>
+    <string name="fertilizer_recommendation">Fertilizer Recommendation</string>
+    <string name="fertilizer_spray">Fertilizer Spray</string>
+    <string name="crop_disease_prediction">Crop Disease Prediction</string>
+    <string name="welcome_message">AgriAutomationHub</string>
+    <string name="services">Services</string>
+    <string name="home">Home</string>
+    <string name="notification">Notification</string>
+    <string name="help">Help</string>
+    <string name="profile">Profile</string>
+    <string name="title_activity_soil_fertility_check">Soil_Fertility_check</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <string name="app_id">1:191351033464:android:dfd5400cc7978bd648278d</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="action_logout">Logout</string>
+    <string name="irrigation">Irrigation</string>
+    <string name="humidity">Humidity</string>
+    <string name="temperature">Temperature</string>
+    <string name="manual_mode">Manual Mode</string>
+    <string name="status">Status:</string>
+    <string name="help_page">Help Page</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="detailed_getting_started">Welcome to our application! Here are the steps to get you started:\n1. Download and install the application.\n2. Create an account by signing up.\n3. Follow the on-screen instructions to set up your profile.\n4. Start using the features available in the app.</string>
+    <string name="frequently_asked_questions">Frequently Asked Questions</string>
+    <string name="detailed_fqas">Q: How do I reset my password?\nA: Click on \'Forgot Password\' at the login screen, and follow the instructions to reset your password.\n\nQ: How can I contact support?\nA: You can contact support by clicking on the \'Contact Support\' section below or emailing support@example.com.</string>
+    <string name="contact_support">Contact Support</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="message">Message</string>
+    <string name="submit">Submit</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="cilck_here_to_register">Cilck Here To Register</string>
+    <string name="today_s_weather">Today\'s Weather</string>
+    <string name="location">Location</string>
+    <string name="loading_weather">Loading weather...</string>
+    <string name="crop_care">Crop Care</string>
+    <string name="fertilizer_nrecommender">Fertilizer\nRecommender</string>
+    <string name="top_news">Top News</string>
+    <string name="register">Register</string>
+    <string name="cilck_here_to_login">Cilck Here To Login</string>
+    <string name="settings">Settings</string>
+    <string name="a2hub">A2Hub</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="night_mode">Night Mode</string>
+    <string name="notifications">Notifications</string>
+    <string name="private_account">Private Account</string>
+    <string name="security_amp_privacy"><![CDATA[Security & Privacy]]></string>
+    <string name="text_size">Text Size</string>
+    <string name="languages">Languages</string>
+    <string name="send_us_a_message">Send us a Message</string>
+    <string name="about_us">About Us</string>
+    <string name="faqs">FAQs</string>
+    <string name="logout">Logout</string>
+    <string name="enter_the_following_values_to_check_soil_fertility">Enter the following values to check soil fertility-</string>
+    <string name="nitrogen_20_50_ppm">Nitrogen (20 - 50 ppm)</string>
+    <string name="phosphorus_20_50_ppm">Phosphorus (20 - 50 ppm)</string>
+    <string name="potassium_150_300_ppm">Potassium (150 - 300 ppm)</string>
+    <string name="ph_value_6_8_5">pH Value ( 6 - 8.5 )</string>
+    <string name="check_soil_fertility">Check Soil Fertility</string>
+    <string name="news">News</string>
+    <string name="marketview">MarketView</string>
+    <string name="mandi">Mandi</string>
+</resources>
