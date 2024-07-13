@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
 
     private TextView weatherInfo;
     private TextView weatherLocation;
-    private static final String API_KEY = "7e23b9a25a90846111d856e437e11535";
+    private static final String API_KEY = "secret-key";
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
     private FusedLocationProviderClient fusedLocationClient;
