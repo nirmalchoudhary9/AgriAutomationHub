@@ -19,7 +19,7 @@ public class NewsActivity extends AppCompatActivity {
 
     ImageView back;
     private static final String BASE_URL = "https://newsapi.org/v2/";
-    private static final String API_KEY = "f515a4987ca44c8d9d99fb156a4e1f0e";
+    private static final String API_KEY = "secret_key";
     private static final String TAG = "NewsActivity";
 
     private RecyclerView newsRecyclerView;
