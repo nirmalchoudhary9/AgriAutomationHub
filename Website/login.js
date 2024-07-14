@@ -7,7 +7,7 @@
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
-    apiKey: "AIzaSyA-YeMsoObv2ybpy-W6BDJJJHQNhxAksKs",
+    apiKey: "Your-API",
     authDomain: "agriautomationhub-f3ceb.firebaseapp.com",
     databaseURL: "https://agriautomationhub-f3ceb-default-rtdb.firebaseio.com",
     projectId: "agriautomationhub-f3ceb",
