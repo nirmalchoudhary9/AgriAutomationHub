@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Irrigation System</title>
+    <link rel="stylesheet" href="auto-irrigation.css">
+</head>
+<body class="background-image" >
+    <header id="navbar" class="main-header">
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span>AgriAutomationHub</span>
+            </div>
+            <div class="nav-items">
+                <a href="AgriAutomationHub.html#home">Home</a>
+                <a href="about.html">About</a>
+                <a href="AgriAutomationHub.html#services">Services</a>
+                <a href="AgriAutomationHub.html#products">Products</a>
+                <a href="AgriAutomationHub.html#contact#">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Auto Irrigation System</h1>
+    
+    <p>"The Auto Irrigation System automates the watering process for your crops, ensuring they receive the optimal amount of water precisely when needed. This system leverages smart technology to monitor soil moisture levels and weather conditions, delivering water efficiently to your plants. By automating irrigation, it helps you conserve water resources, prevent under or over-watering, and promote healthy plant growth. </p>
+    <p>Features of our system:</p>
+    <ul>
+        <li>Humidity and temperature adjustment through manual controls for personalized climate management.</li>
+        <li>Automated regulation of humidity and temperature levels for optimal plant growth and environmental conditions.</li>
+        <li>Integration with realtime database for precision agriculture.</li>
+        <li>Highly Effective in crop management.</li>
+    </ul>
+        
+        <div class="circle-container">
+            <div id="valuesDisplay">
+            <!-- Values will be displayed here -->
+                <div class="circle" id="humidityCircle"></div>
+                <div class="circle" id="temperatureCircle"></div>
+            </div>
+        </div>
+        <div class="action">
+            <button id="automaticButton">Automatic</button>
+            <button id="manualButton">Manual</button>
+        </div>
+    <div>
+        <div id="controls">
+            <!-- Controls will be dynamically added here -->
+        </div>
+    </div>
+ 
+
+</div>
+
+    </div>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+        apiKey: "AIzaSyA-YeMsoObv2ybpy-W6BDJJJHQNhxAksKs",
+        authDomain: "agriautomationhub-f3ceb.firebaseapp.com",
+        databaseURL: "https://agriautomationhub-f3ceb-default-rtdb.firebaseio.com",
+        projectId: "agriautomationhub-f3ceb",
+        storageBucket: "agriautomationhub-f3ceb.appspot.com",
+        messagingSenderId: "191351033464",
+        appId: "1:191351033464:web:178c01bd37aad4b348278d",
+        measurementId: "G-K44DDKGKQX"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Reference to Firebase database
+        var db = firebase.database().ref();
+
+        // Function to update solenoid valve status
+        function updateSolenoidValveStatus(valveNumber, status) {
+        db.child('Watering').child('Valve' + valveNumber).set(status)
+        .then(function() {
+            console.log("Valve " + valveNumber + " status updated successfully.");
+        })
+        .catch(function(error) {
+            console.error("Error updating valve " + valveNumber + " status: ", error);
+        });
+        }
+
+        // Function to update UI with data from Firebase
+        function updateUI(data) {
+        var Mode = data.Mode;
+        var humidity = data.HumidityMeter.humidity;
+        var moisture1 = data.MoistureMeter.sensor1;
+        var moisture2 = data.MoistureMeter.sensor2;
+        var temperature = data.TemperatureMeter.temperature;
+        var valve1 = data.Watering.Valve1;
+        var valve2 = data.Watering.Valve2;
+
+        var hmdt = document.getElementById('humidityCircle');
+        hmdt.innerHTML = `<div>Humidity ${humidity}</div>`;
+
+        var temp = document.getElementById('temperatureCircle');
+        temp.innerHTML = `<div>Temperature ${temperature}</div>`;
+
+        var controls = document.getElementById('controls');
+        controls.innerHTML = '';
+
+        if (Mode == 0) {
+            controls.innerHTML = `
+            <p>Moisture Value : ${moisture1} Valve 1: ${valve1 == 1 ? 'ON' : 'OFF'}</p>
+            <p>Moisture Value : ${moisture2} Valve 2: ${valve2 == 1 ? 'ON' : 'OFF'}</p>
+            `;
+        } else {
+            controls.innerHTML = `
+            <p>Moisture Value : ${moisture1} Valve 1: ${valve1 == 1 ? 'ON' : 'OFF'} <button onclick="updateSolenoidValveStatus(1, ${valve1 == 1 ? 0 : 1})">${valve1 == 1 ? 'Turn OFF' : 'Turn ON'}</button></p>
+            <p>Moisture Value : ${moisture2} Valve 2: ${valve2 == 1 ? 'ON' : 'OFF'} <button onclick="updateSolenoidValveStatus(2, ${valve2 == 1 ? 0 : 1})">${valve2 == 1 ? 'Turn OFF' : 'Turn ON'}</button></p>
+            `;
+        }
+        }
+
+        // Fetch data from Firebase and update UI
+        db.on('value', function(snapshot) {
+        var data = snapshot.val();
+        updateUI(data);
+        });
+
+        // Event listener for Automatic button
+        document.getElementById('automaticButton').addEventListener('click', function() {
+        db.child('Watering').child('Mode').set(0)
+        .then(function() {
+            console.log("Mode set to Automatic successfully.");
+        })
+        .catch(function(error) {
+            console.error("Error setting mode to Automatic: ", error);
+        });
+        });
+
+        // Event listener for Manual button
+        document.getElementById('manualButton').addEventListener('click', function() {
+            db.child('Watering').child('Mode').set(1)
+        .then(function() {
+            console.log("Mode set to Manual successfully.");
+        })
+        .catch(function(error) {
+            console.error("Error setting mode to Manual: ", error);
+        });
+        });
+
+
+    </script>
+</body>
+</html>

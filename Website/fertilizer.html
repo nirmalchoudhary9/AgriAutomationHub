@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fertilizer/Pesticides Recommendation System</title>
+    <link rel="stylesheet" href="fertilizer.css">
+</head>
+<body class="background-image" >
+    <header id="navbar" class="main-header">
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span>AgriAutomationHub</span>
+            </div>
+            <div class="nav-items">
+                <a href="AgriAutomationHub.html#home">Home</a>
+                <a href="about.html">About</a>
+                <a href="AgriAutomationHub.html#services">Services</a>
+                <a href="AgriAutomationHub.html#products">Products</a>
+                <a href="AgriAutomationHub.html#contact#">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <p class="transparent-text">This text will be transparent.</p>
+
+    <div class="container">
+        <h1>Fertilizer/Pesticides Recommendation System</h1>
+        <div class="status">
+
+            <p>Status: <span id="status">Idle</span></p>
+        </div>
+        <p>The Fertilizer/Pesticides Recommendation System provides tailored recommendations for fertilizers and pesticides based on the specific needs of your crops. It helps you optimize your agricultural practices and maximize your yield while minimizing environmental impact.</p>
+        <p>Features of our system:</p>
+        <ul>
+            <li>Analysis of soil and crop data to determine nutrient requirements.</li>
+            <li>Recommendations for the right type and amount of fertilizers and pesticides.</li>
+            <li>Integration with weather forecasts for precision agriculture.</li>
+            <li>Historical data analysis for long-term crop management.</li>
+        </ul>
+        <form id="recommendationForm">
+            <label for="cropName">Crop Name:</label>
+            <input type="text" id="cropName" required><br>
+            <label for="soilPh">Soil pH:</label>
+            <input type="number" id="soilPh" step="0.1" required><br>
+            <label for="nitrogenLevel">Nitrogen Level (kg/ha):</label>
+            <input type="number" id="nitrogenLevel" step="0.01" required><br>
+            <label for="pestControl">Pest Control Needed (Yes/No):</label>
+            <input type="text" id="pestControl" required><br>
+            <button class="button" type="submit">Get Recommendations</button>
+        </form>
+    </div>
+    <script>
+        alert("It is in progress.");
+        const statusElement = document.getElementById('status');
+        const recommendationForm = document.getElementById('recommendationForm');
+
+        recommendationForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const cropName = document.getElementById('cropName').value;
+            const soilPh = parseFloat(document.getElementById('soilPh').value);
+            const nitrogenLevel = parseFloat(document.getElementById('nitrogenLevel').value);
+            const pestControl = document.getElementById('pestControl').value.toLowerCase();
+
+            if (cropName && !isNaN(soilPh) && !isNaN(nitrogenLevel) && (pestControl === 'yes' || pestControl === 'no')) {
+                // Perform fertilizer and pesticides recommendation based on the provided data.
+                // You would typically send this data to a recommendation engine or service.
+                // Update the status element with the recommendations.
+                statusElement.textContent = 'Recommendations in Progress';
+            } else {
+                alert('Please fill in all required fields with valid data.');
+            }
+        });
+    </script>
+</body>
+</html>
