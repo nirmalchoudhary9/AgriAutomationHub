@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebase
 const provider = new GoogleAuthProvider();
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA-YeMsoObv2ybpy-W6BDJJJHQNhxAksKs",
+    apiKey: "Your-API",
     authDomain: "agriautomationhub-f3ceb.firebaseapp.com",
     databaseURL: "https://agriautomationhub-f3ceb-default-rtdb.firebaseio.com",
     projectId: "agriautomationhub-f3ceb",
