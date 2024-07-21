@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Report Date TextView -->
+    <TextView
+        android:id="@+id/report_date_label"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp"
+        android:text="Report Date"
+        android:textColorLink="#000000"
+        android:textSize="16sp" />
+
+    <!-- Mandi Name Spinner -->
+<!-- Use `app:drawableEndCompat` instead of `android:drawableEnd` -->
+
+    <TextView
+        android:id="@+id/report_date"
+        android:layout_width="188dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/report_date_label"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="-213dp"
+        android:layout_toEndOf="@id/report_date_label"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:focusable="false"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp"
+        android:text="Select Date"
+        android:textColor="#000000"
+        app:drawableEndCompat="@android:drawable/ic_menu_edit" />
+
+    <TextView
+        android:id="@+id/mandi_name_label"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/report_date"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="16dp"
+        android:text="Mandi Name"
+        android:textColorLink="#101010"
+        android:textFontWeight="@integer/material_motion_duration_medium_1"
+        android:textSize="16sp" />
+
+    <!-- Crop Spinner -->
+
+    <Spinner
+        android:id="@+id/mandi_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/report_date"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        android:layout_toEndOf="@+id/mandi_name_label"
+        android:entries="@array/mandi_names"
+        android:paddingTop="10dp"
+        android:paddingBottom="16dp"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:id="@+id/crop_label"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mandi_name"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp"
+        android:text="Crop"
+        android:textColorLink="#000000"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/crop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mandi_name_label"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        android:layout_toEndOf="@id/crop_label"
+        android:entries="@array/crop_names"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp"
+        android:textAlignment="textStart" />
+
+    <!-- Fetch Data Button -->
+    <Button
+        android:id="@+id/btn_fetch_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:enabled="true"
+        android:text="Fetch Data" />
+
+    <!-- Results TableLayout -->
+
+    <LinearLayout
+        android:id="@+id/linear_layout_results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_fetch_data"
+        android:layout_marginTop="84dp"
+        android:orientation="vertical"
+        android:padding="16dp"/>
+
+    <!-- Navigation Bar -->
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="312dp"
+        android:gravity="center"
+        android:text="@string/status"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_mandi"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="1dp"
+        android:background="?android:attr/windowBackground"
+        app:itemIconTint="@color/bottom_nav_icon_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
+
+</RelativeLayout>

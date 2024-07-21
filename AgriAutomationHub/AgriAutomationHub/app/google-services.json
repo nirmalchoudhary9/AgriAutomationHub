@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "191351033464",
+    "firebase_url": "https://agriautomationhub-f3ceb-default-rtdb.firebaseio.com",
+    "project_id": "agriautomationhub-f3ceb",
+    "storage_bucket": "agriautomationhub-f3ceb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191351033464:android:dfd5400cc7978bd648278d",
+        "android_client_info": {
+          "package_name": "com.example.agriautomationhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191351033464-3e3i43kn0efe3dqqr8lpe1132r01qkd2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agriautomationhub",
+            "certificate_hash": "0f50673dcf9b37ba32ee2e2623eb88ad37e194d2"
+          }
+        },
+        {
+          "client_id": "191351033464-qphkr6arf7bd9vru8kes5sfofenk3tsc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv2yRMbXtQ0686-dDAKyBhq1qRfr10ciE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191351033464-qphkr6arf7bd9vru8kes5sfofenk3tsc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

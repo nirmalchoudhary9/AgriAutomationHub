@@ -1,0 +1,92 @@
+[
+    {
+        "distCode": 2351,
+        "mandiCode": 19112,
+        "mandiName": "Agar",
+        "distName": "Agar Malwa"
+    },
+    {
+        "distCode": 2328,
+        "mandiCode": 28001,
+        "mandiName": "Bhopal",
+        "distName": "Bhopal"
+    },
+    {
+        "distCode": 2336,
+        "mandiCode": 36212,
+        "mandiName": "Chindwara",
+        "distName": "Chindwada"
+    },
+    {
+        "distCode": 2320,
+        "mandiCode": 20088,
+        "mandiName": "Dewas",
+        "distName": "Dewas"
+    },
+    {
+        "distCode": 2322,
+        "mandiCode": 22053,
+        "mandiName": "Dhar",
+        "distName": "Dhar"
+    },
+    {
+        "distCode": 2304,
+        "mandiCode": 4128,
+        "mandiName": "Bhitarwar",
+        "distName": "Gwalior"
+    },
+    {
+        "distCode": 2308,
+        "mandiCode": 8049,
+        "mandiName": "Indore",
+        "distName": "Indore"
+    },
+    {
+        "distCode": 2308,
+        "mandiCode": 8051,
+        "mandiName": "Mhow",
+        "distName": "Indore"
+    },
+    {
+        "distCode": 2308,
+        "mandiCode": 8050,
+        "mandiName": "Sanwer",
+        "distName": "Indore"
+    },
+    {
+        "distCode": 2333,
+        "mandiCode": 33200,
+        "mandiName": "Jabalpur",
+        "distName": "Jabalpur"
+    },
+    {
+        "distCode": 2316,
+        "mandiCode": 16095,
+        "mandiName": "Mandsour",
+        "distName": "Mandsaur"
+    },
+    {
+        "distCode": 2344,
+        "mandiCode": 44105,
+        "mandiName": "Neemuch",
+        "distName": "Neemuch"
+    },
+    {
+        "distCode": 2317,
+        "mandiCode": 17107,
+        "mandiName": "Ratlam",
+        "distName": "Ratlam"
+    },
+    {
+        "distCode": 2329,
+        "mandiCode": 29003,
+        "mandiName": "Sehore",
+        "distName": "Sehore"
+    },
+    {
+        "distCode": 2318,
+        "mandiCode": 18081,
+        "mandiName": "Ujjain",
+        "distName": "Ujjain"
+    }
+]
