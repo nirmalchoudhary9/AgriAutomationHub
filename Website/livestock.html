@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Livestock Monitoring System</title>
+    <link rel="stylesheet" href="livestock.css">
+</head>
+<body class="background-image">
+    <header id="navbar" class="main-header">
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span>AgriAutomationHub</span>
+            </div>
+            <div class="nav-items">
+                <a href="AgriAutomationHub.html#home">Home</a>
+                <a href="about.html">About</a>
+                <a href="AgriAutomationHub.html#services">Services</a>
+                <a href="AgriAutomationHub.html#products">Products</a>
+                <a href="AgriAutomationHub.html#contact#">Contact</a>
+            </div>
+        </nav>
+    </header>
+   
+    <p class="transparent-text">This text will be transparent.</p>
+
+    <div class="container">
+
+        <div class="status">
+            <h1>Livestock Monitoring System</h1>
+            <p>Status: <span id="status">Idle</span></p>
+        </div>
+        <p>The Livestock Monitoring System is designed to keep track of the health and well-being of your livestock. It provides real-time data on their condition and allows you to take appropriate actions for their care.</p>
+        <p>Features of our system:</p>
+        <ul>
+            <li>Monitoring of livestock health parameters such as body temperature, heart rate, and weight.</li>
+            <li>Alerts for abnormal conditions and potential illnesses.</li>
+            <li>Historical data analysis for trends and patterns in livestock health.</li>
+        </ul>
+        <form id="monitoringForm">
+            <label for="animalName">Animal Name:</label>
+            <input type="text" id="animalName" required><br>
+            <label for="temperature">Body Temperature (°C):</label>
+            <input type="number" id="temperature" step="0.1" required><br>
+            <label for="heartRate">Heart Rate (bpm):</label>
+            <input type="number" id="heartRate" required><br>
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" step="0.01" required><br>
+            <button class="button" type="submit">Start Monitoring</button>
+        </form>
+    </div>
+    <script>
+        alert("It is in progress.");
+        const statusElement = document.getElementById('status');
+        const monitoringForm = document.getElementById('monitoringForm');
+
+        monitoringForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const animalName = document.getElementById('animalName').value;
+            const temperature = parseFloat(document.getElementById('temperature').value);
+            const heartRate = parseInt(document.getElementById('heartRate').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            if (animalName && !isNaN(temperature) && !isNaN(heartRate) && !isNaN(weight)) {
+                // Perform livestock monitoring here using the provided data.
+                // You would typically send this data to a server or a monitoring device.
+                // Update the status element based on the monitoring results.
+                statusElement.textContent = 'Livestock Monitoring in Progress';
+            } else {
+                alert('Please fill in all required fields with valid data.');
+            }
+        });
+    </script>
+</body>
+</html>

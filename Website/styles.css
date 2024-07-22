@@ -1,0 +1,150 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1e272e;
+    color: #fff;
+    padding: 10px 0;
+}
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/itachi.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Set the z-index to be behind the container */
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#navbar {
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #222; /* Add a subtle background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease-in-out; /* Transition for background color change */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: flex-start;
+}
+
+.logo img {
+    max-height: 70px;
+    margin-right: 10px;
+    align-self: start;
+}
+
+.logo span {
+    font-size: 1.8em;
+    color: #fff; /* Light text for better contrast */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+.nav-items a {
+    color: #ddd;
+    text-decoration: none; /* Remove underline */
+    font-family: Arial, sans-serif; /* Modern font family */
+    margin: 0 20px;
+    font-size: 1.2em;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transition for color and subtle transform */
+}
+
+/* Hover effects with trendy transitions and subtle animations */
+.nav-items a:hover {
+    color: #fff; /* Brighter color on hover */
+    transform: translateY(-3px); /* Slight bounce on hover */
+}
+
+.nav-items a:active {
+    transform: scale(1.05); /* Subtle zoom on click */
+    transition: transform 0.1s; /* Faster transition for click effect */
+}
+
+/* Menu icon styles */
+.menu-icon {
+    visibility: hidden; /* Initially hidden on larger screens */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Stack lines vertically for burger icon */
+    justify-content: space-between; /* Space lines evenly */
+    width: 25px;
+    height: 25px;
+    color: #fff; /* Light color for contrast */
+    transition: transform 0.3s ease-in-out; /* Transition for menu icon animation */
+}
+
+.menu-icon span {
+    width: 100%; /* Full width for lines */
+    height: 3px; /* Line thickness */
+    background-color: currentColor; /* Inherit color from parent */
+    border-radius: 2px; /* Rounded corners for smoother appearance */
+    margin-bottom: 5px; /* Spacing between lines */
+}
+
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+footer {
+    background-color: #1e272e;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Add an opaque white background to the container */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image: url('images/light.jpg'); 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:large;
+    position: relative; /* Add position relative */
+    z-index: 1; /* Set the z-index to be above the background image */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    max-height: calc(100vh - 100px); /* Set max height for scrolling */
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.container {
+    scrollbar-width: none;
+}
