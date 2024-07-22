@@ -1,0 +1,188 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #000000;
+    overflow-y: auto; /* Enable vertical scrolling for the whole page */
+}
+
+.transparent-text {
+    opacity: 0.5; /* Adjust the value between 0 (completely transparent) and 1 (fully opaque) */
+}
+
+/* Header styles */
+#navbar {
+    background-color: #1e272e;
+    color: #fff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 60px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.8em;
+}
+
+.nav-items a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-items a:hover {
+    color: #ff9900;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.container {
+    width: 80%;
+    margin: 2px auto;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.7); /* Add an opaque white background to the container */
+    position: relative; /* Add position relative */
+    overflow-y: auto;
+    z-index: 1; /* Set the z-index to be above the background image */
+    max-height: calc(100vh - 100px); /* Set max height for scrolling */
+    background-image: url('images/bg.jpg');
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.container {
+    scrollbar-width: none;
+}
+
+.container>p,
+li {
+    font: 24px solid black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font: 28px bold black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* CSS for circle container */
+.circle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* CSS for circles */
+.circle {
+    width: 160px;
+    height: 100px;
+    border-radius: 6%;
+    background-color: #007bff;
+    color: white;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40px;
+}
+
+/* Additional styling for humidity circle */
+#humidityCircle {
+    background-color: #627265; /* Green color */
+    align-items: center;
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+}
+
+/* Additional styling for temperature circle */
+#temperatureCircle {
+    background-color: #dc3545; /* Red color */
+    align-items: center;
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+}
+
+/* Set the background image as fixed */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/grapes.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Set the z-index to be behind the container */
+}
+
+.action {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.transparent-text {
+    opacity: 0.5; /* Adjust the value between 0 (completely transparent) and 1 (fully opaque) */
+}
+
+.action button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+}
+
+@media (max-width: 860px) {
+    .menu-icon {
+        display: block;
+        visibility: visible;
+    }
+
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        background-color: #1e272e;
+        position: absolute;
+        top: 60px; /* Adjust this value based on your header height */
+        right: 10;
+        width: 100%;
+        padding: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-items.show {
+        display: flex;
+    }
+
+    .nav-items a {
+        color: #fff;
+        text-decoration: none;
+        margin: 10px 0;
+    }
+}

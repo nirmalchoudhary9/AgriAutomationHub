@@ -1,0 +1,184 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    background-image: url('images/vege.jpg'); /* Replace 'path/to/your/background/image.jpg' with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Header styles */
+#navbar {
+    background-color: #1e272e;
+    color: #fff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 60px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.8em;
+}
+
+.nav-items a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-items a:hover {
+    color: #ff9900;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container>p,li{
+    font: 24px solid black;
+    font-family: 'Times New Roman', Times, serif;
+}    
+
+.status {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2081c2;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#btn:hover {
+    background-color: #E54724;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input[type="file"]{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+h1 {
+    color: #333;
+    text-align:center;
+    text-transform: uppercase;
+    font-size: 32px;
+
+}
+
+h2 {
+    color:brown;
+    text-align:left;
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+h3{
+    color: #333;
+    font-size: 26px;
+}
+
+p {
+    color:#333;
+    text-decoration: wavy;
+    font-size: 20px;
+}
+
+section {
+    margin: 20px 0;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image: url('images/light.jpg'); /* Replace 'path/to/your/background/image.jpg' with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 15px;
+    background-color: #987c09d2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #725d09fd;
+}
+
+.hero {
+    text-align: center;
+    color: #fff;
+    background-image: url('images/green.jpg'); /* Replace 'path/to/your/background/image.jpg' with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: rgba(38, 114, 8, 0.463);
+    border-radius: 10px;
+    
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-family:sans-serif;
+}
