@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mandi_names">
+        <item>---चुने---</item>
+        <item>Agar</item>
+        <item>Bhopal</item>
+        <item>Chindwara</item>
+        <item>Dewas</item>
+        <item>Dhar</item>
+        <item>Bhitarwar</item>
+        <item>Indore</item>
+        <item>Mhow</item>
+        <item>Sanwer</item>
+        <item>Jabalpur</item>
+        <item>Mandsour</item>
+        <item>Neemuch</item>
+        <item>Ratlam</item>
+        <item>Sehore</item>
+        <item>Ujjain</item>
+
+    </string-array>
+
+    <string-array name="crop_names">
+        <item>---चुने---</item>
+        <item>गेहूं</item>
+        <item>धान</item>
+        <item>मक्का/भुट्टा</item>
+        <item>ज्वार</item>
+        <item>तुअर/अरहर</item>
+        <item>चना</item>
+        <item>मूंग</item>
+        <item>डॉलर चना</item>
+        <item>राजमा</item>
+        <item>मूंगफली</item>
+        <item>सोयाबीन</item>
+        <item>सेब</item>
+        <item>संतरा</item>
+        <item>केला</item>
+        <item>आम</item>
+        <item>अंगूर</item>
+        <item>पपीता</item>
+        <item>तरबूज</item>
+        <item>मोसम्बी</item>
+        <item>अनार</item>
+        <item>नींबू</item>
+        <item>प्याज</item>
+        <item>आलू</item>
+        <item>फूलगोभी</item>
+        <item>बैंगन</item>
+        <item>मेथी</item>
+        <item>टमाटर</item>
+        <item>करेला</item>
+        <item>लौकी</item>
+        <item>गाजर</item>
+        <item>पत्ता गोभी</item>
+        <item>बंद गोभी/गांठ गोभी</item>
+        <item>पालक भाजी</item>
+        <item>भिन्डी</item>
+        <item>मटर</item>
+        <item>लहसुन</item>
+        <item>गुड़</item>
+        <item>गन्ना</item>
+
+    </string-array>
+</resources>
