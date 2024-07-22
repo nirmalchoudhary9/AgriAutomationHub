@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.DatePickerDialog;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.graphics.Typeface;
 import android.widget.Button;
@@ -14,6 +16,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Calendar;
 import okhttp3.*;
@@ -170,10 +173,10 @@ public class MandiActivity extends AppCompatActivity {
             }
 
             // Set data to spinners
-            ArrayAdapter<String> mandiAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, mandiNames);
+            ArrayAdapter<String> mandiAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, mandiNames);
             spinnerMandiName.setAdapter(mandiAdapter);
 
-            ArrayAdapter<String> cropAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cropNames);
+            ArrayAdapter<String> cropAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, cropNames);
             spinnerCrop.setAdapter(cropAdapter);
 
         } catch (Exception e) {
@@ -339,5 +342,43 @@ public class MandiActivity extends AppCompatActivity {
             Log.d(TAG, "Server Response Data: " + responseData);
             return new JSONObject(responseData);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            return logoutUser();
+        }
+        if (id == R.id.action_settings) {
+            return settings();
+        }
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean logoutUser() {
+        FirebaseAuth.getInstance().signOut();
+        // Redirect to login screen or any other desired activity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+
+    private boolean settings() {
+        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
+        startActivity(intent);
+        return true;
     }
 }
