@@ -1,0 +1,135 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #120c0c;
+}
+
+/* Header styles */
+#navbar {
+    background-color: #1e272e;
+    color: #fff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 60px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.8em;
+}
+
+.nav-items a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-items a:hover {
+    color: #ff9900;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7); 
+    background-image: url('images/green.jpg'); /* Add an opaque white background to the container */
+    position: relative; /* Add position relative */
+    z-index: 1; /* Set the z-index to be above the background image */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: calc(100vh - 100px); /* Set max height for scrolling */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container>p,li{
+    font: 24px solid black;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left;
+}    
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/ab.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Set the z-index to be behind the container */
+}
+.transparent-text {
+    opacity: 0.5; /* Adjust the value between 0 (completely transparent) and 1 (fully opaque) */
+}
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/rain.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Set the z-index to be behind the container */
+}
+.status {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007ACC;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: #2EB82E;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input[type="text"], input[type="number"] {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

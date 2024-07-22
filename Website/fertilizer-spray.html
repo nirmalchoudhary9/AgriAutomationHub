@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fertilizer Spray System</title>
+    <link rel="stylesheet" href="fertilizer-spray.css">
+</head>
+<body class="background-image">
+    <header id="navbar" class="main-header">
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span>AgriAutomationHub</span>
+            </div>
+            <div class="nav-items">
+                <a href="AgriAutomationHub.html#home">Home</a>
+                <a href="about.html">About</a>
+                <a href="AgriAutomationHub.html#services">Services</a>
+                <a href="AgriAutomationHub.html#products">Products</a>
+                <a href="AgriAutomationHub.html#contact#">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <p class="transparent-text">This text will be transparent.</p>
+
+    <div class="container">
+        <h1>Fertilizer Spray System</h1>
+        <div class="status">
+            <p>Status: <span id="status">Idle</span></p>
+        </div>
+        <p>The Fertilizer Spray System is designed for precise and controlled application of fertilizers to your crops. It ensures that the right amount of nutrients is delivered to enhance crop growth and yield.</p>
+        <p>Features of our system:</p>
+        <ul>
+            <li>Precision application of fertilizers to specific areas or plants.</li>
+            <li>Adjustable spray rate and volume for different crops and conditions.</li>
+            <li>Real-time monitoring and control of the spraying process.</li>
+            <li>Integration with soil and crop data for optimal fertilization.</li>
+        </ul>
+        <form id="sprayForm">
+            <label for="cropName">Crop Name:</label>
+            <input type="text" id="cropName" required><br>
+            <label for="fertilizerType">Fertilizer Type:</label>
+            <input type="text" id="fertilizerType" required><br>
+            <label for="sprayRate">Spray Rate (L/ha):</label>
+            <input type="number" id="sprayRate" step="0.01" required><br>
+            <label for="volume">Spray Volume (L):</label>
+            <input type="number" id="volume" step="0.01" required><br>
+            <button class="button" type="submit">Start Fertilizer Spray</button>
+        </form>
+    </div>
+    <script>
+        alert("It is in progress.");
+        const statusElement = document.getElementById('status');
+        const sprayForm = document.getElementById('sprayForm');
+
+        sprayForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const cropName = document.getElementById('cropName').value;
+            const fertilizerType = document.getElementById('fertilizerType').value;
+            const sprayRate = parseFloat(document.getElementById('sprayRate').value);
+            const volume = parseFloat(document.getElementById('volume').value);
+
+            if (cropName && fertilizerType && !isNaN(sprayRate) && !isNaN(volume)) {
+                // Perform fertilizer spray based on the provided data.
+                // You would typically control spraying equipment based on the input.
+                // Update the status element with the spraying progress.
+                statusElement.textContent = 'Fertilizer Spray in Progress';
+            } else {
+                alert('Please fill in all required fields with valid data.');
+            }
+        });
+    </script>
+</body>
+</html>

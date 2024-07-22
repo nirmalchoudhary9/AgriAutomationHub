@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Fertility Check</title>
+    <link rel="stylesheet" href="soil-fertility-check.css">
+</head>
+<body class="background-container">
+    <header id="navbar" class="main-header">
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span>AgriAutomationHub</span>
+            </div>
+            <div class="nav-items">
+                <a href="AgriAutomationHub.html#home">Home</a>
+                <a href="about.html">About</a>
+                <a href="AgriAutomationHub.html#services">Services</a>
+                <a href="AgriAutomationHub.html#products">Products</a>
+                <a href="AgriAutomationHub.html#contact#">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Soil Fertility Check</h1>
+        <p>Welcome to our Soil Fertility Check tool! Maintaining optimal soil fertility is crucial for successful farming and crop production. Use this tool to assess key soil nutrients and pH levels to make informed decisions for better agricultural practices.</p>
+
+        <div class="info-section">
+            <h2>Why Soil Fertility Matters</h2>
+            <p>Soil fertility is the ability of soil to provide essential nutrients to plants for their growth. Adequate soil fertility ensures healthy crops, increased yields, and sustainable farming practices. Monitoring nutrient levels helps farmers apply fertilizers effectively, saving resources and minimizing environmental impact.</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Understanding PPM (Parts Per Million)</h2>
+            <p>PPM, or parts per million, is a unit of measurement used to express the concentration of a substance in a solution. In the context of soil fertility, PPM is often used to quantify the concentration of essential nutrients such as nitrogen, phosphorus, and potassium in the soil. It represents the number of parts of the nutrient per one million parts of soil.</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Soil Fertility Parameters</h2>
+            <p>Each nutrient has a recommended range of PPM for optimal plant growth. Here are the general guidelines:</p>
+            <ul>
+                <li>Nitrogen (N): 20-50 ppm</li>
+                <li>Phosphorus (P): 20-50 ppm</li>
+                <li>Potassium (K): 150-300 ppm</li>
+                <li>pH Value: 6-8.5</li>
+            </ul>
+            <p>These ranges may vary depending on the specific crops you are cultivating. It's important to monitor and adjust nutrient levels accordingly.</p>
+        </div>
+
+        <form id="soilForm" class="form-container">
+            <label for="nitrogen">Nitrogen (ppm):</label>
+            <input type="number" id="nitrogen" min="20" max="50" step="0.1" required>
+
+            <label for="phosphorus">Phosphorus (ppm):</label>
+            <input type="number" id="phosphorus" min="20" max="50" step="0.1" required>
+
+            <label for="potassium">Potassium (ppm):</label>
+            <input type="number" id="potassium" min="150" max="300" step="0.1" required>
+
+            <label for="ph">pH Value:</label>
+            <input type="number" id="ph" min="6" max="8.5" step="0.1" required>
+
+            <button type="button" onclick="checkSoilFertility()">Check Soil Fertility</button>
+        </form>
+
+        <div id="result" class="result-container"></div>
+    </div>
+
+    <script src="soil-fertility-check.js"></script>
+</body>
+</html>
