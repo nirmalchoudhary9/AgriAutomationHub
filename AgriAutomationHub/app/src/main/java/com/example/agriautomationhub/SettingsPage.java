@@ -16,7 +16,7 @@ public class SettingsPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_settings_page);
+        setContentView(R.layout.activity_settings);
 
         logout = findViewById(R.id.action_logout);
         back = findViewById(R.id.back_btn);

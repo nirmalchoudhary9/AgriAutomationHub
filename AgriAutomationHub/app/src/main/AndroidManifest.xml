@@ -11,7 +11,6 @@
         android:value="@string/app_id" />
 
     <application
-        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -22,28 +21,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.Light"
         tools:targetApi="31" >
-
+        <activity
+            android:name=".FertilizerCalculatorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Light" />
+        <activity
+            android:name=".CropRecommenderActivity"
+            android:exported="false" />
         <activity
             android:name=".NewsActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".HelpActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".SettingsPage"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false"
             android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
             android:name=".Soil_Fertility_check"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
-            android:name=".SecondActivity"
+            android:name=".CropCareActivity"
             android:exported="false" />
         <activity
             android:name=".Automatic_Irrigation"
@@ -51,12 +53,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MandiActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
-
         <activity
             android:name=".LoginActivity"
             android:exported="true"

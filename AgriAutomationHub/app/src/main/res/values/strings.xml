@@ -98,4 +98,22 @@
     <string name="news">News</string>
     <string name="marketview">MarketView</string>
     <string name="mandi">Mandi</string>
+
+    <string-array name="crop_types">
+        <item>Corn</item>
+        <item>Wheat</item>
+        <item>Rice</item>
+        <item>Soyabean</item>
+        <item>kidneybeans</item>
+        <item>maize</item>
+        <item>mothbeans</item>
+        <item>cotton</item>
+        <item>mungbean</item>
+        <item>coconut</item>
+        <item>lentil</item>
+        <item>grapes</item>
+        <item>papaya</item>
+        <!-- Add more crops as needed -->
+    </string-array>
+
 </resources>
