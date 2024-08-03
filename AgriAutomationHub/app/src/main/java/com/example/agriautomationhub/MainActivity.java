@@ -15,10 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -69,10 +66,16 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         autoIrrigationLayout.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Automatic_Irrigation.class)));
 
         LinearLayout cropDiseaseLayout = findViewById(R.id.crop_disease_layout);
-        cropDiseaseLayout.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SecondActivity.class)));
+        cropDiseaseLayout.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CropCareActivity.class)));
 
         LinearLayout soilFertility = findViewById(R.id.soil_fertility_layout);
         soilFertility.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Soil_Fertility_check.class)));
+
+        LinearLayout cropRecommender = findViewById(R.id.crop_recommendation_layout);
+        cropRecommender.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CropRecommenderActivity.class)));
+
+        LinearLayout fertilizerCal = findViewById(R.id.fertilizer_calculator_layout);
+        fertilizerCal.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FertilizerCalculatorActivity.class)));
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 

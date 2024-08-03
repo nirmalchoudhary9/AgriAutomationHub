@@ -226,24 +226,24 @@
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
-                        android:id="@+id/fertilizer_recommendation_layout"
+                        android:id="@+id/crop_recommendation_layout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/pest_image"
+                            android:id="@+id/crop_recommender"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/pes" />
+                            android:src="@drawable/crop_recommender" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="@string/fertilizer_nrecommender"
+                            android:text="Crop Recommender"
                             android:textColor="@color/black"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -261,7 +261,7 @@
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
-                        android:id="@+id/fertilizer_spray_layout"
+                        android:id="@+id/fertilizer_calculator_layout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -278,7 +278,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="@string/fertilizer_spray"
+                            android:text="Fertilizer Calculator"
                             android:textColor="@color/black"
                             android:textSize="16sp"
                             android:textStyle="bold" />

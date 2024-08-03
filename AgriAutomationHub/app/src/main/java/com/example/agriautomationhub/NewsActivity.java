@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
@@ -46,6 +47,27 @@ public class NewsActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_news);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_home) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+            else if (id == R.id.navigation_news)
+            {
+                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                return true;
+            }
+            else if (id == R.id.navigation_mandi)
+            {
+                startActivity(new Intent(getApplicationContext(), MandiActivity.class));
+                return true;
+            }
+            return false;
         });
 
     }
