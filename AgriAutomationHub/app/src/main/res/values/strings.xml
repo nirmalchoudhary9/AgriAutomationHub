@@ -115,5 +115,6 @@
         <item>papaya</item>
         <!-- Add more crops as needed -->
     </string-array>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
 
 </resources>
