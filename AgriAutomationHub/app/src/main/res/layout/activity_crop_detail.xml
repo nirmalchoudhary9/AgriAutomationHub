@@ -5,117 +5,16 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Ensure these IDs match what you have in your Java code -->
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/cropNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Crop Name" />
+        android:text="Crop Name"
+        android:textSize="24sp"
+        android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/cropPlantSelectionText"
+    <ExpandableListView
+        android:id="@+id/expandableListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Plant Selection" />
-
-    <TextView
-        android:id="@+id/cropPlantingText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Planting" />
-
-    <TextView
-        android:id="@+id/cropMonitoringText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Monitoring" />
-
-    <TextView
-        android:id="@+id/cropSiteSelectionText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Site Selection" />
-
-    <TextView
-        android:id="@+id/cropFieldPreparationText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Field Preparation" />
-
-    <TextView
-        android:id="@+id/cropWeedingText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Weeding" />
-
-    <TextView
-        android:id="@+id/cropIrrigationText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Irrigation" />
-
-    <TextView
-        android:id="@+id/cropFertilizationOrganicText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Fertilization Organic" />
-
-    <TextView
-        android:id="@+id/cropFertilizationChemicalText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Fertilization Chemical" />
-
-    <TextView
-        android:id="@+id/cropPreventiveMeasureText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Preventive Measure" />
-
-    <TextView
-        android:id="@+id/cropPlantProtectionChemicalText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Plant Protection Chemical" />
-
-    <TextView
-        android:id="@+id/cropHarvestingText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Harvesting" />
-
-    <TextView
-        android:id="@+id/cropPostHarvestText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingTop="8dp"
-        android:text="Post-Harvest" />
-
+        android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -19,7 +19,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 public class CropRecommenderActivity extends AppCompatActivity {
-
+    private static final String TAG = "CropRecommenderActivity";
     EditText nitrogen, phosporus, potassium, temprature, humidity, ph, rainfall;
     Button predict;
     TextView output, details;
@@ -112,6 +112,7 @@ public class CropRecommenderActivity extends AppCompatActivity {
 
         details.setOnClickListener(v -> {
             if (!predictedCrop.isEmpty()) { // Check if predictedCrop is not empty
+                Log.d(TAG, "Predicted crop: " + predictedCrop);
                 Intent intent = new Intent(CropRecommenderActivity.this, CropDetailActivity.class);
                 intent.putExtra("cropName", predictedCrop);
                 startActivity(intent);

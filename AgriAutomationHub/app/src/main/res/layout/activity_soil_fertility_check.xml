@@ -59,7 +59,7 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_marginStart="30dp"
             android:layout_weight="1"
@@ -68,7 +68,7 @@
             android:padding="8dp"
             android:text="Nitrogen"
             android:textAlignment="viewStart"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/etNitrogen"
@@ -78,7 +78,8 @@
             android:layout_weight="2"
             android:hint="@string/nitrogen_20_50_ppm"
             android:inputType="numberDecimal"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:textSize="16sp" />
     </TableRow>
 
     <TableRow
@@ -91,7 +92,7 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_marginStart="30dp"
             android:layout_weight="1"
@@ -100,7 +101,7 @@
             android:padding="8dp"
             android:text="Phosphorus"
             android:textAlignment="viewStart"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/etPhosphorus"
@@ -110,7 +111,8 @@
             android:layout_weight="2"
             android:hint="@string/phosphorus_20_50_ppm"
             android:inputType="numberDecimal"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:textSize="16sp" />
     </TableRow>
 
     <TableRow
@@ -123,7 +125,7 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_marginStart="30dp"
             android:layout_weight="1"
@@ -132,7 +134,7 @@
             android:padding="8dp"
             android:text="Potassium"
             android:textAlignment="viewStart"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/etPotassium"
@@ -143,7 +145,8 @@
             android:hint="@string/potassium_150_300_ppm"
             android:inputType="numberDecimal"
             android:padding="8dp"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="16sp" />
     </TableRow>
 
     <TableRow
@@ -156,7 +159,7 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_marginStart="30dp"
             android:layout_weight="1"
@@ -165,7 +168,7 @@
             android:padding="8dp"
             android:text="PH"
             android:textAlignment="viewStart"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/etPh"
@@ -175,7 +178,8 @@
             android:layout_weight="2"
             android:hint="@string/ph_value_6_8_5"
             android:inputType="numberDecimal"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:textSize="16sp" />
     </TableRow>
 
     <Button

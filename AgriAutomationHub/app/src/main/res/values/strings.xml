@@ -78,10 +78,10 @@
     <string name="faqs">FAQs</string>
     <string name="logout">Logout</string>
     <string name="enter_the_following_values_to_check_soil_fertility">Enter the following values to check soil fertility-</string>
-    <string name="nitrogen_20_50_ppm">Nitrogen (20 - 50 ppm)</string>
-    <string name="phosphorus_20_50_ppm">Phosphorus (20 - 50 ppm)</string>
-    <string name="potassium_150_300_ppm">Potassium (150 - 300 ppm)</string>
-    <string name="ph_value_6_8_5">pH Value ( 6 - 8.5 )</string>
+    <string name="nitrogen_20_50_ppm">20 - 50 ppm</string>
+    <string name="phosphorus_20_50_ppm">20 - 50 ppm</string>
+    <string name="potassium_150_300_ppm">150 - 300 ppm</string>
+    <string name="ph_value_6_8_5">6 - 8.5</string>
     <string name="check_soil_fertility">Check Soil Fertility</string>
     <string name="news">News</string>
     <string name="marketview">MarketView</string>
