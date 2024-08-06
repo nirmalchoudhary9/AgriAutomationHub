@@ -6,33 +6,38 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SoilFertilityCheckActivity">
+    tools:context=".Soil_Fertility_check">
 
     <!-- Header Layout -->
     <RelativeLayout
         android:id="@+id/header"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/back_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="14dp"
-            android:src="@drawable/back_btn" />
+            android:src="@drawable/back_btn"
+            android:layout_alignParentStart="true"/>
 
         <TextView
+            android:id="@+id/headerTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:text="Soil Fertility Check"
             android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"/>
     </RelativeLayout>
 
+    <!-- Title TextView -->
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="0dp"
@@ -41,161 +46,110 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:text="@string/enter_the_following_values_to_check_soil_fertility"
-        android:textAlignment="viewStart"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tableRow4"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TableRow
-        android:id="@+id/tableRow4"
+    <!-- TableLayout for Form Fields -->
+    <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Nitrogen"
-            android:textAlignment="viewStart"
-            android:textSize="16sp" />
+        <!-- Nitrogen Field -->
+        <TableRow>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Nitrogen"
+                android:textSize="16sp"/>
+            <EditText
+                android:id="@+id/etNitrogen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/nitrogen_20_50_ppm"
+                android:inputType="numberDecimal"/>
+        </TableRow>
 
-        <EditText
-            android:id="@+id/etNitrogen"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="30dp"
-            android:layout_weight="2"
-            android:hint="@string/nitrogen_20_50_ppm"
-            android:inputType="numberDecimal"
-            android:padding="8dp"
-            android:textSize="16sp" />
-    </TableRow>
+        <!-- Phosphorus Field -->
+        <TableRow>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Phosphorus"
+                android:textSize="16sp"/>
+            <EditText
+                android:id="@+id/etPhosphorus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/phosphorus_20_50_ppm"
+                android:inputType="numberDecimal"/>
+        </TableRow>
 
-    <TableRow
-        android:id="@+id/tableRow5"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow4">
+        <!-- Potassium Field -->
+        <TableRow>
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Potassium"
+                android:textSize="16sp"/>
+            <EditText
+                android:id="@+id/etPotassium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/potassium_150_300_ppm"
+                android:inputType="numberDecimal"/>
+        </TableRow>
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Phosphorus"
-            android:textAlignment="viewStart"
-            android:textSize="16sp" />
+        <!-- PH Field -->
+        <TableRow>
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="PH"
+                android:textSize="16sp"/>
+            <EditText
+                android:id="@+id/etPh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/ph_value_6_8_5"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+    </TableLayout>
 
-        <EditText
-            android:id="@+id/etPhosphorus"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="30dp"
-            android:layout_weight="2"
-            android:hint="@string/phosphorus_20_50_ppm"
-            android:inputType="numberDecimal"
-            android:padding="8dp"
-            android:textSize="16sp" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow6"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow5">
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Potassium"
-            android:textAlignment="viewStart"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/etPotassium"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="30dp"
-            android:layout_weight="2"
-            android:hint="@string/potassium_150_300_ppm"
-            android:inputType="numberDecimal"
-            android:padding="8dp"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow7"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow6">
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="PH"
-            android:textAlignment="viewStart"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/etPh"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="30dp"
-            android:layout_weight="2"
-            android:hint="@string/ph_value_6_8_5"
-            android:inputType="numberDecimal"
-            android:padding="8dp"
-            android:textSize="16sp" />
-    </TableRow>
-
+    <!-- Check Button -->
     <Button
         android:id="@+id/btnCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:background="@drawable/round_back_secondary_100"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:text="@string/check_soil_fertility"
         android:textAllCaps="false"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tableLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Result TextView -->
     <TextView
         android:id="@+id/tvResult"
         android:layout_width="0dp"
@@ -203,21 +157,21 @@
         android:padding="10dp"
         android:text=""
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnCheck"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btnCheck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+        android:id="@+id/bottom_navigation_soil_check"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:background="?android:attr/windowBackground"
         app:itemIconTint="@color/bottom_nav_icon_color"
         app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

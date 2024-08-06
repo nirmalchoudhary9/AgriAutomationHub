@@ -3,6 +3,8 @@ package com.example.agriautomationhub;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import java.util.Locale;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Soil_Fertility_check extends AppCompatActivity {
 
@@ -41,7 +44,7 @@ public class Soil_Fertility_check extends AppCompatActivity {
 
         btnCheck.setOnClickListener(v -> checkSoilFertility());
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_soil_check);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
@@ -106,4 +109,41 @@ public class Soil_Fertility_check extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            return logoutUser();
+        }
+        if (id == R.id.action_settings) {
+            return settings();
+        }
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean logoutUser() {
+        FirebaseAuth.getInstance().signOut();
+        // Redirect to login screen or any other desired activity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+
+    private boolean settings() {
+        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
+        startActivity(intent);
+        return true;
+    }
 }

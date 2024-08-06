@@ -3,10 +3,16 @@ package com.example.agriautomationhub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +24,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class CropDetailActivity extends AppCompatActivity {
 
@@ -36,16 +43,57 @@ public class CropDetailActivity extends AppCompatActivity {
         cropNameText = findViewById(R.id.cropNameText);
         expandableListView = findViewById(R.id.expandableListView);
 
-        Intent intent = getIntent();
-        String cropName = intent.getStringExtra("cropName");
+        AtomicReference<Intent> intent = new AtomicReference<>(getIntent());
+        String cropName = intent.get().getStringExtra("cropName");
 
         if (cropName != null) {
             Log.d(TAG, "Received crop name: " + cropName);
-            cropNameText.setText(cropName);
+            // Convert to title case (capitalize first letter of each word)
+            String titleCaseCropName = capitalizeFirstLetter(cropName);
+            cropNameText.setText(titleCaseCropName);
             loadCropDetails(cropName);
         } else {
             Log.e(TAG, "No crop name received in intent");
         }
+
+        ImageView back = findViewById(R.id.back_btn_crop_detail);
+        back.setOnClickListener(v -> {
+            intent.set(new Intent(getApplicationContext(), CropRecommenderActivity.class));
+            startActivity(intent.get());
+            finish();
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_crop_details);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_home) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                return true;
+            }else if (id == R.id.navigation_news) {
+                // Handle News navigation
+                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                return true;
+            } else if (id == R.id.navigation_mandi) {
+                startActivity(new Intent(CropDetailActivity.this, MandiActivity.class));
+                return true;
+            }
+            return false;
+        });
+    }
+    // Method to capitalize the first letter of each word
+    private String capitalizeFirstLetter(String input) {
+        StringBuilder result = new StringBuilder(input.length());
+        boolean capitalizeNext = true;
+        for (char c : input.toCharArray()) {
+            if (Character.isSpaceChar(c)) {
+                capitalizeNext = true;
+            } else if (capitalizeNext) {
+                c = Character.toTitleCase(c);
+                capitalizeNext = false;
+            }
+            result.append(c);
+        }
+        return result.toString();
     }
 
     private void loadCropDetails(String cropName) {
@@ -152,4 +200,41 @@ public class CropDetailActivity extends AppCompatActivity {
         return nestedMap;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            return logoutUser();
+        }
+        if (id == R.id.action_settings) {
+            return settings();
+        }
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean logoutUser() {
+        FirebaseAuth.getInstance().signOut();
+        // Redirect to login screen or any other desired activity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+
+    private boolean settings() {
+        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
+        startActivity(intent);
+        return true;
+    }
 }

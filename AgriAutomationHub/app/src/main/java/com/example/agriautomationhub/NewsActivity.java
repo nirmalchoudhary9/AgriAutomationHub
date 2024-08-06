@@ -39,7 +39,7 @@ public class NewsActivity extends AppCompatActivity {
 
         getNewsData();
 
-        back = findViewById(R.id.back_btn);
+        back = findViewById(R.id.back_btn_news);
         back.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);

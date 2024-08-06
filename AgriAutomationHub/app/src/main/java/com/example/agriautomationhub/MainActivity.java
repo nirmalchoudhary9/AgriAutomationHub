@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         LinearLayout fertilizerCal = findViewById(R.id.fertilizer_calculator_layout);
         fertilizerCal.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FertilizerCalculatorActivity.class)));
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_main);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();

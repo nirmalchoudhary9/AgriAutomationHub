@@ -1,19 +1,19 @@
 package com.example.agriautomationhub;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.DatePickerDialog;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.graphics.Typeface;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,35 +21,33 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import okhttp3.*;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MandiActivity extends AppCompatActivity {
 
     private static final String TAG = "MandiActivity";
-    private static final String BASE_URL = "https://www.eanugya.mp.gov.in/Anugya_e/frontData.asmx";
 
     private TextView reportDateTextView;
     private Spinner spinnerDistrict;
     private LinearLayout mandiLinearLayout;
     private Calendar calendar;
 
-    private final OkHttpClient client = new OkHttpClient();
+    static {
+        new OkHttpClient();
+    }
 
-    private Map<String, List<String>> districtToMandiMap = new HashMap<>();
-    private Map<String, String> mandiToDistrictMap = new HashMap<>();
-    private Map<String, String> mandiMap = new HashMap<>();
+    private final Map<String, List<String>> districtToMandiMap = new HashMap<>();
+    private final Map<String, String> mandiToDistrictMap = new HashMap<>();
+    private final Map<String, String> mandiMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +59,14 @@ public class MandiActivity extends AppCompatActivity {
         spinnerDistrict = findViewById(R.id.spinner_district);
         mandiLinearLayout = findViewById(R.id.mandi_linear_layout);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        ImageView back = findViewById(R.id.back_btn_mandi);
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_mandi);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.navigation_home) {
@@ -151,7 +156,7 @@ public class MandiActivity extends AppCompatActivity {
             calendar = Calendar.getInstance(); // Initialize if it's null
         }
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
+        @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(
                 MandiActivity.this,
                 (view, year, month, dayOfMonth) -> {
                     Calendar selectedDate = Calendar.getInstance();
@@ -160,7 +165,7 @@ public class MandiActivity extends AppCompatActivity {
                     if (selectedDate.after(Calendar.getInstance())) {
                         reportDateTextView.setText("Select Date");
                     } else {
-                        String date = String.format("%d/%d/%d", dayOfMonth, month + 1, year);
+                        @SuppressLint("DefaultLocale") String date = String.format("%d/%d/%d", dayOfMonth, month + 1, year);
                         reportDateTextView.setText(date);
                     }
                 },
@@ -218,7 +223,7 @@ public class MandiActivity extends AppCompatActivity {
                 if (!districtToMandiMap.containsKey(districtName)) {
                     districtToMandiMap.put(districtName, new ArrayList<>());
                 }
-                districtToMandiMap.get(districtName).add(mandiName);
+                Objects.requireNonNull(districtToMandiMap.get(districtName)).add(mandiName);
                 mandiMap.put(mandiName, mandiObject.getString("mandiCode"));
                 mandiToDistrictMap.put(mandiName, mandiObject.getString("distCode"));
             }
@@ -226,8 +231,46 @@ public class MandiActivity extends AppCompatActivity {
             Log.d(TAG, "District to Mandi Map: " + districtToMandiMap);
 
         } catch (Exception e) {
+            //noinspection CallToPrintStackTrace
             e.printStackTrace();
             Log.e(TAG, "Error loading JSON data", e);
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            return logoutUser();
+        }
+        if (id == R.id.action_settings) {
+            return settings();
+        }
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean logoutUser() {
+        FirebaseAuth.getInstance().signOut();
+        // Redirect to login screen or any other desired activity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+
+    private boolean settings() {
+        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
+        startActivity(intent);
+        return true;
     }
 }
