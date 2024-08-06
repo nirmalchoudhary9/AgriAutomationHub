@@ -60,16 +60,18 @@ dependencies {
     implementation ("org.apache.poi:poi:5.2.3")
     implementation ("org.apache.poi:poi-ooxml:5.2.3")
     implementation ("org.json:json:20210307")
-    implementation("androidx.appcompat:appcompat:1.4.1") // or the latest version
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.firebase.database)
     implementation(libs.play.services.fitness)
+    implementation(libs.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.google.android.material:material:1.4.0")
+    implementation ("com.google.android.material:material:1.9.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-
 }

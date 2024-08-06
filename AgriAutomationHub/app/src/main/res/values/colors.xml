@@ -24,5 +24,11 @@
     <color name="private_account">#E6A326</color>
     <color name="security">#D95F69</color>
 
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#023731</color>
+    <color name="mandiBackgroundColor">#F5F5F5</color>
+    <color name="primaryTextColor">#000000</color>
+
 
 </resources>

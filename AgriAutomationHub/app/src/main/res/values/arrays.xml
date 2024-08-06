@@ -1,22 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="mandi_names">
+    <string-array name="districts">
         <item>---चुने---</item>
-        <item>Agar</item>
+        <item>Agar Malwa</item>
+        <item>Alirajpur</item>
+        <item>Annupur</item>
+        <item>Ashoknagar</item>
+        <item>Badwani</item>
+        <item>Balaghat</item>
+        <item>Betul</item>
+        <item>Bhind</item>
         <item>Bhopal</item>
-        <item>Chindwara</item>
+        <item>Burhanpur</item>
+        <item>Chattarpur</item>
+        <item>Chindwada</item>
+        <item>Damoh</item>
+        <item>Datia</item>
         <item>Dewas</item>
         <item>Dhar</item>
-        <item>Bhitarwar</item>
+        <item>Dindori</item>
+        <item>Guna</item>
+        <item>Gwalior</item>
+        <item>Harda</item>
+        <item>Hoshangabad</item>
+        <item>Hoshangabad</item>
         <item>Indore</item>
-        <item>Mhow</item>
-        <item>Sanwer</item>
         <item>Jabalpur</item>
-        <item>Mandsour</item>
-        <item>Neemuch</item>
+        <item>Jhabua</item>
+        <item>Katni</item>
+        <item>Khandwa</item>
+        <item>Khargone</item>
+        <item>Mandla</item>
+        <item>Mandsaur</item>
+        <item>Morena</item>
+        <item>Narsingpur</item>
+        <item>Panna</item>
+        <item>Raisen</item>
+        <item>Rajgarh</item>
         <item>Ratlam</item>
+        <item>Rewa</item>
+        <item>Sagar</item>
+        <item>Satna</item>
         <item>Sehore</item>
+        <item>Seoni</item>
+        <item>Shahdol</item>
+        <item>Shajapur</item>
+        <item>Shivpuri</item>
+        <item>Sidhi</item>
+        <item>Singrauli</item>
+        <item>Tikamgarh</item>
         <item>Ujjain</item>
+        <item>Umariya</item>
+        <item>Vidisha</item>
 
     </string-array>
 
