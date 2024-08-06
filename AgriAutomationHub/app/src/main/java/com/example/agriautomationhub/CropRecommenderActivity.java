@@ -1,6 +1,8 @@
 package com.example.agriautomationhub;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -20,7 +22,8 @@ public class CropRecommenderActivity extends AppCompatActivity {
 
     EditText nitrogen, phosporus, potassium, temprature, humidity, ph, rainfall;
     Button predict;
-    TextView output;
+    TextView output, details;
+    String predictedCrop = ""; // Declare predictedCrop as a member variable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class CropRecommenderActivity extends AppCompatActivity {
         rainfall = findViewById(R.id.rainfall_input);
         predict = findViewById(R.id.recommender_btn);
         output = findViewById(R.id.output_text);
+        details = findViewById(R.id.get_details);
 
         String[] labels = {"apple","banana","blackgram","chickpea","coconut","coffee", "cotton",
                 "grapes", "jute","kidneybeans","lentil","maize", "mango", "mothbeans",
@@ -90,7 +94,7 @@ public class CropRecommenderActivity extends AppCompatActivity {
                 }
 
                 // Get the label for the predicted class
-                String predictedCrop = labels[maxIndex];
+                predictedCrop = labels[maxIndex]; // Set the predictedCrop value
 
                 // Display the predicted crop
                 output.setText(predictedCrop);
@@ -103,6 +107,16 @@ public class CropRecommenderActivity extends AppCompatActivity {
                 if (model != null) {
                     model.close();
                 }
+            }
+        });
+
+        details.setOnClickListener(v -> {
+            if (!predictedCrop.isEmpty()) { // Check if predictedCrop is not empty
+                Intent intent = new Intent(CropRecommenderActivity.this, CropDetailActivity.class);
+                intent.putExtra("cropName", predictedCrop);
+                startActivity(intent);
+            } else {
+                output.setText("Please predict a crop first.");
             }
         });
     }

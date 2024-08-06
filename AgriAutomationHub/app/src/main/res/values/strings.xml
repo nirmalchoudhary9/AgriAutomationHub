@@ -30,18 +30,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
     <string name="app_id">1:191351033464:android:dfd5400cc7978bd648278d</string>
 
     <string name="menu_home">Home</string>
@@ -115,5 +103,6 @@
         <item>papaya</item>
         <!-- Add more crops as needed -->
     </string-array>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
 
 </resources>

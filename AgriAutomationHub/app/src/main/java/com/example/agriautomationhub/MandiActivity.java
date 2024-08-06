@@ -4,27 +4,33 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.DatePickerDialog;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.graphics.Typeface;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Calendar;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -32,23 +38,18 @@ import java.util.*;
 public class MandiActivity extends AppCompatActivity {
 
     private static final String TAG = "MandiActivity";
+    private static final String BASE_URL = "https://www.eanugya.mp.gov.in/Anugya_e/frontData.asmx";
 
     private TextView reportDateTextView;
-    private Spinner spinnerMandiName, spinnerCrop;
-    private Button btnFetchData;
-    private LinearLayout linearLayoutResults;
+    private Spinner spinnerDistrict;
+    private LinearLayout mandiLinearLayout;
     private Calendar calendar;
 
     private final OkHttpClient client = new OkHttpClient();
-    private final String BASE_URL = "https://www.eanugya.mp.gov.in/Anugya_e/frontData.asmx";
 
-    private List<String> mandiNames = new ArrayList<>();
-    private List<String> cropNames = new ArrayList<>();
-
+    private Map<String, List<String>> districtToMandiMap = new HashMap<>();
     private Map<String, String> mandiToDistrictMap = new HashMap<>();
-    private Map<String, String> cropToCommGroupMap = new HashMap<>();
     private Map<String, String> mandiMap = new HashMap<>();
-    private Map<String, String> cropMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,55 +58,110 @@ public class MandiActivity extends AppCompatActivity {
 
         reportDateTextView = findViewById(R.id.report_date);
         calendar = Calendar.getInstance();
-        spinnerMandiName = findViewById(R.id.mandi_name);
-        spinnerCrop = findViewById(R.id.crop);
-        btnFetchData = findViewById(R.id.btn_fetch_data);
-        LinearLayout linearLayoutResults = findViewById(R.id.linear_layout_results);
+        spinnerDistrict = findViewById(R.id.spinner_district);
+        mandiLinearLayout = findViewById(R.id.mandi_linear_layout);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_mandi);
-
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.navigation_home) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-            else if (id == R.id.navigation_news)
-            {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            } else if (id == R.id.navigation_news) {
                 startActivity(new Intent(getApplicationContext(), NewsActivity.class));
-                return true;
-            }
-            else if (id == R.id.navigation_mandi)
-            {
-                startActivity(new Intent(MandiActivity.this, MandiActivity.class));
                 return true;
             }
             return false;
         });
 
+        // Load district names from array.xml
+        ArrayAdapter<CharSequence> districtAdapter = ArrayAdapter.createFromResource(
+                this, R.array.districts, android.R.layout.simple_spinner_item);
+        districtAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDistrict.setAdapter(districtAdapter);
+
+        // Load mandi data
         loadJsonData();
 
-        btnFetchData.setOnClickListener(v -> fetchDataAndDisplayResults());
+        // Set up listeners for district selection
+        setupListeners();
 
         reportDateTextView.setOnClickListener(v -> showDatePickerDialog());
     }
 
+    private void setupListeners() {
+        spinnerDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedDistrict = (String) parent.getItemAtPosition(position);
+                List<String> mandis = districtToMandiMap.get(selectedDistrict);
+
+                mandiLinearLayout.removeAllViews();
+                if (mandis != null) {
+                    for (String mandi : mandis) {
+                        addMandiTextView(mandi);
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Optionally handle no selection
+            }
+        });
+    }
+
+    private void addMandiTextView(String mandiName) {
+        // Create a CardView to hold the TextView
+        CardView cardView = new CardView(this);
+        cardView.setCardElevation(8);
+        cardView.setRadius(16);
+        cardView.setUseCompatPadding(true);
+
+        // Set layout parameters for the CardView
+        LinearLayout.LayoutParams cardLayoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        cardLayoutParams.setMargins(16, 16, 16, 16);
+        cardView.setLayoutParams(cardLayoutParams);
+
+        // Create a TextView for the mandi name
+        TextView mandiTextView = new TextView(this);
+        mandiTextView.setText(mandiName);
+        mandiTextView.setTextSize(18);
+        mandiTextView.setPadding(24, 24, 24, 24);
+        mandiTextView.setTextColor(ContextCompat.getColor(this, R.color.primaryTextColor));
+        mandiTextView.setTypeface(null, Typeface.BOLD);
+        mandiTextView.setBackgroundResource(R.drawable.mandi_text_view_background); // Custom background drawable
+        mandiTextView.setGravity(Gravity.CENTER_VERTICAL);
+
+        // Set an OnClickListener for the TextView
+        mandiTextView.setOnClickListener(v -> openMandiDetailActivity(mandiName));
+
+        // Add the TextView to the CardView
+        cardView.addView(mandiTextView);
+
+        // Add the CardView to the LinearLayout
+        mandiLinearLayout.addView(cardView);
+    }
+
+
     private void showDatePickerDialog() {
+        if (calendar == null) {
+            calendar = Calendar.getInstance(); // Initialize if it's null
+        }
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 MandiActivity.this,
                 (view, year, month, dayOfMonth) -> {
                     Calendar selectedDate = Calendar.getInstance();
                     selectedDate.set(year, month, dayOfMonth);
 
-                    // Check if selected date is not in the future
                     if (selectedDate.after(Calendar.getInstance())) {
-                        // Show error or reset to current date
                         reportDateTextView.setText("Select Date");
                     } else {
-                        // Update TextView with selected date
                         String date = String.format("%d/%d/%d", dayOfMonth, month + 1, year);
                         reportDateTextView.setText(date);
-                        // Optionally, call checkAllSelections() to enable fetchDataButton
                     }
                 },
                 calendar.get(Calendar.YEAR),
@@ -113,272 +169,65 @@ public class MandiActivity extends AppCompatActivity {
                 calendar.get(Calendar.DAY_OF_MONTH)
         );
 
-        // Set maximum date to today
         datePickerDialog.getDatePicker().setMaxDate(Calendar.getInstance().getTimeInMillis());
-
         datePickerDialog.show();
+    }
+
+    private void openMandiDetailActivity(String mandiName) {
+        String reportDate = reportDateTextView.getText().toString();
+        String distCode = mandiToDistrictMap.get(mandiName);
+        String mandiCode = mandiMap.get(mandiName);
+
+        if (reportDate.equals("Select Date")) {
+            Log.e(TAG, "Please select a valid date.");
+            return;
+        }
+
+        if (distCode == null || mandiCode == null) {
+            Log.e(TAG, "Invalid mandi name or data not found for mandi: " + mandiName);
+            return;
+        }
+
+        // Start MandiDetailActivity
+        Intent intent = new Intent(MandiActivity.this, MandiDetailActivity.class);
+        intent.putExtra("mandiName", mandiName);
+        intent.putExtra("reportDate", reportDate);
+        intent.putExtra("distCode", distCode);
+        intent.putExtra("mandiCode", mandiCode);
+        startActivity(intent);
     }
 
     private void loadJsonData() {
         try {
-            // Load JSON data
             InputStream mandiDataStream = getAssets().open("mandi_data.json");
-            InputStream cropDataStream = getAssets().open("crop_data.json");
-
             BufferedReader mandiReader = new BufferedReader(new InputStreamReader(mandiDataStream));
-            BufferedReader cropReader = new BufferedReader(new InputStreamReader(cropDataStream));
-
             StringBuilder mandiStringBuilder = new StringBuilder();
-            StringBuilder cropStringBuilder = new StringBuilder();
-
             String line;
             while ((line = mandiReader.readLine()) != null) {
                 mandiStringBuilder.append(line);
             }
-            while ((line = cropReader.readLine()) != null) {
-                cropStringBuilder.append(line);
-            }
-
             mandiReader.close();
-            cropReader.close();
 
-            // Convert JSON strings to objects
-            JSONArray mandiJsonArray = new JSONArray(mandiStringBuilder.toString());
-            JSONArray cropJsonArray = new JSONArray(cropStringBuilder.toString());
+            JSONArray jsonArray = new JSONArray(mandiStringBuilder.toString());
 
-            // Parse mandi JSON data
-            for (int i = 0; i < mandiJsonArray.length(); i++) {
-                JSONObject mandiObject = mandiJsonArray.getJSONObject(i);
-                int districtCode = mandiObject.getInt("distCode");
-                int mandiCode = mandiObject.getInt("mandiCode");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject mandiObject = jsonArray.getJSONObject(i);
+                String districtName = mandiObject.getString("distName");
                 String mandiName = mandiObject.getString("mandiName");
-                mandiMap.put(mandiName, String.valueOf(mandiCode));
-                mandiToDistrictMap.put(mandiName, String.valueOf(districtCode));
-                mandiNames.add(mandiName);
-                Log.d(TAG, "Fetching data for DistCode=" + districtCode + ", MandiCode=" + mandiCode );
 
+                if (!districtToMandiMap.containsKey(districtName)) {
+                    districtToMandiMap.put(districtName, new ArrayList<>());
+                }
+                districtToMandiMap.get(districtName).add(mandiName);
+                mandiMap.put(mandiName, mandiObject.getString("mandiCode"));
+                mandiToDistrictMap.put(mandiName, mandiObject.getString("distCode"));
             }
 
-            // Parse crop JSON data
-            for (int i = 0; i < cropJsonArray.length(); i++) {
-                JSONObject cropObject = cropJsonArray.getJSONObject(i);
-                int commGroupCode = cropObject.getInt("commGroupCode");
-                int cropCode = cropObject.getInt("commCode");
-                String cropName = cropObject.getString("commName");
-                cropMap.put(cropName, String.valueOf(cropCode));
-                cropToCommGroupMap.put(cropName, String.valueOf(commGroupCode));
-                cropNames.add(cropName);
-                Log.d(TAG, "Fetching data for CommGroupCode=" + commGroupCode + ", CommCode=" + cropCode);
-
-            }
-
-            // Set data to spinners
-            ArrayAdapter<String> mandiAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, mandiNames);
-            spinnerMandiName.setAdapter(mandiAdapter);
-
-            ArrayAdapter<String> cropAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, cropNames);
-            spinnerCrop.setAdapter(cropAdapter);
+            Log.d(TAG, "District to Mandi Map: " + districtToMandiMap);
 
         } catch (Exception e) {
             e.printStackTrace();
             Log.e(TAG, "Error loading JSON data", e);
         }
-    }
-
-    private void fetchDataAndDisplayResults() {
-        String reportDate = reportDateTextView.getText().toString();
-        String mandiName = spinnerMandiName.getSelectedItem() != null ? spinnerMandiName.getSelectedItem().toString() : null;
-        String cropName = spinnerCrop.getSelectedItem() != null ? spinnerCrop.getSelectedItem().toString() : null;
-
-        if (reportDate.equals("Select Date") || mandiName == null || cropName == null) {
-            Log.e(TAG, "Invalid input values: Date=" + reportDate + ", Mandi=" + mandiName + ", Crop=" + cropName);
-            return;
-        }
-
-        String distCode = mandiToDistrictMap.get(mandiName);
-        String mandiCode = mandiMap.get(mandiName);
-        String commGroupCode = cropToCommGroupMap.get(cropName);
-        String commCode = cropMap.get(cropName);
-
-        Log.d(TAG, "Fetching data for Date=" + reportDate + ", DistCode=" + distCode + ", MandiCode=" + mandiCode + ", CommGroupCode=" + commGroupCode + ", CommCode=" + commCode);
-
-        new FetchDataTask().execute(reportDate, distCode, mandiCode, commGroupCode, commCode);
-    }
-
-    private class FetchDataTask extends AsyncTask<String, Void, Map<String, String>> {
-
-        @Override
-        protected Map<String, String> doInBackground(String... params) {
-            String reportDate = params[0];
-            String distCode = params[1];
-            String mandiCode = params[2];
-            String commGroupCode = params[3];
-            String commCode = params[4];
-
-            try {
-                JSONObject cropData = getAllData(reportDate, distCode, mandiCode, commGroupCode, commCode);
-
-                Log.d(TAG, "Fetching data for formatedDate=" + reportDate + ", DistCode=" + distCode + ", MandiCode=" + mandiCode + ", CommGroupCode=" + commGroupCode + ", CommCode=" + commCode);
-
-                if (cropData.has("d") && cropData.getJSONArray("d").length() > 0) {
-                    JSONObject data = cropData.getJSONArray("d").getJSONObject(0);
-                    String minValue = data.optString("minValue", "N/A");
-                    String maxValue = data.optString("maxValue", "N/A");
-                    String commName = data.optString("commName", "N/A");
-                    String commGroupName = data.optString("commGroupName", "N/A");
-                    String mandiName = data.optString("mandiName", "N/A");
-                    String distName = data.optString("distName", "N/A");
-
-                    Map<String, String> result = new HashMap<>();
-                    result.put("Date", reportDate);
-                    result.put("Minimum Value", minValue);
-                    result.put("Maximum Value", maxValue);
-                    result.put("Commodity Name", commName);
-                    result.put("Commodity Group Name", commGroupName);
-                    result.put("Mandi Name", mandiName);
-                    result.put("District Name", distName);
-
-                    return result;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.e(TAG, "Error fetching data", e);
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Map<String, String> result) {
-            super.onPostExecute(result);
-            // Ensure you are referring to the correct layout
-            LinearLayout linearLayoutResults = findViewById(R.id.linear_layout_results);
-
-            if (linearLayoutResults == null) {
-                Log.e(TAG, "LinearLayout with ID 'linear_layout_results' not found");
-                return;
-            }
-
-            if (result != null) {
-                Log.d(TAG, "Data fetched successfully: " + result);
-                linearLayoutResults.removeAllViews();
-
-                // Create and add TextViews for each data item in the specified order
-                addItemToLayout(linearLayoutResults, "Crop ", result.get("Commodity Name"));
-                addItemToLayout(linearLayoutResults, "Minimum Price ", result.get("Minimum Value"));
-                addItemToLayout(linearLayoutResults, "Maximum Price ", result.get("Maximum Value"));
-                addItemToLayout(linearLayoutResults, "Mandi Name ", result.get("Mandi Name"));
-                addItemToLayout(linearLayoutResults, "District Name ", result.get("District Name"));
-                addItemToLayout(linearLayoutResults, "Date ", result.get("Date"));
-
-            }
-            else {
-                Log.e(TAG, "No data fetched");
-            }
-        }
-    }
-
-    private void addItemToLayout(LinearLayout layout, String key, String value) {
-        LinearLayout itemLayout = new LinearLayout(MandiActivity.this);
-        itemLayout.setOrientation(LinearLayout.HORIZONTAL);
-        itemLayout.setPadding(0, 8, 0, 8);
-
-        TextView label = new TextView(MandiActivity.this);
-        label.setText(key + ": ");
-        label.setTypeface(null, Typeface.BOLD);
-        label.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                1f
-        ));
-
-        TextView valueText = new TextView(MandiActivity.this);
-        valueText.setText(value != null ? value : "N/A");
-        valueText.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                2f
-        ));
-
-        itemLayout.addView(label);
-        itemLayout.addView(valueText);
-        layout.addView(itemLayout);
-    }
-
-    private JSONObject getAllData(String reportDate, String distCode, String mandiCode, String commGroupCode, String commCode) throws IOException, JSONException, ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = dateFormat.parse(reportDate);
-
-        SimpleDateFormat newDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String formattedDate = newDateFormat.format(date);
-
-        Log.d(TAG, "Formatted Date: " + formattedDate);
-        Log.d(TAG, "DistCode: " + distCode);
-        Log.d(TAG, "MandiCode: " + mandiCode);
-        Log.d(TAG, "CommGroupCode: " + commGroupCode);
-        Log.d(TAG, "CommCode: " + commCode);
-
-        String url = BASE_URL + "/GetAllData";
-        JSONObject payload = new JSONObject();
-        payload.put("date", formattedDate);
-        payload.put("distCode", distCode);
-        payload.put("mandiCode", mandiCode);
-        payload.put("commGroupCode", commGroupCode);
-        payload.put("commCode", commCode);
-
-        Log.d(TAG, "Request Payload: " + payload.toString());
-
-        RequestBody body = RequestBody.create(MediaType.get("application/json; charset=utf-8"), payload.toString());
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                Log.e(TAG, "Server Response: " + response);
-                throw new IOException("Unexpected code " + response);
-            }
-            String responseData = response.body().string();
-            Log.d(TAG, "Server Response Data: " + responseData);
-            return new JSONObject(responseData);
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            return logoutUser();
-        }
-        if (id == R.id.action_settings) {
-            return settings();
-        }
-        if (id == R.id.action_help) {
-            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private boolean logoutUser() {
-        FirebaseAuth.getInstance().signOut();
-        // Redirect to login screen or any other desired activity
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
-        finish();
-        return true;
-    }
-
-    private boolean settings() {
-        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
-        startActivity(intent);
-        return true;
     }
 }

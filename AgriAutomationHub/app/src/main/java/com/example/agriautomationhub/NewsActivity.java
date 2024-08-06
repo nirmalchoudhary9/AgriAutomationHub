@@ -10,10 +10,8 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,8 +22,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NewsActivity extends AppCompatActivity {
 
     ImageView back;
-    private static final String BASE_URL = "https://newsapi.org/v2/";
-    private static final String API_KEY = "f515a4987ca44c8d9d99fb156a4e1f0e";
+    private static final String BASE_URL = "https://gnews.io/api/v4/";
+    private static final String API_KEY = "6640ea8ad55c166b4262038d82f5b087"; // Replace with your actual API key
     private static final String TAG = "NewsActivity";
 
     private RecyclerView newsRecyclerView;
@@ -42,34 +40,27 @@ public class NewsActivity extends AppCompatActivity {
         getNewsData();
 
         back = findViewById(R.id.back_btn);
-
         back.setOnClickListener(v -> {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_news);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.navigation_home) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-            }
-            else if (id == R.id.navigation_news)
-            {
+            } else if (id == R.id.navigation_news) {
                 startActivity(new Intent(getApplicationContext(), NewsActivity.class));
                 return true;
-            }
-            else if (id == R.id.navigation_mandi)
-            {
+            } else if (id == R.id.navigation_mandi) {
                 startActivity(new Intent(getApplicationContext(), MandiActivity.class));
                 return true;
             }
             return false;
         });
-
     }
 
     private void getNewsData() {
@@ -78,35 +69,50 @@ public class NewsActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        NewsApiService apiService = retrofit.create(NewsApiService.class);
+        GNewsApiService apiService = retrofit.create(GNewsApiService.class);
 
-        Call<NewsResponse> call = apiService.getTopHeadlines("in", API_KEY);
+        String country = "in"; // Adjust as necessary
+        String language = "hi"; // Change to "en" for testing
+        Log.d(TAG, "Requesting news with country: " + country + ", language: " + language + ", API Key: " + API_KEY);
 
-        call.enqueue(new Callback<NewsResponse>() {
+        Call<GNewsResponse> call = apiService.getNewsArticles("agriculture",country, language, API_KEY);
+
+        call.enqueue(new Callback<GNewsResponse>() {
             @Override
-            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+            public void onResponse(Call<GNewsResponse> call, Response<GNewsResponse> response) {
                 if (response.isSuccessful()) {
-                    NewsResponse newsResponse = response.body();
+                    GNewsResponse newsResponse = response.body();
                     if (newsResponse != null) {
-                        List<Article> articles = newsResponse.getArticles();
-                        newsAdapter = new NewsAdapter(NewsActivity.this, articles);
-                        newsRecyclerView.setAdapter(newsAdapter);
+                        List<GNewsArticle> articles = newsResponse.getArticles();
+                        if (articles != null && !articles.isEmpty()) {
+                            newsAdapter = new NewsAdapter(NewsActivity.this, articles);
+                            newsRecyclerView.setAdapter(newsAdapter);
+                        } else {
+                            Log.e(TAG, "No articles found");
+                        }
                     }
                 } else {
-                    Log.e(TAG, "Response not successful");
+                    Log.e(TAG, "Response not successful: " + response.code() + " " + response.message());
+                    try {
+                        String errorBody = response.errorBody().string();
+                        Log.e(TAG, "Error body: " + errorBody);
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error reading error body", e);
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call<NewsResponse> call, Throwable t) {
+            public void onFailure(Call<GNewsResponse> call, Throwable t) {
                 Log.e(TAG, "API call failed: ", t);
             }
         });
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -129,7 +135,6 @@ public class NewsActivity extends AppCompatActivity {
 
     private boolean logoutUser() {
         FirebaseAuth.getInstance().signOut();
-        // Redirect to login screen or any other desired activity
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
         finish();
@@ -141,5 +146,4 @@ public class NewsActivity extends AppCompatActivity {
         startActivity(intent);
         return true;
     }
-
 }
