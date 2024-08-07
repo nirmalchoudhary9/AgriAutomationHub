@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
-
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,9 +81,20 @@ public class CropDetailAdapter extends BaseExpandableListAdapter {
         }
 
         TextView txtListChild = convertView.findViewById(R.id.item_text);
-        txtListChild.setText(getChild(groupPosition, childPosition).toString());
+
+        // Apply bold styling to keys
+        String text = getChild(groupPosition, childPosition).toString();
+        SpannableString spannableString = new SpannableString(text);
+
+        int colonIndex = text.indexOf(":");
+        if (colonIndex > 0) {
+            spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 0, colonIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+
+        txtListChild.setText(spannableString);
         return convertView;
     }
+
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {

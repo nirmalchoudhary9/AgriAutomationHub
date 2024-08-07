@@ -160,7 +160,9 @@ public class CropDetailActivity extends AppCompatActivity {
             String nestedKey = keys.next();
             Object value = nestedObject.get(nestedKey);
             if (value instanceof JSONObject) {
-                childList.add(parseNestedJSONObject(nestedKey, (JSONObject) value));
+                // Add each nested JSONObject entry as a separate item
+                String nestedJsonString = parseNestedJSONObjectToString(nestedKey, (JSONObject) value);
+                childList.add(nestedJsonString);
             } else if (value instanceof String) {
                 childList.add(nestedKey + ": " + value);
             } else if (value instanceof org.json.JSONArray) {
@@ -175,29 +177,28 @@ public class CropDetailActivity extends AppCompatActivity {
         listDataChild.put(key, childList);
     }
 
-    private Map<String, Object> parseNestedJSONObject(String key, JSONObject jsonObject) throws JSONException {
-        Map<String, Object> nestedMap = new HashMap<>();
-        nestedMap.put("key", key);
-        List<String> values = new ArrayList<>();
+    private String parseNestedJSONObjectToString(String key, JSONObject jsonObject) throws JSONException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(key).append(":\n");
         Iterator<String> keys = jsonObject.keys();
         while (keys.hasNext()) {
             String nestedKey = keys.next();
             Object value = jsonObject.get(nestedKey);
             if (value instanceof JSONObject) {
-                nestedMap.put(nestedKey, parseNestedJSONObject(nestedKey, (JSONObject) value));
+                // Recursively handle nested JSONObjects
+                sb.append(parseNestedJSONObjectToString(nestedKey, (JSONObject) value));
             } else if (value instanceof String) {
-                values.add(nestedKey + ": " + value);
+                sb.append(nestedKey).append(": ").append(value).append("\n");
             } else if (value instanceof org.json.JSONArray) {
                 List<String> arrayValues = new ArrayList<>();
                 org.json.JSONArray jsonArray = (org.json.JSONArray) value;
                 for (int i = 0; i < jsonArray.length(); i++) {
                     arrayValues.add(jsonArray.getString(i));
                 }
-                values.add(nestedKey + ":\n" + String.join("\n", arrayValues));
+                sb.append(nestedKey).append(":\n").append(String.join("\n", arrayValues)).append("\n");
             }
         }
-        nestedMap.put("values", values);
-        return nestedMap;
+        return sb.toString();
     }
 
     @Override
