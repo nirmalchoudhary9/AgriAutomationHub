@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.os.Build;
+import android.view.MenuItem;
 
 public class NetworkChangeReceiver extends BroadcastReceiver {
 
@@ -40,6 +41,8 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     }
 
     public interface NetworkChangeListener {
+        boolean onOptionsItemSelected(MenuItem item);
+
         void onNetworkChange(boolean isConnected);
     }
 }

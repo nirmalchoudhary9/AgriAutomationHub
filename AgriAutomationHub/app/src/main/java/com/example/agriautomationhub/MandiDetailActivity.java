@@ -6,16 +6,17 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -57,11 +59,18 @@ public class MandiDetailActivity extends AppCompatActivity {
         selectedDateTextView = findViewById(R.id.selectedDateTextView); // Initialize the TextView for the selected date
 
         // Retrieve data from intent
-        Intent intent = getIntent();
-        String reportDate = intent.getStringExtra("reportDate");
-        String distCode = intent.getStringExtra("distCode");
-        String mandiCode = intent.getStringExtra("mandiCode");
-        String mandiName = intent.getStringExtra("mandiName");
+        AtomicReference<Intent> intent = new AtomicReference<>(getIntent());
+        String reportDate = intent.get().getStringExtra("reportDate");
+        String distCode = intent.get().getStringExtra("distCode");
+        String mandiCode = intent.get().getStringExtra("mandiCode");
+        String mandiName = intent.get().getStringExtra("mandiName");
+
+        ImageView back = findViewById(R.id.back_btn_mandi_detail);
+        back.setOnClickListener(v -> {
+            intent.set(new Intent(getApplicationContext(), MandiActivity.class));
+            startActivity(intent.get());
+            finish();
+        });
 
         // Set the Mandi name text
         if (mandiName != null && !mandiName.isEmpty()) {
@@ -228,4 +237,41 @@ public class MandiDetailActivity extends AppCompatActivity {
         linearLayoutResults.addView(tableLayout);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            return logoutUser();
+        }
+        if (id == R.id.action_settings) {
+            return settings();
+        }
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean logoutUser() {
+        FirebaseAuth.getInstance().signOut();
+        // Redirect to login screen or any other desired activity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+
+    private boolean settings() {
+        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
+        startActivity(intent);
+        return true;
+    }
 }

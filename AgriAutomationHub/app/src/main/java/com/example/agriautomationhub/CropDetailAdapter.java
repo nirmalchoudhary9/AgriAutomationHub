@@ -1,6 +1,7 @@
 package com.example.agriautomationhub;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,44 +61,25 @@ public class CropDetailAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String headerTitle = (String) getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(android.R.layout.simple_expandable_list_item_1, null);
+            convertView = infalInflater.inflate(R.layout.list_group, null);
         }
 
-        TextView lblListHeader = (TextView) convertView.findViewById(android.R.id.text1);
-        lblListHeader.setText(headerTitle);
-
+        TextView lblListHeader = convertView.findViewById(R.id.group_header);
+        lblListHeader.setText(getGroup(groupPosition).toString());
         return convertView;
     }
 
     @Override
-    public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        Object childObj = getChild(groupPosition, childPosition);
-        String childText = "";
-
-        if (childObj instanceof Map) {
-            Map<String, Object> childMap = (Map<String, Object>) childObj;
-            String key = (String) childMap.get("key");
-            List<String> values = (List<String>) childMap.get("values");
-            if (values != null) {
-                childText = key + ":\n" + String.join("\n", values);
-            } else {
-                childText = key;
-            }
-        } else if (childObj instanceof String) {
-            childText = (String) childObj;
-        }
-
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(android.R.layout.simple_list_item_1, null);
+            convertView = infalInflater.inflate(R.layout.list_item, null);
         }
 
-        TextView txtListChild = (TextView) convertView.findViewById(android.R.id.text1);
-        txtListChild.setText(childText);
-
+        TextView txtListChild = convertView.findViewById(R.id.item_text);
+        txtListChild.setText(getChild(groupPosition, childPosition).toString());
         return convertView;
     }
 

@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agriautomationhub.ml.PlantDiseaseModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,7 +48,7 @@ public class CropCareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_care);
 
-        ImageView back = findViewById(R.id.back_btn);
+        ImageView back = findViewById(R.id.back_btn_crop_care);
         back.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
@@ -135,7 +138,7 @@ public class CropCareActivity extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_crop_care);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
@@ -229,5 +232,43 @@ public class CropCareActivity extends AppCompatActivity {
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             launcher.launch(takePictureIntent);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            return logoutUser();
+        }
+        if (id == R.id.action_settings) {
+            return settings();
+        }
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean logoutUser() {
+        FirebaseAuth.getInstance().signOut();
+        // Redirect to login screen or any other desired activity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+
+    private boolean settings() {
+        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
+        startActivity(intent);
+        return true;
     }
 }

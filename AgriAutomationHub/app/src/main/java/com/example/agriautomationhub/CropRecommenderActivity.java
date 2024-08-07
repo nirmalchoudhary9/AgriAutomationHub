@@ -5,11 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.agriautomationhub.ml.CropRecommendationModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
@@ -33,7 +38,7 @@ public class CropRecommenderActivity extends AppCompatActivity {
         nitrogen = findViewById(R.id.N_input);
         phosporus = findViewById(R.id.P_input);
         potassium = findViewById(R.id.K_input);
-        temprature = findViewById(R.id.temprature_input);
+        temprature = findViewById(R.id.temperature_input);
         humidity = findViewById(R.id.humidity_input);
         ph = findViewById(R.id.ph_input);
         rainfall = findViewById(R.id.rainfall_input);
@@ -120,5 +125,67 @@ public class CropRecommenderActivity extends AppCompatActivity {
                 output.setText("Please predict a crop first.");
             }
         });
+
+        ImageView back = findViewById(R.id.back_btn_crop_recommender);
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_crop);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_home) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                return true;
+            }else if (id == R.id.navigation_news) {
+                // Handle News navigation
+                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                return true;
+            } else if (id == R.id.navigation_mandi) {
+                startActivity(new Intent(CropRecommenderActivity.this, MandiActivity.class));
+                return true;
+            }
+            return false;
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            return logoutUser();
+        }
+        if (id == R.id.action_settings) {
+            return settings();
+        }
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean logoutUser() {
+        FirebaseAuth.getInstance().signOut();
+        // Redirect to login screen or any other desired activity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
+
+    private boolean settings() {
+        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
+        startActivity(intent);
+        return true;
     }
 }

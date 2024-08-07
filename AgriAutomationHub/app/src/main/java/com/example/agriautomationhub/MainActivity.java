@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.GridLayout;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    private HorizontalScrollView horizontalScrollView;
+    private ImageView scrollIndicator;
 
     private TextView weatherInfo;
     private TextView weatherLocation;
@@ -77,7 +85,29 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         LinearLayout fertilizerCal = findViewById(R.id.fertilizer_calculator_layout);
         fertilizerCal.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FertilizerCalculatorActivity.class)));
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        horizontalScrollView = findViewById(R.id.horizontal_scroll_view);
+        scrollIndicator = findViewById(R.id.scroll_indicator);
+
+        // Ensure child view is of type GridLayout (or the specific type of the child view)
+        GridLayout gridLayout = (GridLayout) horizontalScrollView.getChildAt(0);
+
+        // Add scroll listener
+        horizontalScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                int scrollX = horizontalScrollView.getScrollX();
+                int maxScrollX = gridLayout.getWidth() - horizontalScrollView.getWidth();
+
+                // Hide the indicator if at the end of the scroll, show otherwise
+                if (scrollX >= maxScrollX) {
+                    scrollIndicator.setVisibility(View.GONE);
+                } else {
+                    scrollIndicator.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_main);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();

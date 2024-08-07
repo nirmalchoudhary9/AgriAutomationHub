@@ -1,6 +1,8 @@
 package com.example.agriautomationhub;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,8 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class FertilizerCalculatorActivity extends AppCompatActivity {
 
@@ -51,6 +56,30 @@ public class FertilizerCalculatorActivity extends AppCompatActivity {
             } catch (NumberFormatException e) {
                 outputText.setText("Please enter valid numbers.");
             }
+        });
+
+        ImageView back = findViewById(R.id.back_btn_fertilizer);
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_fertilizer);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_home) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                return true;
+            }else if (id == R.id.navigation_news) {
+                // Handle News navigation
+                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                return true;
+            } else if (id == R.id.navigation_mandi) {
+                startActivity(new Intent(FertilizerCalculatorActivity.this, MandiActivity.class));
+                return true;
+            }
+            return false;
         });
     }
 

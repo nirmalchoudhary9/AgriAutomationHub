@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/back_btn"
@@ -28,7 +29,7 @@
             android:layout_centerInParent="true"
             android:text="@string/irrigation"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
