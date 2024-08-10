@@ -62,6 +62,7 @@ dependencies {
     implementation ("org.json:json:20210307")
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.firebase.database)
     implementation(libs.play.services.fitness)

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,12 +16,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.navigation.ui.AppBarConfiguration;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,12 +37,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements NetworkChangeReceiver.NetworkChangeListener {
+public class MainActivity extends AppCompatActivity implements NetworkChangeReceiver.NetworkChangeListener, OnServiceClickListener {
 
     private static final String TAG = "MainActivity";
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-
-    private AppBarConfiguration mAppBarConfiguration;
 
     private TextView weatherInfo;
     private TextView weatherLocation;
@@ -42,6 +49,10 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
 
     private FusedLocationProviderClient fusedLocationClient;
     private NetworkChangeReceiver networkChangeReceiver;
+
+    private ViewPager2 viewPager2;
+    private ServicesAdapter adapter;
+    private List<Service> serviceList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,29 +73,62 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
             getLastLocation();
         }
 
-        LinearLayout autoIrrigationLayout = findViewById(R.id.auto_irrigation_layout);
-        autoIrrigationLayout.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Automatic_Irrigation.class)));
+        LinearLayout fertilizer = findViewById(R.id.fertilizer_calculator);
+        fertilizer.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FertilizerCalculatorActivity.class);
+            startActivity(intent);
+        });
 
-        LinearLayout cropDiseaseLayout = findViewById(R.id.crop_disease_layout);
-        cropDiseaseLayout.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CropCareActivity.class)));
+        LinearLayout selling_price = findViewById(R.id.price_calculator);
+        selling_price.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SellingPriceCalculatorActivity.class);
+            startActivity(intent);
+        });
 
-        LinearLayout soilFertility = findViewById(R.id.soil_fertility_layout);
-        soilFertility.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Soil_Fertility_check.class)));
+        initializeServices();
+        initializeBottomNavigation();
 
-        LinearLayout cropRecommender = findViewById(R.id.crop_recommendation_layout);
-        cropRecommender.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CropRecommenderActivity.class)));
+        // Register network change receiver
+        networkChangeReceiver = new NetworkChangeReceiver(this);
+        registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
 
-        LinearLayout fertilizerCal = findViewById(R.id.fertilizer_calculator_layout);
-        fertilizerCal.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FertilizerCalculatorActivity.class)));
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
 
+        // Handle the changes if needed
+        ViewPager2 viewPager2 = findViewById(R.id.viewPagerServices);
+        if (viewPager2 != null) {
+            viewPager2.requestLayout(); // Force a layout update
+        }
+    }
+
+    private void initializeServices() {
+        viewPager2 = findViewById(R.id.viewPagerServices);
+        serviceList = new ArrayList<>();
+        serviceList.add(new Service("Auto Irrigation", R.drawable.auto));
+        serviceList.add(new Service("Soil Fertility Check", R.drawable.soil));
+        serviceList.add(new Service("Crop Disease Info", R.drawable.crop_disease));
+        serviceList.add(new Service("Crop Recommender", R.drawable.crop_recommender));
+
+        adapter = new ServicesAdapter(this, serviceList, this);
+        viewPager2.setAdapter(adapter);
+
+        // Setup TabLayout with ViewPager2
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        new TabLayoutMediator(tabLayout, viewPager2,
+                (tab, position) -> tab.setText(String.valueOf(position + 1))
+        ).attach();
+    }
+
+    private void initializeBottomNavigation() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_main);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.navigation_home) {
                 return true;
             } else if (id == R.id.navigation_news) {
-                // Handle News navigation
                 startActivity(new Intent(MainActivity.this, NewsActivity.class));
                 return true;
             } else if (id == R.id.navigation_mandi) {
@@ -93,10 +137,6 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
             }
             return false;
         });
-
-        // Register network change receiver
-        networkChangeReceiver = new NetworkChangeReceiver(this);
-        registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     @Override
@@ -144,7 +184,6 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         return true;
     }
 
-
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -183,13 +222,19 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
                     WeatherResponse weatherResponse = response.body();
                     if (weatherResponse != null) {
                         double temp = weatherResponse.getMain().getTemp();
+                        int humidity = weatherResponse.getMain().getHumidity();
                         String description = weatherResponse.getWeather()[0].getDescription();
                         String location = weatherResponse.getName(); // Get the location
 
+                        // Get current date
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
+                        String currentDate = dateFormat.format(new Date());
+
                         String weatherText = "Temperature: " + temp + "°C\n" +
+                                "Humidity: " + humidity + "%\n" +
                                 "Condition: " + description;
                         weatherInfo.setText(weatherText);
-                        weatherLocation.setText(location); // Set the location text
+                        weatherLocation.setText(location +" , "+ currentDate); // Set the location text
                         Log.d(TAG, "Weather data retrieved: " + weatherText);
                     } else {
                         weatherInfo.setText("No weather data available");
@@ -213,14 +258,15 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         });
     }
 
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastLocation();
-            }
-            else {
+            } else {
                 weatherInfo.setText("Location permission denied");
             }
         }
@@ -232,6 +278,31 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
             getLastLocation();
         } else {
             weatherInfo.setText("No internet connection.");
+        }
+    }
+
+    @Override
+    public void onServiceClick(Service service) {
+        if (service != null) {
+            switch (service.getName()) {
+                case "Auto Irrigation":
+                    startActivity(new Intent(this, Automatic_Irrigation.class));
+                    break;
+                case "Soil Fertility Check":
+                    startActivity(new Intent(this, Soil_Fertility_check.class));
+                    break;
+                case "Crop Disease Info":
+                    startActivity(new Intent(this, CropCareActivity.class));
+                    break;
+                case "Crop Recommender":
+                    startActivity(new Intent(this, CropRecommenderActivity.class));
+                    break;
+                default:
+                    Log.e(TAG, "Unknown service: " + service.getName());
+                    break;
+            }
+        } else {
+            Log.e(TAG, "Service is null");
         }
     }
 }

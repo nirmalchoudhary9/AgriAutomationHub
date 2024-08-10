@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="districts">
-        <item>---चुने---</item>
+        <item>--Select--</item>
         <item>Agar Malwa</item>
         <item>Alirajpur</item>
         <item>Annupur</item>
@@ -56,7 +56,7 @@
     </string-array>
 
     <string-array name="crop_names">
-        <item>---चुने---</item>
+        <item>--Select--</item>
         <item>गेहूं</item>
         <item>धान</item>
         <item>मक्का/भुट्टा</item>

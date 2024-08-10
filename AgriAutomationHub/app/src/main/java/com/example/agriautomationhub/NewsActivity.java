@@ -46,21 +46,6 @@ public class NewsActivity extends AppCompatActivity {
             finish();
         });
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_news);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.navigation_home) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            } else if (id == R.id.navigation_news) {
-                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
-                return true;
-            } else if (id == R.id.navigation_mandi) {
-                startActivity(new Intent(getApplicationContext(), MandiActivity.class));
-                return true;
-            }
-            return false;
-        });
     }
 
     private void getNewsData() {
