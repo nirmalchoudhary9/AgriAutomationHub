@@ -1,0 +1,62 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Input Fields for Costs -->
+    <EditText
+        android:id="@+id/editTextSeedCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seed Cost (₹)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextFertilizerCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fertilizer Cost (₹)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextLaborCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Labor Cost (₹)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextOtherCosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Other Costs (₹)"
+        android:inputType="numberDecimal" />
+
+    <!-- Input Fields for Yield -->
+    <EditText
+        android:id="@+id/editTextYield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Yield "
+        android:inputType="numberDecimal" />
+
+    <!-- Button to Calculate Minimum Selling Price -->
+    <Button
+        android:id="@+id/buttonCalculatePrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate Minimum Selling Price" />
+
+    <!-- TextView to Display the Result -->
+    <TextView
+        android:id="@+id/textViewPriceResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Minimum Selling Price: ₹0.00"
+        android:textSize="18sp"
+        android:paddingTop="16dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
