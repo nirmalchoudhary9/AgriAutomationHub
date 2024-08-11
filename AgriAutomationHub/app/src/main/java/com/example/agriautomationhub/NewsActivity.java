@@ -1,4 +1,3 @@
-// NewsActivity.java
 package com.example.agriautomationhub;
 
 import android.content.Intent;
@@ -22,8 +21,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NewsActivity extends AppCompatActivity {
 
     ImageView back;
-    private static final String BASE_URL = "https://gnews.io/api/v4/";
-    private static final String API_KEY = "6640ea8ad55c166b4262038d82f5b087"; // Replace with your actual API key
+    private static final String BASE_URL = "https://newsapi.org/";
+    private static final String API_KEY = "6b1c157d0242456a88e119d64eecc4ec"; // Replace with your actual API key
     private static final String TAG = "NewsActivity";
 
     private RecyclerView newsRecyclerView;
@@ -45,7 +44,6 @@ public class NewsActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
     }
 
     private void getNewsData() {
@@ -56,11 +54,11 @@ public class NewsActivity extends AppCompatActivity {
 
         GNewsApiService apiService = retrofit.create(GNewsApiService.class);
 
-        String country = "in"; // Adjust as necessary
-        String language = "hi"; // Change to "en" for testing
-        Log.d(TAG, "Requesting news with country: " + country + ", language: " + language + ", API Key: " + API_KEY);
+        String query = "agriculture OR technology OR science"; // Add more topics as needed
+        String language = "hi"; // Language code for Hindi
+        Log.d(TAG, "Requesting news with query: " + query + ", language: " + language + ", API Key: " + API_KEY);
 
-        Call<GNewsResponse> call = apiService.getNewsArticles("agriculture",country, language, API_KEY);
+        Call<GNewsResponse> call = apiService.getNewsArticles(query, language, API_KEY);
 
         call.enqueue(new Callback<GNewsResponse>() {
             @Override
@@ -93,8 +91,6 @@ public class NewsActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
