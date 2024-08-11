@@ -1,62 +1,126 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#F7F8FA"
     android:padding="16dp">
 
-    <!-- Input Fields for Costs -->
-    <EditText
-        android:id="@+id/editTextSeedCost"
+    <!-- Display Box for Lowest Selling Price -->
+    <LinearLayout
+        android:id="@+id/layoutLowestSellingPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Seed Cost (₹)"
-        android:inputType="numberDecimal" />
+        android:orientation="vertical"
+        android:background="@drawable/bg_shadow_box"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
 
-    <EditText
-        android:id="@+id/editTextFertilizerCost"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textViewLowestSellingPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lowest Selling Price: ₹0.00"
+            android:textSize="18sp"
+            android:textColor="#FF5722"/>
+    </LinearLayout>
+
+
+    <!-- Yield Field with Label -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Fertilizer Cost (₹)"
-        android:inputType="numberDecimal" />
+        android:text="Yield (Quintal)"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:layout_marginBottom="8dp"/>
 
-    <EditText
-        android:id="@+id/editTextLaborCost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Labor Cost (₹)"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/editTextOtherCosts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Other Costs (₹)"
-        android:inputType="numberDecimal" />
-
-    <!-- Input Fields for Yield -->
     <EditText
         android:id="@+id/editTextYield"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Yield "
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:backgroundTint="#FFA726"
+        android:layout_marginBottom="16dp"/>
+    
 
-    <!-- Button to Calculate Minimum Selling Price -->
+    <!-- Add New Expense Button -->
     <Button
-        android:id="@+id/buttonCalculatePrice"
+        android:id="@+id/buttonAddNewExpense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calculate Minimum Selling Price" />
+        android:text="Add New Expense"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/bg_button"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
 
-    <!-- TextView to Display the Result -->
+    <!-- New Expense Form -->
+    <LinearLayout
+        android:id="@+id/layoutNewExpenseForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_shadow_box"
+        android:padding="16dp"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFA726"
+            android:layout_marginBottom="8dp"
+            android:spinnerMode="dropdown"/>
+
+        <EditText
+            android:id="@+id/editTextExpenseName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Expense Name (Optional)"
+            android:backgroundTint="#FFA726"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:inputType="numberDecimal"
+            android:backgroundTint="#FFA726"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/buttonSaveExpense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Expense"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button"
+            android:enabled="false"
+            android:layout_gravity="center"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"/>
+    </LinearLayout>
+
+    <!-- Expenses List Title -->
     <TextView
-        android:id="@+id/textViewPriceResult"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Minimum Selling Price: ₹0.00"
+        android:text="Expenses List"
         android:textSize="18sp"
-        android:paddingTop="16dp"
-        android:textStyle="bold" />
+        android:textColor="#333"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="8dp" />
 
+    <!-- Expenses RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewExpenses"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"/>
 </LinearLayout>

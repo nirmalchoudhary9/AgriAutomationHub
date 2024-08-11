@@ -87,6 +87,18 @@
     <string name="marketview">MarketView</string>
     <string name="mandi">Mandi</string>
 
+    <string-array name="expense_categories">
+        <item>Category</item>
+        <item>Seeds</item>
+        <item>Fertilizers</item>
+        <item>Pesticides</item>
+        <item>Machinery</item>
+        <item>Electricity</item>
+        <item>Labour</item>
+        <item>Land Rent</item>
+        <item>Other</item>
+    </string-array>
+
     <string-array name="crop_types">
         <item>Corn</item>
         <item>Wheat</item>
