@@ -1,0 +1,9 @@
+#signup-form {
+    background-color: #e0f7e9; /* Light green for background */
+    color: #2c662d; /* Dark green for text */
+  }
+  
+  #signup-form input, #signup-form button {
+    border: 1px solid #2c662d; /* Matching border color */
+  }
+  
