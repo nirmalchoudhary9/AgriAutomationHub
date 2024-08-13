@@ -19,7 +19,7 @@
     <string name="fertilizer_recommendation">Fertilizer Recommendation</string>
     <string name="fertilizer_spray">Fertilizer Spray</string>
     <string name="crop_disease_prediction">Crop Disease Prediction</string>
-    <string name="welcome_message">AgriAutomationHub</string>
+    <string name="welcome_message">Hello Farmers</string>
     <string name="services">Services</string>
     <string name="home">Home</string>
     <string name="notification">Notification</string>

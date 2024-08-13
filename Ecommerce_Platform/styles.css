@@ -117,19 +117,130 @@ body {
 
 .login {
     margin-left: 20px;
-  }
+}
 
+/* Basic styling for the dropdown menu */
+.dropdown_profile {
+    position: relative;
+    display: inline-block;
+}
+
+/* Basic styling for the dropdown menu */
+.dropdown-profile {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Button */
+.dropdown-profile-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* Dropdown Content */
+.dropdown-content-profile {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 250px; /* Ensure enough width */
+    max-width: 300px; /* Limit maximum width */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: left;
+    top: 100%; /* Position below the button */
+    right: 0; /* Align dropdown to the right of the button */
+}
+
+/* Show the dropdown content when active */
+.dropdown-profile.active .dropdown-content-profile {
+    display: block;
+}
+
+/* Profile View Styling */
+.profile-view {
+    margin-bottom: 10px; /* Space below the profile section */
+    padding-bottom: 10px; /* Space below the profile section */
+    border-bottom: 1px solid #ddd; /* Divider line */
+}
+
+.profile-view h2 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.profile-view p {
+    margin: 5px 0;
+}
+
+.profile-view img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Styling for Logout link */
+.dropdown-content-profile a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+}
+
+.dropdown-content-profile a:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Carousel container */
 #banner-carousel {
-    display: flex;
+    width: 40%; /* Carousel width is 40% of the viewport */
+    margin: 0 auto; /* Center the carousel */
     overflow: hidden;
-    width: 100%;
-  }
-  
-  .banner-slide {
-    min-width: 100%;
+    position: relative;
+}
+
+/* Carousel inner container */
+.carousel-inner {
+    display: flex;
+    width: 100%; /* 100% * number_of_slides, adjust if you have more or fewer slides */
     transition: transform 0.5s ease-in-out;
-  }
-  
+}
+
+/* Individual slides */
+.banner-slide {
+    width: 100%; /* Each slide takes up 100% of the carousel width */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.banner-slide img {
+    width: 100%; /* Fit image to the width of the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .banner-slide img {
+        height: 200px; /* Smaller height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-slide img {
+        height: 150px; /* Even smaller height for very small screens */
+    }
+}
 
 /* Category Heading */
 .category-heading {
@@ -246,8 +357,8 @@ body {
 
 .scroll-container {
     position: relative;
-    width: 90%; /* Increased width to fit wider boxes */
-    height: 150px; /* Reduced height to make it less vertical */
+    width: 90%; /* Width of the container */
+    height: 150px; /* Height of the container */
     margin: 0 auto;
     overflow: hidden;
     border-radius: 15px;
@@ -264,13 +375,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(33.33% - 8cm); /* Adjusted to accommodate 8 cm gap */
+    width: 33.33%; /* Each item takes up one-third of the container width */
     box-sizing: border-box;
-    margin-right: 8cm; /* Sets the gap between items */
-}
-
-.item-container:last-child {
-    margin-right: 0; /* Removes right margin from the last item */
+    padding: 0 15px; /* Space between items */
 }
 
 .item {
@@ -278,34 +385,33 @@ body {
     align-items: center;
     justify-content: flex-start;
     width: 100%; /* Full width within the container */
-    max-width: 350px; /* Increased maximum width for wider boxes */
-    border: 2px solid #2a7a47; /* Border around each point */
-    border-radius: 10px; /* Rounded corners for points */
-    padding: 10px; /* Reduced padding to make the box less vertical */
+    max-width: 350px; /* Maximum width of the item box */
+    border: 2px solid #2a7a47; /* Border around each item */
+    border-radius: 10px; /* Rounded corners for items */
+    padding: 10px; /* Padding inside the item */
     box-sizing: border-box;
     background-color: #fff; /* Background color for visibility */
     text-align: left;
-    height: 100%; /* Full height to fill the container */
 }
 
 .item img {
-    max-width: 100px; /* Increased image size */
-    height: auto;
+    max-width: 100px; /* Maximum image width */
+    height: auto; /* Maintain aspect ratio */
     margin-right: 15px; /* Space between image and text */
 }
 
 .item-text {
-    max-width: 200px; /* Increased text box width */
+    max-width: 200px; /* Maximum width of text box */
 }
 
 .item-text h3 {
     margin: 0;
-    font-size: 1em; /* Increased font size */
+    font-size: 1em; /* Font size for heading */
 }
 
 .item-text p {
     margin: 5px 0 0;
-    font-size: 0.85em; /* Increased font size */
+    font-size: 0.85em; /* Font size for paragraph */
 }
 
 @keyframes scroll {
@@ -313,10 +419,9 @@ body {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-200%); /* Adjusted for visible items */
+        transform: translateX(-100%); /* Adjusted to scroll one full cycle */
     }
 }
-
 
 footer {
     background-color: #004c00;
