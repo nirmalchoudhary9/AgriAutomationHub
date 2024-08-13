@@ -1,126 +1,130 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F7F8FA"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#F7F8FA">
 
-    <!-- Display Box for Lowest Selling Price -->
     <LinearLayout
-        android:id="@+id/layoutLowestSellingPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/bg_shadow_box"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp">
+        android:orientation="vertical">
 
+        <!-- Display Box for Lowest Selling Price -->
+        <LinearLayout
+            android:id="@+id/layoutLowestSellingPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_shadow_box"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/textViewLowestSellingPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lowest Selling Price: ₹0.00"
+                android:textSize="18sp"
+                android:textColor="#FF5722"/>
+        </LinearLayout>
+
+
+        <!-- Yield Field with Label -->
         <TextView
-            android:id="@+id/textViewLowestSellingPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lowest Selling Price: ₹0.00"
-            android:textSize="18sp"
-            android:textColor="#FF5722"/>
-    </LinearLayout>
-
-
-    <!-- Yield Field with Label -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Yield (Quintal)"
-        android:textSize="16sp"
-        android:textColor="#333"
-        android:layout_marginBottom="8dp"/>
-
-    <EditText
-        android:id="@+id/editTextYield"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:backgroundTint="#FFA726"
-        android:layout_marginBottom="16dp"/>
-    
-
-    <!-- Add New Expense Button -->
-    <Button
-        android:id="@+id/buttonAddNewExpense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add New Expense"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/bg_button"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- New Expense Form -->
-    <LinearLayout
-        android:id="@+id/layoutNewExpenseForm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/bg_shadow_box"
-        android:padding="16dp"
-        android:visibility="gone"
-        android:layout_marginBottom="16dp">
-
-        <Spinner
-            android:id="@+id/spinnerCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFA726"
-            android:layout_marginBottom="8dp"
-            android:spinnerMode="dropdown"/>
-
-        <EditText
-            android:id="@+id/editTextExpenseName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Expense Name (Optional)"
-            android:backgroundTint="#FFA726"
+            android:text="Yield (Quintal)"
+            android:textSize="16sp"
+            android:textColor="#333"
             android:layout_marginBottom="8dp"/>
 
         <EditText
-            android:id="@+id/editTextPrice"
+            android:id="@+id/editTextYield"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Price"
             android:inputType="numberDecimal"
             android:backgroundTint="#FFA726"
             android:layout_marginBottom="16dp"/>
 
+
+        <!-- Add New Expense Button -->
         <Button
-            android:id="@+id/buttonSaveExpense"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttonAddNewExpense"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save Expense"
+            android:text="Add New Expense"
             android:textColor="#FFFFFF"
             android:background="@drawable/bg_button"
-            android:enabled="false"
-            android:layout_gravity="center"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"/>
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- New Expense Form -->
+        <LinearLayout
+            android:id="@+id/layoutNewExpenseForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_shadow_box"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp">
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFA726"
+                android:layout_marginBottom="8dp"
+                android:spinnerMode="dropdown"/>
+
+            <EditText
+                android:id="@+id/editTextExpenseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Expense Name (Optional)"
+                android:backgroundTint="#FFA726"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editTextPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Price"
+                android:inputType="numberDecimal"
+                android:backgroundTint="#FFA726"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/buttonSaveExpense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save Expense"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button"
+                android:enabled="false"
+                android:layout_gravity="center"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"/>
+        </LinearLayout>
+
+        <!-- Expenses List Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expenses List"
+            android:textSize="18sp"
+            android:textColor="#333"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Expenses RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewExpenses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical"/>
     </LinearLayout>
-
-    <!-- Expenses List Title -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Expenses List"
-        android:textSize="18sp"
-        android:textColor="#333"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginBottom="8dp" />
-
-    <!-- Expenses RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewExpenses"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp"
-        android:layout_marginTop="8dp"
-        android:scrollbars="vertical"/>
-</LinearLayout>
+</ScrollView>

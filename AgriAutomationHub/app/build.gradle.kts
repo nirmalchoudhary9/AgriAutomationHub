@@ -36,6 +36,15 @@ android {
         viewBinding = true
         mlModelBinding = true
     }
+
+    packagingOptions {
+        exclude ("META-INF/ASL2.0")
+        exclude ("META-INF/LICENSE")
+        exclude ("META-INF/LICENSE.tx")
+        exclude ("META-INF/NOTICE")
+        exclude ("META-INF/NOTICE.txt")
+        exclude ("META-INF/ASL2.0")
+    }
 }
 
 dependencies {
