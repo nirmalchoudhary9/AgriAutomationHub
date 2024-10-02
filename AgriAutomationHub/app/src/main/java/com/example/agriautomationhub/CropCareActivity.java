@@ -1,20 +1,32 @@
 package com.example.agriautomationhub;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Layout;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.agriautomationhub.ml.PlantDiseaseModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -95,9 +107,16 @@ public class CropCareActivity extends AppCompatActivity {
                 });
 
         Button captureButton = findViewById(R.id.btnCapture);
+        ImageView captureImg = findViewById(R.id.galleryImageView);
         captureButton.setOnClickListener(v -> dispatchTakePictureIntent(captureImageLauncher));
+        captureImg.setOnClickListener(v -> dispatchTakePictureIntent(captureImageLauncher));
 
         predict.setOnClickListener(v -> {
+            if (img == null) {
+                Toast.makeText(this, "Please select or capture an image first", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             img = Bitmap.createScaledBitmap(img, 256, 256, true);
             try {
                 PlantDiseaseModel model = PlantDiseaseModel.newInstance(CropCareActivity.this);
@@ -123,20 +142,40 @@ public class CropCareActivity extends AppCompatActivity {
                 // Load labels
                 String[] labels = loadLabels();
 
+                // Get the confidence scores from the output array
+                float[] confidenceScores = outputFeature0.getFloatArray();
+
                 // Get the index of the maximum value in the output array
-                int maxIndex = getMaxIndex(outputFeature0.getFloatArray());
+                int maxIndex = getMaxIndex(confidenceScores);
 
-                // Set the text of the TextView with the corresponding label
-                String disease = labels[maxIndex];
-                tv.setText(getString(R.string.disease_detected, disease));
+                // Get the maximum confidence score and convert it to a percentage
+                float maxConfidenceScore = confidenceScores[maxIndex];
+                String confidencePercentage = String.format("%.2f", maxConfidenceScore * 100) + "%";
 
-                // Now you can display the cure information based on the disease
-                displayCureInfo(disease);
+                // TextView for displaying the cure info
+                TextView cureTextView = findViewById(R.id.cureTextView);
+
+                // Check if the confidence score is less than 80%
+                if (maxConfidenceScore < 0.8) {
+                    // If confidence is below 80%, display "Crop not detected" and confidence score
+                    tv.setText(getString(R.string.crop_not_detected) + "\nConfidence: " + confidencePercentage);
+
+                    // Clear the cure info TextView
+                    cureTextView.setText("");  // Clear previous crop's cure info
+                } else {
+                    // Set the text of the TextView with the corresponding label and confidence score
+                    String disease = labels[maxIndex];
+                    tv.setText(getString(R.string.disease_detected, disease) + "\nConfidence: " + confidencePercentage);
+
+                    // Now you can display the cure information based on the disease
+                    displayCureInfo(disease);  // Display new crop's cure info
+                }
 
             } catch (IOException e) {
                 Log.e("Prediction", "Error running model inference", e);
             }
         });
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_crop_care);
 
@@ -145,16 +184,51 @@ public class CropCareActivity extends AppCompatActivity {
             if (id == R.id.navigation_home) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-            } else if (id == R.id.navigation_news) {
-                // Handle News navigation
+            } else if ( id == R.id.navigation_news ) {
                 startActivity(new Intent(getApplicationContext(), NewsActivity.class));
-                return true;
-            } else if (id == R.id.navigation_mandi) {
+            } else if ( id == R.id.navigation_mandi ) {
                 startActivity(new Intent(CropCareActivity.this, MandiActivity.class));
-                return true;
             }
             return false;
         });
+
+        if (!checkCameraPermission()) {
+            requestCameraPermission();
+        }
+    }
+
+    private static final int CAMERA_PERMISSION_CODE = 100;
+
+    // Check camera permission
+    private boolean checkCameraPermission() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    // Request camera permission
+    private void requestCameraPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, open camera
+            } else {
+                Toast.makeText(this, "Camera permission is required to use this feature", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void dispatchTakePictureIntent(ActivityResultLauncher<Intent> launcher) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            launcher.launch(takePictureIntent);
+        } else {
+            Log.e("Camera", "Camera app is not available");
+            Toast.makeText(this, "No camera app available", Toast.LENGTH_SHORT).show();
+        }
     }
 
     // Function to load labels from label.txt file
@@ -168,22 +242,56 @@ public class CropCareActivity extends AppCompatActivity {
         while ((line = reader.readLine()) != null) {
             labels.add(line);
         }
-        Log.d("LoadLabels", "Labels loaded successfully");
+        reader.close();
         return labels.toArray(new String[0]);
     }
 
-    // Function to get the index of the maximum value in an array
+    // Function to find the index of the highest value in a float array
     private int getMaxIndex(float[] array) {
         int maxIndex = 0;
-        float maxValue = array[0];
         for (int i = 1; i < array.length; i++) {
-            if (array[i] > maxValue) {
+            if (array[i] > array[maxIndex]) {
                 maxIndex = i;
-                maxValue = array[i];
             }
         }
         return maxIndex;
     }
+
+//    private void displayCureInfo(String diseaseName) {
+//        try {
+//            InputStream inputStream = getAssets().open("crop_cure.json");
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+//            StringBuilder jsonBuilder = new StringBuilder();
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                jsonBuilder.append(line);
+//            }
+//            reader.close();
+//
+//            String jsonContent = jsonBuilder.toString();
+//            Log.d("CropCure", "Loaded JSON content: " + jsonContent);  // Log the content for debugging
+//
+//            JSONObject jsonObject = new JSONObject(jsonContent);
+//            if (jsonObject.has(diseaseName)) {
+//                String cureInfo = jsonObject.getString(diseaseName);
+//
+//                TextView cureTextView = findViewById(R.id.cureTextView);
+//                SpannableString spannableCureInfo = new SpannableString(cureInfo);
+//                spannableCureInfo.setSpan(new RelativeSizeSpan(1.2f), 0, spannableCureInfo.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//                spannableCureInfo.setSpan(new StyleSpan(Typeface.BOLD), 0, spannableCureInfo.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//                cureTextView.setText(spannableCureInfo);
+//            } else {
+//                Log.d("CropCure", "No cure information found for the disease: " + diseaseName);
+//                Toast.makeText(this, "No cure information available", Toast.LENGTH_SHORT).show();
+//            }
+//        } catch (IOException e) {
+//            Log.e("CropCure", "Error loading JSON: " + e.getMessage(), e);
+//            Toast.makeText(this, "Error retrieving cure information", Toast.LENGTH_SHORT).show();
+//        } catch (JSONException e) {
+//            Log.e("CropCure", "Error parsing JSON: " + e.getMessage(), e);
+//            Toast.makeText(this, "Error parsing cure information", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
     private void displayCureInfo(String disease) {
         TextView cureTextView = findViewById(R.id.cureTextView); // Assuming you have a TextView for displaying cure info
@@ -198,7 +306,22 @@ public class CropCareActivity extends AppCompatActivity {
 
                 // Retrieve cure information using lowercase disease name
                 String cureInfo = json.optString(lowercaseDisease, getString(R.string.cure_not_available));
-                cureTextView.setText(getString(R.string.cure_info, cureInfo));
+
+                // Prepare the heading and the cure info
+                String heading = "Cure:\n";
+                SpannableString spannable = new SpannableString(heading + cureInfo);
+
+                // Set the heading (Cure) as bold and larger size
+                spannable.setSpan(new StyleSpan(Typeface.BOLD), 0, heading.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannable.setSpan(new RelativeSizeSpan(1.2f), 0, heading.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                // Set the formatted text into the TextView
+                cureTextView.setText(spannable);
+
+                // Justify text for API 26 and above
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    cureTextView.setJustificationMode(Layout.JUSTIFICATION_MODE_INTER_WORD);
+                }
 
             } catch (JSONException e) {
                 Log.e("DisplayCureInfo", "Error parsing JSON", e);
@@ -225,50 +348,5 @@ public class CropCareActivity extends AppCompatActivity {
             return null;
         }
         return json;
-    }
-
-    private void dispatchTakePictureIntent(ActivityResultLauncher<Intent> launcher) {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            launcher.launch(takePictureIntent);
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            return logoutUser();
-        }
-        if (id == R.id.action_settings) {
-            return settings();
-        }
-        if (id == R.id.action_help) {
-            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private boolean logoutUser() {
-        FirebaseAuth.getInstance().signOut();
-        // Redirect to login screen or any other desired activity
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
-        finish();
-        return true;
-    }
-
-    private boolean settings() {
-        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
-        startActivity(intent);
-        return true;
     }
 }

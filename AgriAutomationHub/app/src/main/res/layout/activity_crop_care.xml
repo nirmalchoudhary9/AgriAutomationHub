@@ -52,8 +52,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 tools:src="@tools:sample/avatars" />
 
@@ -157,7 +157,7 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
@@ -165,11 +165,15 @@
 
             <TextView
                 android:id="@+id/cureTextView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:padding="16dp"
+                android:textAlignment="viewStart"
+                android:gravity="start"
+                android:textSize="16sp"
+                android:justificationMode="inter_word" />
+
+
         </LinearLayout>
     </ScrollView>
 

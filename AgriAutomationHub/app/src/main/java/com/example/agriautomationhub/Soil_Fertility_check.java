@@ -1,6 +1,7 @@
 package com.example.agriautomationhub;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Locale;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,6 +46,32 @@ public class Soil_Fertility_check extends AppCompatActivity {
         btnCheck = findViewById(R.id.btnCheck);
 
         btnCheck.setOnClickListener(v -> checkSoilFertility());
+
+        // Create the AlertDialog builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        // Set the alert message and title
+        builder.setMessage("It is in progress.")
+                .setTitle("Welcome to the this page");
+
+        // Set the positive button action (OK button)
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User clicked OK button, you can perform any action here if needed
+                dialog.dismiss();
+            }
+        });
+
+//         Optionally, you can add a Cancel button or other buttons
+//         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//             public void onClick(DialogInterface dialog, int id) {
+//                 dialog.cancel();
+//             }
+//         });
+
+        // Create and show the AlertDialog
+        AlertDialog alert = builder.create();
+        alert.show();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_soil_check);
 

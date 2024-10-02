@@ -1,6 +1,7 @@
 package com.example.agriautomationhub;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -21,6 +22,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,17 +52,14 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
     private FusedLocationProviderClient fusedLocationClient;
     private NetworkChangeReceiver networkChangeReceiver;
 
-    private ViewPager2 viewPager2;
-    private ServicesAdapter adapter;
-    private List<Service> serviceList;
-
+    /** @noinspection deprecation*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Initialize Firebase
-        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseAuth.getInstance();
 
         weatherInfo = findViewById(R.id.weather_info);
         weatherLocation = findViewById(R.id.weather_location);
@@ -72,6 +71,13 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         } else {
             getLastLocation();
         }
+
+        FloatingActionButton fabChatBot = findViewById(R.id.fabChatBot);
+        fabChatBot.setOnClickListener(view -> {
+            // Open the ChatActivity
+            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+            startActivity(intent);
+        });
 
         LinearLayout fertilizer = findViewById(R.id.fertilizer_calculator);
         fertilizer.setOnClickListener(v -> {
@@ -105,14 +111,14 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
     }
 
     private void initializeServices() {
-        viewPager2 = findViewById(R.id.viewPagerServices);
-        serviceList = new ArrayList<>();
+        ViewPager2 viewPager2 = findViewById(R.id.viewPagerServices);
+        List<Service> serviceList = new ArrayList<>();
         serviceList.add(new Service("Auto Irrigation", R.drawable.auto));
-        serviceList.add(new Service("Soil Fertility Check", R.drawable.soil));
         serviceList.add(new Service("Crop Disease Info", R.drawable.crop_disease));
         serviceList.add(new Service("Crop Recommender", R.drawable.crop_recommender));
+        serviceList.add(new Service("Soil Fertility Check", R.drawable.soil));
 
-        adapter = new ServicesAdapter(this, serviceList, this);
+        ServicesAdapter adapter = new ServicesAdapter(this, serviceList, this);
         viewPager2.setAdapter(adapter);
 
         // Setup TabLayout with ViewPager2
@@ -184,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         return true;
     }
 
+    @SuppressLint("SetTextI18n")
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -215,8 +222,9 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         Log.d(TAG, "Request URL: " + call.request().url());  // Log the request URL
 
         call.enqueue(new Callback<WeatherResponse>() {
+            @SuppressLint("SetTextI18n")
             @Override
-            public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
+            public void onResponse(@NonNull Call<WeatherResponse> call, @NonNull Response<WeatherResponse> response) {
                 Log.d(TAG, "Response code: " + response.code());  // Log the response code
                 if (response.isSuccessful()) {
                     WeatherResponse weatherResponse = response.body();
@@ -243,6 +251,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
                 } else {
                     weatherInfo.setText("Failed to get weather data");
                     try {
+                        assert response.errorBody() != null;
                         Log.e(TAG, "Response not successful: " + response.errorBody().string());
                     } catch (Exception e) {
                         Log.e(TAG, "Error reading error body", e);
@@ -250,8 +259,9 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
                 }
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
-            public void onFailure(Call<WeatherResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<WeatherResponse> call, @NonNull Throwable t) {
                 weatherInfo.setText("Failed to get weather data");
                 Log.e(TAG, "API call failed: ", t);
             }
@@ -260,6 +270,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
 
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -272,6 +283,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onNetworkChange(boolean isConnected) {
         if (isConnected) {
