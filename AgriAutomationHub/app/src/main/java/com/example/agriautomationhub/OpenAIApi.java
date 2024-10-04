@@ -10,7 +10,7 @@ public interface OpenAIApi {
     // Define the endpoint for GPT-4 (completion endpoint)
     @Headers({
             "Content-Type: application/json",
-            "Authorization: Bearer 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"
+            "Authorization: Bearer <--OpenAi-API-->"
     })
 
     @POST("v1/chat/completions")
