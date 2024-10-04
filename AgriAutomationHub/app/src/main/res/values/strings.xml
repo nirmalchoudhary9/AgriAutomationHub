@@ -116,5 +116,6 @@
         <!-- Add more crops as needed -->
     </string-array>
     <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+    <string name="crop_not_detected">Crop Not Detected</string>
 
 </resources>
