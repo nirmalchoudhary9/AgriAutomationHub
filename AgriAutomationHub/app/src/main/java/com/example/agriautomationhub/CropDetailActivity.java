@@ -22,6 +22,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -36,6 +37,7 @@ public class CropDetailActivity extends AppCompatActivity {
     CropDetailAdapter listAdapter;
     List<String> listDataHeader;
     HashMap<String, List<Object>> listDataChild;
+    String current_lang = null;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -102,18 +104,17 @@ public class CropDetailActivity extends AppCompatActivity {
         try {
             // Get the app language instead of system language
             String currentLanguage = getAppLanguage(); // Use the custom method
-            String jsonFileName = "crop_details_en.json"; // Default to English JSON
+            String jsonFileName; // Default to English JSON
+            current_lang = currentLanguage;
 
             // Choose the appropriate JSON file based on the language
             switch (currentLanguage) {
                 case "hi": // Hindi
                     jsonFileName = "crop_details_hindi.json";
                     break;
-                case "es": // Spanish
-                    jsonFileName = "crop_details_es.json";  // Spanish JSON file
-                    break;
-                // Add other language cases if needed
                 case "en":
+                    jsonFileName = "crop_details_en.json";  // Spanish JSON file
+                    break;
                 default:
                     jsonFileName = "crop_details_en.json"; // Default to English
                     break;
@@ -139,19 +140,19 @@ public class CropDetailActivity extends AppCompatActivity {
                 listDataChild = new HashMap<>();
 
                 // Populate the expandable list with crop details
-                populateListData(cropObject, "Plant Selection");
-                populateListData(cropObject, "Planting");
-                populateListData(cropObject, "Monitoring");
-                populateListData(cropObject, "Site Selection");
-                populateListData(cropObject, "Field Preparation");
-                populateListData(cropObject, "Weeding");
-                populateListData(cropObject, "Irrigation");
-                populateListData(cropObject, "Fertilization Organic");
-                populateListData(cropObject, "Fertilization Chemical");
-                populateListData(cropObject, "Preventive Measure");
-                populateListData(cropObject, "Plant Protection Chemical");
-                populateListData(cropObject, "Harvesting");
-                populateListData(cropObject, "Post-Harvest");
+                if(current_lang.equals("en"))
+                {
+                    for (String s : Arrays.asList("Plant Selection", "Planting", "Monitoring", "Site Selection", "Field Preparation", "Weeding", "Irrigation", "Fertilization Organic", "Fertilization Chemical", "Preventive Measure", "Plant Protection Chemical", "Harvesting", "Post-Harvest")) {
+                        populateListData(cropObject, s);
+                    }
+                }
+                else if(current_lang.equals("hi"))
+                {
+                    for (String s : Arrays.asList("पौधों का चयन", "बीजाई", "निगरानी", "स्थान चयन", "फसल की तैयारी", "खरपतवार", "सिंचाई", "कार्बनिक उर्वरक", "रासायनिक उर्वरक", "निवारक उपाय", "रसायनिक संरक्षण", "कटाई", "पोस्ट-हार्वेस्ट")) {
+                        populateListData(cropObject, s);
+                    }
+                }
+
 
                 listAdapter = new CropDetailAdapter(this, listDataHeader, listDataChild);
                 expandableListView.setAdapter(listAdapter);

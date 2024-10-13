@@ -28,9 +28,9 @@
         <activity
             android:name=".MarketViewActivity"
             android:exported="false" />
-        <activity
-            android:name=".ChatActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ChatActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".SellingPriceCalculatorActivity"
             android:exported="false" />
