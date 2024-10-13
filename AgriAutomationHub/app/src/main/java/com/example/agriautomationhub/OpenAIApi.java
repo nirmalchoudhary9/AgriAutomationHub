@@ -7,13 +7,12 @@ import retrofit2.http.POST;
 
 public interface OpenAIApi {
 
-    // Define the endpoint for GPT-4 (completion endpoint)
     @Headers({
             "Content-Type: application/json",
-            "Authorization: Bearer <--OpenAi-API-->"
+            "api-key: 660e9a7d457142afb65dc7cb0ae049c4"  // Replace with Azure OpenAI API Key
     })
-
-    @POST("v1/chat/completions")
+    @POST("/openai/deployments/gpt-35-turbo-16k/chat/completions?api-version=2024-08-01-preview")
     Call<GPTResponse> getGPTResponse(@Body GPTRequest request);
 }
+
 

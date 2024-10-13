@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
             getLastLocation();
         }
 
-//        FloatingActionButton fabChatBot = findViewById(R.id.fabChatBot);
-//        fabChatBot.setOnClickListener(view -> {
-//            // Open the ChatActivity
-//            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-//            startActivity(intent);
-//        });
+        FloatingActionButton fabChatBot = findViewById(R.id.fabChatBot);
+        fabChatBot.setOnClickListener(view -> {
+            // Open the ChatActivity
+            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+            startActivity(intent);
+        });
 
         LinearLayout fertilizer = findViewById(R.id.fertilizer_calculator);
         fertilizer.setOnClickListener(v -> {

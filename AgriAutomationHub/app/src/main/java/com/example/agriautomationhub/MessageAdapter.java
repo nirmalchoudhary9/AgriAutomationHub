@@ -8,31 +8,51 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
-    private List<ChatMessage> messageList;  // Changed Message to ChatMessage
+public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private static final int VIEW_TYPE_USER = 1;
+    private static final int VIEW_TYPE_BOT = 2;
 
-    public MessageAdapter(List<ChatMessage> messageList) {  // Changed Message to ChatMessage
+    private List<ChatMessage> messageList;
+
+    public MessageAdapter(List<ChatMessage> messageList) {
         this.messageList = messageList;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        // Determine the view type based on whether the message is sent by the user
+        ChatMessage message = messageList.get(position);
+        if (message.isSentByUser()) {
+            return VIEW_TYPE_USER;
+        } else {
+            return VIEW_TYPE_BOT;
+        }
     }
 
     @NonNull
     @Override
-    public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_message, parent, false);
-        return new MessageViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == VIEW_TYPE_USER) {
+            // Inflate user message layout
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_user_message, parent, false);
+            return new UserMessageViewHolder(view);
+        } else {
+            // Inflate bot message layout
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_bot_message, parent, false);
+            return new BotMessageViewHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
-        ChatMessage message = messageList.get(position);  // Changed Message to ChatMessage
-        holder.textViewMessage.setText(message.getMessage());
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        ChatMessage message = messageList.get(position);
 
-        // Check if the message was sent by the user or the bot
-        if (message.isSentByUser()) {
-            holder.textViewMessage.setBackgroundResource(R.drawable.user_message_background);
-        } else {
-            holder.textViewMessage.setBackgroundResource(R.drawable.bot_message_background);
+        if (holder instanceof UserMessageViewHolder) {
+            ((UserMessageViewHolder) holder).textViewMessage.setText(message.getMessage());
+        } else if (holder instanceof BotMessageViewHolder) {
+            ((BotMessageViewHolder) holder).textViewMessage.setText(message.getMessage());
         }
     }
 
@@ -41,12 +61,24 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         return messageList.size();
     }
 
-    public static class MessageViewHolder extends RecyclerView.ViewHolder {
+    // ViewHolder for user messages
+    public static class UserMessageViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewMessage;
 
-        public MessageViewHolder(View itemView) {
+        public UserMessageViewHolder(View itemView) {
             super(itemView);
-            textViewMessage = itemView.findViewById(R.id.textViewMessage);
+            textViewMessage = itemView.findViewById(R.id.textViewUserMessage);  // Use user-specific TextView ID
+        }
+    }
+
+    // ViewHolder for bot messages
+    public static class BotMessageViewHolder extends RecyclerView.ViewHolder {
+        public TextView textViewMessage;
+
+        public BotMessageViewHolder(View itemView) {
+            super(itemView);
+            textViewMessage = itemView.findViewById(R.id.textViewBotMessage);  // Use bot-specific TextView ID
         }
     }
 }
+

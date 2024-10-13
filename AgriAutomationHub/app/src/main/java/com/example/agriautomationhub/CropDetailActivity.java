@@ -113,7 +113,7 @@ public class CropDetailActivity extends AppCompatActivity {
                     jsonFileName = "crop_details_hindi.json";
                     break;
                 case "en":
-                    jsonFileName = "crop_details_en.json";  // Spanish JSON file
+                    jsonFileName = "crop_details_en.json";
                     break;
                 default:
                     jsonFileName = "crop_details_en.json"; // Default to English
