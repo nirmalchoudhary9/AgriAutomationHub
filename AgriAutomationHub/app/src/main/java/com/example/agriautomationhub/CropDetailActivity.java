@@ -1,6 +1,8 @@
 package com.example.agriautomationhub;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,9 +13,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import java.util.Locale;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class CropDetailActivity extends AppCompatActivity {
@@ -34,6 +36,16 @@ public class CropDetailActivity extends AppCompatActivity {
     CropDetailAdapter listAdapter;
     List<String> listDataHeader;
     HashMap<String, List<Object>> listDataChild;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        // Get the saved language from shared preferences
+        SharedPreferences sharedPreferences = newBase.getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
+        String language = sharedPreferences.getString("app_language", "en");  // Default to English if not set
+
+        Context context = LocaleHelper.setLocale(newBase);
+        super.attachBaseContext(context);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +74,8 @@ public class CropDetailActivity extends AppCompatActivity {
             startActivity(intent.get());
             finish();
         });
-
     }
+
     // Method to capitalize the first letter of each word
     private String capitalizeFirstLetter(String input) {
         StringBuilder result = new StringBuilder(input.length());
@@ -80,17 +92,41 @@ public class CropDetailActivity extends AppCompatActivity {
         return result.toString();
     }
 
+    private String getAppLanguage() {
+        // Retrieve the selected language from shared preferences
+        SharedPreferences preferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        return preferences.getString("AppLanguage", Locale.getDefault().getLanguage());
+    }
+
     private void loadCropDetails(String cropName) {
         try {
-            InputStream inputStream = getAssets().open("crop_details.json");
+            // Get the app language instead of system language
+            String currentLanguage = getAppLanguage(); // Use the custom method
+            String jsonFileName = "crop_details_en.json"; // Default to English JSON
+
+            // Choose the appropriate JSON file based on the language
+            switch (currentLanguage) {
+                case "hi": // Hindi
+                    jsonFileName = "crop_details_hindi.json";
+                    break;
+                case "es": // Spanish
+                    jsonFileName = "crop_details_es.json";  // Spanish JSON file
+                    break;
+                // Add other language cases if needed
+                case "en":
+                default:
+                    jsonFileName = "crop_details_en.json"; // Default to English
+                    break;
+            }
+
+            Log.d(TAG, "Loading JSON file: " + jsonFileName);
+
+            // Load the appropriate JSON file
+            InputStream inputStream = getAssets().open(jsonFileName);
             int size = inputStream.available();
             byte[] buffer = new byte[size];
-            int bytesRead = inputStream.read(buffer);
+            inputStream.read(buffer);
             inputStream.close();
-
-            if (bytesRead != size) {
-                throw new IOException("Could not read the entire file");
-            }
 
             String json = new String(buffer, "UTF-8");
             JSONObject jsonObject = new JSONObject(json);
@@ -102,6 +138,7 @@ public class CropDetailActivity extends AppCompatActivity {
                 listDataHeader = new ArrayList<>();
                 listDataChild = new HashMap<>();
 
+                // Populate the expandable list with crop details
                 populateListData(cropObject, "Plant Selection");
                 populateListData(cropObject, "Planting");
                 populateListData(cropObject, "Monitoring");
@@ -149,9 +186,9 @@ public class CropDetailActivity extends AppCompatActivity {
                 childList.add(nestedJsonString);
             } else if (value instanceof String) {
                 childList.add(nestedKey + ": " + value);
-            } else if (value instanceof org.json.JSONArray) {
+            } else if (value instanceof JSONArray) {
                 List<String> arrayValues = new ArrayList<>();
-                org.json.JSONArray jsonArray = (org.json.JSONArray) value;
+                JSONArray jsonArray = (JSONArray) value;
                 for (int i = 0; i < jsonArray.length(); i++) {
                     arrayValues.add(jsonArray.getString(i));
                 }
@@ -173,9 +210,9 @@ public class CropDetailActivity extends AppCompatActivity {
                 sb.append(parseNestedJSONObjectToString(nestedKey, (JSONObject) value));
             } else if (value instanceof String) {
                 sb.append(nestedKey).append(": ").append(value).append("\n");
-            } else if (value instanceof org.json.JSONArray) {
+            } else if (value instanceof JSONArray) {
                 List<String> arrayValues = new ArrayList<>();
-                org.json.JSONArray jsonArray = (org.json.JSONArray) value;
+                JSONArray jsonArray = (JSONArray) value;
                 for (int i = 0; i < jsonArray.length(); i++) {
                     arrayValues.add(jsonArray.getString(i));
                 }
@@ -210,8 +247,10 @@ public class CropDetailActivity extends AppCompatActivity {
 
     private boolean logoutUser() {
         FirebaseAuth.getInstance().signOut();
-        // Redirect to login screen or any other desired activity
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
         return true;

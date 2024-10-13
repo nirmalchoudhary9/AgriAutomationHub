@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder> {
 
     private Context context;
@@ -35,7 +34,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Service service = serviceList.get(position);
-        holder.serviceName.setText(service.getName());
+        holder.serviceName.setText(context.getString(service.getName())); // Get the name using context
         holder.serviceImage.setImageResource(service.getImageResId());
         holder.itemView.setOnClickListener(v -> listener.onServiceClick(service));
     }

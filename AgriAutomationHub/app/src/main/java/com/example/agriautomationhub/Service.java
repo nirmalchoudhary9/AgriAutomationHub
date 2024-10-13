@@ -1,19 +1,20 @@
 package com.example.agriautomationhub;
 
 public class Service {
-    private String name;
-    private int imageResource;
+    private int nameResId;
+    private int imageResId;
 
-    public Service(String name, int imageResource) {
-        this.name = name;
-        this.imageResource = imageResource;
+    public Service(int nameResId, int imageResId) {
+        this.nameResId = nameResId;
+        this.imageResId = imageResId;
     }
 
-    public String getName() {
-        return name;
+    public int getName() {
+        return nameResId; // Just return the resource ID
     }
 
     public int getImageResId() {
-        return imageResource;
+        return imageResId;
     }
 }
+
