@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Crop Detail"
+            android:text="@string/crop_detail"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -39,7 +39,7 @@
         android:textColor="@color/primary_text"
         android:layout_marginBottom="16dp"
         android:layout_gravity="center_horizontal"
-        android:text="Crop Name" />
+        android:text="@string/crop_name" />
 
     <View
         android:layout_width="match_parent"

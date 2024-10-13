@@ -14,11 +14,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="auto_irrigation">Auto Irrigation</string>
-    <string name="soil_fertility_check">Soil Fertility Check</string>
-    <string name="livestock_monitoring">Livestock Monitoring</string>
     <string name="fertilizer_recommendation">Fertilizer Recommendation</string>
-    <string name="fertilizer_spray">Fertilizer Spray</string>
-    <string name="crop_disease_prediction">Crop Disease Prediction</string>
+    <string name="crop_disease_prediction">Crop Care</string>
     <string name="welcome_message">Hello Farmers</string>
     <string name="services">Services</string>
     <string name="home">Home</string>
@@ -37,6 +34,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="action_logout">Logout</string>
     <string name="irrigation">Irrigation</string>
+    <string name="crop_care">Crop Care</string>
     <string name="humidity">Humidity</string>
     <string name="temperature">Temperature</string>
     <string name="manual_mode">Manual Mode</string>
@@ -59,8 +57,6 @@
     <string name="today_s_weather">Today\'s Weather</string>
     <string name="location">Location</string>
     <string name="loading_weather">Loading weather...</string>
-    <string name="crop_care">Crop Care</string>
-    <string name="fertilizer_nrecommender">Fertilizer\nRecommender</string>
     <string name="top_news">Top News</string>
     <string name="register">Register</string>
     <string name="cilck_here_to_login">Cilck Here To Login</string>
@@ -117,5 +113,42 @@
     </string-array>
     <string name="title_activity_navigation_drawer">NavigationDrawer</string>
     <string name="crop_not_detected">Crop Not Detected</string>
+    <string name="fertilizer_calculator">Fertilizer Calculator</string>
+    <string name="soil_ph">Soil pH</string>
+    <string name="enter_soil_ph">Enter Soil pH</string>
+    <string name="crop_type">Crop Type</string>
+    <string name="land_area_in_hectares">Land Area (in hectares)</string>
+    <string name="enter_land_area">Enter Land Area</string>
+    <string name="calculate_fertilizer">Calculate Fertilizer</string>
+    <string name="fertilizer_requirement_will_be_displayed_here">Fertilizer requirement will be displayed here</string>
+    <string name="location_your_location">Location: [Your Location]</string>
+    <string name="farmer_services">Farmer Services</string>
+    <string name="mandi_crop_price">Mandi Crop Price</string>
+    <string name="report_date">Report Date</string>
+    <string name="select_date">Select Date</string>
+    <string name="district_name">District Name</string>
+    <string name="mandi_detail">Mandi Detail</string>
+    <string name="service_name">Service Name</string>
+    <string name="crop_recommendation">Crop Recommendation</string>
+    <string name="enter_data_in_input_fields_to_get_recommendation">Enter data in input fields to get Recommendation</string>
+    <string name="nitrogen_n">Nitrogen (N):</string>
+    <string name="enter_nitrogen_level">Enter Nitrogen level</string>
+    <string name="phosphorus_p">Phosphorus (P):</string>
+    <string name="enter_phosphorus_level">Enter Phosphorus level</string>
+    <string name="potassium_k">Potassium (K):</string>
+    <string name="enter_potassium_level">Enter Potassium level</string>
+    <string name="enter_temperature">Enter Temperature</string>
+    <string name="enter_humidity_level">Enter Humidity level</string>
+    <string name="ph">pH:</string>
+    <string name="enter_ph_level">Enter pH level</string>
+    <string name="rainfall">Rainfall:</string>
+    <string name="enter_rainfall_level">Enter Rainfall level</string>
+    <string name="get_recommendation">Get Recommendation</string>
+    <string name="recommendation_will_be_displayed_here">Recommendation will be displayed here</string>
+    <string name="get_details_about_crop">Get Details about Crop</string>
+    <string name="selling_price_calculator">Selling Price Calculator</string>
+    <string name="condition">Condition</string>
+    <string name="crop_detail">Crop Detail</string>
+    <string name="crop_name">Crop Name</string>
 
 </resources>

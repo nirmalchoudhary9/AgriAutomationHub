@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Mandi Crop Price"
+            android:text="@string/mandi_crop_price"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:gravity="center"
-                        android:text="Report Date"
+                        android:text="@string/report_date"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:layout_weight="1"/>
@@ -75,7 +75,7 @@
                         android:focusable="false"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="Select Date"
+                        android:text="@string/select_date"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:layout_weight="1"
@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:gravity="center"
-                        android:text="District Name"
+                        android:text="@string/district_name"
                         android:textColor="#101010"
                         android:textSize="18sp"
                         android:layout_weight="1"/>

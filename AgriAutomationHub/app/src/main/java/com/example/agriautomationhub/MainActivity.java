@@ -1,11 +1,15 @@
 package com.example.agriautomationhub;
 
+import static org.apache.commons.compress.harmony.archive.internal.nls.Messages.setLocale;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.health.connect.datatypes.units.Temperature;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -55,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
     /** @noinspection deprecation*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        String language = preferences.getString("My_Lang", "");
+        setLocale(language);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -72,12 +79,12 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
             getLastLocation();
         }
 
-        FloatingActionButton fabChatBot = findViewById(R.id.fabChatBot);
-        fabChatBot.setOnClickListener(view -> {
-            // Open the ChatActivity
-            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-            startActivity(intent);
-        });
+//        FloatingActionButton fabChatBot = findViewById(R.id.fabChatBot);
+//        fabChatBot.setOnClickListener(view -> {
+//            // Open the ChatActivity
+//            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+//            startActivity(intent);
+//        });
 
         LinearLayout fertilizer = findViewById(R.id.fertilizer_calculator);
         fertilizer.setOnClickListener(v -> {
@@ -85,11 +92,6 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
             startActivity(intent);
         });
 
-        LinearLayout selling_price = findViewById(R.id.price_calculator);
-        selling_price.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, SellingPriceCalculatorActivity.class);
-            startActivity(intent);
-        });
 
         initializeServices();
         initializeBottomNavigation();
@@ -97,6 +99,14 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         // Register network change receiver
         networkChangeReceiver = new NetworkChangeReceiver(this);
         registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
     }
 
     @Override
@@ -113,10 +123,10 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
     private void initializeServices() {
         ViewPager2 viewPager2 = findViewById(R.id.viewPagerServices);
         List<Service> serviceList = new ArrayList<>();
-        serviceList.add(new Service("Auto Irrigation", R.drawable.auto));
-        serviceList.add(new Service("Crop Disease Info", R.drawable.crop_disease));
-        serviceList.add(new Service("Crop Recommender", R.drawable.crop_recommender));
-        serviceList.add(new Service("Soil Fertility Check", R.drawable.soil));
+        serviceList.add(new Service(R.string.auto_irrigation, R.drawable.auto));
+        serviceList.add(new Service(R.string.crop_care, R.drawable.crop_disease));
+        serviceList.add(new Service(R.string.crop_recommendation, R.drawable.crop_recommender));
+        serviceList.add(new Service(R.string.selling_price_calculator, R.drawable.market_view_icon));
 
         ServicesAdapter adapter = new ServicesAdapter(this, serviceList, this);
         viewPager2.setAdapter(adapter);
@@ -136,6 +146,9 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
                 return true;
             } else if (id == R.id.navigation_news) {
                 startActivity(new Intent(MainActivity.this, NewsActivity.class));
+                return true;
+            } else if (id == R.id.navigation_marketView) {
+                startActivity(new Intent(MainActivity.this, MarketViewActivity.class));
                 return true;
             } else if (id == R.id.navigation_mandi) {
                 startActivity(new Intent(MainActivity.this, MandiActivity.class));
@@ -235,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
                         String location = weatherResponse.getName(); // Get the location
 
                         // Get current date
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM", Locale.getDefault());
                         String currentDate = dateFormat.format(new Date());
 
                         String weatherText = "Temperature: " + temp + "°C\n" +
@@ -296,25 +309,22 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
     @Override
     public void onServiceClick(Service service) {
         if (service != null) {
-            switch (service.getName()) {
-                case "Auto Irrigation":
-                    startActivity(new Intent(this, Automatic_Irrigation.class));
-                    break;
-                case "Soil Fertility Check":
-                    startActivity(new Intent(this, Soil_Fertility_check.class));
-                    break;
-                case "Crop Disease Info":
-                    startActivity(new Intent(this, CropCareActivity.class));
-                    break;
-                case "Crop Recommender":
-                    startActivity(new Intent(this, CropRecommenderActivity.class));
-                    break;
-                default:
-                    Log.e(TAG, "Unknown service: " + service.getName());
-                    break;
+            int serviceNameResId = service.getName(); // Get the resource ID directly
+
+            if (serviceNameResId == R.string.auto_irrigation) {
+                startActivity(new Intent(this, Automatic_Irrigation.class));
+            } else if (serviceNameResId == R.string.crop_care) {
+                startActivity(new Intent(this, CropCareActivity.class));
+            } else if (serviceNameResId == R.string.crop_recommendation) {
+                startActivity(new Intent(this, CropRecommenderActivity.class));
+            } else if (serviceNameResId == R.string.selling_price_calculator) {
+                startActivity(new Intent(MainActivity.this, SellingPriceCalculatorActivity.class));
+            } else {
+                Log.e(TAG, "Unknown service: " + getString(serviceNameResId));
             }
         } else {
             Log.e(TAG, "Service is null");
         }
     }
+
 }
