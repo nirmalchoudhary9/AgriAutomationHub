@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textViewCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:layout_weight="1"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewExpenseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expense Name"
+        android:layout_weight="2" />
+
+    <TextView
+        android:id="@+id/textViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:layout_weight="1" />
+
+    <ImageButton
+        android:id="@+id/imageButtonOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_more"
+        android:contentDescription="More options" />
+
+</LinearLayout>

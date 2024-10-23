@@ -1,0 +1,1318 @@
+{
+   "rice":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Select rice varieties like IR64 or MTU1010 three weeks before planting. IR64 is high-yielding, disease-resistant, and suited for well-irrigated areas. MTU1010 is drought-tolerant and performs well with variable water availability. Choose based on local water conditions, pest pressures, and soil. Consult local experts for the best variety.",
+         "Variety Details": "IR64 offers high yields and disease resistance, especially against rice blast and brown planthopper, making it ideal for consistent water availability. MTU1010 is drought-resistant, suitable for areas with variable water, and resists pests like the rice stem borer and sheath blight. Both varieties suit different conditions; choose based on local climate and water availability."
+      },
+      "Planting": {
+         "Method": "Transplant rice seedlings from a well-fertilized nursery bed into a flooded field 5-10 cm deep. This method reduces weed competition and supports root establishment. Maintain consistent flooding throughout the season.",
+         "Spacing": "Space rice seedlings 25x25 cm to allow proper growth and reduce competition. Mark the field in a grid pattern to ensure uniform spacing.",
+         "Depth": "Plant rice seedlings at a depth of 2-3 cm in flooded fields. This depth ensures proper root establishment and minimizes weed competition. Regularly check and adjust water levels to maintain ideal planting depth."
+      },
+      "Monitoring": {
+         "Pests": "Monitor for Brown Planthopper and Rice Weevil. Brown Planthopper affects plant vigor and can spread diseases. Look for yellowing leaves and stunted growth. Rice Weevil damages stored grains. Check for damaged grains and weevils in storage. Use integrated pest management strategies for control.",
+         "Diseases": "Watch for Rice Blast and Sheath Blight. Rice Blast causes lesions and affects grain production. Sheath Blight causes water-soaked lesions and reduces yield. Use resistant varieties, crop rotation, and fungicides as needed.",
+         "Nutrient Levels": "Regularly test soil for nutrients like nitrogen, phosphorus, and potassium. Adjust fertilization based on test results to address deficiencies and balance nutrient levels. Monitor plant growth to ensure adequate nutrients throughout the growing season."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained, fertile clayey soils for rice, which retain moisture and support root growth. Ideal pH is 5.5 to 7.0. Conduct soil tests for texture, pH, and nutrients. Improve soil with organic matter like compost or manure to enhance fertility and structure.",
+         "Climate": "Rice needs warm temperatures (20°C to 35°C) and abundant water. Ensure the field has adequate rainfall or reliable irrigation. Avoid areas with excessive waterlogging or prolonged dry spells."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Plow and level the field to break up clumps and create a smooth surface. Flood the field to form a puddled seedbed, which helps with weed control and seedling establishment. Maintain consistent water levels during seedling growth.",
+         "Organic Matter": "Incorporate 5-10 tons of well-rotted manure per hectare before flooding. Organic matter improves soil fertility, moisture retention, and structure. Mix thoroughly into the soil to enhance plant health and crop performance."
+      },
+      "Weeding": {
+         "Frequency": "Weed 2-3 times during the growing season. The first weeding should be after transplanting to remove early weeds. Subsequent weeding should align with plant growth stages and weed infestation levels.",
+         "Methods": "Weeding can be done manually with hand tools or using herbicides like Pretilachlor. Manual weeding is precise but labor-intensive, while herbicides are more efficient. Combine methods for comprehensive weed control."
+      },
+      "Irrigation": {
+         "Method": "Maintain a flooded field with 5-10 cm of standing water to support rice growth, root development, and reduce weed competition. Monitor and adjust water levels based on plant needs and weather conditions.",
+         "Schedule": "Keep the field consistently flooded, especially during critical growth stages like grain filling. Avoid letting the field dry out and ensure proper drainage during heavy rainfall to prevent waterlogging.",
+         "Management": "Regularly check water levels to avoid stagnation and wastage. Techniques like alternate wetting and drying (AWD) can optimize water use. Adjust irrigation based on plant needs and environmental conditions for best results."
+      },
+      "Fertilization Organic": {
+         "Materials": "Apply 5-10 tons of well-decomposed manure per hectare. Organic materials like compost enhance soil fertility, structure, and microbial activity. Incorporate before planting and apply regularly throughout the growing season.",
+         "Timing": "Incorporate organic materials during land preparation before flooding. This allows decomposition and nutrient release. Regularly assess soil nutrients and apply additional organic materials as needed."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply NPK fertilizers at 120:60:60 kg/ha. Nitrogen promotes growth, phosphorus supports root and grain development, and potassium improves disease resistance. Adjust based on soil tests and plant needs.",
+         "Timing": "Apply nitrogen in split doses after transplanting and during key growth stages. Phosphorus and potassium should be applied at planting. Monitor and adjust based on plant growth and soil test results."
+      },
+      "Preventive Measure": {
+         "Methods": "Use resistant rice varieties and maintain field hygiene to manage pests and diseases. Inspect regularly, practice crop rotation, and remove infected debris. Adjust practices based on environmental conditions.",
+         "Equipment": "Clean and sterilize tools and equipment to prevent pest and disease spread. Maintain and repair equipment regularly to ensure it is free from debris and plant residues."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use Imidacloprid for Brown Planthoppers and Tricyclazole for Rice Blast. Follow manufacturer guidelines for application rates and timings. Integrate pest management (IPM) strategies to reduce chemical use and promote sustainable practices.",
+         "Application": "Apply pesticides according to recommended schedules and dosages. Treat fields when pests or symptoms first appear. Use appropriate methods like spraying or soil incorporation and train personnel in proper handling techniques."
+      },
+      "Harvesting": {
+         "Timing": "Harvest when grains are firm and golden brown, indicating full maturity. Monitor for ripeness and check moisture content to avoid premature or delayed harvest, which can affect yield and quality.",
+         "Method": "Use combine harvesters for efficiency in large fields, or manual methods like sickles for smaller areas. Handle rice carefully to prevent grain damage and transport promptly to processing areas.",
+         "Handling": "Handle harvested rice gently to avoid damage. Use clean, dry containers for transport and storage. Store rice in a cool, dry environment and inspect regularly for pests or moisture issues."
+      },
+      "Post-Harvest": {
+         "Drying": "Dry paddy rice to about 14% moisture to prevent spoilage. Use sun drying, mechanical dryers, or a combination. Ensure even drying to maintain quality and avoid over-drying.",
+         "Storage": "Store dried rice in a cool, dry place with good ventilation. Use airtight containers and inspect regularly for pests or moisture. Rotate stock and monitor storage conditions to preserve quality.",
+         "Processing": "Milling removes husks from paddy rice using mills or dehuskers. Sort and polish rice to improve quality. Package and store processed rice in clean, dry conditions for market readiness."
+      }
+   },
+   "maize":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Choose maize varieties suited to your climate and soil. HM4 offers high yield and disease resistance, while NK6240 provides drought tolerance. Select varieties based on pest resistance, growth duration, and environmental adaptability to enhance productivity.",
+         "Variety Details": "HM4 maize is known for high yield and resistance to diseases like rust and blight, and pests like the maize weevil. NK6240 is valued for drought tolerance, maintaining yields under water stress. Both varieties are bred for traits such as yield, disease resistance, and adaptability. Consider nutrient and pest management needs specific to the variety."
+      },
+      "Planting": {
+         "Method": "Direct sow seeds into well-prepared soil. Plow to 20-25 cm depth, then harrow to create a fine seedbed. Seeds can be planted manually or using mechanized equipment like precision planters for accurate depth (5-7 cm) and spacing.",
+         "Spacing": "Space maize plants 75 cm apart between rows and 25 cm within rows. This spacing supports plant growth and access to resources, reduces disease risk, and facilitates field operations. Adjust spacing based on disease pressure, irrigation, and equipment use.",
+         "Depth": "Plant maize seeds at a depth of 5-7 cm. This depth ensures good seed-to-soil contact, promotes germination, and protects seeds from temperature fluctuations and pests. Use calibrated planting tools for consistency."
+      },
+      "Monitoring": {
+         "Pests": "Monitor for maize pests like maize weevils and armyworms. Check stored maize for signs of maize weevils, such as holes in kernels and weevil presence. Manage with proper storage, pest-resistant packaging, and regular inspection. In fields, monitor for armyworms by inspecting for chewed leaves and larvae. Use integrated pest management (IPM) strategies, including biological controls, chemical treatments, and cultural practices, to manage pests effectively.",
+         "Diseases": "Regularly inspect maize for diseases like rust and blight. Rust appears as reddish-brown pustules on leaves and stems, reducing photosynthesis and yield. Implement preventive measures such as resistant varieties and fungicides. Blight causes wilting and plant death, with symptoms including yellowing leaves and necrotic spots. Manage blight with crop rotation, proper spacing, and timely fungicide application.",
+         "Nutrient Levels": "Regularly test soil for key nutrients—nitrogen (N), phosphorus (P), and potassium (K). Nitrogen supports growth, phosphorus aids root development, and potassium enhances stress resistance. Adjust fertilization based on soil test results to meet maize needs. Implement a balanced fertilization program to avoid deficiencies or excesses and optimize crop performance."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained, fertile loamy soils for maize, avoiding poor drainage or high clay content. Conduct soil tests to check fertility and pH, aiming for a pH range of 5.8 to 7.0. Prepare the soil with plowing and harrowing to create a fine, well-structured seedbed for optimal seed germination and root growth.",
+         "Climate": "Maize thrives in warm climates with temperatures between 18-30°C and requires a minimum soil temperature of 10-12°C for germination. Ensure 500-800 mm of rainfall during the growing season or use irrigation in regions with irregular rainfall. Adjust planting schedules based on local climate patterns for optimal growth."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Plow the field to 20-25 cm depth to improve soil structure and aerate the soil. Use a harrow to create a fine, even seedbed and remove debris, weeds, and rocks. Consider incorporating organic matter, like compost or well-rotted manure, to enhance soil fertility, moisture retention, and microbial activity.",
+         "Organic Matter": "Apply 5-10 tons of well-decomposed organic matter per hectare before planting. Spread it evenly and incorporate it into the top 15-20 cm of soil. Organic matter improves soil structure, increases water-holding capacity, and provides slow-release nutrients, supporting plant growth and reducing the need for chemical fertilizers."
+      },
+      "Weeding": {
+         "Frequency": "Weeding is crucial in maize cultivation to reduce competition for resources and maintain healthy plant growth. Perform weeding 2-3 times during the growing season, depending on weed pressure and growth conditions. Timely weeding prevents weeds from establishing and competing with maize plants. Monitor the field regularly and weed carefully to avoid damaging maize plants. In addition to manual weeding, consider using herbicides for effective weed control.",
+         "Methods": "Control weeds using manual weeding or herbicides. Manual weeding involves removing weeds by hand or with tools like hoes or weed pullers. This method is labor-intensive but effective for small-scale operations or light infestations. For larger fields or heavy infestations, use herbicides like Atrazine, which controls broadleaf and grass weeds. Select herbicides based on weed species and follow recommended application rates and timings. Follow safety guidelines to minimize environmental impact and ensure effective control."
+      },
+      "Irrigation": {
+         "Method": "Irrigation is essential for maize, especially in areas with inconsistent rainfall. Drip irrigation delivers water directly to plant roots via tubes and emitters, reducing water wastage and ensuring adequate moisture. Sprinkler irrigation covers large areas through pipes and sprinklers but may be less water-efficient. Choose an irrigation method based on water availability, field size, and budget.",
+         "Schedule": "Schedule irrigation to provide consistent moisture, particularly during flowering and grain formation. Irrigate during dry periods to maintain soil moisture and support growth. Adjust frequency and amount based on soil type, weather conditions, and crop growth stage. Avoid over-irrigation to prevent waterlogging and root problems.",
+         "Management": "Maintain proper water levels and prevent issues like waterlogging and uneven distribution. Ensure the irrigation system is well-maintained and free of leaks. Monitor plants for water stress and adjust practices as needed. In high evaporation areas, use mulching to reduce water loss and improve moisture retention. Ensure proper drainage to prevent waterlogging, optimizing water use and crop performance."
+      },
+      "Fertilization Organic": {
+         "Materials": "Organic fertilization enhances soil fertility and supports maize growth. Apply 5-10 tons of well-decomposed manure or compost per hectare before planting. Organic materials like compost, farmyard manure, and green manure provide essential nutrients and improve soil structure. Ensure materials are well-decomposed to avoid introducing weed seeds or pathogens. Spread the organic material evenly and incorporate it into the top 15-20 cm of soil. This practice improves soil fertility, moisture retention, and microbial activity, reducing the need for chemical fertilizers and enhancing long-term soil health.",
+         "Timing": "Incorporate organic fertilizers during land preparation, ideally 2-3 weeks before planting. This timing allows organic matter to decompose and release nutrients before sowing. Apply evenly and mix thoroughly with the soil to ensure uniform nutrient distribution. During the growing season, monitor crop nutrient status and consider additional organic applications if needed. Organic fertilization should complement a nutrient management plan that includes both organic and chemical fertilizers, depending on crop needs and soil conditions."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Chemical fertilization provides essential nutrients for maize growth. Apply NPK fertilizers in the ratio of 150:60:30 kg/ha. This balanced ratio supplies nitrogen (N), phosphorus (P), and potassium (K), which support vegetative growth, root development, and stress resistance. Apply nitrogen in split doses, with a portion at planting and additional applications during key growth stages. Phosphorus and potassium should be applied at planting to support early development and overall plant health.",
+         "Timing": "Apply phosphorus and potassium fertilizers at planting to ensure nutrients are available from the start. Nitrogen should be applied in split doses: the first at planting and additional applications during key growth stages such as vegetative growth and tasseling. Monitor crop growth and adjust nitrogen applications as needed. Avoid over-fertilization to prevent environmental issues and reduced crop performance. Follow recommended rates and timings for optimal nutrient availability and healthy maize growth."
+      },
+      "Preventive Measure": {
+         "Methods": "Implement preventive measures to manage maize pests and diseases. Use resistant varieties, maintain good field hygiene, and practice crop rotation. Employ integrated pest management (IPM) strategies, including monitoring for early pest and disease signs, using biological controls, and applying chemical treatments as needed. Regularly inspect fields and address issues early to prevent severe infestations. Preventive measures reduce the need for corrective treatments and improve overall crop health.",
+         "Equipment": "Proper equipment maintenance is crucial for pest and disease management. Clean and sterilize planting, irrigation, and harvesting equipment to prevent pest and disease spread. Ensure equipment is in good working condition and calibrated correctly for accurate fertilizer and pesticide application. Regularly inspect and service equipment, and avoid operating in wet or muddy conditions to reduce soil compaction and damage. Effective equipment management maintains field health and optimizes crop production."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Chemical control can be effective in managing maize pests and diseases as part of an IPM program. Use Imidacloprid for maize weevils and Mancozeb for rust and blight. Imidacloprid is a systemic insecticide that disrupts pests' nervous systems; apply according to recommended dosages and timings. Mancozeb is a broad-spectrum fungicide for rust and blight; follow manufacturer's guidelines for application. Avoid over-reliance on chemical treatments to prevent resistance and environmental impact. Use pesticides judiciously and follow safety precautions.",
+         "Application": "Apply plant protection chemicals following recommended dosages and timings to manage pests and diseases effectively. Treat during periods of pest activity or disease development for timely control. Use appropriate equipment for uniform coverage and minimize drift. Adhere to safety guidelines, including protective clothing during application, and follow pre-harvest intervals to ensure pesticide residues are within safe limits. Monitor pest and disease levels regularly to determine the need for treatments and integrate chemical control with other management practices for sustainable crop protection."
+      },
+      "Harvesting": {
+         "Timing": "Harvest maize when kernels are dry and firm, typically 3-4 weeks after the black layer forms at the base of the kernels, indicating physiological maturity. Harvesting too early can result in lower quality and yields, while delaying can lead to losses from shattering and spoilage. Monitor kernel firmness and moisture content closely. In high humidity or frequent rainfall areas, consider harvesting earlier to prevent spoilage. Use combine harvesters for large-scale operations or manual cutting for smaller-scale production, handling maize ears carefully to maintain quality.",
+         "Method": "Harvesting methods depend on production scale and equipment availability. Combine harvesters are used for large-scale operations, efficiently cutting, threshing, and cleaning maize in one pass. Ensure proper calibration and maintenance of the equipment. For smaller-scale operations, manual cutting with hand tools or a sickle may be employed. Manual harvesting is labor-intensive but suitable for small farms or areas without machinery. Regardless of the method, handle maize ears gently to prevent damage and preserve grain quality.",
+         "Handling": "Proper handling of harvested maize is crucial for maintaining quality. Avoid rough handling or dropping maize ears. Use padded containers or equipment to minimize impact. Transport maize promptly to a drying area to prevent spoilage. Handle gently to avoid kernel damage, which can affect quality and market value. Inspect for damage or contamination and address issues before storage to ensure maize retains its quality throughout the post-harvest process."
+      },
+      "Post-Harvest": {
+         "Drying": "Drying maize reduces moisture content to around 14% to prevent mold growth and spoilage. Use natural drying methods like sun drying by spreading maize ears on a clean surface under sunlight, turning them regularly. In high humidity or limited sunlight regions, use mechanical grain dryers for consistent moisture levels. Monitor drying closely to prevent over-drying or uneven drying, which can affect quality. Cool maize to room temperature before storage to prevent condensation and mold growth.",
+         "Storage": "Store maize in a cool, dry place with low humidity to reduce mold and pest risks. Use clean, airtight containers or silos to protect from environmental factors and pests. Regularly inspect stored maize for damage or infestation and address issues promptly. Implement pest management measures, such as insect-proof containers and monitoring for activity. In high humidity areas, use desiccants or moisture absorbers to maintain optimal conditions. Proper storage preserves quality and suitability for consumption or sale.",
+         "Processing": "Processing involves cleaning, shelling, and sorting maize to prepare it for market or consumption. Clean maize to remove debris, dirt, and damaged kernels. Shell maize ears using machines or manually to separate kernels from cobs. Sort kernels to eliminate damaged or discolored grains, ensuring only high-quality maize is retained. Depending on use, process maize into products like flour, meal, or animal feed. Implement quality control measures to maintain high standards and meet market requirements."
+      }
+   },
+   "chickpea":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Choose chickpea varieties like Pusa 256 or KAK 2, suited to local conditions and resistant to diseases. Pusa 256 offers high yield and wilt resistance; KAK 2 is adaptable to various conditions and pests."
+      },
+      "Planting": {
+         "Method": "Direct sow chickpea seeds 5-7 cm deep in well-prepared soil. Use manual or mechanized planting depending on field size.",
+         "Spacing": "Space rows 30 cm apart and plants 10 cm within rows.",
+         "Depth": "Plant seeds at 5-7 cm depth for optimal germination and root development."
+      },
+      "Monitoring": {
+         "Pests": "Check for pests like pod borers and aphids. Use pest management strategies as needed.",
+         "Diseases": "Monitor for diseases such as blight and wilt. Implement control measures to prevent crop losses."
+      },
+      "Irrigation": {
+         "Method": "Choose between drip irrigation for water efficiency or sprinkler irrigation for larger areas. Drip irrigation delivers water directly to roots, while sprinklers cover larger fields but may be less efficient.",
+         "Schedule": "Irrigate during dry periods, especially critical growth stages like flowering and pod development. Adjust frequency based on soil type, weather, and crop needs to avoid over-irrigation.",
+         "Management": "Maintain irrigation systems to prevent leaks and blockages. Monitor plants for water stress and use mulching in high evaporation areas. Ensure proper drainage to avoid waterlogging."
+      },
+      "Site Selection": {
+         "Soil": "Chickpeas thrive in well-drained, loamy soils with a pH of 6.0-7.5. Avoid heavy clay and waterlogged areas. Conduct soil tests and amend as needed to achieve optimal conditions.",
+         "Climate": "Chickpeas prefer a Mediterranean climate with mild, wet winters and warm, dry summers. Optimal temperatures are 10°C to 30°C. Avoid frost and excessive heat; provide supplemental irrigation if needed."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear the field, plow to 15-20 cm, and harrow for a fine seedbed. Use raised beds or ridges for drainage. Incorporate organic matter and apply amendments based on soil tests. Avoid excessive nitrogen.",
+         "Organic Matter": "Incorporate compost, aged manure, or green manure to improve soil fertility and structure. Spread and mix organic matter into the top 6-8 inches of soil during preparation to enhance growth and resilience."
+      },
+      "Preventive Measure": {
+         "Crop Rotation": "Rotate chickpeas with non-leguminous crops every 3-4 years to disrupt pathogen life cycles, improve soil fertility, and reduce disease risks. Use cover crops to enhance soil health and avoid fields with past severe disease outbreaks.",
+         "Field Hygiene": "Use certified disease-free seeds, clean planting equipment, and destroy previous crop residues to prevent pest and disease spread. Regularly monitor fields, use clean irrigation water, and practice good sanitation to maintain crop health."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use fungicides and insecticides labeled for chickpeas to control diseases and pests, following all label instructions. Consider organic or biopesticides as alternatives and rotate pesticide classes to prevent resistance. Combine chemical control with IPM practices.",
+         "Application": "Apply pesticides in cooler parts of the day, using calibrated sprayers for even coverage. Wear PPE, avoid spraying in windy conditions, and adhere to pre-harvest and re-entry intervals. Monitor crops regularly and keep records to manage resistance."
+      },
+      "Fertilization Organic": {
+         "Materials": "Apply 5-10 tons per hectare of well-decomposed manure or compost before planting to improve soil fertility and structure. Incorporate evenly into the top 15-20 cm of soil to support plant growth and reduce the need for chemical fertilizers.",
+         "Timing": "Incorporate organic fertilizers 2-3 weeks before planting to allow nutrient release. Apply evenly and mix thoroughly to improve soil fertility and support seed germination. Monitor nutrient status during the growing season for additional applications if needed."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply NPK fertilizers at a 20:60:30 kg/ha ratio for balanced nutrient supply: nitrogen for growth, phosphorus for root development, and potassium for plant health. Phosphorus and potassium should be applied at planting, while nitrogen is best split between planting and key growth stages like flowering.",
+         "Timing": "Apply phosphorus and potassium at planting. Nitrogen should be split-applied, starting at planting and again during flowering and pod development. Avoid over-fertilization and adjust based on crop needs and growth status."
+      },
+      "Weeding": {
+         "Frequency": "Weed 2-3 times per growing season to minimize competition with chickpeas. Regular monitoring and timely weeding are crucial to prevent weed establishment and reduce yield loss.",
+         "Methods": "Weed control can be manual (using hoes or hand weeding) or chemical (using herbicides). Manual weeding is labor-intensive but effective for light infestations; herbicides are more efficient for larger fields or heavy weed problems. Always follow safety guidelines for herbicide use."
+      },
+      "Harvesting": {
+         "Timing": "Harvest chickpeas when pods are dry and seeds are mature, usually 7-10 days after pods turn yellow. Harvesting too early or late can impact yield and quality. Monitor fields closely and use appropriate equipment based on production scale.",
+         "Method": "For large-scale operations, use combine harvesters for efficiency. For smaller farms, manual methods like hand-cutting or using a sickle may be used. Handle chickpeas carefully to maintain quality.",
+         "Handling": "Avoid rough handling of pods and seeds. Use clean, padded containers and transport chickpeas to drying and storage areas promptly. Inspect for damage and address issues before storage."
+      },
+      "Post-Harvest": {
+         "Drying": "Dry chickpeas to around 14% moisture to prevent spoilage. Use sun drying in dry, sunny conditions or mechanical drying in high humidity. Monitor closely to avoid over-drying. Cool to room temperature before storage.",
+         "Storage": "Store chickpeas in a cool, dry place with low humidity. Use airtight containers or silos and regularly inspect for pests or damage. In high humidity areas, use desiccants to maintain optimal conditions."
+      }
+   },
+   "kidneybeans":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": {
+            "Overview": "Selecting the right kidney bean variety is fundamental for achieving high yields, pest resistance, and overall crop success. This selection process involves understanding the specific traits of different varieties and how they align with local growing conditions.",
+            "Variety Selection": "Pusa 136 offers high yields and disease resistance in moderate climates, while Pusa 202 provides drought tolerance and stable yields in water-scarce areas, with both varieties resistant to common diseases like Rust and Blight."
+         }
+      },
+      "Planting": {
+         "Method": "Direct sowing involves placing seeds directly into prepared soil, minimizing transplanting stress and allowing seeds to establish a strong root system.",
+         "Spacing": "Recommended spacing for kidney beans is 30x10 cm between plants and rows to ensure healthy growth, adequate airflow, and optimal yield.",
+         "Depth": "Sow kidney beans at a depth of 5-7 cm to ensure proper moisture absorption and successful germination, adjusting based on soil type and conditions."
+      },
+      "Monitoring": {
+         "Pests": "Regular monitoring for pests like the Kidney Bean Weevil and Aphids is crucial for preventing damage and maintaining yield, using measures such as resistant varieties and appropriate insecticides.",
+         "Diseases": "Monitoring for diseases such as Rust and Blight helps manage crop health through the use of resistant varieties, fungicides, and proper field management practices.",
+         "Nutrient Levels": "Regular soil testing and nutrient management ensure optimal plant growth by adjusting fertilizer applications based on soil nutrient content and pH levels."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained loamy soil with good fertility for kidney beans, featuring a pH of 6.0 to 7.0. Prepare by plowing, harrowing, and adding organic matter, and conduct soil tests to optimize conditions.",
+         "Climate": "Kidney beans need a warm climate (20°C to 30°C) and 500 to 800 mm of rainfall. Ensure temperatures and moisture levels align with these requirements, using irrigation if rainfall is irregular."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Prepare the soil by plowing to break up clumps and improve aeration, followed by harrowing to create a fine, even seedbed, enhancing seed-to-soil contact and root development.",
+         "Organic Matter": "Incorporate 5-10 tons per hectare of compost or farmyard manure to improve soil fertility, structure, and moisture retention, supporting plant growth and microbial activity."
+      },
+      "Weeding": {
+         "Frequency": "Weed 2-3 times per season, starting shortly after planting and continuing based on weed growth, to reduce competition and prevent pest and disease spread.",
+         "Methods": "Use manual weeding for precise control or herbicides like Pendimethalin for large infestations; select based on weed type and application guidelines."
+      },
+      "Irrigation": {
+         "Method": "Use drip irrigation for precise, efficient watering, especially in water-scarce areas, or sprinkler irrigation for even coverage on larger fields.",
+         "Schedule": "Irrigate during dry spells, particularly at flowering and pod formation stages; adjust based on weather, soil moisture, and crop needs.",
+         "Management": "Monitor soil moisture, prevent waterlogging, and use water-saving techniques to optimize irrigation and support plant health."
+      },
+      "Fertilization Organic": {
+         "Materials": "Use compost and farmyard manure to enrich soil, improve structure, and support plant growth with a slow-release nutrient source.",
+         "Timing": "Incorporate organic materials into the soil before planting for pre-decomposition; additional applications can be made during the growing season as needed."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Use NPK fertilizers (e.g., 20:20:20) to provide balanced nutrients: nitrogen (N), phosphorus (P), and potassium (K). Apply phosphorus and potassium at planting, and split nitrogen application between planting and the growing season.",
+         "Timing": "Apply phosphorus and potassium at planting, and nitrogen in two stages: during planting and later in the growing season to ensure optimal nutrient availability and plant growth."
+      },
+      "Preventive Measure": {
+         "Methods": "Use resistant varieties (e.g., Pusa 136, Pusa 202) and maintain field hygiene by removing plant debris, weeds, and infected material, and sterilizing equipment to prevent infestations and disease spread.",
+         "Equipment": "Regularly clean and sterilize planting and irrigation tools to avoid contamination and support plant health."
+      },
+      "Plant Protection Chemical": {
+      "Pesticides": "Pesticides protect kidney bean crops from pests and diseases through targeted chemical applications. Imidacloprid controls Kidney Bean Weevil by affecting insect nervous systems, while Mancozeb manages Rust and other fungal diseases by forming a protective barrier on plant surfaces. Follow recommended application rates and timings to ensure effectiveness and minimize resistance development.",
+      "Application": "Proper pesticide application ensures effectiveness and safety. Adhere to manufacturer’s instructions for rates, timings, and methods; use personal protective equipment (PPE) and integrate chemical treatments with integrated pest management (IPM) practices for sustainable crop protection."
+      },
+      "Harvesting": {
+         "Timing": "Harvest when pods are dry, seeds rattle, and are firm; seeds should be hard, and plants should show signs of drying to ensure optimal quality and yield.",
+         "Techniques": "Manual harvesting involves hand-picking and threshing dried pods, while mechanical harvesting uses combines to efficiently cut, thresh, and clean beans, reducing labor and time."
+      },
+      "Post-Harvest": {
+         "Drying": "Dry beans to 12-14% moisture using sun drying on racks or mechanical dryers for controlled conditions.",
+         "Storage": "Store beans in airtight containers in a cool, dry place; use desiccants and inspect regularly to prevent spoilage and pests.",
+         "Processing": "Clean beans to remove impurities and sort by size and color to ensure uniform quality and improve market value."
+      }
+   },
+   "pigeonpeas":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": {
+            "Description": "Choose pigeon pea varieties like Pusa 9 and Pusa 2001 for high yield, disease resistance, and adaptability.",
+            "Pusa 9": "Pusa 9 offers high yield, disease resistance, and early maturity, suitable for diverse conditions.",
+            "Pusa 2001": "Pusa 2001 is drought-tolerant, adaptable, high in protein, and has a short growing season."
+         }
+      },
+      "Planting": {
+         "Method": "Direct sowing seeds into prepared soil aligns with natural growth patterns and reduces labor and costs.",
+         "Spacing": "Recommended spacing is 75 cm between rows and 30 cm within rows for optimal growth and resource access.",
+         "Depth": "Sow seeds at 5-7 cm depth to ensure moisture access and protect from surface disturbances."
+      },
+      "Monitoring": {
+         "Pests": "Common pests like Pod Borer and Aphids should be monitored and managed with IPM strategies to prevent damage and yield loss.",
+         "Diseases": "Watch for diseases such as Wilt and Blight; early detection and management practices like using resistant varieties and fungicides are crucial.",
+         "Nutrient Levels": "Regular soil tests for nutrients like nitrogen and phosphorus ensure optimal fertilization and improved crop growth."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained loamy soil for optimal pigeon pea growth, ensuring good fertility and drainage to support plant health and yield.",
+         "Climate": "Pigeon peas thrive in warm climates (20°C to 30°C) with moderate rainfall, which supports growth, pod formation, and yield."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Plow to 20-30 cm to loosen soil, improve aeration, and remove weeds; follow with harrowing to create a fine, level seedbed for planting.",
+         "Organic Matter": "Incorporate compost or farmyard manure to enhance soil fertility, structure, and water retention, supporting better plant growth."
+      },
+      "Weeding": {
+         "Frequency": "Weed 2-3 times per season: first shortly after germination and then as needed, avoiding disruption during critical growth stages.",
+         "Methods": "Control weeds using manual weeding for precision or herbicides like Pendimethalin for large-scale operations, each with its own advantages."
+      },
+      "Irrigation": {
+         "Method": "Use drip irrigation for precise water delivery and efficiency, or sprinkler irrigation for uniform coverage of large areas.",
+         "Schedule": "Irrigate during dry periods, especially during critical growth stages like flowering and pod formation, based on soil moisture and plant needs.",
+         "Management": "Adjust irrigation frequency and duration to avoid waterlogging and drought stress, ensuring efficient water use and healthy plant growth."
+      },
+      "Fertilization Organic": {
+         "Materials": "Apply 5-10 tons of well-decomposed manure per hectare to improve soil fertility, structure, and microbial activity.",
+         "Timing": "Incorporate organic materials during land preparation to ensure proper decomposition and nutrient availability for plant growth."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply NPK fertilizer at 20:20:20 kg/ha to provide essential nutrients: nitrogen for growth, phosphorus for root development, and potassium for overall health.",
+         "Timing": "Apply phosphorus and potassium at planting; split nitrogen application into vegetative and flowering stages for optimal nutrient uptake and yield."
+      },
+      "Preventive Measure": {
+         "Methods": "Implement resistant varieties and maintain field hygiene to manage potential issues and ensure healthy crops.",
+         "Resistant Varieties": "Plant disease-resistant varieties to reduce the risk of diseases like Wilt and Blight, minimizing the need for chemical treatments.",
+         "Field Hygiene": "Remove and destroy infected plant material, clean equipment, and avoid practices that promote disease spread to maintain a healthy growing environment.",
+         "Equipment": "Regularly clean and sterilize planting equipment to prevent disease transmission and maintain plant health.",
+         "Recommended Practices": "Thoroughly wash and disinfect equipment to remove pathogens or contaminants, ensuring better plant health and reducing the risk of disease spread."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use appropriate pesticides like Imidacloprid for Pod Borer and Copper Oxychloride for Wilt to manage pests and diseases.",
+         "Pod Borer": "Apply Imidacloprid following manufacturer guidelines to target the nervous system of insects, effectively controlling Pod Borer and reducing pod damage.",
+         "Wilt": "Use Copper Oxychloride as a protective fungicide to manage Wilt, applying as recommended for effective disease control and healthier plants.",
+         "Application": "Follow guidelines for pesticide dosages, timings, and safety precautions, integrating with IPM practices for enhanced effectiveness and sustainability."
+      },
+      "Harvesting": {
+         "Timing": "Harvest pigeon peas when pods are dry and seeds rattle inside for optimal quality and yield; proper timing prevents seed loss and deterioration.",
+         "Method": "For smaller operations, use manual harvesting (hand-picking or cutting with tools) for minimal damage and precise control, while for larger fields, employ mechanical harvesting (combine harvesters) for efficiency and reduced labor."
+      },
+      "Post-Harvest": {
+         "Drying":"Drying reduces seed moisture to prevent spoilage and maintain quality, using a combination of sun and mechanical drying for efficiency and precision.",
+         "Processing": "Processing involves cleaning, grading, and sometimes dehulling the seeds to improve quality, marketability, and shelf life.",
+         "Storage": "Proper storage involves keeping the seeds in cool, dry, and well-ventilated conditions to prevent moisture absorption, pest infestation, and spoilage."
+      }
+   },
+   "mothbeans":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Choose the right moth bean variety based on local conditions. Pusa 539 is high-yielding and pest-resistant, suitable for regions prone to Moth Bean Weevil and Wilt. Pusa 505 adapts well to various soils and climates, making it ideal for unpredictable weather. Consider local pest pressures, soil, climate, market demand, and seed availability. Consult agricultural experts and experienced farmers for the best variety for your area.",
+         "Variety Details": "Pusa 539 offers high yield and disease resistance, making it reliable for pest-prone areas. Pusa 505 is adaptable to different soils and climates, providing flexibility and consistent productivity. Assess your local conditions to choose the suitable variety, and consult experts for precise recommendations.",
+         "Pre-Planting Considerations": "Evaluate soil type, nutrient levels, pH balance, and climate before selecting a variety. Conduct soil tests for fertility and texture. Moth beans prefer warm climates with moderate rainfall, so understand local temperature and precipitation patterns. Choose varieties resistant to prevalent pests and diseases to minimize crop loss. Seek advice from agricultural extension services or crop advisors for tailored recommendations."
+      },
+      "Planting": {
+         "Method": "Direct sowing is effective for moth beans. Prepare the field by tilling to 20-30 cm depth, leveling, and removing debris. Proper preparation ensures good seed-to-soil contact and uniform growth, leading to higher yields.",
+         "Spacing": "Space moth beans 30x10 cm to ensure adequate room for growth and resource access. Proper spacing prevents overcrowding, improves air circulation, and reduces disease risk. Plan row orientation for maximum sunlight exposure and ease of maintenance.",
+         "Depth": "Sow seeds at 5-7 cm depth for optimal germination and seedling establishment. Use planting tools for precise placement and monitor soil conditions to adjust depth as needed.",
+         "Sowing Time": "Sow moth beans at the onset of the monsoon or when soil moisture is adequate. Avoid extreme temperatures and drought. Monitor weather and soil moisture to determine the best sowing time for strong root development and overall plant health."
+      },
+      "Monitoring": {
+         "Pests": "Regular monitoring for pests like Moth Bean Weevil and Aphids is crucial. Implement integrated pest management (IPM) strategies, including biological control, insecticides, and cultural practices such as crop rotation and pest-resistant varieties. Early detection and intervention minimize damage and ensure crop health.",
+         "Diseases": "Moth beans are prone to diseases like Wilt and Blight. Manage Wilt through crop rotation, disease-resistant varieties, and soil management. Monitor for Blight and use fungicides as needed. Maintain proper plant spacing and sanitation to prevent disease spread.",
+         "Nutrient Levels": "Monitor soil nutrient levels with regular soil tests. Adjust fertilizer applications based on test results to meet plant nutritional needs. Address nutrient deficiencies or imbalances promptly to maintain plant health and crop performance."
+      },
+      "Site Selection": {
+         "Soil": "Select well-drained loamy soil for moth beans. Loamy soil balances sand, silt, and clay, supporting healthy root development. Avoid heavy clay soils. Conduct soil tests and amend soil with organic matter to improve fertility and drainage.",
+         "Climate": "Moth beans thrive in warm climates (20°C to 35°C) with moderate rainfall. Assess local climate conditions and implement irrigation if needed. Avoid areas with frost or extreme temperature fluctuations. Use weather data to plan planting and management practices."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Plow to 20-30 cm, harrow to smooth and level, and remove weeds for optimal seedbed.",
+         "Organic Matter": "Incorporate 5-10 tons of well-decomposed manure per hectare to enhance soil fertility and structure."
+      },
+      "Weeding": {
+         "Frequency": "Weed 2-3 times during the growing season to reduce competition and support plant health.",
+         "Methods": "Use manual, mechanical, or herbicide methods for effective weed control, following safety guidelines.",
+         "Prevention": "Apply mulching and maintain field management practices to suppress weeds and retain soil moisture."
+      },
+      "Irrigation": {
+         "Method": "Use drip irrigation for precise water delivery or sprinkler irrigation for broader coverage, depending on your needs.",
+         "Frequency": "Typically, irrigate 2-3 times per season, adjusting based on rainfall and soil moisture.",
+         "Water Quality": "Ensure water is clean and suitable by testing for pH, salinity, and nutrients to avoid negative effects on plants."
+      },
+      "Fertilization Organic": {
+         "Materials": "Use compost, well-rotted manure, and green manure crops to enhance soil fertility and support plant health.",
+         "Application": "Apply compost or manure at 10-15 tons/ha before planting, and consider side-dressing during the growing season."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply balanced NPK fertilizers (e.g., 10-20-10) for essential nutrients; include secondary and micronutrients as needed.",
+         "Application": "Apply NPK fertilizers based on soil tests, using 40-50 kg/ha nitrogen, 30-40 kg/ha phosphorus, and 20-30 kg/ha potassium. Avoid over-application and adjust based on crop needs."
+      },
+      "Preventive Measure": {
+         "Crop Rotation": "Rotate moth beans with non-leguminous crops every 2-3 years to prevent pests and diseases and improve soil health.",
+         "Field Hygiene": "Use disease-free seeds, clean equipment, destroy crop residues, and maintain good sanitation to prevent pest and disease spread."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Apply fungicides and insecticides as needed, following label instructions and integrating with IPM strategies to minimize resistance and environmental impact.",
+         "Application": "Apply pesticides early or late in the day with calibrated equipment, wear PPE, avoid drift, and record applications to ensure safety and effectiveness."
+      },
+      "Harvesting": {
+         "Time": "Harvest moth beans 80-90 days after sowing when pods are mature, dry, and brittle to maximize yield and quality.",
+         "Method": "Harvest manually or with machinery, depending on field size, to ensure efficiency and minimize damage to pods and beans.",
+         "Post-Harvest Handling": "Thresh pods, clean and dry beans thoroughly, and store in cool, dry, airtight conditions to maintain quality."
+      },
+      "Post-Harvest": {
+         "Processing": "Thresh beans using manual or mechanical methods, clean with air-blowing and sieving, and dry to 10-12% moisture using sun or artificial methods.",
+         "Storage": "Use airtight bags, plastic containers, or metal bins, store beans at 10-15°C with humidity below 60%, and implement pest control measures to maintain quality."
+      }
+   },
+   "mungbean":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Select varieties like Pusa Vishal and Pusa 9531, resistant to Yellow Mosaic Virus and Powdery Mildew, considering local climate, soil type, and prevalent pests.",
+         "Variety Details": "Pusa Vishal matures in 60-65 days with high disease resistance and yield; Pusa 9531 matures in 70-75 days, adaptable with high yield potential and disease resistance."
+      },
+      "Planting": {
+         "Method": "Use direct sowing in well-prepared, well-drained fields with added organic matter; sow seeds in rows spaced 30 cm apart, 5-7 cm deep.",
+         "Spacing": "Maintain 30 cm between rows and 10 cm between plants to ensure adequate air circulation and resource utilization.",
+         "Depth": "Sow seeds 5-7 cm deep to ensure soil moisture contact and proper germination; monitor soil moisture and adjust irrigation as needed."
+      },
+      "Monitoring": {
+         "Pests": "Monitor for Mung Bean Weevil, Aphids, and Whiteflies; use IPM strategies including biological control, cultural practices, and selective insecticides.",
+         "Diseases": "Watch for Yellow Mosaic Virus, Powdery Mildew, and Rust; use resistant varieties, crop rotation, and fungicides as needed.",
+         "Nutrient Levels": "Conduct soil tests before planting; apply balanced NPK (20:20:20 kg/ha) and adjust based on plant growth and soil nutrient status."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained loamy soil with pH 6.0-7.5; avoid heavy clay soils; amend with organic matter based on soil tests.",
+         "Climate": "Opt for warm climates (25-35°C) with 50-70 cm rainfall; avoid frost-prone areas and consider supplementary irrigation if needed."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Plow to 20-30 cm depth, harrow for a fine seedbed, level field, and incorporate organic matter like compost for fertility and soil structure.",
+         "Organic Matter": "Apply 5-10 tons of well-decomposed manure per hectare to improve soil structure, nutrient availability, and moisture retention."
+      },
+      "Weeding": {
+         "Frequency": "Weed 2-3 times during the growing season to reduce competition for resources, starting after seedling emergence.",
+         "Methods": "Use manual tools, mechanical weeders, or herbicides like Pendimethalin; combine methods for effective weed control.",
+         "Prevention": "Use mulching and crop rotation to suppress weeds and disrupt their life cycles, and maintain field hygiene to prevent weed establishment."
+      },
+      "Irrigation": {
+         "Method": "Use drip or sprinkler systems for efficient water use and uniform distribution, ensuring regular maintenance for effective operation.",
+         "Schedule": "Irrigate during dry periods, especially during flowering and pod formation, monitoring soil moisture and adjusting based on weather and crop needs.",
+         "Management": "Monitor soil moisture with sensors, implement water-saving practices, and maintain proper drainage to avoid waterlogging and ensure efficient water delivery."
+      },
+      "Fertilization Organic": {
+         "Materials": "Apply 5-10 tons of well-decomposed manure or compost per hectare to improve soil structure, nutrient availability, and microbial activity.",
+         "Timing": "Incorporate organic fertilizers during land preparation and as top-dressing during the growing season, using organic mulch to conserve moisture and release nutrients."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply NPK fertilizers in a 20:20:20 kg/ha ratio for balanced nutrition, including micronutrients like zinc, iron, and boron based on soil tests. Nitrogen promotes growth, phosphorus supports roots and flowering, and potassium enhances overall health.",
+         "Timing": "Apply phosphorus and potassium at planting and split nitrogen into two applications: one at planting and another during vegetative growth. Regularly monitor crop growth and adjust fertilization as needed, avoiding over-application."
+      },
+      "Preventive Measure": {
+         "Methods": "Use resistant varieties, maintain field hygiene, practice crop rotation, and implement IPM strategies to manage pests and diseases. Rotate with non-leguminous crops to break disease cycles and improve soil health.",
+         "Equipment": "Clean and sterilize planting equipment to prevent disease spread. Regularly inspect and clean machinery and tools, sterilizing with appropriate disinfectants to eliminate pathogens. Educate farm workers on equipment hygiene and standard cleaning procedures."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use Imidacloprid for controlling Mung Bean Weevil, Aphids, and Whiteflies, and Copper Oxychloride for fungal diseases like Powdery Mildew and Rust. Follow recommended rates and guidelines to minimize environmental impact.",
+         "Application": "Apply pesticides based on regular monitoring, integrating with IPM practices. Avoid routine applications, use selective pesticides, rotate modes of action, and follow label instructions for safety and effectiveness."
+      },
+      "Harvesting": {
+         "Timing": "Harvest when pods are dry and seeds rattle inside, indicating full maturity. Monitor regularly to avoid overripe pods and maximize yield and quality.",
+         "Method": "Hand-pick in small to medium fields; use mechanical harvesters in larger fields. Ensure equipment is well-maintained to minimize seed damage and handle beans carefully to avoid crushing or splitting.",
+         "Handling": "Remove dirt and damaged pods after harvesting, dry beans to 12% moisture to prevent mold, and store in cool, dry, airtight conditions to maintain quality and prevent post-harvest losses."
+      },
+      "Post-Harvest": {
+         "Drying": "Dry beans to around 12% moisture using sun drying or mechanical dryers. Ensure even drying to prevent mold and quality deterioration.",
+         "Storage": "Store dried beans in cool, dry, airtight conditions with low humidity and stable temperatures. Regularly inspect for pests or spoilage.",
+         "Processing": "Clean, sort, and dehull beans to add value. Package in consumer-friendly sizes to enhance marketability. Proper processing and packaging increase appeal and potential markets."
+      }
+   },
+   "blackgram":{
+      "Plant Selection":{
+         "3 Weeks Before Seedling":"Three weeks before planting, it is essential to select varieties that are well-suited to the local conditions and specific needs of the crop.",
+         "Variety Details": "Pusa 110 and Pusa 150 are two highly recommended varieties for black gram cultivation. Pusa 110 is renowned for its high yield potential and is resistant to various diseases such as wilt and blight. On the other hand, Pusa 150 is known for its superior adaptability to different soil types and climatic conditions."
+      },
+      "Planting":{
+         "Direct Sowing":"Direct sowing is the recommended method for planting black gram. This approach involves sowing seeds directly into the field without the need for seedling transplants.",
+         "Spacing":"For black gram, a spacing of 30x10 cm is recommended.", 
+         "Depth":"Sow black gram seeds at a depth of 5-7 cm."
+      },
+      "Monitoring":{
+         "Pests":"Common pests affecting black gram include the Black Gram Weevil and Aphids. The Black Gram Weevil is a major pest that can cause severe damage to pods and seeds. Aphids, on the other hand, can transmit viruses and weaken plants by feeding on their sap.",
+         "Diseases":"Black gram is susceptible to various diseases, including Rust and Blight. Rust is a fungal disease that causes reddish-brown pustules on leaves and pods. Blight is another fungal disease that causes wilting and premature leaf drop",
+         "Nutrient Levels":"Conduct soil tests to assess nutrient levels, focusing on key nutrients such as nitrogen, phosphorus, and potassium. Soil testing provides valuable information about the current nutrient status of the soil and helps identify any deficiencies or imbalances."
+      },
+      "Site Selection":{
+         "Soil":"Black grams thrive in well-drained loamy soils with good fertility. Additionally, ensure that the soil has a pH level within the optimal range for black gram cultivation, typically between 6.0 and 7.5.",
+         "Climate":"Black grams require a warm climate with moderate rainfall. They perform best in temperatures ranging from 20°C to 35°C. Excessive rainfall or high humidity can lead to disease issues and reduced yield."
+      },
+      "Field Preparation":{
+         "Land Preparation":"Start by plowing the land to break up large clumps of soil and improve soil aeration. Follow up with harrowing to further refine the soil and create a fine seedbed.",
+         "Organic Matter":"Apply well-decomposed organic materials such as compost or farmyard manure at a rate of 5-10 tons per hectare."
+      },
+      "Weeding":{
+         "Frequency":"Weed the field 2-3 times during the growing season to control weed growth and minimize competition with black gram plants.",
+         "Manual weeding":"Manual weeding involves physically removing weeds by hand or with the help of simple tools."
+      },
+      "Irrigation":{
+         "Method":"Use drip or sprinkler irrigation systems to provide consistent moisture to black gram plants.",
+         "Schedule":"Irrigate during dry periods, especially during key growth stages such as flowering and pod formation.",
+         "Management":"Avoid waterlogging by ensuring proper drainage in the field. Implement drainage systems or raised beds if necessary to manage excess water."
+      },
+      "Fertilization Organic":{
+         "Materials":"Apply 5-10 tons of well-decomposed manure per hectare as organic fertilizer.",
+         "Timing":"Incorporate organic fertilizers into the soil during land preparation, before planting black gram seeds."
+      },
+      "Fertilization Chemical":{
+         "Nutrients":"Apply NPK fertilizers in the ratio of 20:20:20 kg/ha. Nitrogen supports vegetative growth, phosphorus promotes root development and flowering, and potassium enhances overall plant health and stress tolerance.",
+         "Timing":"Apply phosphorus and potassium fertilizers at planting to provide essential nutrients for early plant growth and development. Split the nitrogen application into two doses: one at planting and the second during the growing season, typically around mid-flowering."
+      },
+      "Preventive Measure":{
+         "Preventive Practices":"Use pest-resistant varieties such as Pusa 110 and Pusa 150 to reduce the risk of pest and disease issues. Maintain field hygiene by removing debris, plant residues, and weeds that can harbor pests and diseases."
+      },
+      "Plant Protection Chemical":{
+         "Pesticides":"Use Imidacloprid to control Black Gram Weevil, a major pest that can cause significant damage to the crop. For Rust, apply Copper Oxychloride, a broad-spectrum fungicide that helps control fungal diseases and prevent their spread.",
+         "Application":"Apply pesticides during the appropriate growth stages to target pests and diseases effectively. Avoid applying pesticides during windy conditions or when rain is expected, as this can lead to reduced efficacy and potential environmental contamination."
+      },
+      "Harvesting":{
+         "Timing":"Harvest black gram when the pods are dry and the seeds rattle inside.",
+         "Method":"Black gram can be harvested using either hand-picking or combine harvesters.",
+         "Handling":"After harvesting, gently remove seeds from pods to avoid mechanical damage."
+      },
+      "Post-Harvest":{
+         "Drying":"Drying is a critical post-harvest process that reduces the moisture content of black gram seeds to prevent mold growth and ensure long-term storage viability.",
+         "Storage":"Proper storage conditions help prevent moisture absorption, pest infestations, and degradation, ensuring that seeds remain in good condition for future planting or sale.",
+         "Processing":{
+            "Cleaning":"Use appropriate machinery or manual methods to clean black grams, removing any dirt, debris, or plant residues.",
+            "Sorting":"Sort seeds based on size, weight, and quality to ensure uniformity and remove damaged or inferior seeds. ",
+            "Packaging":"Use labeled bags or containers to provide important information about the seed variety, lot number, and storage instructions. Ensure that packaging is secure and well-sealed to maintain seed quality during storage and transport."
+         }
+      }
+   },
+   "lentil":{
+      "Plant Selection":{
+         "3 Weeks Before Seedling":"Three weeks before planting, choose lentil varieties that are known for their resilience and high yield potential.",
+         "Variety Characteristics":"Pusa 256 is characterized by its high pod setting capacity and resilience to disease, which contributes to its reputation for high productivity. Pusa 084, while also yielding high, is particularly noted for its ability to thrive in diverse environments and varying soil conditions."
+      },
+      "Planting":{
+         "Direct Sowing":"This technique involves planting seeds directly into the prepared soil without the need for seedling trays or transplanting.",
+         "Spacing":"For optimal growth, space lentil plants 30x10 cm apart.",
+         "Depth":"Sow lentil seeds 5-7 cm deep."
+      },
+      "Monitoring":{
+         "Pests":"Lentil crops are susceptible to various pests, including the Lentil Pod Borer and Aphids.",
+         "Diseases":"Lentils are prone to diseases such as Wilt and Blight.",
+         "Nutrient Levels":"Conduct soil tests to assess the levels of key nutrients such as nitrogen and phosphorus."
+      },
+      "Site Selection":{
+         "Soil Type":"Lentils thrive in well-drained loamy soil with good fertility.",
+         "Climate":"Lentils require a cool climate with moderate rainfall. Ideal temperatures for lentil growth range from 15°C to 25°C."
+      },
+      "Field Preparation":{
+         "Land Preparation":"Begin land preparation by plowing and harrowing the field to create a fine seedbed.",
+         "Organic Matter":"Apply compost or farmyard manure to the soil during land preparation."
+      },
+      "Weeding":{
+         "Frequency":"Weed the field 2-3 times during the growing season.",
+         "Methods":"Manual weeding involves removing weeds by hand or with hand tools."
+      },
+      "Irrigation":{
+         "Method":"Use drip or sprinkler irrigation for lentil crops.",
+         "Schedule":"Irrigate during dry periods, especially during flowering and pod formation.",
+         "Management":"Avoid waterlogging by ensuring proper drainage in the field."
+      },
+      "Fertilization Organic":{
+         "Materials":"Apply 5-10 tons of well-decomposed manure per hectare.",
+         "Timing":"Incorporate organic fertilizers during land preparation before planting."
+      },
+      "Fertilization Chemical":{
+         "Nutrients":"Apply NPK fertilizers in the ratio of 20:20:20 kg/ha.",
+         "Timing":"Apply phosphorus and potassium fertilizers at planting to provide essential nutrients for early plant development. Split the nitrogen application into two parts—one at planting and another during the growing season."
+      },
+      "Preventive Measure":{
+         "Methods":"Use resistant lentil varieties to minimize the risk of disease and pest problems."
+      },
+      "Plant Protection Chemical":{
+         "Pesticides":"Use Imidacloprid to control Lentil Pod Borer and Copper Oxychloride for managing Wilt.",    
+         "Application":"Use appropriate application techniques to ensure uniform coverage of the crop."
+      },
+      "Harvesting":{
+         "Timing":"Harvest lentils when the pods are dry and the seeds rattle inside.",
+         "Method":"Hand-picking or using combine harvesters are common methods for harvesting lentils.",
+         "Handling":"Avoid rough handling or excessive vibration that can cause seed damage. Use clean and dry containers for storing harvested lentils to prevent contamination and spoilage. "
+      },
+      "Post-Harvest":{
+         "Drying":"To reduce moisture to around 12%, use sun drying or mechanical dryers.",
+         "Storage":"Store lentils in cool, dry conditions to prevent moisture absorption and pest infestations.",
+         "Processing":"Clean lentils to remove impurities such as dust, debris, and damaged seeds."
+      }
+   },
+   "pomegranate":{
+      "Plant Selection":{
+         "3 Weeks Before Seedling":{
+            "Introduction":"Selecting the right varieties of pomegranate is crucial for achieving high yields and high-quality fruit.",
+            "Variety Details":"Two popular varieties for optimal pomegranate cultivation are Bhagwa and Ganesh. Bhagwa is renowned for its high yield and excellent fruit quality. Ganesh, on the other hand, is valued for its resistance to fruit cracking, a common issue in pomegranate cultivation."
+         }
+      },
+      "Planting":{
+            "Method":"For best results, plant pomegranate trees in well-drained soil with ample sunlight. The planting method involves digging a pit large enough to accommodate the root system of the young tree. Ensure the pit is filled with a mix of soil and organic matter to provide a fertile environment for root growth. Planting should be done in the early spring or late fall, avoiding periods of extreme temperature.",
+            "Spacing":"Space pomegranate trees approximately 6x6 meters apart.",
+            "Depth":"Plant pomegranate trees at the same depth they were growing in the nursery. The top of the root ball should be level with the surrounding soil surface."
+      },
+      "Monitoring":{
+            "Pests":"Common pests affecting pomegranates include the Pomegranate Borer and Aphids.",
+            "Diseases":"Two common diseases in pomegranates are Fruit Rot and Leaf Spot.",
+            "Nutrient Levels":"Conduct soil tests to determine the levels of key nutrients such as potassium and calcium."
+      },
+      "Site Selection":{
+            "Soil":"Choose well-drained, sandy loam soil for pomegranate trees.",
+            "Climate":"They require a minimum of 6-8 hours of direct sunlight per day to support healthy growth and fruit development. Ideal temperatures for pomegranate growth range from 20°C to 35°C."
+      },
+      "Field Preparation":{
+            "Land Preparation":"Begin by plowing and leveling the field to create a fine seedbed.",
+            "Organic Matter":"Add well-rotted manure or compost to the soil during land preparation."
+      },
+      "Weeding":{
+            "Frequency":"Weed the orchard 2-3 times during the growing season to control weed growth and reduce competition.",
+            "Methods":"Use manual weeding techniques to remove weeds around the base of the trees and between rows."
+      },
+      "Irrigation":{
+            "Method":"Use drip irrigation for efficient water use and to minimize water wastage.",
+            "Schedule":"Irrigate pomegranate trees during dry periods, especially during critical stages such as flowering and fruit development.",
+            "Management":"Avoid waterlogging by ensuring proper drainage in the orchard."
+      },
+      "Fertilization Organic":{
+            "Materials":"Apply 5-10 tons of well-rotted manure or compost per hectare.",
+            "Timing":"Incorporate organic materials during land preparation before planting."
+      },
+      "Fertilization Chemical":{
+            "Nutrients":"Apply NPK (Nitrogen, Phosphorus, Potassium) fertilizer in the ratio of 20:20:20 kg/ha.",
+            "Timing":"Apply phosphorus and potassium fertilizers at planting to support early root development and fruit setting. Nitrogen should be applied in two splits: the first at planting and the second during the growing season, typically around mid-season."
+      },
+      "Preventive Measure":{
+            "Methods":"Use resistant varieties and maintain field hygiene to prevent pest and disease issues."
+      },
+      "Plant Protection Chemical":{
+            "Pesticides":"Use Imidacloprid for managing Pomegranate Borer and Copper Oxychloride for controlling Fruit Rot.",
+            "Application":"Ensure even coverage of the affected areas to maximize effectiveness."
+      },
+      "Harvesting":{
+            "Timing":"Harvest pomegranates when the fruit is fully colored and has a metallic sound when tapped. Mature fruit typically changes color from green to deep red, and the rind becomes hard and glossy.",
+            "Method":"Hand-harvest pomegranates by carefully cutting the fruit from the tree using pruning shears or knives.",
+            "Handling":"Handle pomegranates with care to avoid bruising, cracking, or other damage. Avoid stacking fruit too high to prevent pressure damage."
+      },
+      "Post-Harvest":{
+            "Drying":"Dry pomegranates to reduce moisture content to around 12%. This moisture level helps in preventing mold growth and extending shelf life. Drying can be done using various methods, such as sun drying or mechanical dryers.",
+            "Storage":"Store pomegranates in cool, dry conditions to prevent moisture absorption and pest infestations. Ideal storage conditions include temperatures ranging from 5°C to 10°C with low humidity.",
+            "Processing":"Clean pomegranates thoroughly to remove any dirt, debris, or residues. Sorting involves separating fruit based on size, color, and quality to ensure uniformity."
+      }
+   },
+   "banana":{
+      "Plant Selection":{
+         "3 Weeks Before Seedling":
+         {
+            "Cavendish": "Known for its high yield and resistance to common diseases such as Panama disease and Fusarium wilt. It is the most widely grown banana variety globally.",
+            "Red Banana": "Recognized for its unique flavor and nutritional content. It is less common but highly valued in certain markets."
+         }
+      },
+      "Planting": {
+         "Method": "Prepare the site by clearing weeds, dig holes large enough for seedlings, incorporate organic matter, and ensure well-drained soil.",
+         "Spacing": "Space plants 2x2 meters apart for optimal growth, light, and access for maintenance, considering the growth habit of the variety.",
+         "Depth": "Plant seedlings at the same depth as in the nursery, cover the root ball with soil without burying the stem too deeply, and firm the soil around the base."
+      },
+      "Monitoring": {
+         "Pests": "Regular monitoring helps detect pests like Banana Weevil and Nematodes, using IPM practices and pesticides as needed.",
+         "Diseases": "Monitor for diseases such as Panama Disease and Sigatoka, using resistant varieties, field hygiene, and fungicides.",
+         "Nutrients": "Check nutrient levels regularly to address deficiencies, ensuring balanced fertilization for healthy plant growth."
+      },
+      "Site Selection": {
+         "Soil": "Select well-drained, fertile soils with high organic matter and a pH of 5.5 to 7.5 for optimal banana growth.",
+         "Climate": "Ensure temperatures of 25-30°C, consistent rainfall of 1,500-2,500 mm, and humidity of 60-90% for ideal banana conditions."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear vegetation, plow to 20-30 cm, and level the field to create a clean, well-aerated planting area with even water distribution.",
+         "Organic Matter": "Incorporate 10-15 tons/hectare of compost or well-rotted manure into the soil to improve fertility, structure, and moisture-holding capacity."
+      },
+      "Weeding": {
+         "Frequency": "Weed 2-3 times per growing season based on weed pressure; monitor fields frequently for early detection.",
+         "Methods": "Manual weeding: physically remove weeds; Herbicides: use pre- or post-emergent types; Mulching: cover soil with organic or plastic materials."
+      },
+      "Irrigation": {
+         "Method": "Drip Irrigation: delivers water directly to the root zone; Sprinkler Irrigation: provides water through overhead sprinklers.",
+         "Schedule": "Irrigate regularly, particularly during dry periods and critical growth stages; adjust based on weather, soil moisture, and plant needs.",
+         "Management": "Monitor soil moisture and drainage; prevent waterlogging and implement water conservation practices like mulching."
+      },
+      "Fertilization Organic": {
+         "Materials": "Compost: decomposed plant and animal matter; Manure: well-rotted farmyard manure; Green Manure: cover crops incorporated into soil.",
+         "Timing": "Incorporate organic matter during land preparation; apply top-dressing during the growing season; monitor plant health for adjustments."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply balanced NPK fertilizer with a 15:15:30 ratio; nitrogen in two splits, and phosphorus and potassium at planting.",
+         "Timing": "Apply at planting for initial growth; follow up during the growing season based on plant needs; adjust as necessary."
+      },
+      "Preventive Measure": {
+         "Methods": "Use disease-resistant varieties, maintain field hygiene, and practice crop rotation.",
+         "Equipment": "Regularly clean and sterilize tools; use dedicated equipment for different tasks to prevent contamination."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Includes Imidacloprid for pests and Copper Oxychloride for diseases; apply as per guidelines and integrate with other management practices.",
+         "Application": "Follow recommended guidelines and safety protocols, use protective equipment, and monitor field effectiveness to adjust practices."
+      },
+      "Harvesting": {
+         "Timing": "Harvest when fruit is green but mature, with proper size and firmness; check for size, shape, and firmness.",
+         "Method": "Hand-picking with a sharp knife or saw, and consider combine harvesters for large-scale plantations.",
+         "Handling": "Handle bunches carefully with padded containers and transport in ventilated containers to prevent damage."
+      },
+      "Post-Harvest": {
+         "Drying": "Ripen bananas at room temperature; for products like banana chips, use drying techniques such as sun drying or dehydrators.",
+         "Storage": "Store in a cool, dry place (13-15°C) away from sunlight; allow bananas to ripen at room temperature before use or processing.",
+         "Processing": "Clean bananas, sort by size and quality, and package in ventilated containers to maintain freshness and prevent bruising."
+      }
+   },
+   "mango":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": {
+            "Introduction": "Selecting the right mango variety is crucial for successful cultivation, involving an assessment of climate, soil, and market needs well before planting.",
+            "Varieties": "Alphonso: premium quality with rich flavor and creamy texture, harvested late April to early June; Kesar: vibrant orange with sweet-tangy flavor, harvested May to July."
+         }
+      },
+      "Planting": {
+         "Method": "Plant mango trees in well-drained, sandy loam soil with at least 8 hours of sunlight daily; prepare by clearing debris and incorporating organic matter.",
+         "Spacing": "Space trees 7x7 meters (23x23 feet) apart to ensure good airflow and ease of management; adjust based on variety and local conditions.",
+         "Depth": "Plant seedlings at the same depth as in the nursery; dig holes slightly larger than the root ball and backfill carefully to avoid air pockets."
+      },
+      "Monitoring": {
+         "Pests": "Monitor for mango hoppers causing leaf damage and sooty mold, and fruit flies damaging fruit; use IPM, traps, and insecticides for control.",
+         "Diseases": "Check for anthracnose with dark lesions on fruit and leaves, and powdery mildew with white patches; apply fungicides and maintain good cultural practices for control.",
+         "Nutrient Levels": "Regularly test soil for pH and nutrient levels to guide fertilization and ensure optimal growth for mango trees."
+      },
+      "Site Selection": {
+         "Soil": "Mango trees require well-drained sandy loam or loamy soil; prepare by clearing debris, plowing, incorporating organic matter, and testing pH (ideal 5.5-7.0).",
+         "Climate": "Mango trees thrive in warm, tropical climates (24°C-30°C) and need a distinct dry season; protect from frost and manage water with irrigation during dry periods."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear the land of weeds, rocks, and debris to reduce competition and disease risks; plow to improve soil structure and incorporate organic matter for better fertility.",
+         "Organic Matter": "Incorporate compost or well-rotted manure into the soil to enhance fertility and structure, and apply additional organic matter as top-dressing during the growing season."
+      },
+      "Weeding": {
+         "Frequency": "Weed the field regularly, at least once a month, and adjust frequency based on weed pressure and growth patterns; weed before and after the rainy season to manage growth effectively.",
+         "Methods": "Use manual weeding for precise control around trees and mulching to suppress weeds, conserve moisture, and enhance soil health."
+      },
+      "Irrigation": {
+         "Method": "Use drip irrigation to deliver water directly to the root zone, reducing waste and fungal disease risks, with regular checks for system issues.",
+         "Schedule": "Increase irrigation frequency and duration during dry periods, monitoring soil moisture and adjusting based on weather conditions.",
+         "Management": "Ensure proper drainage to prevent waterlogging and root rot, using well-drained soil and constructing drainage channels if needed."
+      },
+      "Fertilization Organic": {
+         "Materials": "Use compost and well-rotted manure to enhance soil fertility and structure, applying them during land preparation and as top-dressing.",
+         "Timing": "Incorporate organic materials into the soil before planting and apply as top-dressing during the growing season for ongoing nutrient support."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply NPK fertilizers to provide balanced nutrition for mango trees, supporting growth and fruit development.",
+         "Timing": "Apply chemical fertilizers at planting to support initial growth and reapply during the growing season to meet nutrient demands and enhance fruit quality."
+      },
+      "Preventive Measure": {
+         "Methods": "Choose disease-resistant mango varieties to reduce disease incidence.",
+         "Equipment": "Regularly clean and sterilize tools to prevent disease spread and ensure proper functioning."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Apply fungicides during critical stages for fungal diseases and insecticides based on pest monitoring; rotate products and integrate methods for effective control.",
+         "Application": "Follow instructions for rates and timing; ensure even coverage and monitor effectiveness."
+      },
+      "Harvesting": {
+         "Timing": "Harvest mangoes when mature but still firm, monitoring color and firmness for optimal ripeness.",
+         "Method": "Hand-pick fruit gently or use specialized equipment for larger volumes, ensuring minimal damage."
+      },
+      "Post-Harvest": {
+         "Drying": "Handle mangoes with care, ripen at room temperature in a well-ventilated area, and monitor regularly for even ripening.",
+         "Storage": "Store unripe mangoes at room temperature and ripe ones in the refrigerator for up to 5-7 days; freeze peeled and sliced mangoes in airtight containers for up to 6-12 months.",
+         "Processing": "Rinse and dry mangoes, sort by size and quality, use clean packaging materials with cushioning, and transport in well-ventilated, cool conditions while handling carefully."
+      }
+   },
+   "grapes":{
+      "Plant Selection":{
+         "3 Weeks Before Seedling":"Choosing the right grape varieties is crucial for achieving high yields and ensuring disease resistance. Varieties such as Thompson Seedless and Keshav are recommended for their adaptability and quality. Thompson Seedless is known for its versatile uses, including fresh consumption and raisin production. It has a high sugar content, making it suitable for both table grapes and wine production. Keshav, on the other hand, is valued for its exceptional sweetness and color, which make it popular for fresh markets. Selecting these varieties involves assessing the local growing conditions, such as soil type and climate, to ensure that the chosen varieties will thrive and produce high-quality fruit. Proper selection of grape varieties also contributes to disease resistance, reducing the need for chemical interventions and promoting sustainable vineyard management.",
+         "Variety Details":"Thompson Seedless grapes are highly regarded for their sweet, crisp flavor and seedless nature, making them ideal for eating fresh and for use in dried fruit products like raisins. This variety is adaptable to various climates and soil types, though it prefers well-drained soils and a warm growing season. Keshav grapes, known for their vibrant color and rich sweetness, are particularly valued in markets where appearance and taste are key factors. They have a high yield potential and are suited to regions with adequate sunlight and moderate water supply. Both varieties require careful management to achieve optimal fruit quality, including appropriate pruning, fertilization, and pest control practices. By selecting the right varieties and understanding their specific requirements, growers can ensure a successful and profitable grape production operation."
+      },
+      "Planting":{
+         "Method":"Proper planting techniques are essential for establishing healthy grapevines and ensuring optimal growth. Grapevines should be planted in well-drained soil with ample sunlight to support vigorous growth and fruit development. The soil should be prepared by clearing weeds and debris, then incorporating organic matter to improve fertility and structure. When planting, ensure that the vines are positioned at the same depth as they were in the nursery to avoid root damage and promote healthy root development. Adequate spacing between vines is critical to prevent overcrowding and ensure good air circulation, which reduces the risk of disease and supports even fruit ripening. Planting in rows with proper orientation relative to sunlight will enhance photosynthesis and contribute to overall vine health.",
+         "Spacing":"The spacing between grapevines is a key factor in vineyard management and affects vine growth, fruit production, and ease of maintenance. A spacing of 2.5x2.5 meters is recommended for optimal growth, allowing each vine sufficient room to develop its root system and canopy. Proper spacing ensures that vines do not compete excessively for nutrients, water, and sunlight. It also facilitates access for vineyard operations such as pruning, spraying, and harvesting. When planning vineyard layout, consider factors such as vine vigor, soil fertility, and climate conditions. Adequate spacing helps reduce the risk of fungal diseases by improving air circulation and light penetration within the canopy. Properly spaced vines are more likely to produce high-quality fruit and achieve consistent yields over time.",
+         "Depth":"Planting grapevines at the correct depth is essential for promoting healthy root development and ensuring long-term vine vigor. Vines should be planted at the same depth as they were in the nursery, with the root crown level with the soil surface. Planting too deep can result in poor root growth and increased susceptibility to soil-borne diseases, while planting too shallow can expose roots to drying and stress. Proper planting depth allows the vine to establish a strong root system, which is critical for accessing water and nutrients from the soil. Additionally, planting at the correct depth helps stabilize the vine and supports its structural integrity as it grows. Careful attention to planting depth during installation contributes to the overall success and productivity of the vineyard."
+      },
+      "Monitoring":{
+         "Pests":"Regular monitoring for pests is crucial for managing grapevine health and ensuring high fruit quality. Common pests affecting grapevines include Grape Berry Moth and Aphids. Grape Berry Moth larvae can damage grape clusters by feeding on the fruit, leading to reduced quality and increased susceptibility to secondary infections. Aphids can transmit diseases and cause direct damage to the vine by feeding on plant sap. Implement a monitoring program that includes visual inspections of grape clusters and foliage, and use pest traps or pheromone lures to detect and manage pest populations. Integrated Pest Management (IPM) strategies, such as introducing natural predators and using biological controls, can help reduce the reliance on chemical treatments and promote sustainable pest management practices.",
+         "Diseases":"Monitoring for diseases is essential for preventing and managing grapevine health issues. Key diseases to watch for include Powdery Mildew and Downy Mildew. Powdery Mildew is a fungal disease that affects grapevine leaves, stems, and fruit, causing a characteristic white powdery coating and reducing fruit quality. Downy Mildew is another fungal disease that causes yellowing of leaves and fuzzy white growths on the undersides, leading to significant crop losses if not managed effectively. Regular inspection of vines, coupled with disease forecasting and weather monitoring, can help identify disease outbreaks early and guide appropriate treatment measures. Implementing disease-resistant grape varieties and practicing good vineyard hygiene, such as removing infected plant material, can further reduce disease risk and enhance overall vine health.",
+         "Nutrient Levels":"Maintaining optimal nutrient levels is vital for grapevine health and productivity. Regular soil tests help assess nutrient availability and guide fertilization practices. For grapes, critical nutrients include potassium and phosphorus. Potassium supports overall vine health, enhances fruit quality, and improves disease resistance, while phosphorus is crucial for root development and flowering. Soil tests should be conducted before planting and periodically throughout the growing season to monitor nutrient levels and make necessary adjustments. Based on test results, apply fertilizers to address nutrient deficiencies and avoid over-fertilization, which can lead to imbalances and reduced vine performance. Effective nutrient management ensures that grapevines receive the essential elements needed for healthy growth and high-quality fruit production."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained, fertile soil like loamy soil for optimal vine health or sandy soil with added organic matter for improved fertility and irrigation needs.",
+         "Climate": "Select a site with warm temperatures and dry conditions to support healthy grapevine growth, good fruit quality, and minimize disease risks."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear weeds and debris, plow the soil for aeration, and prepare planting pits or rows with proper drainage and spacing.",
+         "Organic Matter": "Incorporate compost or well-rotted manure to enhance soil fertility and structure, applying it before planting and mixing thoroughly."
+      },
+      "Weeding": {
+         "Frequency": "Weed regularly to control growth and reduce competition for resources; monitor and address emerging weeds promptly.",
+         "Methods": "Use manual weeding to remove weeds by hand or with tools, and apply mulch to suppress weeds and retain soil moisture."
+      },
+      "Irrigation": {
+         "Method": "Drip irrigation delivers water directly to the root zone, reducing wastage; install and maintain the system, and adjust based on weather and soil moisture.",
+         "Schedule": "Irrigate during dry periods, especially during growth and fruit development; adjust based on weather forecasts and soil moisture, increasing frequency during heat or drought.",
+         "Management": "Ensure proper drainage to avoid waterlogging, regularly inspect and adjust the irrigation system, and use soil moisture sensors to optimize water use."
+      },
+      "Fertilization Organic": {
+         "Materials": "Compost and well-rotted manure enrich the soil with nutrients and improve structure; apply compost before planting and manure both before planting and during the growing season.",
+         "Timing": "Incorporate organic matter before planting and apply additional fertilizers during key growth stages; adjust based on vine growth and soil nutrient levels."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply NPK (20:20:20 kg/ha) to support vine health, fruit quality, and yield; adjust based on soil tests and vine needs to avoid over-fertilization.",
+         "Timing": "Apply fertilizers at planting and during key growth stages; monitor vine growth and adjust applications based on plant response and soil nutrient levels."
+      },
+      "Preventive Measure": {
+         "Methods": "Use disease-resistant grape varieties, maintain field hygiene, and implement integrated pest management (IPM) practices to minimize pests and diseases.",
+         "Equipment": "Regularly clean and sterilize tools, inspect and maintain equipment, and store it properly to prevent the spread of pests and diseases."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use targeted fungicides and insecticides following label instructions to manage pests and diseases, ensuring safety and environmental protection.",
+         "Application": "Apply pesticides according to guidelines with proper equipment, monitor effectiveness, and adjust practices based on pest management needs."
+      },
+      "Harvesting": {
+         "Timing": "Harvest grapes when fully colored, firm, and at desired sugar and acid levels to ensure optimal quality and flavor.",
+         "Method": "Choose hand-picking for high-quality grapes or mechanical harvesters for large-scale operations, ensuring clean equipment and minimal fruit damage.",
+         "Handling": "Handle grapes gently with clean containers to prevent bruising, and transport promptly under suitable temperature and humidity to maintain freshness."
+      },
+      "Post-Harvest": {
+         "Drying": "Spread harvested grapes on drying trays in a well-ventilated, low-humidity area, monitor regularly for uniformity and moisture content, and discard damaged fruit.",
+         "Storage": "Store grapes in a cool, dry place or refrigerate fresh grapes in airtight containers, inspecting regularly for spoilage.",
+         "Processing": "Clean grapes thoroughly, sort by size and quality, and package in suitable containers with labels to prepare for market or further use."
+      }
+   },
+   "watermelon":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Choose watermelon varieties suited to your climate and soil. Opt for Sugar Baby for compact size and disease resistance, or Crimson Sweet for high yield and sweet flavor.",
+         "Variety Details": "Sugar Baby offers quick maturity and sweet flavor for small spaces; Crimson Sweet provides large, crisp fruits with excellent shelf life and disease resistance, ideal for larger production."
+      },
+      "Planting": {
+         "Method": "Plant in well-drained, fertile soil with full sunlight. Prepare the area by clearing debris and incorporating organic matter. Ensure soil temperature is at least 21°C (70°F) before planting.",
+         "Spacing": "Space plants 2x2 meters to allow full vine development and reduce disease risk. Adjust spacing based on plant size and growth habit.",
+         "Depth": "Plant seeds 2.5-5 cm deep to ensure proper germination and seedling establishment. Keep soil moist but not waterlogged."
+      },
+      "Monitoring": {
+         "Pests": "Regularly check for Cucumber Beetles and Aphids, use traps and natural predators like ladybugs to manage pest populations.",
+         "Diseases": "Monitor for Powdery Mildew and Fusarium Wilt, use crop rotation, resistant varieties, and appropriate fungicides while following IPM practices.",
+         "Nutrient Levels": "Conduct soil tests for potassium and phosphorus, adjust fertilization based on test results to support optimal growth and fruit development."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained, sandy loam soil with a pH of 6.0 to 7.0. Test and amend soil for optimal nutrient levels and avoid waterlogging.",
+         "Climate": "Select a warm, sunny climate with temperatures between 21°C and 29°C (70°F to 85°F). Ensure consistent water availability and provide full sunlight for 6-8 hours daily."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear weeds, plow the field, and create mounds or rows for planting to improve soil structure and drainage. Consider incorporating cover crops or green manure to enhance soil fertility.",
+         "Organic Matter": "Incorporate compost or well-rotted manure into the top 15-20 cm of soil before planting to improve fertility, structure, and microbial activity."
+      },
+      "Weeding": {
+         "Frequency": "Weed regularly, at least once a week, to prevent competition for nutrients and water. Monitor closely during key growth stages and adjust the weeding schedule based on weed and plant growth.",
+         "Methods": "Use manual weeding or mulch to control weeds. Manual weeding removes weeds physically, while mulching blocks light to prevent germination. Combining methods can enhance weed control and reduce the need for further weeding."
+      },
+      "Irrigation": {
+         "Method": "Use drip irrigation for efficient water delivery directly to plant roots, minimizing evaporation and runoff. Maintain and adjust the system based on plant needs and environmental conditions.",
+         "Schedule": "Irrigate during dry periods, particularly during fruit development, and monitor soil moisture levels to adjust the schedule based on weather and plant needs.",
+         "Management": "Ensure proper drainage to avoid waterlogging and adjust irrigation based on seasonal weather patterns and plant growth stages."
+      },
+      "Fertilization Organic": {
+         "Materials": "Apply 10-15 tons of compost or well-rotted manure per hectare to improve soil fertility and structure. Incorporate into the topsoil before planting to ensure even nutrient distribution.",
+         "Timing": "Incorporate organic materials during land preparation and apply additional top-dressing during the growing season based on plant needs and soil conditions."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply NPK 15:15:15 kg/ha for balanced nutrition, supporting growth, root development, and fruit quality. Adjust based on soil tests and avoid over-application to prevent imbalances.",
+         "Timing": "Apply fertilizers at planting and during key growth stages such as flowering and fruit development. Monitor plant health and soil nutrient levels to guide additional applications."
+      },
+      "Preventive Measure": {
+         "Methods": "Use disease-resistant varieties and maintain field hygiene to prevent pest and disease issues. Implement crop rotation to disrupt pest and disease cycles.",
+         "Equipment": "Clean and sterilize tools and equipment regularly to prevent the spread of pests and diseases. Maintain equipment with a routine schedule to ensure optimal performance and safety."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use appropriate fungicides and insecticides as needed, following label instructions and integrating with other pest management strategies.",
+         "Application": "Follow application guidelines, integrating with IPM practices and wearing protective gear to ensure effectiveness and safety."
+      },
+      "Harvesting": {
+         "Timing": "Harvest watermelons when fully mature with a deep, hollow sound, vibrant color, and a dried, brown tendril. Regular checks are crucial to avoid underripe or overripe fruit.",
+         "Method": "Cut fruit with a sharp knife or pruning shears, avoiding damage. Handle carefully to prevent bruising and transport in padded containers without stacking too high.",
+         "Handling": "Handle watermelons gently to prevent bruising. Use padded containers, inspect for damage before storage, and remove any spoiled fruit to maintain quality."
+      },
+      "Post-Harvest": {
+         "Drying": "Watermelons are not typically dried; focus on proper handling and storage. Explore processing options like watermelon juice for extended usability.",
+         "Storage": "Store watermelons in a cool, dry place at 10°C to 15°C (50°F to 60°F). Ensure good ventilation and avoid excess moisture and direct sunlight.",
+         "Processing": "Clean, sort, and package watermelons to maintain quality. Use appropriate packaging and consider adding labels for consumer information."
+      }
+   },
+   "muskmelon":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": {
+            "Description": "Selecting the right muskmelon variety ensures successful cultivation based on yield, disease resistance, and fruit quality.",
+            "Varieties": "Cantaloupe offers sweet orange flesh and a short growing season, while Galia has a smooth greenish-yellow skin and a tropical flavor, thriving in warmer climates with a longer growing season."
+         }
+      },
+      "Planting": {
+         "Method": "Prepare the soil, create mounds or rows for drainage, and plant seeds 2.5 to 5 cm deep after soil warms to 18°C.",
+         "Spacing": "Space muskmelon plants 1.5 meters apart within rows and between rows to ensure proper air circulation and growth.",
+         "Depth": "Plant seeds 2.5 to 5 cm deep to ensure proper germination and seedling establishment."
+      },
+      "Monitoring": {
+         "Pests": "Regularly inspect for pests like cucumber beetles and aphids, and use appropriate control methods to manage infestations.",
+         "Diseases": "Monitor for diseases such as powdery mildew and downy mildew, and apply treatments or preventative measures to manage outbreaks.",
+         "Nutrient Levels": "Conduct soil tests to monitor nutrient levels and adjust fertilization practices to ensure optimal plant growth and yield."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained, sandy loam soil and incorporate organic matter; avoid heavy clay soils and ensure pH is between 6.0 and 7.0.",
+         "Climate": "Opt for warm climates with temperatures between 20°C and 30°C, ensuring full sun exposure for at least 6-8 hours a day."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear the field of weeds and debris, plow to a depth of 20-30 cm, and prepare planting beds or rows for optimal soil aeration and drainage.",
+         "Organic Matter": "Incorporate compost or well-rotted manure into the soil to enhance fertility, structure, and water retention, applying at a rate of 10-15 tons per hectare."
+      },
+      "Weeding": {
+         "Frequency": "Weed every 1-2 weeks during the growing season to prevent competition and manage weed populations effectively.",
+         "Methods": "Use a combination of manual weeding, mulching, and herbicides to control weeds based on field size, weed species, and resources."
+      },
+      "Irrigation": {
+         "Method": "Use drip irrigation for precise and efficient water delivery, adjusting the schedule based on weather and soil moisture to avoid over-irrigation.",
+         "Management": "Ensure proper drainage to prevent waterlogging and use water conservation strategies like mulching and optimized irrigation schedules to reduce waste."
+      },
+      "Fertilization Organic": {
+         "Materials": "Use compost and well-rotted manure to enhance soil fertility and structure, applying them before planting and as top-dressing during the growing season for continuous nutrient support.",
+         "Timing": "Incorporate organic fertilizers into the soil 2-4 weeks before planting and apply top-dressing at key growth stages to provide essential nutrients and support plant development."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Apply NPK fertilizers with a ratio of 15:15:15 kg/ha before planting and during the growing season to provide balanced nutrition and support muskmelon growth and fruiting.",
+         "Timing": "Apply chemical fertilizers at planting for initial nutrient boost and during the growing season at key growth stages to match plant nutrient needs and support optimal development."
+      },
+      "Preventive Measure": {
+         "Methods": "Adopt disease-resistant varieties, crop rotation, and good sanitation to maintain plant health and reduce disease and pest risks."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use fungicides for fungal diseases and insecticides for pests, following label instructions and safety guidelines.",
+         "Application": "Read labels, calibrate equipment, and time applications based on pest cycles, integrating with IPM practices for effective and reduced chemical use."
+      },
+      "Harvesting": {
+         "Timing": "Harvest muskmelons when they show mature color, emit a sweet aroma, and have a slight softness at the stem end, ensuring optimal ripeness without overripe conditions.",
+         "Method": "Use a sharp knife or pruning shears to cut the fruit with a short stem, handle gently, and transport in padded containers to prevent bruising and maintain quality."
+      },
+      "Post-Harvest": {
+         "Drying": "Muskmelons are not typically dried; instead, allow them to ripen at room temperature post-harvest in a well-ventilated area to enhance flavor without overripening.",
+         "Storage": "Store muskmelons at 7°C to 10°C in a cool, dry place with low humidity to prevent spoilage and maintain freshness.",
+         "Processing": "Clean muskmelons gently with water, sort by size and ripeness, and package in protective, ventilated containers with appropriate labeling for quality assurance."
+      }
+   },
+   "apple":{
+      "Plant Selection": {
+         "Description": "Choosing the right apple varieties is key for orchard success, affecting tree health, fruit quality, and sustainability. Selecting varieties based on climate, soil, and disease resistance ensures better fruit quality and yields.",
+         "Varieties": "Fuji apples are known for their sweet flavor and crisp texture, requiring moderate climates and well-drained soil. Gala apples offer a mildly sweet taste and are suitable for regions with milder winters, adaptable to various soils but require attention to pest and disease management."
+      },
+      "Planting":{
+         "Method": "Planting involves carefully placing apple trees in well-prepared soil at the recommended depth and spacing to ensure proper growth and development.",
+         "Spacing": "Trees should be spaced adequately to allow for canopy growth, air circulation, and light penetration, with typical distances ranging from 2.5 to 4 meters (8 to 13 feet) between trees, depending on the variety and rootstock."
+      },
+      "Monitoring": {
+         "Pests": "Monitor for pests like apple maggot and codling moth by checking for signs of infestation and using traps; manage through proper sanitation, biological controls, and insecticides.",
+         "Diseases": "Watch for diseases such as apple scab and powdery mildew, which cause lesions and powdery coatings; manage with resistant varieties, fungicides, and proper cultural practices.",
+         "Nutrient Levels": "Regularly test soil to monitor nutrient levels, address deficiencies with balanced fertilization, and adjust practices based on soil test results to ensure optimal tree health and fruit quality."
+      },
+      "Site Selection":{
+         "Soil": "Soil should be well-drained, loamy, and rich in organic matter, with a pH between 6.0 and 7.0, to support healthy root growth and prevent waterlogging.",
+         "Climate": "Apples require a temperate climate with distinct seasons, sufficient chilling hours, moderate rainfall, and full sun exposure for optimal growth and fruit development."
+      },
+      "Field Preparation":{
+         "Land Preparation": "Clear weeds, rocks, and debris, then plow to a depth of at least 30 cm to improve soil aeration and root penetration, incorporating organic matter and leveling the field for even water distribution and drainage.",
+         "Organic Matter": "Incorporate 10-15 tons per hectare of well-decomposed compost or manure into the soil to a depth of at least 20 cm to enhance soil fertility, structure, and water-holding capacity, supporting healthy root development and tree growth."
+      },
+      "Weeding":{
+         "Frequency": "Weed at least once a month during the growing season, adjusting based on weed density, weather, and management practices, to maintain an optimal environment and reduce weed-related issues.",
+         "Methods": "Manual weeding involves removing weeds by hand or with tools, suitable for smaller or less infested areas, while mulching applies a layer of material to suppress weeds, retain moisture, and regulate temperature."
+      },
+      "Irrigation":{
+         "Method": "Drip irrigation delivers water directly to the root zone efficiently, minimizing waste and avoiding overwatering; install emitters at the base of each tree and adjust flow based on soil and weather conditions.",
+         "Schedule": "Irrigate during dry periods and critical fruit development stages, adjusting frequency based on weather and soil moisture to prevent water stress and optimize fruit quality.",
+         "Management": "Effective management involves ensuring proper drainage, preventing waterlogging, and maintaining the irrigation system to support tree health and optimize fruit production."
+      },
+      "Fertilization Organic":{
+         "Materials": "Apply 10-15 tons of compost or well-rotted manure per hectare to improve soil fertility and structure; use well-decomposed materials to avoid pathogens and pests, and adjust inputs based on soil fertility and tree needs.",
+         "Timing": "Incorporate organic fertilizers during land preparation and apply as top-dressing in spring and late summer to support tree growth and nutrient needs, adjusting based on soil tests and tree development."
+      },
+      "Fertilization Chemical":{
+         "Nutrients": "Apply NPK fertilizer (20:10:10 kg/ha) to support vegetative growth, root development, and fruit quality; follow recommended rates to avoid imbalances and monitor tree growth for effectiveness.",
+         "Timing": "Apply fertilizers at planting and during the growing season, in early spring and mid-summer, adjusting based on soil tests and tree needs to support healthy growth and fruit production."
+      },
+      "Preventive Measures": {
+         "Methods": "Disease-resistant apple varieties and field hygiene practices such as removing debris and disinfecting tools help manage tree health and reduce disease risk.",
+         "Equipment": "Regularly clean and sterilize tools and machinery to prevent disease spread and ensure effective operation."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Apply registered fungicides and insecticides according to guidelines to manage pests and diseases, following IPM principles to reduce environmental impact and optimize effectiveness."
+      },
+      "Harvesting": {
+         "Timing": "Harvest apples when they reach peak firmness, color, and taste, based on variety and local conditions, to ensure optimal flavor and shelf life.",
+         "Method": "Choose between hand-picking for high fruit quality or specialized equipment for efficiency, depending on orchard size and needs.",
+         "Handling": "Handle apples gently to prevent bruising, use padded containers for transport, and ensure proper cleaning and drying before storage."
+      },
+      "Post-Harvest": {
+         "Drying": "Apples ripen after harvest rather than drying; proper storage conditions (0-4°C and 90-95% humidity) facilitate controlled ripening to achieve peak quality.",
+         "Storage": "Store apples in a cool, dry, and well-ventilated environment with consistent temperatures (0-4°C) to maintain freshness and extend shelf life.",
+         "Processing": "Clean and sort apples before processing, then package them in protective, well-ventilated materials with clear labeling to ensure quality and safety."
+      }
+   },
+   "orange":{
+      "Plant Selection":{
+         "3 Weeks Before Seedling":{
+            "Overview":"Choose orange varieties suited to local conditions for better yield and reduced chemical use. This choice enhances productivity and fruit quality.",
+            "Variety Choice": "Basically two varities Navel and Valencia. Navel oranges are one of the most sought-after varieties due to their exceptional sweetness, ease of peeling, and seedless nature. Valencia oranges are renowned for their high juice content and rich, tangy flavor."
+         }
+      },
+      "Planting": {
+         "Method": "Proper planting methods ensure young orange trees develop a strong root system, promoting healthy growth and fruit production through soil preparation, site selection, and effective planting techniques.",
+         "Recommended Spacing": "For standard-sized orange trees, a spacing of 6x6 meters (20x20 feet) is recommended to provide enough room for growth and good air circulation, which reduces disease risk and promotes healthy fruit development."
+      },
+      "Monitoring": {
+         "Pests": "Regular monitoring for pests like citrus aphids and fruit flies is crucial for preventing damage and controlling infestations through accurate identification and integrated pest management strategies.",
+         "Diseases": "Early detection of diseases such as citrus canker and greening disease, through visual inspections and diagnostic testing, is essential for managing and mitigating their impact on orange trees.",
+         "Nutrient Levels": "Monitoring soil and leaf nutrient levels ensures optimal growth and fruit production by identifying deficiencies and guiding appropriate fertilization and soil amendment practices."
+      },
+      "Site Selection": {
+         "Soil": "Selecting well-drained, sandy loam soil is crucial for healthy orange trees, with soil amendments like compost improving drainage and fertility as needed.",
+         "Climate": "Choosing a site with a warm, subtropical to tropical climate, and ample sunlight (6-8 hours per day) ensures optimal growth and fruit production for orange trees."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Prepare the field by clearing vegetation, plowing or tilling to improve soil structure and aeration, and leveling the soil for even planting.",
+         "Organic Matter": "Incorporate compost or well-rotted manure to enhance soil fertility and structure, ensuring even mixing into the topsoil to support healthy orange tree growth."
+      },
+      "Weeding": {
+         "Frequency": "Regular weeding every 2 to 4 weeks is essential to prevent competition for nutrients and resources, with adjustments based on weed growth rates and conditions.",
+         "Methods": "Utilize manual weeding for precise removal of specific weeds and apply organic or inorganic mulches to suppress weed growth and retain soil moisture."
+      },
+      "Irrigation": {
+         "Method": "Drip irrigation efficiently delivers water directly to the root zone, reducing waste and maintaining consistent soil moisture, with an adjusted schedule based on weather and soil conditions.",
+         "Management": "Ensure proper drainage to prevent waterlogging and test water quality regularly to avoid contamination, supporting optimal tree health and growth."
+      },
+      "Fertilization Organic": {
+         "Materials": "Use compost and well-rotted manure to enhance soil fertility, improve structure, and provide essential nutrients to orange trees, applying at rates of 10-15 tons per hectare.",
+         "Timing": "Incorporate organic materials before planting and top-dress during the growing season in early spring and mid-summer to support tree development and fruit production."
+      },
+      "Fertilization Chemical": {
+         "Materials": "Use complete fertilizers with balanced nutrients (e.g., 10-10-10) and specialized fertilizers for specific growth stages or nutrient needs to support optimal tree health and productivity.",
+         "Application": "Apply fertilizers through broadcasting or banding based on soil and leaf tests, with pre-planting and growing season applications adjusted to nutrient needs and recommended rates."
+      },
+      "Preventive Measures": {
+         "Cultural Practices": "Adopt proper site selection, regular pruning, adequate spacing, mulching, crop rotation, and intercropping to maintain healthy orange trees and minimize pest and disease risks.",
+         "Sanitation": "Use disease-free stock, regularly inspect and remove infected material, clean tools, manage debris, and ensure clean water sources to prevent pest and disease spread.",
+         "Biological Control": "Utilize natural predators, parasites, and microbial agents to manage pests, avoid broad-spectrum insecticides, and support beneficial insects through habitat management.",
+         "Monitoring and Surveillance": "Implement a systematic monitoring program with traps and inspections to detect pests, diseases, and deficiencies early, analyze environmental conditions, and adjust management strategies accordingly."
+      },
+      "Plant Protection Chemicals": {
+         "Pesticides": "Select appropriate, labeled insecticides and fungicides, follow label instructions, rotate products to avoid resistance, and integrate with IPM strategies for effective pest management.",
+         "Application Methods": "Apply pesticides in cooler times, use calibrated sprayers, wear PPE, avoid windy conditions, and maintain equipment for even coverage, while adhering to pre-harvest and re-entry intervals.",
+         "Integrated Pest Management (IPM)": "Combine preventive measures, biological control, and cultural practices with selective pesticide use, focus on early detection, and educate workers for sustainable pest management.",
+         "Safety Precautions": "Follow label instructions, use PPE, store pesticides securely, dispose of containers properly, establish buffer zones, train farmworkers, and monitor their health to ensure safe pesticide use."
+      },
+      "Harvesting": {
+         "Timing": "Harvest oranges based on color and sugar content (Brix level) to ensure optimal flavor, quality, and shelf life, with fruit changing from green to deep orange and reaching the desired Brix level.",
+         "Techniques": "Choose hand harvesting for careful selection and minimal damage or mechanical harvesting for efficiency in large orchards, with appropriate methods based on orchard size and fruit handling needs."
+      },
+      "Post-Harvest": {
+         "Handling": "Sort and grade oranges by size, color, and quality, removing damaged fruit, and package them in well-ventilated containers to protect against spoilage and ensure quality.",
+         "Storage": "Store oranges at 7°C to 10°C (45°F to 50°F) with 85% to 90% humidity in a cool, well-ventilated environment to maintain freshness and extend shelf life."
+      }
+   },
+   "papaya":{
+      "Plant Selection":{
+         "3 Weeks Before Seedling":{
+            "Overview":"Selecting the right papaya variety is crucial for ensuring successful cultivation and achieving high yields. This process involves evaluating various factors such as the local climate, soil conditions, and market preferences.",
+            "Varieties":"Solo papayas are small, sweet, and early fruiting, ideal for fresh markets and compact spaces. Red Lady papayas are larger, disease-resistant, and suited for commercial cultivation, offering high yields and resilience."
+         }
+      },
+      "Planting": {
+         "Method": "Proper soil preparation involves clearing debris, tilling, and adding organic matter. Papaya should be planted at the same depth as in the nursery, with a spacing of 2x2 meters to ensure healthy growth and adequate air circulation.",
+         "Spacing": "Spacing ensures adequate room for growth and reduces competition and disease risk; a 2x2 meter spacing is typical for most varieties, with adjustments based on specific variety and conditions.",
+         "Depth": "Plant at the same depth as in the nursery, with the top of the root ball level with the soil surface."
+      },
+      "Monitoring": {
+         "Pests": "Regular pest monitoring involves early detection of issues like Papaya Ringspot Virus and Mealybugs to prevent damage. Management includes using resistant varieties, controlling aphids, and introducing natural predators.",
+         "Diseases": "Monitoring for diseases like Powdery Mildew and Bacterial Blight ensures timely intervention. Key management practices include fungicide application, improving air circulation, and using disease-resistant varieties.",
+         "Nutrient Levels": "Monitoring nutrient levels through regular soil testing helps optimize plant health and productivity. Adjust fertilization practices based on soil test results to address deficiencies and support growth."
+      },
+      "Site Selection": {
+         "Soil": "Choose well-drained, sandy loam soils with good fertility for papaya cultivation. Soil should be prepared by clearing debris, plowing, and adding organic matter to improve aeration and nutrient availability.",
+         "Climate": "Papayas need a warm, tropical climate with temperatures between 20°C to 30°C (68°F to 86°F) and consistent rainfall. Avoid extreme temperature fluctuations and excessive rainfall to prevent plant stress and root rot."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear weeds and debris from the field, then plow or till to a depth of at least 30 cm (12 inches) to improve aeration and drainage, supporting healthy root development and crop productivity.",
+         "Organic Matter": "Incorporate organic matter like compost, well-rotted manure, or green manure into the soil to enhance fertility, water retention, and aeration. Spread and work it into the soil during land preparation for optimal plant growth."
+      },
+      "Weeding": {
+         "Frequency": "Weeding should be performed every 2-4 weeks, especially during early plant growth, to prevent competition with papaya plants and maintain a healthy growing environment.",
+         "Methods": "Weeding methods include manual removal for small areas, mechanical weeding with machinery for larger fields, and mulching to suppress weed growth and retain soil moisture."
+      },
+      "Irrigation": {
+         "Method": "Drip irrigation delivers water directly to the roots, conserving resources and reducing wastage, while sprinkler irrigation provides uniform coverage for larger fields but can be less efficient and increase disease risk.",
+         "Schedule": "Irrigation frequency should be adjusted based on soil moisture, plant growth stages, and weather conditions; more frequent irrigation is needed during dry periods, while less is required during wet conditions.",
+         "Management": "Monitor soil moisture to adjust irrigation practices and avoid waterlogging, which can lead to root rot. Proper management helps prevent water wastage and supports healthy plant growth."
+      },
+      "Fertilization Organic": {
+         "Materials": "Compost and well-rotted manure are key organic fertilizers that enhance soil fertility, improve soil structure, and provide essential nutrients. Compost offers slow-release nutrients and soil improvement, while well-rotted manure adds vital nutrients and enriches soil.",
+         "Timing": "Organic fertilizers should be incorporated during land preparation to ensure nutrient availability before planting, and can also be applied as top-dressing during the growing season to provide additional nutrients and support plant growth."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Chemical fertilizers offer concentrated nutrients essential for plant growth, with a balanced NPK ratio of 15:15:15 recommended for papayas to support growth, flowering, and fruiting. Accurate application rates are crucial to avoid nutrient imbalances.",
+         "Timing": "Apply chemical fertilizers at planting to support initial growth and during the growing season for continued development. Follow recommended schedules and rates based on plant needs and soil conditions."
+      },
+      "Preventive Measure": {
+         "Methods": "Implementing preventive measures like selecting disease-resistant varieties, maintaining field hygiene, and ensuring proper plant spacing and planting depth helps minimize disease and pest risks, enhancing crop health and yield.",
+         "Equipment": "Regular cleaning and sterilizing of tools, along with routine maintenance of farming equipment, are crucial for preventing disease spread and ensuring efficient crop management."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use pesticides such as insecticides, fungicides, and herbicides to manage pests and diseases in papaya cultivation, following application guidelines to ensure effectiveness and minimize environmental impact.",
+         "Application": "Apply pesticides using appropriate techniques, such as foliar sprays or soil applications, and integrate with IPM practices to enhance pest management and reduce chemical reliance."
+      },
+      "Harvesting": {
+         "Timing": "Harvest papayas when they are fully mature, showing a color change from green to yellow or orange, and are firm but yield slightly to pressure. Monitor the fruit closely to harvest at the optimal time, avoiding both early and overripe conditions.",
+         "Method": "Use hand-picking for smaller scales or high-quality fruit, handling with care to avoid bruising. For larger operations, employ specialized equipment to improve efficiency and reduce labor, ensuring proper calibration to prevent fruit damage.",
+         "Handling": "Transfer harvested papayas to clean, cushioned containers, handling them gently to avoid bruising. Inspect fruit for damage and defects before packaging, and implement quality control measures to ensure high-quality fruit reaches the market."
+      },
+      "Post-Harvest": {
+         "Drying": "Papayas are ripened rather than dried. Store in a cool, dry place at 18-24°C (65-75°F) with low humidity. Commercial facilities may use controlled environments for uniform ripening.",
+         "Storage": "Store papayas at 10-15°C (50-59°F) in well-ventilated containers to prevent spoilage. Avoid direct sunlight and high humidity. Use cushioning materials and label packages for proper handling.",
+         "Processing": "Clean papayas thoroughly before packaging. Sort by size, color, and quality, and package in protective, ventilated containers. Ensure proper labeling and handling to maintain fruit quality."
+      }
+   },
+   "coconut":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Selecting the right coconut variety is crucial for establishing a successful plantation and should be done about three weeks before planting. The choice of variety impacts yield, disease resistance, and growth performance.",
+         "Variety": "Dwarf coconut varieties, with a height of 5 to 7 meters, are early fruiting, high in nut density, and easier to manage but have lower overall yields and higher pest susceptibility. Tall coconut varieties, reaching up to 20 meters, have a longer time to fruit, offer high yields, and are more disease-resistant, but require more space, specialized harvesting, and complex management."
+      },
+      "Planting": {
+         "Soil Requirements": "Coconut palms thrive in well-drained, sandy loam with a slightly acidic to neutral pH (5.5 to 8.0); soil preparation includes clearing, plowing to 30 cm, incorporating organic matter, and testing for nutrients and pH.",
+         "Spacing": "A spacing of 8x8 meters is optimal for most coconut varieties to reduce competition, improve air circulation, and facilitate easier management and harvesting.",
+         "Depth": "Plant coconuts at the same depth as they were in the nursery, ensuring the top of the root ball is level with the soil surface to support strong root development."
+      },
+      "Monitoring": {
+         "Pests": "Regular pest monitoring detects and manages pests that can damage coconut palms and affect their productivity.",
+         "Diseases": "Disease monitoring helps in early detection and management to prevent widespread infections and maintain palm health.",
+         "Nutrient Levels": "Monitoring nutrient levels through soil testing ensures coconut palms receive essential nutrients for optimal growth and productivity."
+      },
+      "Site Selection": {
+         "Soil": "Select well-drained, sandy loam soil with a pH of 5.5 to 8.0 for healthy coconut palm growth and effective root establishment.",
+         "Climate": "Choose a warm, tropical climate with temperatures between 25-30°C, high humidity above 60%, and consistent annual rainfall of 1,500 to 2,500 mm for optimal coconut production."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear weeds and debris, plow the soil to 30 cm, level the field, create planting pits, and incorporate organic matter to ensure optimal conditions for coconut palm growth.",
+         "Organic Matter": "Incorporate organic matter like compost, well-rotted manure, or green manure to improve soil fertility, structure, and water-holding capacity, supporting healthy coconut palm growth."
+      },
+      "Weeding": {
+         "Frequency": "Weeding should be done every 4 to 6 weeks during early growth stages and less frequently as palms mature, using manual tools or machinery and preventive measures like mulching to manage weed competition.",
+         "Methods": "Employ manual weeding with hand tools or machinery for targeted removal, and use mulching with organic or inorganic materials to suppress weeds, retain soil moisture, and improve soil structure."
+      },
+      "Irrigation": {
+         "Method": "Drip irrigation uses tubes and emitters to deliver water directly to the base of each palm, minimizing wastage and ensuring consistent moisture, ideal for precise water management and areas with limited resources.",
+         "Schedule": "Adjust irrigation based on rainfall and soil moisture levels, increasing frequency during dry periods and using sensors for accurate monitoring, ensuring proper drainage to prevent waterlogging.",
+         "Management": "Optimize water use with practices like drip irrigation and rainwater harvesting, maintain the system regularly to prevent leaks, and adjust based on soil moisture and plant needs to avoid waterlogging and drought stress."
+      },
+      "Fertilization Organic": {
+         "Materials": "Organic fertilization uses compost, well-rotted manure, and green manure to enhance soil fertility, improve structure, and provide essential nutrients, supporting sustainable farming and overall plant health.",
+         "Timing": "Apply organic materials during land preparation and top-dress during the growing season, based on the palms' growth stage and nutrient needs, to maximize effectiveness and support plant development."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Chemical fertilization uses a balanced NPK ratio, typically 15:15:15 kg/ha, to provide essential nutrients for coconut palms—Nitrogen for growth, Phosphorus for roots and flowering, and Potassium for overall health.",
+         "Timing": "Apply chemical fertilizers at planting for initial support and during the growing season in split doses, based on soil tests and plant needs, to optimize nutrient uptake and support growth."
+      },
+      "Preventive Measure": {
+         "Methods": "Effective preventive measures include using disease-resistant varieties to reduce pest and disease impact and maintaining field hygiene by removing infected material and managing debris.",
+         "Equipment": "Clean equipment to prevent the spread of pests and diseases; regularly clean and sterilize tools with water, detergent, and disinfectants."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Pesticides include fungicides for fungal diseases (e.g., leaf spots, root rot), insecticides for insect pests (e.g., mites, beetles), and acaricides for mite control."
+      },
+      "Harvesting":{
+         "Timing":"Mature coconuts have a brown, fibrous outer husk and a hard inner shell. The outer husk should be firm and fully developed, and the fruit should have a high oil content.",
+         "Method":"Manual harvesting involves using tools such as long poles or climbing harnesses to reach the coconuts.",
+         "Handling":"Handle coconuts with care to avoid bruising or cracking the shells. Use padded containers or protective materials to cushion the coconuts during transportation and handling. "
+      },
+      "Post-Harvest": {
+         "Drying": "Various methods include sun drying, mechanical drying, and kiln drying, each with its own advantages. Ensure even drying and check for mold or spoilage to maintain quality.",
+         "Storage": "Store coconuts in a cool, dry place with good ventilation. Use FIFO rotation and inspect regularly to prevent spoilage.",
+         "Processing": "Clean and prepare coconuts by removing debris and inedible parts. Extract products like coconut oil and milk, ensuring equipment hygiene. Implement quality control and use food-grade packaging."
+      }
+
+   },
+   "cotton":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Choose cotton varieties based on pest resistance, fiber quality, and environmental adaptability.",
+         "Bt Cotton": "Genetically modified for pest resistance, reducing pesticide use and increasing yield; check local regulations.",
+         "American Upland": "Traditional variety with high fiber quality and adaptability to various conditions; may need more pest management."
+      },
+      "Planting": {
+         "Method": "Proper planting techniques ensure good germination and crop health. Prepare well-drained soil, plant seeds 2.5-5 cm deep, and maintain moisture for germination.",
+         "Spacing": "Adequate spacing optimizes growth and yield. Maintain 1 meter row spacing and 1 meter plant spacing within rows to improve light penetration and disease management.",
+         "Depth": "Plant seeds at 2.5-5 cm depth and transplant seedlings at the same depth as nursery growth to support root development and reduce transplant shock."
+      },
+      "Monitoring": {
+         "Pests": "Regularly check for pests like cotton bollworms and aphids. Use traps, inspect for damage, and apply control measures such as biological controls and targeted insecticides.",
+         "Diseases": "Monitor for diseases such as Cotton Leaf Curl Virus and Root Rot. Look for symptoms, use diagnostic tests, and apply control measures like insecticides, fungicides, and crop management practices.",
+         "Nutrient Levels": "Check soil and leaf nutrient levels regularly. Use soil tests and leaf analysis to guide fertilization practices and ensure optimal nutrient availability for cotton plants."
+      },
+      "Site Selection": {
+         "Soil": "Choose soil types like loamy soil for optimal drainage and nutrient retention. Amend soil based on tests to improve fertility and pH for cotton cultivation.",
+         "Climate": "Cotton needs warm temperatures (20°C-30°C) and moderate rainfall (500-1000 mm). Monitor weather and manage microclimates to ensure favorable growing conditions."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear weeds, plow, and till the soil to improve aeration and create a seedbed. Incorporate organic matter and conduct soil tests to amend soil for optimal planting conditions."
+      },
+      "Weeding":{
+         "Frequency":"Regular weeding prevents competition and reduces pest and disease risks. Weed early to establish cotton plants and continue throughout the season. Use manual weeding or mulching for control.",
+         "Methods": "Various weeding methods include manual weeding, mechanical weeding, mulching, and herbicide application."
+      },
+      "Irrigation": {
+         "Method": "Efficient irrigation ensures optimal soil moisture and crop health. Use drip irrigation for water efficiency and furrow irrigation for larger fields. Develop an irrigation schedule based on crop needs and maintain proper drainage to prevent waterlogging."
+      },
+      "Fertilization Organic": {
+         "Materials": "Use compost and well-rotted manure to enhance soil fertility, improve soil structure, and promote microbial activity. Apply compost at 10-15 tons per hectare and ensure manure is properly aged.",
+         "Timing": "Incorporate organic materials during land preparation for initial fertility and apply top-dressing during the growing season to maintain nutrient support based on crop needs and soil conditions."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Chemical fertilization with NPK fertilizers (e.g., 20:10:10 kg/ha) ensures balanced nutrition for growth, flowering, and boll development. Supplement with micronutrient fertilizers as needed.",
+         "Timing": "Apply a portion of chemical fertilizers at planting for initial growth, and additional applications during key growth stages such as flowering and boll development. Split applications can optimize nutrient availability and prevent leaching."
+      },
+      "Preventive Measure": {
+         "Methods": "Utilize pest-resistant cotton varieties and maintain field hygiene through debris removal and crop rotation to reduce pest risks. Clean equipment regularly to prevent pest and disease spread.",
+         "Equipment": "Regularly clean and sanitize harvesting equipment and irrigation systems to remove residues and prevent contamination. Maintain tools in good condition to ensure effective pest management."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Use insecticides for pests like bollworms and aphids, and fungicides for diseases like root rot. Rotate pesticide types to prevent resistance and follow application guidelines closely.",
+         "Application": "Apply pesticides based on timing, recommended rates, and safety measures. Use protective gear and ensure proper storage and disposal to minimize environmental impact.",
+         "Integration with IPM": "Combine chemical controls with IPM practices such as cultural methods and biological control to enhance effectiveness and reduce reliance on pesticides."
+      },
+      "Harvesting": {
+         "Timing": "Harvest when bolls are open and fibers are dry and fluffy. Avoid wet conditions to maintain fiber quality.",
+         "Method": "Choose between hand-picking for small-scale operations or mechanical harvesting for efficiency. Maintain and calibrate equipment for best results.",
+         "Handling": "Transport cotton in clean, covered vehicles and store in a cool, dry place to prevent contamination and maintain quality."
+      },
+      "Post-Harvest": {
+         "Drying": "Drying reduces moisture content to prepare cotton for storage and processing. Use natural drying by spreading cotton in a well-ventilated area, or mechanical drying with specialized equipment for controlled conditions.",
+         "Storage": "Store cotton in a cool, dry environment with controlled temperature and humidity. Use proper storage facilities like cotton modules or bales, ensuring clean and well-ventilated storage areas.",
+         "Processing": "Processing involves cleaning cotton by removing debris with mechanical cleaners or air separators, and sorting it by fiber quality, color, and length to meet market standards and maximize value."
+      }
+   },
+   "jute":{
+      "Plant Selection": {
+         "3 Weeks Before Seedling": "Select jute varieties like 'JRO 524' for superior fiber and pest resistance or 'JRC 212' for adaptability to varying soils and climates. Assess local conditions and market demand to choose the best variety.",
+         "Variety Details": "'JRO 524' offers high fiber yield and pest resistance, suitable for moderate rainfall and well-drained soil. 'JRC 212' thrives in diverse conditions, producing strong, long fibers ideal for quality jute products."
+      },
+      "Planting": {
+         "Method": "Plant jute in well-prepared, organic-rich soil. Use broadcasting or row planting, ensuring seeds are planted at 2.5-5 cm depth and spaced 30-45 cm apart for optimal growth.",
+         "Spacing": "Space jute plants 30-45 cm apart and rows 60-75 cm apart to ensure optimal growth, reduce competition, and improve air circulation. Proper spacing aids in better crop management.",
+         "Depth": "Plant jute seeds at a depth of 2.5-5 cm for successful germination. Ensure soil is well-prepared and temperature is optimal (25-30°C) for strong seedling development."
+      },
+      "Monitoring": {
+         "Pests": "Regularly monitor for jute pests like caterpillars, aphids, and whiteflies using inspections and traps. Employ IPM strategies, including natural predators, biological controls, and targeted chemicals, to manage pests effectively.",
+         "Diseases": "Monitor for diseases like jute leaf spot and root rot through regular inspections. Use disease-resistant varieties, crop rotation, fungicides, and proper sanitation to manage and prevent diseases.",
+         "Nutrient Levels": "Regular soil testing and monitoring of jute plant growth help manage nutrient levels. Ensure balanced application of nitrogen, phosphorus, potassium, calcium, and magnesium for optimal growth and fiber yield."
+      },
+      "Site Selection": {
+         "Soil": "Jute requires well-drained, loamy soil with a pH of 6.0-7.0. Conduct soil tests to check fertility, pH, and texture.",
+         "Climate": "Jute thrives in warm, tropical climates with temperatures of 25-35°C and annual rainfall of 1000-1500 mm. Avoid frost and extreme temperature fluctuations."
+      },
+      "Field Preparation": {
+         "Land Preparation": "Clear the field of weeds, debris, and crop residues. Plow to a depth of 15-20 cm for improved soil aeration and seedbed preparation. Incorporate organic matter such as compost or manure to enhance soil fertility.",
+         "Organic Matter": "Add compost, well-rotted manure, or green manure to improve soil fertility, structure, and water-holding capacity. Incorporate organic matter during land preparation, aiming for 10-15 tons per hectare."
+      },
+      "Weeding": {
+         "Frequency": "Regular weeding should be conducted at least 2-3 times during the growing season, with additional weeding as needed.",
+         "Methods": "Various weeding methods include manual weeding, mechanical weeding, mulching, and herbicide application."
+      },
+      "Irrigation": {
+         "Method": "Drip irrigation is efficient for water delivery. Furrow or basin irrigation is suitable for larger areas.",
+         "Schedule": "Adjust irrigation based on growth stages and weather. More frequent irrigation is needed during dry periods and flowering.",
+         "Management": "Monitor soil moisture and maintain equipment to ensure optimal water use and plant health."
+      },
+      "Fertilization Organic": {
+         "Materials": "Use compost, well-rotted manure, and green manure to enhance soil fertility. Apply 10-15 tons per hectare based on soil needs. ",
+         "Timing": "Incorporate organic fertilizers during land preparation for nutrient release before planting. Additional top-dressing can be done during key growth stages."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Use NPK fertilizers (20:10:10 kg/ha) based on soil tests to address nutrient deficiencies. Nitrogen supports leaves and stems, phosphorus enhances roots and flowering, and potassium improves plant health and fiber quality.",
+         "Timing": "Apply chemical fertilizers during land preparation and key growth stages like vegetative growth and flowering."
+      },
+      "Preventive Measure": {
+         "Methods": "Use disease-resistant jute varieties, maintain field hygiene, and monitor plants regularly to manage pests and diseases. Employ crop rotation and good field management to reduce pest and disease buildup.",
+         "Equipment": "Regularly clean and sterilize planting, harvesting, and processing equipment to prevent pest and disease spread."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Select and use pesticides based on specific pests and recommended guidelines.",
+         "Application": "Follow manufacturer instructions for pesticide application, including timing and rates."
+      },
+      "Harvesting": {
+         "Timing": "Harvest jute when fiber bundles are fully matured, and bolls are brown and dry. Harvest timing varies by variety and local conditions.",
+         "Method": "Harvest jute by cutting plants at the base with a knife or sickle. For large areas, mechanical harvesters can be used.",
+         "Handling": "Transport harvested jute carefully to prevent fiber damage. Sort and clean plants before processing. Store jute in a cool, dry place with proper ventilation to maintain fiber quality."
+      },
+      "Post-Harvest": {
+         "Drying": "Spread jute in a ventilated area to dry evenly and prevent mold.",
+         "Storage": "Store dried jute in a cool, dry place with good ventilation, elevated from the ground.",
+         "Processing": "Clean, rett, strip, sort, and grade the jute fiber to prepare it for sale or manufacturing."
+      }
+
+   },
+   "coffee":{
+      "Plant Selection":{
+         "3 Weeks Before Seedling":{
+            "Overview":"Selecting the right coffee variety is crucial for achieving optimal yield, flavor profile, and resistance to pests and diseases.",
+           "Variety Details":"Varieties such as Arabica and Robusta are the two primary types of coffee grown worldwide. Arabica coffee is known for its smooth, complex flavor and higher acidity. On the other hand, Robusta coffee is known for its strong, bold flavor and higher caffeine content."
+         }
+      },
+      "Planting":{
+         "Method":"Proper planting techniques are essential for ensuring healthy coffee plant development and maximizing yield. Coffee plants should be planted in well-drained, fertile soil with adequate sunlight.",
+         "Spacing":"For Arabica coffee requires a spacing of 1.5-2 meters between plants. In contrast, Robusta coffee require slightly wider spacing of 2-3 meters between plants.",
+         "Depth":"When planting coffee, the seedlings should be placed in the soil at the same depth as they were in the nursery."
+      },
+      "Monitoring":{
+         "Pests":"Common coffee pests include the coffee borer beetle (Hypothenemus hampei), coffee leaf miner (Leucoptera coffeella), and the coffee white stem borer (Xylotrechus quadripes).",
+         "Diseases":"Common coffee diseases include coffee leaf rust (Hemileia vastatrix), coffee berry disease (Colletotrichum kahawae), and coffee wilt disease (Fusarium xylarioides).",
+         "Nutrient Levels":"Key nutrients for coffee plants include nitrogen (N), phosphorus (P), and potassium (K)."
+      },
+      "Site Selection":{
+         "Soil":"Coffee plants thrive in well-drained, fertile soils with good organic matter content. The ideal soil for coffee is typically a loamy or sandy loam soil with a pH level between 6 and 6.5.",
+         "Climate":"The ideal climate for coffee cultivation includes temperatures between 15 and 24°C (59-75°F) for Arabica coffee and 20-30°C (68-86°F) for Robusta coffee."
+      },
+      "Field Preparation":{
+         "Land Preparation":"Proper land preparation process begins with clearing the land of any debris, rocks, and weeds that may compete with coffee plants for resources. Tilling the soil helps to improve its structure, aeration, and drainage, which is important for healthy root development.",
+         "Organic Matter":"Organic matter, such as compost or well-rotted manure, provides essential nutrients for plants and improves soil structure, water-holding capacity, and aeration."
+      },
+      "Weeding": {
+         "Frequency":"Weeding is crucial, especially in early stages, and should be done every 4-6 weeks during the growing season. Manual and mechanical methods, along with mulching, are common practices.",
+         "Methods": "Weeding methods include manual (using tools), mechanical (using equipment), and mulching."
+      },
+      "Irrigation": {
+         "Method": "Selecting the right irrigation method, such as drip or sprinkler irrigation, ensures adequate water supply, supports healthy growth, and optimizes water use.",
+         "Schedule": "Establishing a proper irrigation schedule based on plant age, soil type, and weather conditions is crucial for maintaining soil moisture and supporting coffee plant growth.",
+         "Management": "Effective irrigation management involves monitoring water application, maintaining irrigation systems, and using techniques like mulching to optimize water use and prevent waterlogging."
+      },
+      "Fertilization Organic": {
+         "Materials": "Organic fertilization uses compost, well-rotted manure, and green manures to provide nutrients and improve soil fertility. These materials support soil health and sustainable coffee production.",
+         "Timing": "The timing of organic fertilizer application should align with the coffee plant's growth stages and nutrient needs. Apply during land preparation and as needed during the growing season, considering factors like rainfall and irrigation."
+      },
+      "Fertilization Chemical": {
+         "Nutrients": "Chemical fertilizers provide essential nutrients like nitrogen, phosphorus, and potassium to support coffee plant growth. They come in various formulations and should be applied based on soil test results to avoid over-fertilization.",
+         "Timing": "Chemical fertilizers should be applied during key growth stages, such as flowering and fruit development, to support optimal nutrient uptake. Timing should consider rainfall, irrigation, and plant growth patterns."
+      },
+      "Preventive Measure": {
+         "Methods": "Preventive measures for coffee plants include using disease-resistant varieties, maintaining field hygiene, and implementing integrated pest management (IPM) practices.",
+         "Equipment": "Proper maintenance and sanitation of equipment, such as pruning tools and harvesters, are essential to prevent the spread of pests and diseases in coffee cultivation."
+      },
+      "Plant Protection Chemical": {
+         "Pesticides": "Pesticides are crucial for controlling pests and diseases in coffee cultivation. Select appropriate pesticides and follow safety guidelines. Use pesticides in combination with IPM practices to minimize resistance and environmental impact.",
+         "Application": "Apply pesticides according to guidelines, following safety precautions and recommended rates. Integrate with other IPM practices for effective pest and disease management. Regular monitoring and record-keeping are essential."
+      },
+      "Harvesting": {
+         "Timing": "Harvest coffee cherries when fully ripe, indicated by deep red color and firm texture. Timing depends on variety, growing conditions, and climate. Proper timing ensures high-quality beans.",
+         "Method": "Hand-picking allows selective harvesting of ripe cherries, ensuring quality. Mechanical harvesting is efficient for large-scale operations but may collect unripe cherries. Choose the method based on operation scale and desired quality.",
+         "Handling": "Proper handling during and after harvest is crucial. Transport cherries promptly, avoid crushing, and sort carefully. Maintain proper storage conditions to preserve quality."
+      },
+      "Post-Harvest": {
+         "Drying": "Dry coffee cherries to reduce moisture and prevent mold. Methods include sun drying and mechanical drying. Monitor moisture levels, aiming for 10-12% for safe storage.",
+         "Milling": "Milling removes outer layers from dried cherries to extract green beans. It includes hulling, optional polishing, and grading. Proper milling ensures clean, uniform beans ready for roasting.",
+         "Storage": "Store green coffee beans in a cool, dry, and well-ventilated environment in airtight containers. Keep them away from strong odors and monitor storage conditions to preserve freshness and quality."
+      }
+   }
+}
