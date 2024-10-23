@@ -1,0 +1,1328 @@
+[
+    {
+        "commGroupCode": 1,
+        "commCode": 1,
+        "commName": "\u0917\u0947\u0939\u0942\u0902",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 2,
+        "commName": "\u0927\u093e\u0928",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 4,
+        "commName": "\u092e\u0915\u094d\u0915\u093e/\u092d\u0941\u091f\u094d\u091f\u093e",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 5,
+        "commName": "\u091c\u094d\u0935\u093e\u0930",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 28,
+        "commName": "\u092c\u093e\u091c\u0930\u093e",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 29,
+        "commName": "\u091c\u094c",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 30,
+        "commName": "\u0930\u093e\u0917\u0940",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 383,
+        "commName": "\u0915\u094b\u0902\u0926\u094b\u0902",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 384,
+        "commName": "\u0915\u0941\u091f\u0915\u0940",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 385,
+        "commName": "\u0930\u093e\u0932\u093e",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 386,
+        "commName": "\u0930\u093e\u091c\u0917\u093f\u0930\u093e",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 456,
+        "commName": "\u0938\u093e\u0935\u093e\u0902/\u0938\u092e\u093e\u0901",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 1,
+        "commCode": 563,
+        "commName": "\u091c\u0908",
+        "commGroupName": "\u0927\u093e\u0928\u094d\u092f"
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 49,
+        "commName": "\u0924\u0941\u0905\u0930/\u0905\u0930\u0939\u0930",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 92,
+        "commName": "\u0932\u094b\u092c\u093f\u092f\u093e \u092f\u093e \u092e\u094b\u0920",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 96,
+        "commName": "\u0932\u093e\u0916",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 397,
+        "commName": "\u091a\u0928\u093e",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 398,
+        "commName": "\u092e\u091f\u0930",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 399,
+        "commName": "\u092e\u0942\u0902\u0917",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 400,
+        "commName": "\u0909\u095c\u0926/\u0909\u0930\u0926\u093e",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 401,
+        "commName": "\u0915\u0941\u0932\u0925\u0940",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 404,
+        "commName": "\u091a\u094c\u0932\u0940 \u092f\u093e \u092c\u0930\u092c\u091f\u0940",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 405,
+        "commName": "\u0938\u0947\u092e \u092f\u093e \u0938\u0947\u092e\u0940",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 423,
+        "commName": "\u092e\u0938\u0942\u0930 \u092f\u093e \u092e\u0938\u0942\u0930\u0940",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 545,
+        "commName": "\u0921\u0949\u0932\u0930 \u091a\u0928\u093e",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 546,
+        "commName": "\u092c\u091f\u0930\u0940",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 547,
+        "commName": "\u0924\u093f\u0935\u095c\u093e",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 2,
+        "commCode": 558,
+        "commName": "\u0930\u093e\u091c\u092e\u093e",
+        "commGroupName": "\u0926\u0932\u0939\u0928 "
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 10,
+        "commName": "\u092e\u0942\u0902\u0917\u092b\u0932\u0940",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 11,
+        "commName": "\u0924\u093f\u0932\u094d\u0932\u0940 \u092f\u093e \u0924\u093f\u0932",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 12,
+        "commName": "\u0938\u0930\u0938\u094b\u0902",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 13,
+        "commName": "\u0938\u094b\u092f\u093e\u092c\u0940\u0928",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 14,
+        "commName": "\u0938\u0942\u0930\u091c\u092e\u0941\u0916\u0940",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 59,
+        "commName": "\u0915\u0941\u0938\u0941\u092e",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 67,
+        "commName": "\u0905\u0932\u0938\u0940",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 394,
+        "commName": "\u0938\u094b\u0902\u0939\u093e",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 395,
+        "commName": "\u0932\u093e\u0939\u093e",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 396,
+        "commName": "\u0930\u092e\u0924\u093f\u0932\u094d\u0932\u0940",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 457,
+        "commName": "\u0905\u0930\u0923\u094d\u0921\u0940",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 458,
+        "commName": "\u092e\u0939\u0941\u0906",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 3,
+        "commCode": 552,
+        "commName": "\u092c\u093f\u0928\u094b\u0932\u093e",
+        "commGroupName": "\u0924\u093f\u0932\u0939\u0928"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 17,
+        "commName": "\u0938\u0947\u092c",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 18,
+        "commName": "\u0938\u0902\u0924\u0930\u093e",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 19,
+        "commName": "\u0915\u0947\u0932\u093e",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 20,
+        "commName": "\u0906\u092e",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 22,
+        "commName": "\u0905\u0902\u0917\u0942\u0930",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 70,
+        "commName": "\u092e\u0940\u0920\u093e \u0928\u0940\u092c\u0942\u0902",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 71,
+        "commName": "\u091a\u0940\u0915\u0942",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 72,
+        "commName": "\u092a\u092a\u0940\u0924\u093e",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 73,
+        "commName": "\u0924\u0930\u092c\u0942\u091c",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 77,
+        "commName": "\u092e\u094b\u0938\u092e\u094d\u092c\u0940",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 184,
+        "commName": "\u091c\u093e\u092e\u0941\u0928",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 185,
+        "commName": "\u0905\u092e\u0930\u0941\u0926",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 187,
+        "commName": "\u0916\u0930\u092c\u0942\u091c",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 188,
+        "commName": "\u091a\u0915\u094b\u0924\u0930\u093e",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 190,
+        "commName": "\u0905\u0928\u093e\u0930",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 201,
+        "commName": "\u0938\u0940\u0924\u093e\u092b\u0932",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 329,
+        "commName": "\u092c\u0947\u0930",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 330,
+        "commName": "\u0928\u093e\u0936\u092a\u093e\u0924\u0940",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 463,
+        "commName": "\u0930\u093e\u092e\u092b\u0932",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 464,
+        "commName": "\u0916\u093f\u0930\u0928\u0940",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 554,
+        "commName": "\u0915\u0915\u095c\u0940",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 5,
+        "commCode": 555,
+        "commName": "\u0928\u0940\u0902\u092c\u0942",
+        "commGroupName": "\u092b\u0932"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 23,
+        "commName": "\u092a\u094d\u092f\u093e\u091c",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 24,
+        "commName": "\u0906\u0932\u0942",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 34,
+        "commName": "\u092b\u0942\u0932\u0917\u094b\u092d\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 35,
+        "commName": "\u092c\u0948\u0902\u0917\u0928",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 46,
+        "commName": "\u092e\u0947\u0925\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 78,
+        "commName": "\u091f\u092e\u093e\u091f\u0930",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 81,
+        "commName": "\u0915\u0930\u0947\u0932\u093e",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 82,
+        "commName": "\u0932\u094c\u0915\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 84,
+        "commName": "\u0915\u0941\u092e\u094d\u0939\u095c\u093e",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 86,
+        "commName": "\u091a\u094c\u0932\u093e\u0908 \u0938\u093e\u0917",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 153,
+        "commName": "\u0917\u093e\u091c\u0930",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 161,
+        "commName": "\u092e\u0942\u0932\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 465,
+        "commName": "\u0938\u0947\u092e \u092f\u093e \u0938\u0947\u092e\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 466,
+        "commName": "\u0932\u094b\u092c\u093f\u092f\u093e",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 467,
+        "commName": "\u092d\u093e\u0930\u0924\u0940\u092f \u0938\u0947\u092e",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 468,
+        "commName": "\u0938\u0947\u092e \u092c\u0930\u092c\u091f\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 469,
+        "commName": "\u0917\u0902\u0935\u093e\u0930 \u092b\u0932\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 470,
+        "commName": "\u092a\u0924\u094d\u0924\u093e \u0917\u094b\u092d\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 471,
+        "commName": "\u091a\u0935\u0932\u0940 \u0932\u093e\u0932",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 472,
+        "commName": "\u0916\u091f\u094d\u091f\u093e \u092a\u093e\u0932\u0915",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 473,
+        "commName": "\u0924\u0941\u0930\u0908",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 474,
+        "commName": "\u0915\u0941\u0902\u0926\u0930\u0942",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 475,
+        "commName": "\u092a\u0930\u0935\u0932",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 476,
+        "commName": "\u092c\u0902\u0926 \u0917\u094b\u092d\u0940/\u0917\u093e\u0902\u0920 \u0917\u094b\u092d\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 477,
+        "commName": "\u092a\u093e\u0932\u0915 \u092d\u093e\u091c\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 478,
+        "commName": "\u091a\u094b\u0932\u093e\u0908 \u092d\u093e\u091c\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 479,
+        "commName": "\u092d\u093f\u0928\u094d\u0921\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 480,
+        "commName": "\u092e\u091f\u0930",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 481,
+        "commName": "\u0915\u091f\u0939\u0932",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 482,
+        "commName": "\u0905\u0930\u092c\u0940",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 483,
+        "commName": "\u091a\u0941\u0915\u0902\u0926\u0930",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 484,
+        "commName": "\u0936\u0915\u0930\u0915\u0902\u0926",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 485,
+        "commName": "\u0938\u0932\u0917\u092e",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 486,
+        "commName": "\u091f\u093f\u0923\u094d\u0921\u093e",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 487,
+        "commName": "\u0938\u0941\u0930\u0928",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 6,
+        "commCode": 488,
+        "commName": "\u0905\u0928\u094d\u092f \u0939\u0930\u0940 \u090f\u0935\u0902 \u0924\u093e\u091c\u0940 \u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0901",
+        "commGroupName": "\u0938\u092c\u094d\u091c\u093f\u092f\u093e\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 25,
+        "commName": "\u0932\u0939\u0938\u0941\u0928",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 26,
+        "commName": "\u092e\u093f\u0930\u094d\u091a\u0940",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 27,
+        "commName": "\u0905\u0926\u0930\u0915",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 39,
+        "commName": "\u0939\u0932\u094d\u0926\u0940",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 42,
+        "commName": "\u091c\u0940\u0930\u093e",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 43,
+        "commName": "\u0927\u0928\u093f\u092f\u093e",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 47,
+        "commName": "\u092e\u0947\u0925\u0940\u0926\u093e\u0928\u093e",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 135,
+        "commName": "\u0938\u094c\u0902\u092b",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 137,
+        "commName": "\u0905\u091c\u0935\u093e\u0907\u0928",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 406,
+        "commName": "\u0907\u092e\u0932\u0940",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 407,
+        "commName": "\u0930\u093e\u0908",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 408,
+        "commName": "\u0905\u0938\u0917\u0902\u0927",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 489,
+        "commName": "\u092a\u094b\u0938\u094d\u0924 \u0924\u0925\u093e \u0916\u0938\u0916\u0938",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 556,
+        "commName": "\u0905\u092e\u091a\u0942\u0930",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 557,
+        "commName": "\u0938\u0942\u0916\u093e \u0906\u092e",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 559,
+        "commName": "\u0915\u0932\u094b\u0902\u091c\u0940",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 7,
+        "commCode": 564,
+        "commName": "\u0916\u0930\u092c\u0942\u091c\u093e \u092c\u0940\u091c",
+        "commGroupName": "\u091a\u091f\u0928\u0940 \u092e\u0938\u093e\u0932\u0947 \u0924\u0925\u093e \u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 10,
+        "commCode": 388,
+        "commName": "\u0938\u0928 \u092c\u0940\u091c",
+        "commGroupName": "\u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 10,
+        "commCode": 389,
+        "commName": "\u0917\u0941\u0935\u093e\u0930",
+        "commGroupName": "\u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 10,
+        "commCode": 390,
+        "commName": "\u0938\u093f\u0902\u0918\u093e\u095c\u093e",
+        "commGroupName": "\u0905\u0928\u094d\u092f \u0935\u0938\u094d\u0924\u0941\u090f\u0902"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 412,
+        "commName": "\u092c\u093e\u0902\u0938",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 413,
+        "commName": "\u0932\u093e\u0916",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 414,
+        "commName": "\u0939\u0930\u094d\u0930\u093e",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 415,
+        "commName": "\u0906\u0902\u0935\u0932\u093e",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 416,
+        "commName": "\u092c\u0939\u0947\u095c\u093e",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 417,
+        "commName": "\u091a\u093f\u0930\u094b\u0902\u091c\u0940",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 418,
+        "commName": "\u0917\u094b\u0902\u0926",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 419,
+        "commName": "\u0936\u0939\u0926",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 420,
+        "commName": "\u092e\u094b\u092e",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 421,
+        "commName": "\u092e\u0939\u0941\u090f \u0915\u093e \u092b\u0942\u0932",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 422,
+        "commName": "\u0915\u0930\u0947\u0932\u0940",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 553,
+        "commName": "\u0917\u0941\u0932\u094d\u0932\u0940",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 12,
+        "commCode": 562,
+        "commName": "\u0938\u0941\u0935\u093e",
+        "commGroupName": "\u0935\u0928 \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 228,
+        "commName": "\u0917\u0941\u0932\u093e\u092c",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 235,
+        "commName": "\u0917\u0947\u0902\u0926\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 379,
+        "commName": "\u090f\u0928\u094d\u0925\u0941\u0930\u093f\u092f\u092e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 490,
+        "commName": "\u0917\u094d\u0932\u093e\u0930\u094d\u0921\u093f\u092f\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 491,
+        "commName": "\u090f\u0928\u0941\u0905\u0932/\u0915\u094d\u0930\u093e\u0908\u0938\u0947\u0902\u0925\u093f\u092f\u092e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 492,
+        "commName": "\u090f\u0938\u094d\u091f\u0930",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 493,
+        "commName": "\u0917\u094d\u0932\u0947\u0921\u093f\u092f\u094b\u0932\u093e\u0908",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 494,
+        "commName": "\u091c\u092c\u0930\u092c\u0947\u0930\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 495,
+        "commName": "\u0930\u091c\u0928\u0940\u0917\u0928\u094d\u0927\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 496,
+        "commName": "\u0915\u093e\u0930\u0928\u0947\u0936\u0928",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 497,
+        "commName": "\u092c\u0947\u0932\u093e(\u092e\u094b\u0917\u0930\u093e)",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 498,
+        "commName": "\u091c\u0942\u0939\u0940",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 499,
+        "commName": "\u0932\u093f\u0932\u093f\u092f\u092e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 500,
+        "commName": "\u091f\u092f\u0942\u0932\u093f\u092a",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 501,
+        "commName": "\u0938\u0947\u0935\u0902\u0924\u0940",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 502,
+        "commName": "\u0906\u092f\u0930\u093f\u0936",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 503,
+        "commName": "\u0938\u094d\u0935\u0940\u091f \u0938\u0941\u0932\u094d\u0924\u093e\u0928",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 504,
+        "commName": "\u0938\u093f\u0928\u0930\u0947\u0930\u093f\u092f\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 505,
+        "commName": "\u0938\u0932\u094d\u0935\u093f\u092f\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 506,
+        "commName": "\u090f\u0928\u094d\u091f\u0940\u0930\u093e\u0907\u0928\u092e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 507,
+        "commName": "\u091c\u093f\u092a\u094d\u0938\u094b\u092b\u093f\u0932\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 508,
+        "commName": "\u0932\u093f\u092e\u094b\u0928\u093f\u092f\u093e(\u0938\u094d\u091f\u0947\u091f\u0938)",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 509,
+        "commName": "\u0917\u092e\u092b\u094d\u0930\u0947\u0928\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 510,
+        "commName": "\u0915\u094b\u0938\u0947\u0902\u0921\u094d\u0930\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 511,
+        "commName": "\u0939\u093e\u0908\u0921\u094d\u0930\u0947\u0902\u091c\u093f\u092f\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 512,
+        "commName": "\u0939\u0947\u0932\u093f\u0915\u094b\u0928\u093f\u092f\u093e \u092a\u094d\u0930\u091c\u093e\u0924\u093f",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 513,
+        "commName": "\u0917\u094b\u0932\u094d\u0921\u0928 \u0930\u0949\u0921",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 514,
+        "commName": "\u0921\u093e\u092f\u0947\u0928\u094d\u0925\u0938",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 515,
+        "commName": "\u0938\u094d\u0935\u0940\u091f \u0935\u093f\u0932\u093f\u092f\u092e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 516,
+        "commName": "\u0915\u094d\u0932\u093e\u0930\u094d\u0915\u093f\u092f\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 517,
+        "commName": "\u0932\u094d\u092f\u0942\u092a\u093f\u0928",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 518,
+        "commName": "\u0915\u092e\u0932 (\u0932\u094b\u091f\u0938)",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 519,
+        "commName": "\u0915\u0947\u0932\u0947\u0902\u0921\u0942\u0932\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 520,
+        "commName": "\u0915\u0947\u0935\u095c\u093e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 521,
+        "commName": "\u092c\u093e\u0932\u0938\u092e",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 522,
+        "commName": "\u091a\u093e\u0902\u0926\u0928\u0940",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 14,
+        "commCode": 523,
+        "commName": "\u0906\u0930\u094d\u0915\u093f\u0921\u094d\u0938",
+        "commGroupName": "\u092b\u0942\u0932"
+    },
+    {
+        "commGroupCode": 15,
+        "commCode": 387,
+        "commName": "\u0917\u0941\u095c",
+        "commGroupName": "\u0917\u0928\u094d\u0928\u093e"
+    },
+    {
+        "commGroupCode": 15,
+        "commCode": 460,
+        "commName": "\u0917\u0928\u094d\u0928\u093e",
+        "commGroupName": "\u0917\u0928\u094d\u0928\u093e"
+    },
+    {
+        "commGroupCode": 16,
+        "commCode": 391,
+        "commName": "\u0924\u0902\u092c\u093e\u0915\u0942",
+        "commGroupName": "\u0938\u094d\u0935\u093e\u092a\u0915"
+    },
+    {
+        "commGroupCode": 16,
+        "commCode": 392,
+        "commName": "\u0905\u092b\u0940\u092e \u0915\u0947 \u0921\u094b\u0902\u0921\u0947 (\u092a\u0949\u092a\u0940 \u0915\u0947\u092a\u094d\u0938\u0942\u0932)",
+        "commGroupName": "\u0938\u094d\u0935\u093e\u092a\u0915"
+    },
+    {
+        "commGroupCode": 16,
+        "commCode": 393,
+        "commName": "\u092a\u093e\u0928",
+        "commGroupName": "\u0938\u094d\u0935\u093e\u092a\u0915"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 424,
+        "commName": "\u0907\u0938\u092c\u0917\u094b\u0932",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 425,
+        "commName": "\u0905\u0936\u094b\u0915",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 426,
+        "commName": "\u0905\u0924\u0940\u0938",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 427,
+        "commName": "\u092c\u0947\u0932",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 428,
+        "commName": "\u092d\u0941\u0930\u094d\u0907 \u0906\u0902\u0935\u0932\u093e\u092f",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 429,
+        "commName": "\u092c\u094d\u0930\u093e\u0939\u092e\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 430,
+        "commName": "\u091a\u0902\u0926\u0928",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 431,
+        "commName": "\u091a\u093f\u0930\u093e\u092f\u0924\u093e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 432,
+        "commName": "\u0917\u093f\u0932\u094b\u092f",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 433,
+        "commName": "\u0917\u0941\u0921\u093c\u092e\u093e\u0930",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 434,
+        "commName": "\u0917\u0941\u0917\u094d\u0917\u0932",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 435,
+        "commName": "\u091c\u091f\u093e\u092e\u093e\u0902\u0938\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 436,
+        "commName": "\u0915\u0932\u093f\u0939\u093e\u0930\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 437,
+        "commName": "\u0915\u093e\u0932\u092e\u0947\u0918",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 438,
+        "commName": "\u0915\u094b\u0915\u0941\u092e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 439,
+        "commName": "\u0915\u0942\u0920",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 448,
+        "commName": "\u0930\u0924\u0928\u091c\u094b\u0924",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 524,
+        "commName": "\u0915\u0941\u091f\u0915\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 525,
+        "commName": "\u092e\u0915\u094b\u092f",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 526,
+        "commName": "\u092e\u0941\u0932\u0947\u0920\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 527,
+        "commName": "\u0938\u092b\u0947\u0926 \u092e\u0942\u0938\u0932\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 528,
+        "commName": "\u092a\u0924\u094d\u0925\u0930 \u091a\u0942\u0930",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 529,
+        "commName": "\u092a\u093f\u092a\u094d\u092a\u0932\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 530,
+        "commName": "\u0926\u093e\u0930\u0942 \u0939\u0932\u094d\u0926\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 531,
+        "commName": "\u0915\u0947\u0938\u0930",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 532,
+        "commName": "\u0938\u0930\u094d\u092a\u0917\u0902\u0927\u093e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 533,
+        "commName": "\u0938\u0928\u093e\u092f",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 534,
+        "commName": "\u0936\u0924\u093e\u0935\u0930\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 535,
+        "commName": "\u0924\u0941\u0932\u0938\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 536,
+        "commName": "\u0935\u093e\u092f \u0935\u093f\u0921\u0902\u0917",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 537,
+        "commName": "\u0935\u0924\u094d\u0938\u0928\u093e\u092d",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 538,
+        "commName": "\u091a\u0902\u0926\u094d\u0930\u0936\u0942\u0930",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 539,
+        "commName": "\u0928\u0940\u092e \u092c\u0940\u091c",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 540,
+        "commName": "\u0915\u0930\u0902\u091c \u092c\u0940\u091c",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 541,
+        "commName": "\u0938\u094d\u091f\u0940\u0935\u093f\u092f\u093e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 542,
+        "commName": "\u092a\u0932\u093e\u0936 \u0915\u0947 \u092b\u0942\u0932",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 543,
+        "commName": "\u0927\u0935\u0908 \u0915\u0947 \u092b\u0942\u0932",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 544,
+        "commName": "\u0905\u0936\u094d\u0935\u0917\u0902\u0927\u093e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 548,
+        "commName": "\u0905\u0938\u093e\u0932\u093f\u092f\u093e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 549,
+        "commName": "\u0915\u0932\u094c\u0902\u091c\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 550,
+        "commName": "\u092e\u0942\u0938\u0932\u0940",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 551,
+        "commName": "\u0928\u0940\u092e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 560,
+        "commName": "\u092a\u0941\u092a\u093e\u0921\u093f\u092f\u093e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 17,
+        "commCode": 561,
+        "commName": "\u0924\u093e\u0930\u093e\u092e\u0940\u0930\u093e",
+        "commGroupName": "\u0915\u0943\u0937\u093f \u0914\u0937\u0927\u0940\u092f \u0909\u092a\u091c"
+    },
+    {
+        "commGroupCode": 18,
+        "commCode": 453,
+        "commName": "\u0915\u092a\u093e\u0938",
+        "commGroupName": "\u0924\u0928\u094d\u0924\u0941"
+    },
+    {
+        "commGroupCode": 18,
+        "commCode": 454,
+        "commName": "\u0938\u0928",
+        "commGroupName": "\u0924\u0928\u094d\u0924\u0941"
+    },
+    {
+        "commGroupCode": 18,
+        "commCode": 455,
+        "commName": "\u0905\u092e\u094d\u092c\u093e\u0921\u0940/\u092e\u0947\u0938\u094d\u091f\u093e",
+        "commGroupName": "\u0924\u0928\u094d\u0924\u0941"
+    }
+]

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease Prediction</title>
+    <link rel="stylesheet" href="crop.css">
+</head>
+<body class="background-image">
+    <header id="navbar">
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+                <span>AgriAutomationHub</span>
+            </div>
+            <div class="nav-items">
+                <a href="AgriAutomationHub.html#home">Home</a>
+                <a href="about.html">About</a>
+                <a href="AgriAutomationHub.html#services">Services</a>
+                <a href="AgriAutomationHub.html#products">Products</a>
+                <a href="AgriAutomationHub.html#contact#">Contact</a>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="disease-section">
+        <h1>Crop Disease Prediction</h1>
+    
+        <p>Welcome to AgriAutomationHub's Crop Disease Prediction service. Upload an image of your plant, and we'll provide predictions about potential diseases and recommended cures.</p>
+    
+        <form enctype="multipart/form-data">
+            <label for="file">Choose a plant image:</label>
+            <input type="file" id="file" accept="image/*">
+            <button type="button" id="predict-button">Predict</button>
+        </form>
+    
+        <div id="result">
+            <h2>Predictions:</h2>
+            <p id="disease-info"></p>
+            <p id="cure"></p>
+            <section class="cure-section">
+                <p id="cure-info"></p>
+            </section>
+            
+        </div>
+    </section>
+    
+    <script src="crop-disease.js"></script>
+</body>
+</html>

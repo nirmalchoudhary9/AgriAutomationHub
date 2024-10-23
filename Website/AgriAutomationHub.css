@@ -1,0 +1,533 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styles */
+/* Base styles */
+#navbar {
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #222; /* Add a subtle background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease-in-out; /* Transition for background color change */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: flex-start;
+}
+
+.logo img {
+    max-height: 70px;
+    margin-right: 10px;
+    align-self: start;
+}
+
+.logo span {
+    font-size: 1.8em;
+    color: #fff; /* Light text for better contrast */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+.nav-items a {
+    color: #ddd;
+    text-decoration: none; /* Remove underline */
+    font-family: Arial, sans-serif; /* Modern font family */
+    margin: 0 20px;
+    font-size: 1.2em;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transition for color and subtle transform */
+}
+
+/* Hover effects with trendy transitions and subtle animations */
+.nav-items a:hover {
+    color: #fff; /* Brighter color on hover */
+    transform: translateY(-3px); /* Slight bounce on hover */
+}
+
+.nav-items a:active {
+    transform: scale(1.05); /* Subtle zoom on click */
+    transition: transform 0.1s; /* Faster transition for click effect */
+}
+
+/* Menu icon styles */
+.menu-icon {
+    visibility: hidden; /* Initially hidden on larger screens */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Stack lines vertically for burger icon */
+    justify-content: space-between; /* Space lines evenly */
+    width: 25px;
+    height: 25px;
+    color: #fff; /* Light color for contrast */
+    transition: transform 0.3s ease-in-out; /* Transition for menu icon animation */
+}
+
+.menu-icon span {
+    width: 100%; /* Full width for lines */
+    height: 3px; /* Line thickness */
+    background-color: currentColor; /* Inherit color from parent */
+    border-radius: 2px; /* Rounded corners for smoother appearance */
+    margin-bottom: 5px; /* Spacing between lines */
+}
+
+/* Show/hide menu functionality using JavaScript (not provided here) */
+/* ... */
+
+/* Responsive behavior using media queries (not provided here, but recommended) */
+/* ... */
+
+/* Additional options for more advanced animations (consider using a JavaScript library) */
+/*
+
+
+/* Hero section styles */
+.hero {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    background: url('images/thumb-1920-428202.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+}
+.common-bg {
+    background-image: url('images/half.jpg'); /* Replace 'path_to_your_image.jpg' with the path to your image */
+    background-size: cover;
+    background-position: center;
+  }
+
+.hero h1 {
+    font-size: 40px;
+    margin-left: 20px;
+    color: #d5ee14;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    
+}
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .ticker {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .ticker h3 {
+    display: inline-block;
+    margin-right: 50px; /* Adjust as needed */
+    opacity: 0;
+    animation: fadeIn 5s forwards; /* Adjust animation duration as needed */
+    text-align: left;
+    color:rgb(255, 255, 255);
+    background-color: #7f8d7d;
+    
+    
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  
+.cta-button {
+    display: inline-block;
+    background-color: #ff9900;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: #cc8407;
+}
+
+/* Main service section styles */
+#service {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+#service>h2{
+    margin-bottom: 40px;
+    text-align: center;
+    text-decoration: solid;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service {
+    width: calc(33.33% - 20px); /* Adjust the width and spacing as needed */
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+.service img {
+    width: 100%;
+    height: 200px; /* Adjust the image height as needed */
+    object-fit: cover;
+}
+
+.service a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.service h3 {
+    margin-top: 0;
+}
+
+.service p {
+    margin: 0 15px 15px 15px;
+    color: #777;
+}
+
+/* Main feature section styles */
+
+#feature {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+#feature>h2{
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: solid;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.feature {
+    width: calc(50% - 20px); /* Adjust the width and spacing as needed */
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+.feature img {
+    width: 100%;
+    height: 200px; /* Adjust the image height as needed */
+    object-fit: cover;
+}
+
+.feature h3 {
+    margin: 0 15px;
+}
+
+.feature p {
+    margin: 0 15px 15px 15px;
+    color: #777;
+}
+
+.feature-content {
+    padding: 15px;
+}
+
+/* Featured Products section styles */
+.products-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.products-container>h2{
+    margin-bottom: 10px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product {
+    width: calc(50% - 20px); /* Adjust the width and spacing as needed */
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: 200px; /* Adjust the image height as needed */
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 15px;
+}
+.products-container>h2 {
+    margin-bottom: 40px;
+    text-align: center;
+    text-decoration: solid;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.product h3 {
+    margin: 0 15px;
+    
+}
+
+.product p {
+    margin: 0 15px 15px 15px;
+    color: #777;
+}
+
+
+/* Question and Feedback section styles */
+.question-feedback {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input,
+textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #27ae60;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #219a52;
+}
+
+.about-us {
+    background-color: #f9f9f9;
+    background: url(images/aana.jpg);
+    padding:  0;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.about-us h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.about-us p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h4 {
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-section ul li a:hover {
+    color: #ff9900;
+}
+
+.social-icons {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.social-icons li {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 860px) {
+    .menu-icon {
+        display: block;
+        visibility: visible;
+    }
+
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        background-color: #1e272e;
+        position: absolute;
+        top: 60px; /* Adjust this value based on your header height */
+        right: 10;
+        width: 100%;
+        padding: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-items.show {
+        display: flex;
+    }
+
+    .nav-items a {
+        color: #fff;
+        text-decoration: none;
+        margin: 10px 0;
+    }
+}
+
+/* Social Icons Styling */
+.social-icons {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.social-icons li {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 768px) {
+    .services .service {
+        width: calc(50% - 20px);
+    }
+
+    .features .feature,
+    .products-container .product {
+        width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
