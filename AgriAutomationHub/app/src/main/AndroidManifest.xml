@@ -42,7 +42,7 @@
             android:name=".MandiDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".FertilizerCalculatorActivity"
+            android:name=".ExpenseCalculatorActivity"
             android:exported="false"
             android:theme="@style/Theme.Material3.Light" />
         <activity

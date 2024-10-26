@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
 
         LinearLayout fertilizer = findViewById(R.id.fertilizer_calculator);
         fertilizer.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, FertilizerCalculatorActivity.class);
+            Intent intent = new Intent(MainActivity.this, ExpenseCalculatorActivity.class);
             startActivity(intent);
         });
 

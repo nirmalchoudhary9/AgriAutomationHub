@@ -11,8 +11,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:background="@color/primary_light">
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/back_btn_crop_detail"

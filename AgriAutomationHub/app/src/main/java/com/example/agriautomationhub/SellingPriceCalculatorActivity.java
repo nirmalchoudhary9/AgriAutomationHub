@@ -1,6 +1,8 @@
 package com.example.agriautomationhub;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -230,6 +233,7 @@ public class SellingPriceCalculatorActivity extends AppCompatActivity {
             holder.textViewCategory.setText(expense.getCategory());
             holder.textViewExpenseName.setText(expense.getExpenseName().isEmpty() ? "No Name" : expense.getExpenseName());
             holder.textViewPrice.setText("₹" + expense.getPrice());
+            holder.imageButtonOptions.setBackgroundColor(0);
 
             holder.imageButtonOptions.setOnClickListener(new View.OnClickListener() {
                 @Override
