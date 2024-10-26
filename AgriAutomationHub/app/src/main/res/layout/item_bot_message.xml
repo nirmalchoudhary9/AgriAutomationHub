@@ -13,5 +13,7 @@
         android:background="@drawable/bot_message_background"
         android:padding="10dp"
         android:textColor="@android:color/black"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:justificationMode="inter_word"
+        android:layout_gravity="start|center_vertical" />
 </LinearLayout>

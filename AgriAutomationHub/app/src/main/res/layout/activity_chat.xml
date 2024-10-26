@@ -1,82 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#F5F5F5">
+    android:background="@color/background_light"
+    android:padding="12dp">
 
-    <!-- Chat Title -->
-    <TextView
-        android:id="@+id/chatTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chat"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/primary_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"/>
+    <!-- Fixed Header Layout -->
+    <RelativeLayout
+        android:id="@+id/header_layout_chat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <!-- Recycler View for Messages -->
+        <ImageView
+            android:id="@+id/back_btn_chat"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:padding="12dp"
+            android:src="@drawable/back_btn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Chat Bot"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- RecyclerView for displaying chat messages -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMessages"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_above="@id/layoutInput"
-        android:layout_below="@id/chatTitle"
-        android:layout_marginTop="8dp"
-        android:padding="12dp"
+        android:layout_height="match_parent"
+        android:layout_above="@id/inputContainer"
+        android:layout_below="@+id/header_layout_chat"
+        android:layout_marginBottom="10dp"
         android:clipToPadding="false"
-        android:background="@color/white"
-        android:elevation="2dp"
-        android:scrollbars="vertical"/>
+        android:overScrollMode="never"
+        android:padding="8dp"
+        android:scrollbars="none" />
 
-    <!-- Input and Send Button Section -->
+    <!-- Container for input field and buttons -->
     <LinearLayout
-        android:id="@+id/layoutInput"
+        android:id="@+id/inputContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:padding="12dp"
         android:layout_alignParentBottom="true"
-        android:elevation="8dp"
-        android:gravity="center_vertical">
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_container"
+        android:padding="8dp"
+        android:elevation="4dp">
 
-        <!-- Message Input Field -->
+        <!-- EditText for typing messages -->
         <EditText
             android:id="@+id/inputMessage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Type a message..."
+            android:background="@android:color/transparent"
             android:padding="12dp"
-            android:background="@drawable/input_background"
-            android:textColor="@color/primary_text"/>
+            android:layout_marginEnd="8dp"
+            android:inputType="textMultiLine"
+            android:maxLines="3"
+            android:scrollHorizontally="false"
+            android:textColor="@color/primary_text" />  <!-- Make sure this color exists -->
 
-        <!-- Send Button -->
+        <!-- Send button with icon -->
         <ImageButton
             android:id="@+id/btnSend"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_send"
-            android:contentDescription="Send"
-            android:background="@drawable/send_button_background"
-            android:layout_marginStart="8dp"
-            android:layout_gravity="center_vertical"
-            android:padding="10dp"/>
+            android:tint="@color/primary"
+            android:contentDescription="Send message" />
     </LinearLayout>
-
-    <!-- New Chat Button -->
-    <Button
-        android:id="@+id/btnNewChat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/layoutInput"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="16dp"
-        android:text="New Chat"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/primary"
-        android:elevation="4dp"
-        android:padding="12dp"/>
 </RelativeLayout>

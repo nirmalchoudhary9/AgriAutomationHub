@@ -11,8 +11,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:background="@color/primary_light">
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/back_btn_market_view"
@@ -42,7 +41,7 @@
         android:layout_height="0dp"
         android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_mandi"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_market_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -117,7 +116,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/commodity_group"
+                    android:text="Category"
                     android:textSize="16sp"
                     android:fontFamily="sans-serif"
                     android:textColor="@color/secondaryTextColor"
@@ -164,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/fetch_data"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/primaryColor"
+                android:backgroundTint="@color/private_account"
                 android:layout_marginBottom="16dp" />
 
             <!-- ProgressBar -->
@@ -223,7 +222,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/primary_light"
         app:itemIconTint="@color/bottom_nav_icon_color"
         app:itemTextColor="@color/bottom_nav_icon_color"
         app:menu="@menu/bottom_nav_menu"

@@ -11,8 +11,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:background="@color/primary_light">
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/back_btn_selling_price"
@@ -114,7 +113,9 @@
                 android:id="@+id/spinnerCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/input_background"
+                android:padding="12dp"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/spinner_background"
                 android:layout_marginBottom="12dp"/>
 
             <EditText
@@ -179,7 +180,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/primary_light"
         app:itemIconTint="@color/bottom_nav_icon_color"
         app:itemTextColor="@color/bottom_nav_icon_color"
         app:menu="@menu/bottom_nav_menu"

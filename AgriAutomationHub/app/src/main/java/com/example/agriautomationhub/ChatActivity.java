@@ -1,10 +1,14 @@
 package com.example.agriautomationhub;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +34,9 @@ public class ChatActivity extends AppCompatActivity {
     private OpenAIApi openAIApi;  // Declare the API interface
     private AppDatabase db;
 
+    // Define the welcome message
+    private static final String WELCOME_MESSAGE = "Welcome to KrishiMitra! How can I assist you with your agricultural queries today?";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +47,17 @@ public class ChatActivity extends AppCompatActivity {
         recyclerViewMessages = findViewById(R.id.recyclerViewMessages);
         inputMessage = findViewById(R.id.inputMessage);
         ImageButton btnSend = findViewById(R.id.btnSend);
-        Button btnNewChat = findViewById(R.id.btnNewChat);
+        ImageView back = findViewById(R.id.back_btn_chat);
+
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         // Initialize Retrofit and OpenAIApi
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://chatbot-agriautomationhub.openai.azure.com/")  // Azure endpoint
+                .baseUrl("https://openai-service-agri.openai.azure.com/")  // Azure endpoint
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         openAIApi = retrofit.create(OpenAIApi.class);
@@ -57,7 +70,6 @@ public class ChatActivity extends AppCompatActivity {
         loadChatHistory();
 
         btnSend.setOnClickListener(v -> sendMessage());
-        btnNewChat.setOnClickListener(v -> startNewChat());
     }
 
     private void loadChatHistory() {
@@ -71,15 +83,50 @@ public class ChatActivity extends AppCompatActivity {
                 }
                 messageAdapter.notifyDataSetChanged();
                 recyclerViewMessages.scrollToPosition(messageList.size() - 1);
+
+                // If the chat history is empty, show the welcome message
+                if (messageList.isEmpty()) {
+                    messageList.add(new ChatMessage(WELCOME_MESSAGE, false)); // Add the welcome message
+                    messageAdapter.notifyItemInserted(messageList.size() - 1);
+                    recyclerViewMessages.scrollToPosition(messageList.size() - 1);
+                }
             });
         }).start();
     }
 
+    // Inflate the menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_chat, menu);
+        return true;
+    }
+
+    // Handle menu item selection
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_new_chat) {
+            startNewChat();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void startNewChat() {
-        // Clear the chat history and reload new chat
-        messageList.clear();
-        messageAdapter.notifyDataSetChanged();
-        // Optionally clear messages from the database or keep them for reference
+        // Clear the chat history from the database
+        new Thread(() -> {
+            db.messageDao().deleteAllMessages(); // Call to delete all messages from the database
+            runOnUiThread(() -> {
+                // Clear the message list in the UI
+                messageList.clear();
+                messageAdapter.notifyDataSetChanged();
+
+                // Add the welcome message for the new chat
+                messageList.add(new ChatMessage(WELCOME_MESSAGE, false));
+                messageAdapter.notifyItemInserted(messageList.size() - 1);
+                recyclerViewMessages.scrollToPosition(messageList.size() - 1);
+            });
+        }).start();
     }
 
     private void sendMessage() {
@@ -138,7 +185,6 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void saveUserMessage(String userMessage) {
         String timestamp = String.valueOf(System.currentTimeMillis());

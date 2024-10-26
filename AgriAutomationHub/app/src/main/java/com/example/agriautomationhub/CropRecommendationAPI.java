@@ -11,7 +11,7 @@ public interface CropRecommendationAPI {
     @POST("/score")
     @Headers({
             "Content-Type: application/json",
-            "Authorization: Bearer YdOviL9BY5oAMUETnAGBZUpzUCqLFm8R"
+            "Authorization: Bearer 1esEiphM4ujYJIJAJzgOIRyRiJbkOCNK"
     })
     Call<ResponseBody> getRecommendation(@Body RequestBody requestBody);
 }
