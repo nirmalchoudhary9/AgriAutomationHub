@@ -65,7 +65,7 @@ public class CropRecommenderActivity extends AppCompatActivity {
                 .addInterceptor(chain -> {
                     Request original = chain.request();
                     Request.Builder requestBuilder = original.newBuilder()
-                            .header("Authorization", "Bearer 1esEiphM4ujYJIJAJzgOIRyRiJbkOCNK")
+                            .header("Authorization", "Bearer 1es**********NK")
                             .header("Content-Type", "application/json");
                     return chain.proceed(requestBuilder.build());
                 })
