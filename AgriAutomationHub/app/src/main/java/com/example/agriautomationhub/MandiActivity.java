@@ -1,53 +1,63 @@
 package com.example.agriautomationhub;
 
+import static com.example.agriautomationhub.net.MandiApi.convertDate;
+
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.DatePickerDialog;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.graphics.Typeface;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-
-import okhttp3.*;
+import com.example.agriautomationhub.net.MandiApi;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+import android.widget.Toast;
 
+/**
+ * Full MandiActivity – district→mandi, category→crop, API fetch, detail screen.
+ */
 public class MandiActivity extends AppCompatActivity {
-
     private static final String TAG = "MandiActivity";
 
+    /* UI */
     private TextView reportDateTextView;
-    private Spinner spinnerDistrict;
-    private LinearLayout mandiLinearLayout;
+    private Spinner spinnerDistrict, spinnerMandi, spinnerCropCategory, spinnerCrop;
     private Calendar calendar;
 
-    static {
-        new OkHttpClient();
-    }
+    /* adapters */
+    private ArrayAdapter<String> mandiAdapter;
+    private ArrayAdapter<String> cropAdapter;
 
+    /* maps */
     private final Map<String, List<String>> districtToMandiMap = new HashMap<>();
     private final Map<String, String> mandiToDistrictMap = new HashMap<>();
     private final Map<String, String> mandiMap = new HashMap<>();
+    private final Map<String, List<String>> categoryToCropMap = new LinkedHashMap<>();
+    private final Map<String, String> categoryToGroupCode = new HashMap<>();
+    private final Map<String, String> cropToCommCode = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,225 +65,243 @@ public class MandiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mandi);
 
         reportDateTextView = findViewById(R.id.report_date);
-        calendar = Calendar.getInstance();
-        spinnerDistrict = findViewById(R.id.spinner_district);
-        mandiLinearLayout = findViewById(R.id.mandi_linear_layout);
+        spinnerDistrict    = findViewById(R.id.spinner_district);
+        spinnerMandi       = findViewById(R.id.spinner_mandi);
+        spinnerCropCategory= findViewById(R.id.spinner_crop_category);
+        spinnerCrop        = findViewById(R.id.spinner_crop);
+        calendar           = Calendar.getInstance();
+        findViewById(R.id.btn_fetch).setOnClickListener(v -> openDetail());
 
-        ImageView back = findViewById(R.id.back_btn_mandi);
-        back.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+
+        findViewById(R.id.back_btn_mandi).setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
             finish();
         });
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_mandi);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
+        BottomNavigationView nav = findViewById(R.id.bottom_navigation_mandi);
+        nav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.navigation_home) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            } else if (id == R.id.navigation_marketView) {
-                startActivity(new Intent(getApplicationContext(), MarketViewActivity.class));
                 return true;
             } else if (id == R.id.navigation_news) {
-                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                startActivity(new Intent(MandiActivity.this, NewsActivity.class));
+                return true;
+            } else if (id == R.id.navigation_marketView) {
+                startActivity(new Intent(MandiActivity.this, MarketViewActivity.class));
+                return true;
+            } else if (id == R.id.navigation_mandi) {
+                startActivity(new Intent(MandiActivity.this, MandiActivity.class));
                 return true;
             }
             return false;
         });
 
-        // Load district names from array.xml
-        ArrayAdapter<CharSequence> districtAdapter = ArrayAdapter.createFromResource(
+        ArrayAdapter<CharSequence> distAdapter = ArrayAdapter.createFromResource(
                 this, R.array.districts, android.R.layout.simple_spinner_item);
-        districtAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDistrict.setAdapter(districtAdapter);
+        distAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDistrict.setAdapter(distAdapter);
 
-        // Load mandi data
-        loadJsonData();
+        mandiAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new ArrayList<>());
+        mandiAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerMandi.setAdapter(mandiAdapter);
 
-        // Set up listeners for district selection
+        ArrayAdapter<CharSequence> catAdapter = ArrayAdapter.createFromResource(
+                this, R.array.crop_category, android.R.layout.simple_spinner_item);
+        catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCropCategory.setAdapter(catAdapter);
+
+        cropAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new ArrayList<>());
+        cropAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCrop.setAdapter(cropAdapter);
+
+        loadMandiJson();
+        loadCropMaster();
         setupListeners();
 
         reportDateTextView.setOnClickListener(v -> showDatePickerDialog());
     }
 
-    private void setupListeners() {
-        spinnerDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedDistrict = (String) parent.getItemAtPosition(position);
-                List<String> mandis = districtToMandiMap.get(selectedDistrict);
+    /* ---------- data loaders ---------- */
+    private void loadMandiJson() {
+        try (InputStream is = getAssets().open("mandi_data.json");
+             BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+            StringBuilder sb = new StringBuilder();
+            String line; while ((line = br.readLine()) != null) sb.append(line);
+            JSONArray arr = new JSONArray(sb.toString());
+            for (int i = 0; i < arr.length(); i++) {
+                JSONObject o = arr.getJSONObject(i);
+                String dist  = o.getString("distName");
+                String mandi = o.getString("mandiName");
+                districtToMandiMap.computeIfAbsent(dist, k -> new ArrayList<>()).add(mandi);
+                mandiToDistrictMap.put(mandi, o.getString("distCode"));
+                mandiMap.put(mandi, o.getString("mandiCode"));
+            }
+        } catch (Exception e) { Log.e(TAG, "mandi json", e); }
+    }
 
-                mandiLinearLayout.removeAllViews();
-                if (mandis != null) {
-                    for (String mandi : mandis) {
-                        addMandiTextView(mandi);
-                    }
+    private void loadCropMaster() {
+        try (InputStream is = getAssets().open("crop_master.json");
+             BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+
+            StringBuilder sb = new StringBuilder();
+
+            String line; while ((line = br.readLine()) != null) sb.append(line);
+
+            JSONArray groups = new JSONArray(sb.toString());
+            for (int i = 0; i < groups.length(); i++) {
+                JSONObject g = groups.getJSONObject(i);
+
+                String groupCode = g.getString("commGroupCode");
+                String groupName = g.getString("commGroupName");
+
+                categoryToGroupCode.put(groupName, groupCode);
+
+                JSONArray crops = g.getJSONArray("crops");
+                List<String> cropNames = new ArrayList<>();
+
+                for (int j = 0; j < crops.length(); j++) {
+                    JSONObject c = crops.getJSONObject(j);
+                    String commCode = c.getString("commCode");
+                    String commName = c.getString("commName");
+
+                    cropNames.add(commName);
+                    cropToCommCode.put(commName, commCode);
                 }
+                categoryToCropMap.put(groupName, cropNames);
             }
 
+            Log.d(TAG, "category→crop via JSON: " + categoryToCropMap);
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error loading crop_master.json", e);
+        }
+    }
+
+    /* ---------- listeners ---------- */
+    private void setupListeners() {
+        spinnerDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onItemSelected(AdapterView<?> p, View v, int pos, long id) {
+                List<String> mandis = districtToMandiMap.getOrDefault(p.getItemAtPosition(pos), Collections.emptyList());
+                mandiAdapter.clear(); mandiAdapter.addAll(mandis); mandiAdapter.notifyDataSetChanged();
+            }
+            @Override public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        spinnerCropCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onItemSelected(AdapterView<?> p, View v, int pos, long id) {
+                List<String> crops = categoryToCropMap.getOrDefault(p.getItemAtPosition(pos), Collections.emptyList());
+                cropAdapter.clear(); cropAdapter.addAll(crops); cropAdapter.notifyDataSetChanged();
+            }
+            @Override public void onNothingSelected(AdapterView<?> parent) {}
+        });
+    }
+
+    /* ---------- date picker ---------- */
+    private void showDatePickerDialog() {
+        new DatePickerDialog(this, (v, y, m, d) -> {
+            Calendar sel = Calendar.getInstance();
+            sel.set(y, m, d);
+
+            if (sel.after(Calendar.getInstance())) {
+                reportDateTextView.setText("Select Date");
+            } else {
+                // Show as dd/MM/yyyy
+                String dateForDisplay = String.format("%02d/%02d/%04d", d, m + 1, y);
+                reportDateTextView.setText(dateForDisplay);
+            }
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+    /* ---------- API + detail ---------- */
+    private void openDetail() {
+        String date = reportDateTextView.getText().toString();
+        if (date.equals("Select Date")) { Log.e(TAG, "date missing"); return; }
+
+        String mandiName = (String) spinnerMandi.getSelectedItem();
+        String cropName  = (String) spinnerCrop.getSelectedItem();
+        String category  = (String) spinnerCropCategory.getSelectedItem();
+        if (mandiName == null || cropName == null || category == null) return;
+
+        String distCode      = mandiToDistrictMap.get(mandiName);
+        String mandiCode     = mandiMap.get(mandiName);
+        String commGroupCode = categoryToGroupCode.get(category);
+        String commCode      = cropToCommCode.get(cropName);
+        if (distCode == null || mandiCode == null || commGroupCode == null || commCode == null) {
+            Log.e(TAG, "codes missing"); return;
+        }
+        date = convertDate(date);
+        String finalDate = date;
+        Log.d(TAG, "PAYLOAD → date=" + finalDate +
+                " dist=" + distCode +
+                " mandi=" + mandiCode +
+                " group=" + commGroupCode +
+                " comm=" + commCode);
+        new MandiApi().fetchMandiData(date, distCode, mandiCode, commGroupCode, commCode, new Callback() {
+            @Override public void onFailure(Call c, IOException e) { runOnUiThread(() -> Log.e(TAG, "net", e)); }
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Optionally handle no selection
+            public void onResponse(Call call, Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    runOnUiThread(() -> Log.e(TAG, "srv " + response.code()));
+                    return;
+                }
+
+                // Safely read the response body only once
+                final String json;
+                try {
+                    json = response.body().string(); // Can be called only once
+                } catch (Exception e) {
+                    runOnUiThread(() -> Log.e(TAG, "Failed to read body", e));
+                    return;
+                }
+
+//                runOnUiThread(() -> {
+//                    Intent i = new Intent(MandiActivity.this, MandiDetailActivity.class);
+//                    i.putExtra("mandiName", mandiName);
+//                    i.putExtra("reportDate", finalDate);
+//                    i.putExtra("mandiData", json);
+//                    startActivity(i);
+//                });
+
+                runOnUiThread(() -> {
+                    try {
+                        LinearLayout container = findViewById(R.id.mandi_data_container);
+                        container.removeAllViews();
+
+                        JSONObject root = new JSONObject(json);
+                        JSONArray arr = root.optJSONArray("d");
+
+                        if (arr == null || arr.length() == 0) {
+                            TextView noData = new TextView(MandiActivity.this);
+                            noData.setText("No data available.");
+                            container.addView(noData);
+                            return;
+                        }
+
+                        for (int i = 0; i < arr.length(); i++) {
+                            JSONObject item = arr.getJSONObject(i);
+
+                            View card = getLayoutInflater().inflate(R.layout.item_mandi_data_card, container, false);
+
+                            ((TextView) card.findViewById(R.id.variety)).setText("फसल: " + item.optString("commName", "N/A"));
+                            ((TextView) card.findViewById(R.id.min_price)).setText("न्यूनतम: ₹" + item.optString("minValue", "-"));
+                            ((TextView) card.findViewById(R.id.max_price)).setText("अधिकतम: ₹" + item.optString("maxValue", "-"));
+                            container.addView(card);
+                        }
+                    } catch (Exception e) {
+                        Log.e("MandiActivity", "JSON parsing error", e);
+                        Toast.makeText(MandiActivity.this, "Error parsing data", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
 
-    private void addMandiTextView(String mandiName) {
-        // Create a CardView to hold the TextView
-        CardView cardView = new CardView(this);
-        cardView.setCardElevation(8);
-        cardView.setRadius(16);
-        cardView.setUseCompatPadding(true);
-
-        // Set layout parameters for the CardView
-        LinearLayout.LayoutParams cardLayoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        cardLayoutParams.setMargins(16, 16, 16, 16);
-        cardView.setLayoutParams(cardLayoutParams);
-
-        // Create a TextView for the mandi name
-        TextView mandiTextView = new TextView(this);
-        mandiTextView.setText(mandiName);
-        mandiTextView.setTextSize(18);
-        mandiTextView.setPadding(24, 24, 24, 24);
-        mandiTextView.setTextColor(ContextCompat.getColor(this, R.color.primaryTextColor));
-        mandiTextView.setTypeface(null, Typeface.BOLD);
-        mandiTextView.setBackgroundResource(R.drawable.mandi_text_view_background); // Custom background drawable
-        mandiTextView.setGravity(Gravity.CENTER_VERTICAL);
-
-        // Set an OnClickListener for the TextView
-        mandiTextView.setOnClickListener(v -> openMandiDetailActivity(mandiName));
-
-        // Add the TextView to the CardView
-        cardView.addView(mandiTextView);
-
-        // Add the CardView to the LinearLayout
-        mandiLinearLayout.addView(cardView);
-    }
-
-
-    private void showDatePickerDialog() {
-        if (calendar == null) {
-            calendar = Calendar.getInstance(); // Initialize if it's null
-        }
-
-        @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(
-                MandiActivity.this,
-                (view, year, month, dayOfMonth) -> {
-                    Calendar selectedDate = Calendar.getInstance();
-                    selectedDate.set(year, month, dayOfMonth);
-
-                    if (selectedDate.after(Calendar.getInstance())) {
-                        reportDateTextView.setText("Select Date");
-                    } else {
-                        @SuppressLint("DefaultLocale") String date = String.format("%d/%d/%d", dayOfMonth, month + 1, year);
-                        reportDateTextView.setText(date);
-                    }
-                },
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH)
-        );
-
-        datePickerDialog.getDatePicker().setMaxDate(Calendar.getInstance().getTimeInMillis());
-        datePickerDialog.show();
-    }
-
-    private void openMandiDetailActivity(String mandiName) {
-        String reportDate = reportDateTextView.getText().toString();
-        String distCode = mandiToDistrictMap.get(mandiName);
-        String mandiCode = mandiMap.get(mandiName);
-
-        if (reportDate.equals("Select Date")) {
-            Log.e(TAG, "Please select a valid date.");
-            return;
-        }
-
-        if (distCode == null || mandiCode == null) {
-            Log.e(TAG, "Invalid mandi name or data not found for mandi: " + mandiName);
-            return;
-        }
-
-        // Start MandiDetailActivity
-        Intent intent = new Intent(MandiActivity.this, MandiDetailActivity.class);
-        intent.putExtra("mandiName", mandiName);
-        intent.putExtra("reportDate", reportDate);
-        intent.putExtra("distCode", distCode);
-        intent.putExtra("mandiCode", mandiCode);
-        startActivity(intent);
-    }
-
-    private void loadJsonData() {
-        try {
-            InputStream mandiDataStream = getAssets().open("mandi_data.json");
-            BufferedReader mandiReader = new BufferedReader(new InputStreamReader(mandiDataStream));
-            StringBuilder mandiStringBuilder = new StringBuilder();
-            String line;
-            while ((line = mandiReader.readLine()) != null) {
-                mandiStringBuilder.append(line);
-            }
-            mandiReader.close();
-
-            JSONArray jsonArray = new JSONArray(mandiStringBuilder.toString());
-
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject mandiObject = jsonArray.getJSONObject(i);
-                String districtName = mandiObject.getString("distName");
-                String mandiName = mandiObject.getString("mandiName");
-
-                if (!districtToMandiMap.containsKey(districtName)) {
-                    districtToMandiMap.put(districtName, new ArrayList<>());
-                }
-                Objects.requireNonNull(districtToMandiMap.get(districtName)).add(mandiName);
-                mandiMap.put(mandiName, mandiObject.getString("mandiCode"));
-                mandiToDistrictMap.put(mandiName, mandiObject.getString("distCode"));
-            }
-
-            Log.d(TAG, "District to Mandi Map: " + districtToMandiMap);
-
-        } catch (Exception e) {
-            //noinspection CallToPrintStackTrace
-            e.printStackTrace();
-            Log.e(TAG, "Error loading JSON data", e);
-        }
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            return logoutUser();
-        }
-        if (id == R.id.action_settings) {
-            return settings();
-        }
-        if (id == R.id.action_help) {
-            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
-            startActivity(intent);
-        }
+    /* ---------- menu ---------- */
+    @Override public boolean onCreateOptionsMenu(Menu menu) { getMenuInflater().inflate(R.menu.main, menu); return true; }
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_logout) { FirebaseAuth.getInstance().signOut(); startActivity(new Intent(this, LoginActivity.class)); finish(); return true; }
+        if (item.getItemId() == R.id.action_settings) { startActivity(new Intent(this, SettingsPage.class)); return true; }
+        if (item.getItemId() == R.id.action_help) { startActivity(new Intent(this, HelpActivity.class)); return true; }
         return super.onOptionsItemSelected(item);
-    }
-
-    private boolean logoutUser() {
-        FirebaseAuth.getInstance().signOut();
-        // Redirect to login screen or any other desired activity
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
-        finish();
-        return true;
-    }
-
-    private boolean settings() {
-        Intent intent = new Intent(getApplicationContext(), SettingsPage.class);
-        startActivity(intent);
-        return true;
     }
 }

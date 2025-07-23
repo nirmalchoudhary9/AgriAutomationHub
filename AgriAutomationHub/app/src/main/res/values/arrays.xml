@@ -53,4 +53,20 @@
         <item>Umariya</item>
         <item>Vidisha</item>
     </string-array>
+
+    <string-array name="crop_category">
+        <item>धान्य</item>
+        <item>दलहन</item>
+        <item>तिलहन</item>
+        <item>सब्जियां</item>
+        <item>गन्ना</item>
+        <item>तन्तु</item>
+        <item>फल</item>
+        <item>फूल</item>
+        <item>अन्य वस्तुएं</item>
+        <item>वन उपज</item>
+        <item>कृषि औषधीय उपज</item>
+        <item>चटनी मसाले तथा अन्य वस्तुएं</item>
+    </string-array>
+
 </resources>

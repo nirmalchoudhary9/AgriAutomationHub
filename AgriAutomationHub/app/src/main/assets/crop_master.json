@@ -1,0 +1,964 @@
+[
+  {
+    "commGroupCode": "1",
+    "commGroupName": "धान्य",
+    "crops": [
+      {
+        "commCode": "1",
+        "commName": "गेहूं"
+      },
+      {
+        "commCode": "2",
+        "commName": "धान"
+      },
+      {
+        "commCode": "4",
+        "commName": "मक्का/भुट्टा"
+      },
+      {
+        "commCode": "5",
+        "commName": "ज्वार"
+      },
+      {
+        "commCode": "28",
+        "commName": "बाजरा"
+      },
+      {
+        "commCode": "29",
+        "commName": "जौ"
+      },
+      {
+        "commCode": "30",
+        "commName": "रागी"
+      },
+      {
+        "commCode": "383",
+        "commName": "कोंदों"
+      },
+      {
+        "commCode": "384",
+        "commName": "कुटकी"
+      },
+      {
+        "commCode": "385",
+        "commName": "राला"
+      },
+      {
+        "commCode": "386",
+        "commName": "राजगिरा"
+      },
+      {
+        "commCode": "456",
+        "commName": "सावां/समाँ"
+      },
+      {
+        "commCode": "563",
+        "commName": "जई"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "2",
+    "commGroupName": "दलहन",
+    "crops": [
+      {
+        "commCode": "49",
+        "commName": "तुअर/अरहर"
+      },
+      {
+        "commCode": "92",
+        "commName": "लोबिया या मोठ"
+      },
+      {
+        "commCode": "96",
+        "commName": "लाख"
+      },
+      {
+        "commCode": "397",
+        "commName": "चना"
+      },
+      {
+        "commCode": "398",
+        "commName": "मटर"
+      },
+      {
+        "commCode": "399",
+        "commName": "मूंग"
+      },
+      {
+        "commCode": "400",
+        "commName": "उड़द/उरदा"
+      },
+      {
+        "commCode": "401",
+        "commName": "कुलथी"
+      },
+      {
+        "commCode": "404",
+        "commName": "चौली या बरबटी"
+      },
+      {
+        "commCode": "405",
+        "commName": "सेम या सेमी"
+      },
+      {
+        "commCode": "423",
+        "commName": "मसूर या मसूरी"
+      },
+      {
+        "commCode": "545",
+        "commName": "डॉलर चना"
+      },
+      {
+        "commCode": "546",
+        "commName": "बटरी"
+      },
+      {
+        "commCode": "547",
+        "commName": "तिवड़ा"
+      },
+      {
+        "commCode": "558",
+        "commName": "राजमा"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "3",
+    "commGroupName": "तिलहन",
+    "crops": [
+      {
+        "commCode": "10",
+        "commName": "मूंगफली"
+      },
+      {
+        "commCode": "11",
+        "commName": "तिल्ली या तिल"
+      },
+      {
+        "commCode": "12",
+        "commName": "सरसों"
+      },
+      {
+        "commCode": "13",
+        "commName": "सोयाबीन"
+      },
+      {
+        "commCode": "14",
+        "commName": "सूरजमुखी"
+      },
+      {
+        "commCode": "59",
+        "commName": "कुसुम"
+      },
+      {
+        "commCode": "67",
+        "commName": "अलसी"
+      },
+      {
+        "commCode": "394",
+        "commName": "सोंहा"
+      },
+      {
+        "commCode": "395",
+        "commName": "लाहा"
+      },
+      {
+        "commCode": "396",
+        "commName": "रमतिल्ली"
+      },
+      {
+        "commCode": "457",
+        "commName": "अरण्डी"
+      },
+      {
+        "commCode": "458",
+        "commName": "महुआ"
+      },
+      {
+        "commCode": "552",
+        "commName": "बिनोला"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "5",
+    "commGroupName": "फल",
+    "crops": [
+      {
+        "commCode": "17",
+        "commName": "सेब"
+      },
+      {
+        "commCode": "18",
+        "commName": "संतरा"
+      },
+      {
+        "commCode": "19",
+        "commName": "केला"
+      },
+      {
+        "commCode": "20",
+        "commName": "आम"
+      },
+      {
+        "commCode": "22",
+        "commName": "अंगूर"
+      },
+      {
+        "commCode": "70",
+        "commName": "मीठा नीबूं"
+      },
+      {
+        "commCode": "71",
+        "commName": "चीकू"
+      },
+      {
+        "commCode": "72",
+        "commName": "पपीता"
+      },
+      {
+        "commCode": "73",
+        "commName": "तरबूज"
+      },
+      {
+        "commCode": "77",
+        "commName": "मोसम्बी"
+      },
+      {
+        "commCode": "184",
+        "commName": "जामुन"
+      },
+      {
+        "commCode": "185",
+        "commName": "अमरुद"
+      },
+      {
+        "commCode": "187",
+        "commName": "खरबूज"
+      },
+      {
+        "commCode": "188",
+        "commName": "चकोतरा"
+      },
+      {
+        "commCode": "190",
+        "commName": "अनार"
+      },
+      {
+        "commCode": "201",
+        "commName": "सीताफल"
+      },
+      {
+        "commCode": "329",
+        "commName": "बेर"
+      },
+      {
+        "commCode": "330",
+        "commName": "नाशपाती"
+      },
+      {
+        "commCode": "463",
+        "commName": "रामफल"
+      },
+      {
+        "commCode": "464",
+        "commName": "खिरनी"
+      },
+      {
+        "commCode": "554",
+        "commName": "ककड़ी"
+      },
+      {
+        "commCode": "555",
+        "commName": "नींबू"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "6",
+    "commGroupName": "सब्जियां",
+    "crops": [
+      {
+        "commCode": "23",
+        "commName": "प्याज"
+      },
+      {
+        "commCode": "24",
+        "commName": "आलू"
+      },
+      {
+        "commCode": "34",
+        "commName": "फूलगोभी"
+      },
+      {
+        "commCode": "35",
+        "commName": "बैंगन"
+      },
+      {
+        "commCode": "46",
+        "commName": "मेथी"
+      },
+      {
+        "commCode": "78",
+        "commName": "टमाटर"
+      },
+      {
+        "commCode": "81",
+        "commName": "करेला"
+      },
+      {
+        "commCode": "82",
+        "commName": "लौकी"
+      },
+      {
+        "commCode": "84",
+        "commName": "कुम्हड़ा"
+      },
+      {
+        "commCode": "86",
+        "commName": "चौलाई साग"
+      },
+      {
+        "commCode": "153",
+        "commName": "गाजर"
+      },
+      {
+        "commCode": "161",
+        "commName": "मूली"
+      },
+      {
+        "commCode": "465",
+        "commName": "सेम या सेमी"
+      },
+      {
+        "commCode": "466",
+        "commName": "लोबिया"
+      },
+      {
+        "commCode": "467",
+        "commName": "भारतीय सेम"
+      },
+      {
+        "commCode": "468",
+        "commName": "सेम बरबटी"
+      },
+      {
+        "commCode": "469",
+        "commName": "गंवार फली"
+      },
+      {
+        "commCode": "470",
+        "commName": "पत्ता गोभी"
+      },
+      {
+        "commCode": "471",
+        "commName": "चवली लाल"
+      },
+      {
+        "commCode": "472",
+        "commName": "खट्टा पालक"
+      },
+      {
+        "commCode": "473",
+        "commName": "तुरई"
+      },
+      {
+        "commCode": "474",
+        "commName": "कुंदरू"
+      },
+      {
+        "commCode": "475",
+        "commName": "परवल"
+      },
+      {
+        "commCode": "476",
+        "commName": "बंद गोभी/गांठ गोभी"
+      },
+      {
+        "commCode": "477",
+        "commName": "पालक भाजी"
+      },
+      {
+        "commCode": "478",
+        "commName": "चोलाई भाजी"
+      },
+      {
+        "commCode": "479",
+        "commName": "भिन्डी"
+      },
+      {
+        "commCode": "480",
+        "commName": "मटर"
+      },
+      {
+        "commCode": "481",
+        "commName": "कटहल"
+      },
+      {
+        "commCode": "482",
+        "commName": "अरबी"
+      },
+      {
+        "commCode": "483",
+        "commName": "चुकंदर"
+      },
+      {
+        "commCode": "484",
+        "commName": "शकरकंद"
+      },
+      {
+        "commCode": "485",
+        "commName": "सलगम"
+      },
+      {
+        "commCode": "486",
+        "commName": "टिण्डा"
+      },
+      {
+        "commCode": "487",
+        "commName": "सुरन"
+      },
+      {
+        "commCode": "488",
+        "commName": "अन्य हरी एवं ताजी सब्जियाँ"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "7",
+    "commGroupName": "चटनी मसाले तथा अन्य वस्तुएं",
+    "crops": [
+      {
+        "commCode": "25",
+        "commName": "लहसुन"
+      },
+      {
+        "commCode": "26",
+        "commName": "मिर्ची"
+      },
+      {
+        "commCode": "27",
+        "commName": "अदरक"
+      },
+      {
+        "commCode": "39",
+        "commName": "हल्दी"
+      },
+      {
+        "commCode": "42",
+        "commName": "जीरा"
+      },
+      {
+        "commCode": "43",
+        "commName": "धनिया"
+      },
+      {
+        "commCode": "47",
+        "commName": "मेथीदाना"
+      },
+      {
+        "commCode": "135",
+        "commName": "सौंफ"
+      },
+      {
+        "commCode": "137",
+        "commName": "अजवाइन"
+      },
+      {
+        "commCode": "406",
+        "commName": "इमली"
+      },
+      {
+        "commCode": "407",
+        "commName": "राई"
+      },
+      {
+        "commCode": "408",
+        "commName": "असगंध"
+      },
+      {
+        "commCode": "489",
+        "commName": "पोस्त तथा खसखस"
+      },
+      {
+        "commCode": "556",
+        "commName": "अमचूर"
+      },
+      {
+        "commCode": "557",
+        "commName": "सूखा आम"
+      },
+      {
+        "commCode": "559",
+        "commName": "कलोंजी"
+      },
+      {
+        "commCode": "564",
+        "commName": "खरबूजा बीज"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "10",
+    "commGroupName": "अन्य वस्तुएं",
+    "crops": [
+      {
+        "commCode": "388",
+        "commName": "सन बीज"
+      },
+      {
+        "commCode": "389",
+        "commName": "गुवार"
+      },
+      {
+        "commCode": "390",
+        "commName": "सिंघाड़ा"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "12",
+    "commGroupName": "वन उपज",
+    "crops": [
+      {
+        "commCode": "412",
+        "commName": "बांस"
+      },
+      {
+        "commCode": "413",
+        "commName": "लाख"
+      },
+      {
+        "commCode": "414",
+        "commName": "हर्रा"
+      },
+      {
+        "commCode": "415",
+        "commName": "आंवला"
+      },
+      {
+        "commCode": "416",
+        "commName": "बहेड़ा"
+      },
+      {
+        "commCode": "417",
+        "commName": "चिरोंजी"
+      },
+      {
+        "commCode": "418",
+        "commName": "गोंद"
+      },
+      {
+        "commCode": "419",
+        "commName": "शहद"
+      },
+      {
+        "commCode": "420",
+        "commName": "मोम"
+      },
+      {
+        "commCode": "421",
+        "commName": "महुए का फूल"
+      },
+      {
+        "commCode": "422",
+        "commName": "करेली"
+      },
+      {
+        "commCode": "553",
+        "commName": "गुल्ली"
+      },
+      {
+        "commCode": "562",
+        "commName": "सुवा"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "14",
+    "commGroupName": "फूल",
+    "crops": [
+      {
+        "commCode": "228",
+        "commName": "गुलाब"
+      },
+      {
+        "commCode": "235",
+        "commName": "गेंदा"
+      },
+      {
+        "commCode": "379",
+        "commName": "एन्थुरियम"
+      },
+      {
+        "commCode": "490",
+        "commName": "ग्लार्डिया"
+      },
+      {
+        "commCode": "491",
+        "commName": "एनुअल/क्राईसेंथियम"
+      },
+      {
+        "commCode": "492",
+        "commName": "एस्टर"
+      },
+      {
+        "commCode": "493",
+        "commName": "ग्लेडियोलाई"
+      },
+      {
+        "commCode": "494",
+        "commName": "जबरबेरा"
+      },
+      {
+        "commCode": "495",
+        "commName": "रजनीगन्धा"
+      },
+      {
+        "commCode": "496",
+        "commName": "कारनेशन"
+      },
+      {
+        "commCode": "497",
+        "commName": "बेला(मोगरा)"
+      },
+      {
+        "commCode": "498",
+        "commName": "जूही"
+      },
+      {
+        "commCode": "499",
+        "commName": "लिलियम"
+      },
+      {
+        "commCode": "500",
+        "commName": "टयूलिप"
+      },
+      {
+        "commCode": "501",
+        "commName": "सेवंती"
+      },
+      {
+        "commCode": "502",
+        "commName": "आयरिश"
+      },
+      {
+        "commCode": "503",
+        "commName": "स्वीट सुल्तान"
+      },
+      {
+        "commCode": "504",
+        "commName": "सिनरेरिया"
+      },
+      {
+        "commCode": "505",
+        "commName": "सल्विया"
+      },
+      {
+        "commCode": "506",
+        "commName": "एन्टीराइनम"
+      },
+      {
+        "commCode": "507",
+        "commName": "जिप्सोफिला"
+      },
+      {
+        "commCode": "508",
+        "commName": "लिमोनिया(स्टेटस)"
+      },
+      {
+        "commCode": "509",
+        "commName": "गमफ्रेना"
+      },
+      {
+        "commCode": "510",
+        "commName": "कोसेंड्रा"
+      },
+      {
+        "commCode": "511",
+        "commName": "हाईड्रेंजिया"
+      },
+      {
+        "commCode": "512",
+        "commName": "हेलिकोनिया प्रजाति"
+      },
+      {
+        "commCode": "513",
+        "commName": "गोल्डन रॉड"
+      },
+      {
+        "commCode": "514",
+        "commName": "डायेन्थस"
+      },
+      {
+        "commCode": "515",
+        "commName": "स्वीट विलियम"
+      },
+      {
+        "commCode": "516",
+        "commName": "क्लार्किया"
+      },
+      {
+        "commCode": "517",
+        "commName": "ल्यूपिन"
+      },
+      {
+        "commCode": "518",
+        "commName": "कमल (लोटस)"
+      },
+      {
+        "commCode": "519",
+        "commName": "केलेंडूला"
+      },
+      {
+        "commCode": "520",
+        "commName": "केवड़ा"
+      },
+      {
+        "commCode": "521",
+        "commName": "बालसम"
+      },
+      {
+        "commCode": "522",
+        "commName": "चांदनी"
+      },
+      {
+        "commCode": "523",
+        "commName": "आर्किड्स"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "15",
+    "commGroupName": "गन्ना",
+    "crops": [
+      {
+        "commCode": "387",
+        "commName": "गुड़"
+      },
+      {
+        "commCode": "460",
+        "commName": "गन्ना"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "16",
+    "commGroupName": "स्वापक",
+    "crops": [
+      {
+        "commCode": "391",
+        "commName": "तंबाकू"
+      },
+      {
+        "commCode": "392",
+        "commName": "अफीम के डोंडे (पॉपी केप्सूल)"
+      },
+      {
+        "commCode": "393",
+        "commName": "पान"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "17",
+    "commGroupName": "कृषि औषधीय उपज",
+    "crops": [
+      {
+        "commCode": "424",
+        "commName": "इसबगोल"
+      },
+      {
+        "commCode": "425",
+        "commName": "अशोक"
+      },
+      {
+        "commCode": "426",
+        "commName": "अतीस"
+      },
+      {
+        "commCode": "427",
+        "commName": "बेल"
+      },
+      {
+        "commCode": "428",
+        "commName": "भुर्इ आंवलाय"
+      },
+      {
+        "commCode": "429",
+        "commName": "ब्राहमी"
+      },
+      {
+        "commCode": "430",
+        "commName": "चंदन"
+      },
+      {
+        "commCode": "431",
+        "commName": "चिरायता"
+      },
+      {
+        "commCode": "432",
+        "commName": "गिलोय"
+      },
+      {
+        "commCode": "433",
+        "commName": "गुड़मार"
+      },
+      {
+        "commCode": "434",
+        "commName": "गुग्गल"
+      },
+      {
+        "commCode": "435",
+        "commName": "जटामांसी"
+      },
+      {
+        "commCode": "436",
+        "commName": "कलिहारी"
+      },
+      {
+        "commCode": "437",
+        "commName": "कालमेघ"
+      },
+      {
+        "commCode": "438",
+        "commName": "कोकुम"
+      },
+      {
+        "commCode": "439",
+        "commName": "कूठ"
+      },
+      {
+        "commCode": "448",
+        "commName": "रतनजोत"
+      },
+      {
+        "commCode": "524",
+        "commName": "कुटकी"
+      },
+      {
+        "commCode": "525",
+        "commName": "मकोय"
+      },
+      {
+        "commCode": "526",
+        "commName": "मुलेठी"
+      },
+      {
+        "commCode": "527",
+        "commName": "सफेद मूसली"
+      },
+      {
+        "commCode": "528",
+        "commName": "पत्थर चूर"
+      },
+      {
+        "commCode": "529",
+        "commName": "पिप्पली"
+      },
+      {
+        "commCode": "530",
+        "commName": "दारू हल्दी"
+      },
+      {
+        "commCode": "531",
+        "commName": "केसर"
+      },
+      {
+        "commCode": "532",
+        "commName": "सर्पगंधा"
+      },
+      {
+        "commCode": "533",
+        "commName": "सनाय"
+      },
+      {
+        "commCode": "534",
+        "commName": "शतावरी"
+      },
+      {
+        "commCode": "535",
+        "commName": "तुलसी"
+      },
+      {
+        "commCode": "536",
+        "commName": "वाय विडंग"
+      },
+      {
+        "commCode": "537",
+        "commName": "वत्सनाभ"
+      },
+      {
+        "commCode": "538",
+        "commName": "चंद्रशूर"
+      },
+      {
+        "commCode": "539",
+        "commName": "नीम बीज"
+      },
+      {
+        "commCode": "540",
+        "commName": "करंज बीज"
+      },
+      {
+        "commCode": "541",
+        "commName": "स्टीविया"
+      },
+      {
+        "commCode": "542",
+        "commName": "पलाश के फूल"
+      },
+      {
+        "commCode": "543",
+        "commName": "धवई के फूल"
+      },
+      {
+        "commCode": "544",
+        "commName": "अश्वगंधा"
+      },
+      {
+        "commCode": "548",
+        "commName": "असालिया"
+      },
+      {
+        "commCode": "549",
+        "commName": "कलौंजी"
+      },
+      {
+        "commCode": "550",
+        "commName": "मूसली"
+      },
+      {
+        "commCode": "551",
+        "commName": "नीम"
+      },
+      {
+        "commCode": "560",
+        "commName": "पुपाडिया"
+      },
+      {
+        "commCode": "561",
+        "commName": "तारामीरा"
+      }
+    ]
+  },
+  {
+    "commGroupCode": "18",
+    "commGroupName": "तन्तु",
+    "crops": [
+      {
+        "commCode": "453",
+        "commName": "कपास"
+      },
+      {
+        "commCode": "454",
+        "commName": "सन"
+      },
+      {
+        "commCode": "455",
+        "commName": "अम्बाडी/मेस्टा"
+      }
+    ]
+  }
+]

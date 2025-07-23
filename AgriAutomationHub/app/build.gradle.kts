@@ -4,7 +4,6 @@ plugins {
     id("com.google.gms.google-services")
 }
 
-
 android {
     namespace = "com.example.agriautomationhub"
     compileSdk = 34
@@ -17,6 +16,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+//        buildConfigField("String", "PLANTIX_TOKEN", "https://api.plantix.net/v2/image_analysis")
     }
 
     dexOptions {
@@ -105,4 +105,11 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
     implementation ("androidx.room:room-runtime:2.4.3")
     annotationProcessor ("androidx.room:room-compiler:2.4.3")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+    implementation("org.apache.poi:poi-ooxml:5.2.5")
+
 }

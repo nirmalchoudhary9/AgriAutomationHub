@@ -3,11 +3,9 @@ package com.example.agriautomationhub;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -40,7 +38,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements NetworkChangeReceiver.NetworkChangeListener, OnServiceClickListener {
+public class MainActivity extends AppCompatActivity implements OnServiceClickListener {
 
     private static final String TAG = "MainActivity";
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
@@ -51,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
     private FusedLocationProviderClient fusedLocationClient;
-    private NetworkChangeReceiver networkChangeReceiver;
 
     /** @noinspection deprecation*/
     @Override
@@ -61,6 +58,10 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         setLocale(language);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Start the background internet service
+        Intent serviceIntent = new Intent(this, BackgroundInternetService.class);
+        startService(serviceIntent);
 
         // Initialize Firebase
         FirebaseAuth.getInstance();
@@ -89,13 +90,16 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
             startActivity(intent);
         });
 
+        LinearLayout schemes = findViewById(R.id.gov_schemes);
+        schemes.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SchemesActivity.class);
+            startActivity(intent);
+        });
+
 
         initializeServices();
         initializeBottomNavigation();
 
-        // Register network change receiver
-        networkChangeReceiver = new NetworkChangeReceiver(this);
-        registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     private void setLocale(String lang) {
@@ -163,9 +167,10 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Unregister network change receiver
-        unregisterReceiver(networkChangeReceiver);
+        // Stop the background service
+        stopService(new Intent(this, BackgroundInternetService.class));
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -298,15 +303,7 @@ public class MainActivity extends AppCompatActivity implements NetworkChangeRece
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void onNetworkChange(boolean isConnected) {
-        if (isConnected) {
-            getLastLocation();
-        } else {
-            weatherInfo.setText("No internet connection.");
-        }
-    }
+
 
     @Override
     public void onServiceClick(Service service) {

@@ -167,4 +167,12 @@
     <string name="lowest_selling_price_0_00">Lowest Selling Price: ₹0.00</string>
     <string name="hint_enter_yield">Enter Yield</string>
 
+    <string-array name="filter_options">
+        <item>All Schemes</item>
+        <item>State-Specific</item>
+        <item>Central Government</item>
+        <item>Subsidy</item>
+        <item>Loans</item>
+    </string-array>
+
 </resources>

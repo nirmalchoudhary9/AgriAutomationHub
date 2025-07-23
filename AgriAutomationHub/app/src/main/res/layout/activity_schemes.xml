@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".SchemesActivity">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Government Schemes for Farmers"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:padding="8dp" />
+
+    <!-- Search Bar -->
+    <EditText
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search for schemes..."
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="8dp" />
+
+    <!-- Filter Options -->
+    <Spinner
+        android:id="@+id/filterSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:entries="@array/filter_options"
+        android:background="@drawable/spinner_background" />
+
+    <!-- Scheme List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/schemesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
