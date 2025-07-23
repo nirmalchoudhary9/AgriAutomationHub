@@ -56,7 +56,7 @@ public class NewsActivity extends AppCompatActivity {
 
         // Make the API call
         Call<NewsResponse> call = apiService.getNews(
-                "d661a399-de2f-4a4b-b7b3-8b1a24ce0183", // Your API key
+                "", // Your API key
                 "Agriculture", // Query for "Agriculture" news
                 "in", // Country code for India
                 "hindi", // Language code for Hindi
