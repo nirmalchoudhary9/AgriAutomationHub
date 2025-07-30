@@ -69,6 +69,7 @@ dependencies {
     implementation ("com.google.android.gms:play-services-location:21.0.1")
     implementation("org.tensorflow:tensorflow-lite-support:0.2.0")
     implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-database:20.0.4")
     implementation("com.squareup.picasso:picasso:2.71828")
     implementation("com.google.android.gms:play-services-auth:19.2.0")
@@ -111,5 +112,13 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     implementation("org.apache.poi:poi-ooxml:5.2.5")
+
+    implementation ("com.github.CanHub:Android-Image-Cropper:4.3.2")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation ("org.jsoup:jsoup:1.17.2")
 
 }

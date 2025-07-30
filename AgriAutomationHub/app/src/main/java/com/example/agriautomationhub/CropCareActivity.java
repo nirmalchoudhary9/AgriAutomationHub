@@ -362,6 +362,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.graphics.text.LineBreaker;
 import android.net.Uri;
@@ -372,6 +373,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -388,6 +390,9 @@ import androidx.core.content.ContextCompat;
 import com.example.agriautomationhub.network.DemoRetrofitClient;
 import com.example.agriautomationhub.network.model.DemoResponse;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -398,15 +403,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Iterator;
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CropCareActivity extends AppCompatActivity {
+
+    private static final String TAG = "CropCareActivity";
 
     private ImageView imgView;
     private TextView tv, cureTextView;
@@ -442,8 +447,9 @@ public class CropCareActivity extends AppCompatActivity {
                         imgView.setImageURI(uri);
                         try {
                             img = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                            Log.d(TAG, "Image selected from gallery");
                         } catch (IOException e) {
-                            Log.e("Image Selection", "Error loading image", e);
+                            Log.e(TAG, "Error loading image from gallery", e);
                         }
                     }
                 });
@@ -463,6 +469,7 @@ public class CropCareActivity extends AppCompatActivity {
                         if (imageBitmap != null) {
                             imgView.setImageBitmap(imageBitmap);
                             img = imageBitmap;
+                            Log.d(TAG, "Image captured from camera");
                         }
                     }
                 });
@@ -476,36 +483,82 @@ public class CropCareActivity extends AppCompatActivity {
                 return;
             }
 
+            Log.d(TAG, "Image selected, preparing to encode and send");
+
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             img.compress(Bitmap.CompressFormat.JPEG, 90, baos);
-            byte[] imageBytes = baos.toByteArray();
+            String base64Image = Base64.encodeToString(baos.toByteArray(), Base64.NO_WRAP);
 
-            RequestBody imageBody = RequestBody.create(imageBytes, MediaType.parse("image/jpeg"));
-            MultipartBody.Part imagePart = MultipartBody.Part.createFormData("image", "leaf.jpg", imageBody);
+            JsonObject jsonObject = new JsonObject();
+            JsonArray imageArray = new JsonArray();
+            imageArray.add(base64Image);
 
-            DemoRetrofitClient.getInstance().predict(API_KEY, imagePart).enqueue(new Callback<DemoResponse>() {
-                
-                @Override
-                public void onResponse(Call<DemoResponse> call, Response<DemoResponse> response) {
-                    if (!response.isSuccessful() || response.body() == null) {
-                        tv.setText("Diagnosis failed. Try again.");
-                        cureTextView.setText("");
-                        return;
-                    }
+            jsonObject.add("images", imageArray);
+//            jsonObject.addProperty("latitude", 49.207);
+//            jsonObject.addProperty("longitude", 16.608);
+//            jsonObject.addProperty("similar_images", false);
 
-                    String label = response.body().label;
-                    String accuracy = response.body().accuracy;
+            Log.d(TAG, "Sending JSON request to API: " + jsonObject.toString());
 
-                    tv.setText("Disease: " + label + "\nAccuracy: " + accuracy + "%");
-                    displayCureInfo(label);
-                }
+            DemoRetrofitClient.getInstance().getApi()
+                    .predictJson(API_KEY, jsonObject)
+                    .enqueue(new Callback<DemoResponse>() {
+                        @Override
+                        public void onResponse(Call<DemoResponse> call, Response<DemoResponse> response) {
+                            if (!response.isSuccessful() || response.body() == null) {
+                                Log.e(TAG, "API response unsuccessful: " + response.code());
+                                tv.setText("Prediction failed. Try again.");
+                                cureTextView.setText("");
+                                return;
+                            }
 
-                @Override
-                public void onFailure(Call<DemoResponse> call, Throwable t) {
-                    tv.setText("Error: " + t.getMessage());
-                    cureTextView.setText("");
-                }
-            });
+                            DemoResponse dr = response.body();
+                            Log.d(TAG, "Received API response: " + new Gson().toJson(dr.result));
+
+                            DemoResponse.Suggestion crop = dr.getTopCrop();
+                            DemoResponse.Suggestion disease = dr.getTopDisease();
+
+                            StringBuilder resultText = new StringBuilder();
+
+                            if (crop != null) {
+                                resultText.append("Crop:\n • ")
+                                        .append(crop.name)
+                                        .append(" (")
+                                        .append(crop.scientificName)
+                                        .append(") — ")
+                                        .append(String.format("%.1f%%", crop.probability * 100))
+                                        .append("\n\n");
+                                Log.d(TAG, "Top Crop: " + crop.name);
+                            } else {
+                                resultText.append("No crop detected.\n\n");
+                                Log.w(TAG, "No crop suggestion found");
+                            }
+
+                            if (disease != null) {
+                                resultText.append("Disease:\n • ")
+                                        .append(disease.name)
+                                        .append(" (")
+                                        .append(disease.scientificName)
+                                        .append(") — ")
+                                        .append(String.format("%.1f%%", disease.probability * 100));
+                                Log.d(TAG, "Top Disease: " + disease.name);
+                                displayCureInfo(disease.name);
+                            } else {
+                                resultText.append("No disease detected.");
+                                cureTextView.setText("");
+                                Log.w(TAG, "No disease suggestion found");
+                            }
+
+                            tv.setText(resultText.toString());
+                        }
+
+                        @Override
+                        public void onFailure(Call<DemoResponse> call, Throwable t) {
+                            Log.e(TAG, "API call failed", t);
+                            tv.setText("Error: " + t.getMessage());
+                            cureTextView.setText("");
+                        }
+                    });
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_crop_care);
@@ -551,12 +604,12 @@ public class CropCareActivity extends AppCompatActivity {
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             launcher.launch(takePictureIntent);
         } else {
-            Log.e("Camera", "Camera app is not available");
+            Log.e(TAG, "Camera app is not available");
             Toast.makeText(this, "No camera app available", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void displayCureInfo(String disease) {
+    private void displayCureInfo(String diseaseNameRaw) {
         String jsonString = loadJSONFromAsset();
         if (jsonString == null) {
             cureTextView.setText(getString(R.string.error_loading_cure));
@@ -565,9 +618,29 @@ public class CropCareActivity extends AppCompatActivity {
 
         try {
             JSONObject json = new JSONObject(jsonString);
-            String lowercaseDisease = disease.toLowerCase();
-            String cureInfo = json.optString(lowercaseDisease, getString(R.string.cure_not_available));
 
+            // Normalize disease name
+            String diseaseName = diseaseNameRaw.trim().toLowerCase();
+
+            // Try direct match
+            String cureInfo = json.optString(diseaseName, null);
+
+            // If not found, try partial match (fallback)
+            if (cureInfo == null || cureInfo.isEmpty()) {
+                for (Iterator<String> it = json.keys(); it.hasNext(); ) {
+                    String key = it.next();
+                    if (diseaseName.contains(key.toLowerCase()) || key.toLowerCase().contains(diseaseName)) {
+                        cureInfo = json.optString(key);
+                        break;
+                    }
+                }
+            }
+
+            if (cureInfo == null || cureInfo.isEmpty()) {
+                cureInfo = getString(R.string.cure_not_available);
+            }
+
+            // Stylize display
             String heading = "Cure:\n";
             SpannableString spannable = new SpannableString(heading + cureInfo);
             spannable.setSpan(new StyleSpan(Typeface.BOLD), 0, heading.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -579,6 +652,7 @@ public class CropCareActivity extends AppCompatActivity {
             }
 
         } catch (JSONException e) {
+            Log.e(TAG, "Error parsing cure JSON", e);
             cureTextView.setText(getString(R.string.error_loading_cure));
         }
     }
@@ -593,7 +667,7 @@ public class CropCareActivity extends AppCompatActivity {
             }
             return builder.toString();
         } catch (IOException e) {
-            Log.e("LoadJSON", "Error loading JSON from asset", e);
+            Log.e(TAG, "Error loading JSON from asset", e);
             return null;
         }
     }

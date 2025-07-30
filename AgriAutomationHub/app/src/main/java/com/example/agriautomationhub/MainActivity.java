@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements OnServiceClickLis
         setContentView(R.layout.activity_main);
 
         // Start the background internet service
-        Intent serviceIntent = new Intent(this, BackgroundInternetService.class);
-        startService(serviceIntent);
+//        Intent serviceIntent = new Intent(this, BackgroundInternetService.class);
+//        startService(serviceIntent);
 
         // Initialize Firebase
         FirebaseAuth.getInstance();
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements OnServiceClickLis
                 startActivity(new Intent(MainActivity.this, MarketViewActivity.class));
                 return true;
             } else if (id == R.id.navigation_mandi) {
-                startActivity(new Intent(MainActivity.this, MandiActivity.class));
+                startActivity(new Intent(MainActivity.this, StatewiseMandiActivity.class));
                 return true;
             }
             return false;

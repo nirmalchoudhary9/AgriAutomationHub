@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/background_light">
 
     <!-- Header Layout -->
@@ -34,17 +35,23 @@
             android:layout_centerInParent="true" />
     </RelativeLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Scrollable content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/header"
-        android:padding="12dp"
-        android:layout_above="@id/bottom_navigation_mandi">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
 
         <!-- Report Date Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewReportDate"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -73,7 +80,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/report_date"
+                        android:id="@+id/selectDate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -92,7 +99,7 @@
         <!-- District Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewDistrict"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/cardViewReportDate"
@@ -116,18 +123,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/district_name"
+                        android:text="State name"
                         android:textColor="@color/text_primary"
                         android:textSize="16sp" />
 
                     <Spinner
-                        android:id="@+id/spinner_district"
+                        android:id="@+id/spinnerState"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="8dp"
                         android:spinnerMode="dropdown"
-                        android:contentDescription="Select District"
+                        android:contentDescription="Select State"
                         android:background="@drawable/spinner_background" />
 
                 </TableRow>
@@ -136,7 +143,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewMandi"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/cardViewDistrict"
@@ -160,18 +167,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Mandi name"
+                        android:text="District name"
                         android:textColor="@color/text_primary"
                         android:textSize="16sp" />
 
                     <Spinner
-                        android:id="@+id/spinner_mandi"
+                        android:id="@+id/spinnerDistrict"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="8dp"
                         android:spinnerMode="dropdown"
-                        android:contentDescription="Select Mandi"
+                        android:contentDescription="Select District"
                         android:background="@drawable/spinner_background" />
 
                 </TableRow>
@@ -180,7 +187,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewCropCategory"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/cardViewMandi"
@@ -200,51 +207,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/crop_category"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Crop Category"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp" />
-
-                    <Spinner
-                        android:id="@+id/spinner_crop_category"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="8dp"
-                        android:spinnerMode="dropdown"
-                        android:contentDescription="Select Category"
-                        android:background="@drawable/spinner_background" />
-
-                </TableRow>
-            </TableLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewCrop"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/cardViewCropCategory"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="6dp"
-            app:cardBackgroundColor="@color/card_background">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/crop_name_label"
+                        android:id="@+id/crop"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -253,7 +216,7 @@
                         android:textSize="16sp" />
 
                     <Spinner
-                        android:id="@+id/spinner_crop"
+                        android:id="@+id/spinnerCommodity"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -266,42 +229,32 @@
             </TableLayout>
         </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/btn_fetch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:textSize="18dp"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewCrop"
-            android:text="Fetch Report"/>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_fetch"
-            app:layout_constraintTop_toBottomOf="@+id/btn_fetch"
-            tools:layout_editor_absoluteX="16dp">
-
-            <LinearLayout
-                android:id="@+id/mandi_data_container"
+            <Button
+                android:id="@+id/btnFetch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp" />
-        </ScrollView>
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:text="Fetch Report" />
 
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- RecyclerView for displaying cards -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mandiRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginHorizontal="4dp" />
+        </LinearLayout>
+    </ScrollView>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_mandi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         app:itemIconTint="@color/bottom_nav_icon_color"
         app:itemTextColor="@color/bottom_nav_icon_color"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled" />
-</RelativeLayout>
+</LinearLayout>
