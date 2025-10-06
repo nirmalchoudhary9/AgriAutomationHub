@@ -112,7 +112,7 @@ public class FieldMeasureActivity extends AppCompatActivity implements OnMapRead
         }
 
         if (!Places.isInitialized()) {
-            Places.initialize(getApplicationContext(), "AIzaSyC9nAU7r82S84RDI3emmchkSLlLaB7o6VY");
+            Places.initialize(getApplicationContext(), "Your API Key");
         }
 
         setupBottomNavigation();
