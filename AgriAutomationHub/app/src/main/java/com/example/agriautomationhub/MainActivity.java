@@ -1,303 +1,3 @@
-//package com.example.agriautomationhub;
-//
-//import android.Manifest;
-//import android.annotation.SuppressLint;
-//import android.content.Intent;
-//import android.content.SharedPreferences;
-//import android.content.pm.PackageManager;
-//import android.content.res.Configuration;
-//import android.os.Bundle;
-//import android.view.Menu;
-//import android.view.View;
-//import android.widget.GridLayout;
-//import android.widget.TextView;
-//
-//import androidx.annotation.NonNull;
-//import androidx.appcompat.app.ActionBarDrawerToggle;
-//import androidx.appcompat.app.AppCompatActivity;
-//import androidx.appcompat.widget.Toolbar;
-//import androidx.core.app.ActivityCompat;
-//import androidx.core.view.GravityCompat;
-//import androidx.drawerlayout.widget.DrawerLayout;
-//
-//import com.google.android.gms.location.FusedLocationProviderClient;
-//import com.google.android.gms.location.LocationServices;
-//import com.google.android.material.bottomnavigation.BottomNavigationView;
-//import com.google.android.material.floatingactionbutton.FloatingActionButton;
-//import com.google.android.material.navigation.NavigationView;
-//import com.google.firebase.auth.FirebaseAuth;
-//
-//import java.text.SimpleDateFormat;
-//import java.util.Date;
-//import java.util.Locale;
-//
-//import retrofit2.Call;
-//import retrofit2.Callback;
-//import retrofit2.Response;
-//import retrofit2.Retrofit;
-//import retrofit2.converter.gson.GsonConverterFactory;
-//
-//public class MainActivity extends AppCompatActivity {
-//
-//    private static final String TAG = "MainActivity";
-//    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-//
-//    private DrawerLayout drawerLayout;
-//    private NavigationView navigationView;
-//
-//    private TextView weatherInfo;
-//    private TextView weatherLocation;
-//
-//    private static final String API_KEY = "7e23b9a25a90846111d856e437e11535";
-//    private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
-//
-//    private FusedLocationProviderClient fusedLocationClient;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
-//        String language = preferences.getString("My_Lang", "");
-//        setLocale(language);
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        // Firebase init
-//        FirebaseAuth.getInstance();
-//
-//        // Drawer & Toolbar setup
-//        drawerLayout = findViewById(R.id.drawer_layout);
-//        navigationView = findViewById(R.id.navigation_view);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawerLayout, toolbar,
-//                R.string.navigation_drawer_open,
-//                R.string.navigation_drawer_close);
-//        drawerLayout.addDrawerListener(toggle);
-//        toggle.syncState();
-//
-//        navigationView.setNavigationItemSelectedListener(item -> {
-//            int id = item.getItemId();
-//            if (id == R.id.drawer_close) {
-//                drawerLayout.closeDrawer(GravityCompat.START);
-//                return true;
-//            } else if (id == R.id.nav_profile) {
-//                startActivity(new Intent(this, ProfilePageActivity.class));
-//            } else if (id == R.id.nav_language) {
-//               showLanguageSelectionDialog();
-//            } else if (id == R.id.nav_logout) {
-//                FirebaseAuth.getInstance().signOut();
-//                startActivity(new Intent(this, LoginActivity.class));
-//                finish();
-//            }
-//            drawerLayout.closeDrawer(GravityCompat.START);
-//            return true;
-//        });
-//
-//        weatherInfo = findViewById(R.id.weather_info);
-//        weatherLocation = findViewById(R.id.weather_location);
-//        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-//
-//        // Location Permission
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-//                != PackageManager.PERMISSION_GRANTED &&
-//                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-//                        != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-//                            Manifest.permission.ACCESS_COARSE_LOCATION},
-//                    LOCATION_PERMISSION_REQUEST_CODE);
-//        } else {
-//            getLastLocation();
-//        }
-//
-//        // FAB Chatbot
-//        FloatingActionButton fabChatBot = findViewById(R.id.fabChatBot);
-//        fabChatBot.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ChatActivity.class)));
-//
-//        initializeServices();
-//        initializeBottomNavigation();
-//    }
-//
-//    private void showLanguageSelectionDialog() {
-//        String[] languages = {"English", "Hindi"};
-//        new androidx.appcompat.app.AlertDialog.Builder(this)
-//                .setTitle("Select Language")
-//                .setItems(languages, (dialog, which) -> {
-//                    switch (which) {
-//                        case 0:
-//                            LocaleHelper.setLocale(this, "en");
-//                            break;
-//                        case 1:
-//                            LocaleHelper.setLocale(this, "hi");
-//                            break;
-//                    }
-//                })
-//                .show();
-//    }
-//
-//    @Override
-//    public void onBackPressed() {
-//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//            drawerLayout.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
-//
-//    @Override
-//    protected void onRestart() {
-//        super.onRestart();
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_main);
-//        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-//    }
-//
-//    private void setLocale(String lang) {
-//        Locale locale = new Locale(lang);
-//        Locale.setDefault(locale);
-//        Configuration config = new Configuration();
-//        config.locale = locale;
-//        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-//    }
-//
-//    private void initializeServices() {
-//        GridLayout gridLayout = findViewById(R.id.grid_smart_support);
-//        int childCount = gridLayout.getChildCount();
-//
-//        for (int i = 0; i < childCount; i++) {
-//            View serviceView = gridLayout.getChildAt(i);
-//            final int index = i;
-//            serviceView.setOnClickListener(v -> {
-//                switch (index) {
-//                    case 0:
-//                        startActivity(new Intent(MainActivity.this, Automatic_Irrigation.class));
-//                        break;
-//                    case 1:
-//                        startActivity(new Intent(MainActivity.this, CropCareActivity.class));
-//                        break;
-//                    case 2:
-//                        startActivity(new Intent(MainActivity.this, CropRecommenderActivity.class));
-//                        break;
-//                    case 3:
-//                        startActivity(new Intent(MainActivity.this, SellingPriceCalculatorActivity.class));
-//                        break;
-//                    case 4:
-//                        startActivity(new Intent(MainActivity.this, NewsActivity.class));
-//                        break;
-//                    case 5:
-//                        startActivity(new Intent(MainActivity.this, StatewiseMandiActivity.class));
-//                        break;
-//                }
-//            });
-//        }
-//    }
-//
-//    private void initializeBottomNavigation() {
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_main);
-//        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-//        bottomNavigationView.setOnItemSelectedListener(item -> {
-//            int id = item.getItemId();
-//            if (id == R.id.navigation_news) {
-//                startActivity(new Intent(MainActivity.this, NewsActivity.class));
-//                return false;
-//            } else if (id == R.id.navigation_profile) {
-//                startActivity(new Intent(MainActivity.this, ProfilePageActivity.class));
-//                return false;
-//            } else if (id == R.id.navigation_mandi) {
-//                startActivity(new Intent(MainActivity.this, StatewiseMandiActivity.class));
-//                return false;
-//            }
-//            return true;
-//        });
-//    }
-//
-//    @SuppressLint("SetTextI18n")
-//    private void getLastLocation() {
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-//                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-//                            Manifest.permission.ACCESS_COARSE_LOCATION},
-//                    LOCATION_PERMISSION_REQUEST_CODE);
-//            return;
-//        }
-//        fusedLocationClient.getLastLocation()
-//                .addOnSuccessListener(this, location -> {
-//                    if (location != null) {
-//                        getWeatherData(location.getLatitude(), location.getLongitude());
-//                    } else {
-//                        weatherInfo.setText("Unable to get location.");
-//                    }
-//                });
-//    }
-//
-//    private void getWeatherData(double latitude, double longitude) {
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl(BASE_URL)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//
-//        WeatherApiService apiService = retrofit.create(WeatherApiService.class);
-//        Call<WeatherResponse> call = apiService.getCurrentWeather(latitude, longitude, API_KEY, "metric");
-//
-//        call.enqueue(new Callback<WeatherResponse>() {
-//            @SuppressLint("SetTextI18n")
-//            @Override
-//            public void onResponse(@NonNull Call<WeatherResponse> call,
-//                                   @NonNull Response<WeatherResponse> response) {
-//                if (response.isSuccessful() && response.body() != null) {
-//                    WeatherResponse weatherResponse = response.body();
-//                    double temp = weatherResponse.getMain().getTemp();
-//                    int humidity = weatherResponse.getMain().getHumidity();
-//                    String description = weatherResponse.getWeather()[0].getDescription();
-//                    String location = weatherResponse.getName();
-//                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM", Locale.getDefault());
-//                    String currentDate = dateFormat.format(new Date());
-//
-//                    weatherInfo.setText("Temperature: " + temp + "°C\nHumidity: " + humidity + "%\nCondition: " + description);
-//                    weatherLocation.setText(location + " , " + currentDate);
-//                } else {
-//                    weatherInfo.setText("Failed to get weather data");
-//                }
-//            }
-//
-//            @SuppressLint("SetTextI18n")
-//            @Override
-//            public void onFailure(@NonNull Call<WeatherResponse> call, @NonNull Throwable t) {
-//                weatherInfo.setText("Failed to get weather data");
-//            }
-//        });
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                getLastLocation();
-//            } else {
-//                weatherInfo.setText("Location permission denied");
-//            }
-//        }
-//    }
-//
-////    @Override
-////    public void onServiceClick(Service service) {
-////        if (service != null) {
-////            int serviceNameResId = service.getName();
-////            if (serviceNameResId == R.string.auto_irrigation) {
-////                startActivity(new Intent(this, Automatic_Irrigation.class));
-////            } else if (serviceNameResId == R.string.crop_care) {
-////                startActivity(new Intent(this, CropCareActivity.class));
-////            } else if (serviceNameResId == R.string.crop_recommendation) {
-////                startActivity(new Intent(this, CropRecommenderActivity.class));
-////            } else if (serviceNameResId == R.string.selling_price_calculator) {
-////                startActivity(new Intent(MainActivity.this, SellingPriceCalculatorActivity.class));
-////            }
-////        }
-////    }
-//}
 
 package com.example.agriautomationhub;
 
@@ -351,11 +51,14 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView weatherInfo;
     private TextView weatherLocation;
+    private android.widget.ImageView weatherIcon;
 
     private TextView navUserName, navUserPhone, navUserEmail;
+    private TextView greetingText, dashboardUserName;
     private CircleImageView navUserImage;
 
-    private static final String API_KEY = "7e23b9a25a90846111d856e437e11535";
+//    private static final String API_KEY = "7e23b9a25a90846111d856e437e11535";
+    private static final String API_KEY = BuildConfig.OPENWEATHER_API_KEY;
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
     private FusedLocationProviderClient fusedLocationClient;
@@ -390,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar,
@@ -404,6 +110,17 @@ public class MainActivity extends AppCompatActivity {
         navUserPhone = headerView.findViewById(R.id.nav_user_phone);
         navUserEmail = headerView.findViewById(R.id.nav_user_email);
         navUserImage = headerView.findViewById(R.id.nav_user_image);
+
+        // 🎨 Specialized Styling for Logout
+        android.view.MenuItem logoutItem = navigationView.getMenu().findItem(R.id.nav_logout);
+        if (logoutItem != null) {
+            android.text.SpannableString s = new android.text.SpannableString(logoutItem.getTitle());
+            s.setSpan(new android.text.style.ForegroundColorSpan(android.graphics.Color.parseColor("#C62828")), 0, s.length(), 0);
+            logoutItem.setTitle(s);
+            if (logoutItem.getIcon() != null) {
+                logoutItem.getIcon().setTint(android.graphics.Color.parseColor("#C62828"));
+            }
+        }
 
         if (currentUser != null) {
             String uid = currentUser.getUid();
@@ -443,6 +160,16 @@ public class MainActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
+            } else if (id == R.id.nav_privacy) {
+                Intent intent = new Intent(this, PrivacyTermsActivity.class);
+                intent.putExtra("type", "privacy");
+                startActivity(intent);
+            } else if (id == R.id.nav_terms) {
+                Intent intent = new Intent(this, PrivacyTermsActivity.class);
+                intent.putExtra("type", "terms");
+                startActivity(intent);
+            } else if (id == R.id.nav_help) {
+                startActivity(new Intent(this, HelpActivity.class));
             }
 
             drawerLayout.closeDrawer(GravityCompat.START);
@@ -457,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
         weatherInfo = findViewById(R.id.weather_info);
         weatherLocation = findViewById(R.id.weather_location);
+        weatherIcon = findViewById(R.id.weather_icon_main);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         // Location Permission
@@ -475,6 +203,9 @@ public class MainActivity extends AppCompatActivity {
         // FAB Chatbot
         FloatingActionButton fabChatBot = findViewById(R.id.fabChatBot);
         fabChatBot.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ChatActivity.class)));
+
+        greetingText = findViewById(R.id.greeting_text);
+        dashboardUserName = findViewById(R.id.dashboard_user_name);
 
         initializeServices();
         initializeBottomNavigation();
@@ -498,9 +229,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadUserProfile(String uid) {
-        navUserName.setText(prefs.getName());
+        String name = prefs.getName();
+        navUserName.setText(name);
         navUserPhone.setText(prefs.getPhone());
         navUserEmail.setText(prefs.getEmail());
+
+        if (dashboardUserName != null && name != null && !name.isEmpty()) {
+            dashboardUserName.setText(name);
+        }
 
         Glide.with(this)
                 .load(prefs.getImageUrl())
@@ -593,6 +329,12 @@ public class MainActivity extends AppCompatActivity {
                     case 5:
                         startActivity(new Intent(MainActivity.this, StatewiseMandiActivity.class));
                         break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, FieldMeasureActivity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, MarketViewActivity.class));
+                        break;
                 }
             });
         }
@@ -604,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.navigation_news) {
-                startActivity(new Intent(MainActivity.this, FieldMeasureActivity.class));
+                startActivity(new Intent(MainActivity.this, NewsActivity.class));
                 return false;
             } else if (id == R.id.navigation_profile) {
                 startActivity(new Intent(MainActivity.this, ProfilePageActivity.class));
@@ -632,7 +374,7 @@ public class MainActivity extends AppCompatActivity {
                     if (location != null) {
                         getWeatherData(location.getLatitude(), location.getLongitude());
                     } else {
-                        weatherInfo.setText("Unable to get location.");
+                        weatherInfo.setText(R.string.unable_to_get_location);
                     }
                 });
     }
@@ -660,17 +402,21 @@ public class MainActivity extends AppCompatActivity {
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM", Locale.getDefault());
                     String currentDate = dateFormat.format(new Date());
 
-                    weatherInfo.setText("Temperature: " + temp + "°C\nHumidity: " + humidity + "%\nCondition: " + description);
-                    weatherLocation.setText(location + " , " + currentDate);
+                    // Dynamic Icon Update
+                    int conditionId = weatherResponse.getWeather()[0].getId();
+                    updateWeatherIcon(conditionId);
+
+                    weatherInfo.setText(getString(R.string.weather_format, String.valueOf(temp), String.valueOf(humidity), description));
+                    weatherLocation.setText(getString(R.string.weather_location_format, location, currentDate));
                 } else {
-                    weatherInfo.setText("Failed to get weather data");
+                    weatherInfo.setText(R.string.weather_fetch_failed);
                 }
             }
 
             @SuppressLint("SetTextI18n")
             @Override
             public void onFailure(@NonNull Call<WeatherResponse> call, @NonNull Throwable t) {
-                weatherInfo.setText("Failed to get weather data");
+                weatherInfo.setText(R.string.weather_fetch_failed);
             }
         });
     }
@@ -682,8 +428,32 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastLocation();
             } else {
-                weatherInfo.setText("Location permission denied");
+                weatherInfo.setText(R.string.location_permission_denied);
             }
         }
+    }
+
+    private void updateWeatherIcon(int conditionId) {
+        if (weatherIcon == null) return;
+
+        int iconRes;
+        if (conditionId >= 200 && conditionId <= 232) {
+            iconRes = R.drawable.ic_storm;
+        } else if (conditionId >= 300 && conditionId <= 321) {
+            iconRes = R.drawable.ic_rain; // Drizzle
+        } else if (conditionId >= 500 && conditionId <= 531) {
+            iconRes = R.drawable.ic_rain;
+        } else if (conditionId >= 600 && conditionId <= 622) {
+            iconRes = R.drawable.ic_snow;
+        } else if (conditionId >= 701 && conditionId <= 781) {
+            iconRes = R.drawable.ic_mist; // Atmosphere (Mist, Smoke, etc.)
+        } else if (conditionId == 800) {
+            iconRes = R.drawable.ic_sun;
+        } else if (conditionId >= 801 && conditionId <= 804) {
+            iconRes = R.drawable.ic_cloudy;
+        } else {
+            iconRes = R.drawable.ic_sun; // Default
+        }
+        weatherIcon.setImageResource(iconRes);
     }
 }

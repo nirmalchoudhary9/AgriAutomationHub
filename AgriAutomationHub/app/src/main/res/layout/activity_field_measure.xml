@@ -1,130 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Top Toolbar -->
+    <!-- Full Screen Map -->
+    <!-- Using FragmentContainerView or fragment, sticking to fragment for compatibility with existing code finding by ID -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Floating Toolbar with Gradient Background for visibility -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/gradient_top_overlay"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        android:background="@android:color/transparent"
+        android:elevation="4dp"
+        app:titleTextColor="@color/white"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/back_btn"/>
 
-    <!-- Info Bar (Area + Spinner) -->
-    <LinearLayout
-        android:id="@+id/info_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="#CC000000"
-        android:padding="8dp"
-        android:layout_below="@id/toolbar">
-
-        <TextView
-            android:id="@+id/area_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Area: 0"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:layout_weight="1"/>
-
-        <Spinner
-            android:id="@+id/unit_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_dropdown"
-            android:layout_marginStart="8dp"/>
-    </LinearLayout>
-
-    <!-- Map Fragment -->
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/info_bar"
-        android:layout_above="@id/bottom_navigation_main"/>
-
-    <!-- Undo & Clear Buttons -->
-    <LinearLayout
-        android:id="@+id/left_controls"
-        android:orientation="vertical"
+    <!-- Top Floating Stats Card -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_margin="12dp"
-        android:layout_below="@id/info_bar">
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageButton
-            android:id="@+id/btn_undo"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/round_button_bg"
-            android:src="@android:drawable/ic_menu_revert"
-            android:contentDescription="Undo" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
-        <ImageButton
-            android:id="@+id/btn_clear"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/round_button_bg"
-            android:src="@android:drawable/ic_menu_close_clear_cancel"
-            android:contentDescription="Clear" />
-    </LinearLayout>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_grass"
+                app:tint="@color/primary_green"/>
 
-    <!-- Relocate (My Location) Button -->
-    <ImageButton
-        android:id="@+id/btn_my_location"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="12dp"
-        android:layout_below="@id/info_bar"
-        android:background="@drawable/round_button_bg"
-        android:src="@android:drawable/ic_menu_mylocation"
-        android:contentDescription="My Location" />
+            <TextView
+                android:id="@+id/area_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/area_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="12dp"/>
+            
+            <View
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:background="#E0E0E0"/>
 
-    <!-- Zoom Controls -->
+            <Spinner
+                android:id="@+id/unit_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:layout_marginStart="8dp"/>
+            
+             <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_up"
+                app:tint="#757575"
+                android:rotation="180"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Bottom Center Controls (Undo/Clear) -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+             android:padding="4dp">
+
+            <ImageButton
+                android:id="@+id/btn_undo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="#546E7A"
+                android:contentDescription="@string/undo"
+                android:tooltipText="@string/undo_tooltip"/>
+            
+            <View
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:background="#E0E0E0"
+                android:layout_marginHorizontal="4dp"/>
+
+            <ImageButton
+                android:id="@+id/btn_clear"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="#D32F2F"
+                android:contentDescription="@string/clear"
+                android:tooltipText="@string/clear_tooltip"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Right Interaction Controls -->
     <LinearLayout
-        android:id="@+id/zoom_controls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@id/bottom_navigation_main"
-        android:layout_margin="16dp">
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_my_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:src="@android:drawable/ic_menu_mylocation"
+            app:backgroundTint="@color/white"
+            app:tint="@color/primary_green"
+            app:fabSize="normal"
+            android:contentDescription="@string/my_location"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_zoom_in"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/round_button_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:src="@android:drawable/ic_input_add"
-            android:contentDescription="Zoom In" />
+            app:backgroundTint="@color/white"
+            app:tint="#546E7A"
+            app:fabSize="mini"
+            android:contentDescription="@string/zoom_in"/>
 
-        <ImageButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_zoom_out"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/round_button_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/ic_input_subtract"
-            android:contentDescription="Zoom Out" />
+            app:backgroundTint="@color/white"
+            app:tint="#546E7A"
+            app:fabSize="mini"
+            android:contentDescription="@string/zoom_out"/>
+
     </LinearLayout>
 
-    <!-- Bottom Navigation (Static) -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav_menu" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

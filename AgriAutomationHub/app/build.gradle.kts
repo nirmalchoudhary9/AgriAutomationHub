@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -16,31 +18,28 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
 
-    dexOptions {
-        javaMaxHeapSize = "4g"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            signingConfig = signingConfigs.getByName("debug")
+        // Expose API Keys from local.properties
+        val properties = Properties()
+        val localPropertiesFile = project.rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            localPropertiesFile.inputStream().use { properties.load(it) }
         }
+
+        buildConfigField("String", "OPENWEATHER_API_KEY", "\"${properties.getProperty("OPENWEATHER_API_KEY")}\"")
+        buildConfigField("String", "AZURE_OPENAI_API_KEY", "\"${properties.getProperty("AZURE_OPENAI_API_KEY")}\"")
+        buildConfigField("String", "CROPCARE_API_KEY", "\"${properties.getProperty("CROPCARE_API_KEY")}\"")
+        buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"${properties.getProperty("GOOGLE_MAPS_API_KEY")}\"")
+
+        manifestPlaceholders["GOOGLE_MAPS_API_KEY"] = properties.getProperty("GOOGLE_MAPS_API_KEY") ?: ""
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
+
     buildFeatures {
         viewBinding = true
         mlModelBinding = true
+        buildConfig = true
     }
-    packagingOptions {
+    packaging {
         resources {
             excludes += setOf(
                 "META-INF/ASL2.0",

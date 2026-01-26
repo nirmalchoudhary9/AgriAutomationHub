@@ -1,52 +1,114 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".SchemesActivity">
+    android:background="@drawable/bg_crop_care">
 
-    <!-- Header -->
-    <TextView
-        android:id="@+id/header"
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Government Schemes for Farmers"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/green"
-        android:padding="8dp" />
+        android:background="@android:color/transparent"
+        app:elevation="0dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Search Bar -->
-    <EditText
-        android:id="@+id/searchBar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/back_btn_schemes"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="@drawable/back_btn"
+                app:tint="@color/text_primary_semantic"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:text="Agri Schemes"
+                android:textColor="@color/text_primary_semantic"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Search and Filter Area -->
+    <LinearLayout
+        android:id="@+id/searchArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search for schemes..."
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext"
-        android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="8dp" />
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
-    <!-- Filter Options -->
-    <Spinner
-        android:id="@+id/filterSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:entries="@array/filter_options"
-        android:background="@drawable/spinner_background" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search for schemes..."
+            app:startIconDrawable="@drawable/ic_search"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeColor="@color/icon_tint"
+            app:hintTextColor="@color/icon_tint"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <!-- Scheme List -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#10000000"
+            app:cardBackgroundColor="@color/card_background"
+            app:strokeWidth="1dp">
+            
+            <Spinner
+                android:id="@+id/filterSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:paddingHorizontal="12dp"
+                android:entries="@array/filter_options" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <!-- Schemes List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/schemesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="8dp"
         android:clipToPadding="false"
-        android:scrollbars="vertical" />
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/searchArea"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_schemes" />
 
-</LinearLayout>
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_schemes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_nav_background"
+        app:elevation="16dp"
+        app:itemIconTint="@color/primary_green"
+        app:itemTextColor="@color/primary_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

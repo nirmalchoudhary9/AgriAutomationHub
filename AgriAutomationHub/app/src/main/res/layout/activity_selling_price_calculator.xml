@@ -1,191 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
+    android:background="@drawable/bg_crop_care">
 
-    <!-- Header Layout -->
-    <RelativeLayout
-        android:id="@+id/header"
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/back_btn_selling_price"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="12dp"
-            android:src="@drawable/back_btn"
-            android:layout_alignParentStart="true"
-            android:contentDescription="Back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/selling_price_calculator"
-            android:textColor="@color/text_primary"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/header"
-        android:layout_marginBottom="12dp"
-        android:padding="16dp"
-        android:layout_above="@id/bottom_navigation_selling_price">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!-- Display Box for Lowest Selling Price -->
-        <LinearLayout
-            android:id="@+id/layoutLowestSellingPrice"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/bg_shadow_box"
-            android:elevation="2dp"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary_green">
+
+            <ImageView
+                android:id="@+id/back_btn_selling_price"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="@drawable/back_btn"
+                app:tint="@color/text_inverse_semantic"
+                android:background="?attr/selectableItemBackgroundBorderless" />
 
             <TextView
-                android:id="@+id/textViewLowestSellingPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/lowest_selling_price_0_00"
-                android:textColor="#FF5722"
+                android:text="@string/selling_price_calculator"
+                android:textColor="@color/text_inverse_semantic"
                 android:textSize="20sp" />
-        </LinearLayout>
 
-        <!-- Yield Field with Label -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/yield_quintal"
-            android:textSize="16sp"
-            android:textColor="#333"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-medium"/>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <EditText
-            android:id="@+id/editTextYield"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="@string/hint_enter_yield"
-            android:padding="12dp"
-            android:background="@drawable/input_background"
-            android:layout_marginBottom="16dp"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
-        <!-- Add New Expense Button -->
-        <Button
-            android:id="@+id/buttonAddNewExpense"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/add_new_expense"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button"
-            android:paddingVertical="12dp"
-            android:layout_marginBottom="16dp"
-            android:elevation="2dp"/>
-
-        <!-- New Expense Form -->
         <LinearLayout
-            android:id="@+id/layoutNewExpenseForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/bg_shadow_box"
-            android:padding="16dp"
-            android:visibility="gone"
-            android:elevation="2dp"
-            android:layout_marginBottom="16dp">
+            android:padding="20dp">
 
-            <Spinner
-                android:id="@+id/spinnerCategory"
+            <!-- Result Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layoutLowestSellingPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:spinnerMode="dropdown"
-                android:background="@drawable/spinner_background"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
+                app:strokeWidth="0dp">
 
-            <EditText
-                android:id="@+id/editTextExpenseName"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_weather_card"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/labelLowestPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/estimated_target_price"
+                        android:textColor="#E0F2F1"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewLowestSellingPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/default_price_zero"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/labelLowestPrice" />
+
+                    <TextView
+                        android:id="@+id/textViewBreakEven"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/break_even_format"
+                        android:textColor="#B2DFDB"
+                        android:textSize="13sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textViewLowestSellingPrice" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Main Inputs -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/expense_name_optional"
-                android:padding="12dp"
-                android:background="@drawable/input_background"
-                android:layout_marginBottom="12dp"/>
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
 
-            <EditText
-                android:id="@+id/editTextPrice"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/yield_quintal"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextYield"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/margin_hint"
+                        app:helperText="@string/margin_helper"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextProfitMargin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="20"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/wastage_hint"
+                        app:helperText="@string/wastage_helper"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextWastage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="5"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Add Expense Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonAddNewExpense"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/add_new_expense"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/primary_green"
+                app:cornerRadius="18dp"
+                app:elevation="4dp"
+                app:icon="@drawable/ic_add"
+                app:iconGravity="textStart" />
+
+            <!-- Collapsible Expense Form -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layoutNewExpenseForm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/price"
-                android:inputType="numberDecimal"
-                android:padding="12dp"
-                android:background="@drawable/input_background"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="24dp"
+                android:visibility="gone"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#20000000"
+                app:strokeWidth="1dp">
 
-            <Button
-                android:id="@+id/buttonSaveExpense"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/new_expense_title"
+                        android:textColor="@color/primary_green"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="#10000000"
+                        app:strokeWidth="1dp">
+                        
+                        <Spinner
+                            android:id="@+id/spinnerCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:paddingHorizontal="12dp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/expense_name_optional"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextExpenseName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:hint="@string/price"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonSaveExpense"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:enabled="false"
+                        android:text="@string/save_expense"
+                        app:cornerRadius="12dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Expenses List Section -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save_expense"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/bg_button"
-                android:enabled="false"
-                android:layout_gravity="center"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp"
-                android:elevation="2dp"/>
+                android:layout_marginBottom="12dp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"
+                android:text="@string/expenses_list"
+                android:textColor="#1B5E20"
+                android:textSize="14sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewExpenses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@android:layout/simple_list_item_1" />
+
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-        <!-- Expenses List Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/expenses_list"
-            android:textSize="18sp"
-            android:textColor="#333"
-            android:fontFamily="sans-serif-medium"
-            android:layout_marginBottom="8dp"/>
-
-        <!-- Expenses RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewExpenses"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:paddingBottom="16dp"
-            android:layout_marginTop="8dp"
-            android:scrollbars="vertical"/>
-
-    </LinearLayout>
-    </ScrollView>
-
-    <!-- Bottom Navigation Bar -->
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_selling_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/bottom_nav_background"
+        app:elevation="16dp"
+        app:itemIconTint="@color/primary_green"
+        app:itemTextColor="@color/primary_green"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

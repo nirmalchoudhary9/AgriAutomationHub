@@ -41,9 +41,9 @@
     <string name="status">Status:</string>
     <string name="help_page">Help Page</string>
     <string name="getting_started">Getting Started</string>
-    <string name="detailed_getting_started">Welcome to our application! Here are the steps to get you started:\n1. Download and install the application.\n2. Create an account by signing up.\n3. Follow the on-screen instructions to set up your profile.\n4. Start using the features available in the app.</string>
+    <string name="detailed_getting_started">Welcome to AgriAutomationHub! Follow these steps to maximize your farm\'s productivity:\n1. **Explore Mandi Prices**: Check real-time market rates for crops in your district.\n2. **Setup Auto-Irrigation**: Connect your sensors to monitor soil moisture and automate watering.\n3. **Calculate Fertilizers**: Use our smart calculator based on your land area and crop type.\n4. **Measure Your Field**: Use the Map tool to precisely calculate your farm acreage.\n5. **Consult KrishiMitra**: Ask our AI bot anything about crop care or disease prevention.</string>
     <string name="frequently_asked_questions">Frequently Asked Questions</string>
-    <string name="detailed_fqas">Q: How do I reset my password?\nA: Click on \'Forgot Password\' at the login screen, and follow the instructions to reset your password.\n\nQ: How can I contact support?\nA: You can contact support by clicking on the \'Contact Support\' section below or emailing support@example.com.</string>
+    <string name="detailed_fqas">**Q: How accurate are the Mandi prices?**\nA: We fetch data directly from government portals to ensure the latest market rates.\n\n**Q: can I use Auto-Irrigation without hardware?**\nA: You can still use the Dashboard to track conditions, but full automation requires our IoT kit.\n\n**Q: How do I measure my field?**\nA: Go to Field Measure, tap on your farm corners on the map to form a polygon, and the area will be calculated automatically.</string>
     <string name="contact_support">Contact Support</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
@@ -109,8 +109,9 @@
         <item>lentil</item>
         <item>grapes</item>
         <item>papaya</item>
-        <!-- Add more crops as needed -->
+
     </string-array>
+
     <string name="title_activity_navigation_drawer">NavigationDrawer</string>
     <string name="crop_not_detected">Crop Not Detected</string>
     <string name="fertilizer_calculator">Fertilizer Calculator</string>
@@ -166,6 +167,35 @@
     <string name="yield_quintal">Yield (Quintal)</string>
     <string name="lowest_selling_price_0_00">Lowest Selling Price: ₹0.00</string>
     <string name="hint_enter_yield">Enter Yield</string>
+    <string name="chat_bot">Chat Bot</string>
+    <string name="type_a_message">Type a message...</string>
+    <string name="city_date">City, Date</string>
+    <string name="unable_to_get_location">Unable to get location</string>
+    <string name="smart_support">Smart Support</string>
+    <string name="disease_detection">Disease Detection</string>
+    <string name="crop_recommender">Crop Recommender</string>
+    <string name="mandi_view">Mandi View</string>
+    <string name="field_measure">Field Measure</string>
+    <string name="chatbot">ChatBot</string>
+    <string name="user_name">User Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="select_state">Select State</string>
+    <string name="select_district">Select District</string>
+    <string name="select_crop">Select Crop</string>
+    <string name="fetch_report">Fetch Report</string>
+    <string name="category">Category</string>
+    <string name="expense_name">Expense Name</string>
+    <string name="market">Market:</string>
+    <string name="commodity">Commodity:</string>
+    <string name="min_price">Min Price:</string>
+    <string name="max_price">Max Price:</string>
+    <string name="date">Date:</string>
+    <string name="privacy_policy" translatable="false">Privacy Policy</string>
+    <string name="terms_of_use" translatable="false">Terms of Use</string>
+    <string name="support" translatable="false">Support</string>
+    <string name="market_trend_analysis">Market Trend</string>
 
     <string-array name="filter_options">
         <item>All Schemes</item>
@@ -174,5 +204,60 @@
         <item>Subsidy</item>
         <item>Loans</item>
     </string-array>
+
+    <string name="privacy_title" translatable="false">Privacy Policy</string>
+    <string name="privacy_content" translatable="false"> <br/><br/> <b>1. Introduction\n</b><br/> Welcome to AgriAutomationHub (the “Application”, “we”, “our”, “us”). We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Application.\n\n <br/><br/> <b>2. Information We Collect</b><br/> • Personal Information: e.g., your name, email address, phone number, login credentials, farm-details.\n • Usage Data: features accessed, actions taken, device information, IP address.\n • Sensor / Automated Data: environmental data, equipment data, crop/soil data, device identifiers.\n • Location Data: if the Application requests location services.\n • Communications Data: messages or queries you send to us.\n\n <br/><br/> <b>3. How We Use Your Information</b><br/> • To provide, operate and improve the Application.\n • To personalise your experience.\n • To monitor usage and prevent fraud.\n • To communicate with you.\n • To comply with legal obligations.\n\n <br/><br/> <b>4. Sharing of Your Information</b><br/> • With service providers.\n • With affiliates or partners (with your consent).\n • For legal requirements.\n • During business transfers.\n\n <br/><br/> <b>5. Data Security</b><br/> We use technical and organisational measures to protect your data. However, no electronic system is completely secure.\n\n <br/><br/> <b>6. Data Retention</b><br/> We retain your personal information only as long as necessary.\n\n <br/><br/> <b>7. Your Rights</b><br/> You may request access, correction, deletion or opt-out, depending on applicable laws.\n\n <br/><br/> <b>8. Children’s Privacy</b><br/> The Application is not intended for children under 18.\n\n <br/><br/> <b>9. International Transfers</b><br/> Your data may be transferred outside India with appropriate safeguards.\n\n <br/><br/> <b>10. Changes to This Privacy Policy</b><br/> We may update this Privacy Policy and will post updates here.\n\n <br/><br/> <b>11. Contact Us</b><br/> For any privacy-related queries, contact us at:\n Email: agriautomationhub@gmail.com\n Last updated: Date. </string>
+    <string name="terms_title" translatable="false">Terms and Conditions</string>
+    <string name="terms_content" translatable="false"> <br/><br/> <b>1. Acceptance of Terms</b><br/> By using the Application, you agree to be bound by these Terms and Conditions and our Privacy Policy.\n\n <br/><br/> <b>2. Eligibility</b><br/> You must be at least 18 years old or have authority to use the Application on behalf of an organisation.\n\n <br/><br/> <b>3. Licence to Use</b><br/> We grant you a limited, non-transferable licence to use the Application for personal or authorised business purposes.\n\n <br/><br/> <b>4. User Responsibilities</b><br/> • Provide accurate information.\n • Protect your login credentials.\n • Use the Application lawfully.\n • Comply with applicable laws.\n\n <br/><br/> <b>5. Prohibited Uses</b><br/> You must not:\n • Reverse-engineer the Application.\n • Transmit malicious code.\n • Interfere with Application operations.\n • Harvest or collect data without permission.\n\n <br/><br/> <b>6. Intellectual Property</b><br/> All content and code belong to the developer/company.\n\n <br/><br/> <b>7. Third-Party Services</b><br/> We are not responsible for third-party services linked through the Application.\n\n <br/><br/> <b>8. Disclaimers and Liability</b><br/> • The Application is provided “as is”.\n • No guarantee of error-free performance.\n • No guaranteed agricultural outcomes.\n\n <br/><br/> <b>9. Indemnification</b><br/> You agree to indemnify us from claims or damages related to your use of the Application.\n\n <br/><br/> <b>10. Termination</b><br/> We may terminate your access at any time. Upon termination, your licence ends.\n\n <br/><br/> <b>11. Governing Law</b><br/> These Terms are governed by Indian law and disputes fall under the courts of Your City/State.\n\n <br/><br/> <b>12. Changes to Terms</b><br/> We may update these Terms. Continued use means acceptance.\n </string>
+    <string name="support_title" translatable="false">Support</string>
+    <string name="support_content" translatable="false"> <br/><br/> <b>We’re Here to Help</b><br/> At AgriAutomationHub, we’re committed to making your farming automation and monitoring experience smooth, reliable, and valuable. Whether you need help using the app, troubleshooting issues, or understanding features, our support team is here for you.\n\n <br/><br/> <b>Contact Support</b><br/> If you face any issue or have questions, reach out to us anytime:\n • Email: agriautomationhub@gmail.com\n • Response Time: Within 24–48 hours\n • Support Hours: Monday to Saturday, 9:00 AM – 7:00 PM (IST)\n\n <br/><br/> <b>Common Issues We Help With</b><br/> • Account creation and login issues\n • Sensor/Device connection problems\n • App navigation or feature clarification\n • Data sync, analytics or dashboard errors\n • Bugs, crashes or unexpected app behaviour\n • General queries about automation, setup and usage\n\n <br/><br/> <b>How to Report an Issue</b><br/> When writing to us, please include:\n 1. Your Name\n 2. Registered Email or Mobile Number\n 3. Description of the Issue\n 4. Screenshot or Video (optional)\n\n <br/><br/> <b>Feature Requests and Feedback</b><br/> Have an idea that can make AgriAutomationHub better?\n Send your suggestions to: agriautomationhub@gmail.com\n\n <br/><br/> <b>Thank You for Using AgriAutomationHub</b><br/> We appreciate your trust and support. Our goal is to help you automate your workflow, save time, and boost productivity on your farm.\n </string>
+
+    <!-- Dynamic Weather Strings -->
+    <string name="weather_format">Temperature: %1$s°C\nHumidity: %2$s%%\nCondition: %3$s</string>
+    <string name="weather_location_format">%1$s , %2$s</string>
+    <string name="weather_fetch_failed">Failed to get weather data</string>
+    <string name="location_permission_denied">Location permission denied</string>
+    <string name="fetching_location">Fetching Location...</string>
+    <string name="weather_data_sync">Weather data sync</string>
+
+    <!-- Dashboard Strings -->
+    <string name="welcome_back">Welcome back,</string>
+    <string name="default_user_name">Farmer Friend</string>
+    <string name="smart_services_title">SMART SERVICES</string>
+    <string name="service_auto_irrigation">Auto Irrigation</string>
+    <string name="service_crop_health">Crop Health</string>
+    <string name="service_crop_advisor">Crop Advisor</string>
+    <string name="service_market_price">Market Price</string>
+    <string name="service_agri_news">Agri News</string>
+    <string name="service_mandi_view">Mandi View</string>
+    <string name="service_field_area">Field Area</string>
+    <string name="service_market_trend">Market Trend</string>
+
+    <!-- Selling Price Calculator Strings -->
+    <string name="estimated_target_price">Estimated Target Price (per Quintal)</string>
+    <string name="break_even_format">Break-even: ₹ %1$s</string>
+    <string name="margin_hint">Margin (%)</string>
+    <string name="margin_helper">Target Profit</string>
+    <string name="wastage_hint">Wastage (%)</string>
+    <string name="wastage_helper">Expected Loss</string>
+    <string name="new_expense_title">New Expense</string>
+    <string name="currency_symbol">₹</string>
+    <string name="default_price_zero">₹ 0.00</string>
+    <string name="select_market_options">Select Market Options</string>
+    <string name="area_label">Area: %1$s</string>
+    <string name="undo">Undo</string>
+    <string name="undo_tooltip">Undo last point</string>
+    <string name="clear">Clear</string>
+    <string name="clear_tooltip">Clear all</string>
+    <string name="my_location">My Location</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="select_filters">Select Filters</string>
+    <string name="state_name">State Name</string>
+    <string name="market_reports">Market Reports</string>
+    <string name="read_article">Read Article</string>
+    <string name="cancel">Cancel</string>
+    <string name="loading">Loading...</string>
+    <string name="error">Error</string>
 
 </resources>

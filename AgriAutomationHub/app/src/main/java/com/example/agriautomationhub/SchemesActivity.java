@@ -4,6 +4,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -53,7 +54,28 @@ public class SchemesActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {}
         });
 
-        // Filter functionality can be implemented similarly (optional)
+        // Back button
+        findViewById(R.id.back_btn_schemes).setOnClickListener(v -> onBackPressed());
+
+        // Bottom Navigation
+        com.google.android.material.bottomnavigation.BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_schemes);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_home) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                return true;
+            } else if (id == R.id.navigation_profile) {
+                startActivity(new Intent(getApplicationContext(), ProfilePageActivity.class));
+                return true;
+            } else if (id == R.id.navigation_news) {
+                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                return true;
+            } else if (id == R.id.navigation_mandi) {
+                startActivity(new Intent(getApplicationContext(), StatewiseMandiActivity.class));
+                return true;
+            }
+            return false;
+        });
     }
 
     private void populateSchemeList() {

@@ -2,12 +2,18 @@
     <!-- Base application theme. -->
     <style name="Theme.AgriAutomationHub" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme -->
-        <item name="colorPrimary">@color/teal_700</item>
-        <item name="colorPrimaryVariant">@color/teal_700</item>
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorPrimaryVariant">@color/primary_green_dark</item>
         <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/primary_green_light</item>
         <item name="colorOnSecondary">@android:color/black</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="navigationViewStyle">@style/Widget.Agri.NavigationView</item>
+        
+        <!-- Semantic mappings -->
+        <item name="android:colorBackground">@color/app_background</item>
+        <item name="colorSurface">@color/card_background</item>
     </style>
 
     <style name="Theme.AgriAutomationHub.NoActionBar">
@@ -53,5 +59,21 @@
     <style name="Theme.Material3.Light.AppBarOverlay"
         parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.Material3.Light.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.Agri.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="itemShapeAppearanceOverlay">@style/ShapeAppearance.Agri.SmallComponent</item>
+        <item name="itemShapeFillColor">#1A2E7D32</item>
+        <item name="itemHorizontalPadding">12dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Agri.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="CircleImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 
 </resources>

@@ -1,168 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="disease_detected">रोग: %1$s</string>
-    <string name="cure_info">उपचार: %1$s</string>
-    <string name="cure_not_available">उपचार की जानकारी उपलब्ध नहीं है</string>
-    <string name="error_loading_cure">उपचार जानकारी लोड करने में त्रुटि</string>
+    <string name="app_name">एग्रीऑटोमेशनहब</string>
+    <string name="welcome_message">नमस्ते किसान भाइयों</string>
+    
+    <!-- Dashboard Strings (Phase 12) -->
+    <string name="welcome_back">वापसी पर स्वागत है,</string>
+    <string name="default_user_name">किसान मित्र</string>
+    <string name="fetching_location">स्थान प्राप्त कर रहा है...</string>
+    <string name="weather_data_sync">मौसम डेटा सिंक</string>
+    <string name="smart_services_title">स्मार्ट सेवाएं</string>
+    <string name="service_auto_irrigation">स्वचालित सिंचाई</string>
+    <string name="service_crop_health">फसल स्वास्थ्य</string>
+    <string name="service_crop_advisor">फसल सलाहकार</string>
+    <string name="service_market_price">बाजार मूल्य</string>
+    <string name="service_agri_news">कृषि समाचार</string>
+    <string name="service_mandi_view">मंडी दृश्य</string>
+    <string name="service_field_area">खेत का क्षेत्रफल</string>
+    <string name="service_market_trend">बाजार का रुझान</string>
+    <string name="weather_fetch_failed">मौसम डेटा प्राप्त करने में विफल</string>
+    <string name="location_permission_denied">स्थान की अनुमति अस्वीकृत</string>
+    
+    <!-- Weather Strings -->
+    <string name="weather_format">तापमान: %1$s°C\nनमी: %2$s%%\nस्थिति: %3$s</string>
+    <string name="weather_location_format">%1$s , %2$s</string>
+    
+    <!-- Selling Price Calculator Strings (Phase 12) -->
+    <string name="estimated_target_price">अनुमानित लक्ष्य मूल्य (प्रति क्विंटल)</string>
+    <string name="break_even_format">ब्रेक-ईवन: ₹ %1$s</string>
+    <string name="margin_hint">मार्जिन (%)</string>
+    <string name="margin_helper">लक्ष्य लाभ</string>
+    <string name="wastage_hint">बर्बादी (%)</string>
+    <string name="wastage_helper">अपेक्षित नुकसान</string>
+    <string name="new_expense_title">नया खर्च</string>
+    <string name="default_price_zero">₹ 0.00</string>
 
-    <string name="app_name">AgriAutomationHub</string>
-    <string name="navigation_drawer_open">नेविगेशन ड्रॉवर खोलें</string>
-    <string name="navigation_drawer_close">नेविगेशन ड्रॉवर बंद करें</string>
-    <string name="nav_header_title">एंड्रॉइड स्टूडियो</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">नेविगेशन हैडर</string>
-    <string name="action_settings">सेटिंग्स</string>
-
-    <string name="auto_irrigation">ऑटोमैटिक सिंचाई</string>
-    <string name="fertilizer_recommendation">उर्वरक सिफारिश</string>
-    <string name="crop_disease_prediction">फसल देखभाल</string>
-    <string name="welcome_message">नमस्ते किसान</string>
-    <string name="services">सेवाएँ</string>
-    <string name="home">मुख्य पृष्ठ</string>
-    <string name="notification">सूचना</string>
-    <string name="help">सहायता</string>
-    <string name="profile">प्रोफ़ाइल</string>
-    <string name="title_activity_soil_fertility_check">मिट्टी की उर्वरता जांच</string>
-    <string name="title_home">मुख्य पृष्ठ</string>
-    <string name="title_dashboard">डैशबोर्ड</string>
-    <string name="title_notifications">सूचनाएँ</string>
-
-    <string name="app_id">1:191351033464:android:dfd5400cc7978bd648278d</string>
-
-    <string name="menu_home">मुख्य पृष्ठ</string>
-    <string name="menu_gallery">गैलरी</string>
-    <string name="menu_slideshow">स्लाइडशो</string>
-    <string name="action_logout">लॉगआउट</string>
-    <string name="irrigation">सिंचाई</string>
-    <string name="crop_care">फसल देखभाल</string>
-    <string name="humidity">आर्द्रता</string>
-    <string name="temperature">तापमान</string>
-    <string name="manual_mode">हाथ से मोड</string>
-    <string name="status">स्थिति:</string>
-    <string name="help_page">सहायता पृष्ठ</string>
-    <string name="getting_started">शुरू करने के लिए</string>
-    <string name="detailed_getting_started">हमारे अनुप्रयोग में आपका स्वागत है! शुरू करने के लिए यहाँ विधि हैं:\n1. एप्लिकेशन डाउनलोड और इंस्टॉल करें। \n2. साइन अप करके खाता बनाएं। \n3. अपने प्रोफ़ाइल को सेट अप करने के लिए ऑन-स्क्रीन निर्देशों का पालन करें। \n4. एप्लिकेशन में उपलब्ध सुविधाओं का उपयोग करना शुरू करें।</string>
-    <string name="frequently_asked_questions">अक्सर पूछे जाने वाले प्रश्न</string>
-    <string name="contact_support">सहायता से संपर्क करें</string>
-    <string name="name">नाम</string>
-    <string name="email">ईमेल</string>
-    <string name="message">संदेश</string>
-    <string name="submit">सबमिट करें</string>
-    <string name="username">उपयोगकर्ता नाम</string>
-    <string name="password">पासवर्ड</string>
-    <string name="forgot_password">पासवर्ड भूल गए?</string>
-    <string name="login">लॉगिन</string>
-    <string name="cilck_here_to_register">रजिस्टर करने के लिए यहाँ क्लिक करें</string>
-    <string name="today_s_weather">आज का मौसम</string>
-    <string name="location">स्थान</string>
-    <string name="loading_weather">मौसम जानकारी लोड हो रही है...</string>
-    <string name="top_news">शीर्ष समाचार</string>
-    <string name="register">रजिस्टर करें</string>
-    <string name="cilck_here_to_login">लॉगिन करने के लिए यहाँ क्लिक करें</string>
-    <string name="settings">सेटिंग्स</string>
-    <string name="a2hub">A2Hub</string>
-    <string name="edit_profile">प्रोफ़ाइल संपादित करें</string>
-    <string name="night_mode">रात का मोड</string>
-    <string name="notifications">सूचनाएँ</string>
-    <string name="private_account">निजी खाता</string>
-    <string name="security_amp_privacy"><![CDATA[सुरक्षा और गोपनीयता]]></string>
-    <string name="text_size">पाठ का आकार</string>
-    <string name="languages">भाषाएँ</string>
-    <string name="send_us_a_message">हमें एक संदेश भेजें</string>
-    <string name="about_us">हमारे बारे में</string>
-    <string name="faqs">FAQs</string>
-    <string name="logout">लॉगआउट</string>
-    <string name="enter_the_following_values_to_check_soil_fertility">मिट्टी की उर्वरता जांचने के लिए निम्नलिखित मान दर्ज करें-</string>
-    <string name="nitrogen_20_50_ppm">20 - 50 पीपीएम</string>
-    <string name="phosphorus_20_50_ppm">20 - 50 पीपीएम</string>
-    <string name="potassium_150_300_ppm">150 - 300 पीपीएम</string>
-    <string name="ph_value_6_8_5">6 - 8.5</string>
-    <string name="check_soil_fertility">मिट्टी की उर्वरता जांचें</string>
-    <string name="news">समाचार</string>
-    <string name="marketview">बाजार दृश्य</string>
-    <string name="mandi">मंडी</string>
-
-    <string-array name="expense_categories">
-        <item>श्रेणी</item>
-        <item>बीज</item>
-        <item>उर्वरक</item>
-        <item>कीटनाशक</item>
-        <item>यंत्र</item>
-        <item>बिजली</item>
-        <item>श्रम</item>
-        <item>भूमि किराया</item>
-        <item>अन्य</item>
-    </string-array>
-
-    <string-array name="crop_types">
-        <item>मकई</item>
-        <item>गेंहू</item>
-        <item>चावल</item>
-        <item>सोयाबीन</item>
-        <item>राजमा</item>
-        <item>मक्का</item>
-        <item>मथरी</item>
-        <item>कपास</item>
-        <item>मूंगफली</item>
-        <item>नारियल</item>
-        <item>दाल</item>
-        <item>अंगूर</item>
-        <item>पपीता</item>
-        <!-- और फसलों को आवश्यकतानुसार जोड़ें -->
-    </string-array>
-
-    <string name="title_activity_navigation_drawer">नेविगेशन ड्रॉवर</string>
-    <string name="crop_not_detected">फसल की पहचान नहीं हुई</string>
-    <string name="fertilizer_calculator">उर्वरक कैलकुलेटर</string>
-    <string name="soil_ph">मिट्टी का पीएच</string>
-    <string name="enter_soil_ph">मिट्टी का पीएच दर्ज करें</string>
-    <string name="crop_type">फसल का प्रकार</string>
-    <string name="land_area_in_hectares">भूमि क्षेत्र (हेक्टेयर में)</string>
-    <string name="enter_land_area">भूमि क्षेत्र दर्ज करें</string>
-    <string name="calculate_fertilizer">उर्वरक की गणना करें</string>
-    <string name="fertilizer_requirement_will_be_displayed_here">उर्वरक की आवश्यकताएँ यहाँ बताई जाएँगी</string>
-    <string name="location_your_location">स्थान: [आपका स्थान]</string>
-    <string name="farmer_services">किसान सेवाएँ</string>
-    <string name="mandi_crop_price">फसल का मंडी भाव</string>
-    <string name="report_date">रिपोर्ट तिथि</string>
-    <string name="select_date">तिथि चुनें</string>
-    <string name="district_name">जिले का नाम</string>
-    <string name="mandi_detail">मंडी विवरण</string>
-    <string name="service_name">सेवा का नाम</string>
-    <string name="crop_recommendation">फसल सिफारिश</string>
+    <!-- Crop Recommender (Phase 13) -->
+    <string name="crop_recommendation">फसल सलाह</string>
     <string name="enter_data_to_get_recommendation">सिफारिश प्राप्त करने के लिए डेटा दर्ज करें</string>
-    <string name="nitrogen_n">नाइट्रोजन (N):</string>
-    <string name="enter_nitrogen_level">नाइट्रोजन दर्ज करें</string>
-    <string name="phosphorus_p">फास्फोरस (P):</string>
-    <string name="enter_phosphorus_level">फास्फोरस दर्ज करें</string>
-    <string name="potassium_k">पोटेशियम (K):</string>
-    <string name="enter_potassium_level">पोटेशियम दर्ज करें</string>
-    <string name="enter_temperature">तापमान दर्ज करें</string>
-    <string name="enter_humidity_level">आर्द्रता दर्ज करें</string>
-    <string name="ph">पीएच:</string>
-    <string name="enter_ph_level">पीएच दर्ज करें</string>
-    <string name="rainfall">बारिश:</string>
-    <string name="enter_rainfall_level">बारिश दर्ज करें</string>
+    <string name="nitrogen_n">नाइट्रोजन (N)</string>
+    <string name="phosphorus_p">फास्फोरस (P)</string>
+    <string name="potassium_k">पोटेशियम (K)</string>
+    <string name="ph">पीएच (pH)</string>
+    <string name="rainfall">वर्षा (Rainfall)</string>
     <string name="get_recommendation">सिफारिश प्राप्त करें</string>
-    <string name="recommendation_will_be_displayed_here">सिफारिश यहाँ प्रदर्शित की जाएगी</string>
+    <string name="recommendation_will_be_displayed_here">सिफारिश यहां प्रदर्शित की जाएगी</string>
     <string name="get_details_about_crop">फसल के बारे में विवरण प्राप्त करें</string>
-    <string name="selling_price_calculator">बिक्री मूल्य कैलकुलेटर</string>
-    <string name="condition">स्थिति</string>
-    <string name="crop_detail">फसल विवरण</string>
-    <string name="crop_name">फसल का नाम</string>
-    <string name="camera">कैमरा</string>
-    <string name="select_image">छवि चुनें</string>
-    <string name="get_prediction">पूर्वानुमान प्राप्त करें</string>
-    <string name="market_view">बाज़ार दृश्य</string>
-    <string name="district">ज़िला</string>
-    <string name="commodity_group">वस्तु समूह</string>
+
+    <!-- Auto Irrigation (Phase 13) -->
+    <string name="irrigation">सिंचाई</string>
+    <string name="status">स्थिति:</string>
+    <string name="humidity">नमी</string>
+    <string name="temperature">तापमान</string>
+    <string name="manual_mode">मैनुअल मोड</string>
+    
+    <!-- Market View & Mandi (Phase 13) -->
+    <string name="market_view">बाजार दृश्य</string>
+    <string name="mandi_view">मंडी दृश्य</string>
+    <string name="district">जिला</string>
     <string name="crop">फसल</string>
-    <string name="fetch_data">डेटा प्राप्त करें</string>
-    <string name="expenses_list">खर्च सूची</string>
-    <string name="save_expense">खर्च सहेजें</string>
-    <string name="price">मूल्य</string>
-    <string name="expense_name_optional">खर्चे का नाम (वैकल्पिक)</string>
-    <string name="add_new_expense">नया खर्चा जोड़ें</string>
-    <string name="yield_quintal">उपज (क्विंटल)</string>
-    <string name="lowest_selling_price_0_00">न्यूनतम विक्रय मूल्य: ₹0.00</string>
-    <string name="hint_enter_yield">उपज दर्ज करे </string>
+    <string name="price">कीमत</string>
+    <string name="min_price">न्यूनतम कीमत:</string>
+    <string name="max_price">अधिकतम कीमत:</string>
+    <string name="market">बाजार:</string>
+    <string name="commodity">वस्तु:</string>
+    <string name="date">दिनांक:</string>
+    <string name="select_market_options">बाजार विकल्प चुनें</string>
+    <string name="area_label">क्षेत्रफल: %1$s</string>
+    <string name="undo">पूर्ववत करें</string>
+    <string name="undo_tooltip">अंतिम बिंदु पूर्ववत करें</string>
+    <string name="clear">साफ़ करें</string>
+    <string name="clear_tooltip">सभी साफ़ करें</string>
+    <string name="my_location">मेरा स्थान</string>
+    <string name="zoom_in">ज़ूम इन</string>
+    <string name="zoom_out">ज़ूम आउट</string>
+    <string name="select_filters">फ़िल्टर चुनें</string>
+    <string name="state_name">राज्य का नाम</string>
+    <string name="market_reports">बाजार रिपोर्ट्स</string>
+    
+    <!-- General / Misc -->
+    <string name="submit">प्रस्तुत करें</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="loading">लोड हो रहा है...</string>
+    <string name="error">त्रुटि</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="help">सहायता</string>
+    <string name="about_us">हमारे बारे में</string>
+    <string name="logout">लॉग आउट</string>
+    <string name="profile">प्रोफ़ाइल</string>
+
 </resources>

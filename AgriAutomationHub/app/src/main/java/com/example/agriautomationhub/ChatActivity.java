@@ -56,8 +56,19 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         // Initialize Retrofit and OpenAIApi
+        okhttp3.OkHttpClient client = new okhttp3.OkHttpClient.Builder()
+                .addInterceptor(chain -> {
+                    okhttp3.Request request = chain.request().newBuilder()
+                            .addHeader("Content-Type", "application/json")
+                            .addHeader("api-key", BuildConfig.AZURE_OPENAI_API_KEY)
+                            .build();
+                    return chain.proceed(request);
+                })
+                .build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://openai-service-agri.openai.azure.com/")  // Azure endpoint
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         openAIApi = retrofit.create(OpenAIApi.class);

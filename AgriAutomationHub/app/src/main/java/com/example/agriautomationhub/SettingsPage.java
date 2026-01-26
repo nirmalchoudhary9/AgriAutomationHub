@@ -54,9 +54,9 @@ public class SettingsPage extends AppCompatActivity {
         emailText = findViewById(R.id.user_email);
         Button editProfileButton = findViewById(R.id.edit_btn);
 
-        editProfileButton.setOnClickListener(v -> {
-            startActivity(new Intent(SettingsPage.this, EditProfileActivity.class));
-        });
+//        editProfileButton.setOnClickListener(v -> {
+//            startActivity(new Intent(SettingsPage.this, EditProfileActivity.class));
+//        });
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

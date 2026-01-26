@@ -13,10 +13,14 @@
 
     <uses-feature android:name="android.hardware.camera" />
 
+    <queries>
+        <package android:name="com.google.android.gms" />
+        <package android:name="com.android.vending" />
+    </queries>
+
     <meta-data
         android:name="com.google.android.gms.games.APP_ID"
         android:value="@string/app_id" />
-
 
     <application
         android:allowBackup="true"
@@ -29,14 +33,14 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+        android:theme="@style/Theme.AgriAutomationHub"
         tools:targetApi="31">
         <activity
             android:name=".ProfilePageActivity"
             android:exported="false" />
         <activity
             android:name=".StatewiseMandiActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+            android:theme="@style/Theme.AgriAutomationHub"
             android:exported="false" />
         <activity
             android:name=".SchemesActivity"
@@ -58,9 +62,8 @@
             android:name=".CropDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ExpenseCalculatorActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Material3.Light" />
+            android:name=".PrivacyTermsActivity"
+            android:exported="false" />
         <activity
             android:name=".CropRecommenderActivity"
             android:exported="false" />
@@ -70,19 +73,11 @@
         <activity
             android:name=".HelpActivity"
             android:exported="false" />
-        <activity
-            android:name=".EditProfileActivity"
-            android:configChanges="locale|layoutDirection|screenSize|smallestScreenSize"
-            android:label="EditProfileActivity" />
-        <activity
-            android:name=".SettingsPage"
-            android:configChanges="locale|layoutDirection|screenSize|smallestScreenSize"
-            android:label="SettingsPage" />
 
         <activity
             android:name=".Register"
             android:exported="false"
-            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+            android:theme="@style/Theme.AgriAutomationHub" />
         <activity
             android:name=".CropCareActivity"
             android:exported="false" />
@@ -102,7 +97,7 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Theme.AgriAutomationHub">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -116,7 +111,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC9nAU7r82S84RDI3emmchkSLlLaB7o6VY" />
+            android:value="${GOOGLE_MAPS_API_KEY}" />
     </application>
 
 </manifest>

@@ -70,11 +70,7 @@ public class CropDetailActivity extends AppCompatActivity {
         }
 
         ImageView back = findViewById(R.id.back_btn_crop_detail);
-        back.setOnClickListener(v -> {
-            intent.set(new Intent(getApplicationContext(), CropRecommenderActivity.class));
-            startActivity(intent.get());
-            finish();
-        });
+        back.setOnClickListener(v -> onBackPressed());
     }
 
     // Method to capitalize the first letter of each word

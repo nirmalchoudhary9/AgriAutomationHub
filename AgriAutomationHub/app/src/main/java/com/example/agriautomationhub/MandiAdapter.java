@@ -28,11 +28,11 @@ public class MandiAdapter extends RecyclerView.Adapter<MandiAdapter.MandiViewHol
     @Override
     public void onBindViewHolder(@NonNull MandiViewHolder holder, int position) {
         MandiData data = mandiList.get(position);
-        holder.tvMarket.setText("Market: " + data.market);
-        holder.tvCommodity.setText("Commodity: " + data.commodity);
-        holder.tvMinPrice.setText("Min Price: ₹" + data.minPrice);
-        holder.tvMaxPrice.setText("Max Price: ₹" + data.maxPrice);
-        holder.tvDate.setText("Date: " + data.priceDate);
+        holder.tvMarket.setText(data.market);
+        holder.tvCommodity.setText(data.commodity);
+        holder.tvMinPrice.setText("₹" + data.minPrice);
+        holder.tvMaxPrice.setText("₹" + data.maxPrice);
+        holder.tvDate.setText(data.priceDate);
     }
 
     @Override

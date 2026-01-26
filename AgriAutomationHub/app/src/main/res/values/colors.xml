@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="primary_green_dark">#1B5E20</color>
+    <color name="primary_green">#2E7D32</color>
+    <color name="primary_green_light">#81C784</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="white_semi_transparent">#B3FFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#FF0000FF</color>
@@ -16,9 +17,9 @@
     <color name="primary_text_color">#000000</color>
     <color name="secondary_text_color">#333333</color>
 
-    <color name="primary_color">#6200EE</color>
-    <color name="primary_variant">#3700B3</color>
-    <color name="secondary_color">#03DAC6</color>
+    <color name="primary_color">@color/primary_green</color>
+    <color name="primary_variant">@color/primary_green_dark</color>
+    <color name="secondary_color">@color/primary_green_light</color>
 
     <color name="button_mode_color">#839CFE</color>
 
@@ -39,9 +40,9 @@
     <color name="private_account">#E6A326</color>
     <color name="security">#D95F69</color>
 
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#023731</color>
+    <color name="colorPrimary">@color/primary_green</color>
+    <color name="colorPrimaryDark">@color/primary_green_dark</color>
+    <color name="colorAccent">@color/primary_green_light</color>
     <color name="mandiBackgroundColor">#F5F5F5</color>
     <color name="primaryTextColor">#000000</color>
 
@@ -66,5 +67,16 @@
     <!-- Text Colors -->
     <color name="text_primary">#212121</color> <!-- Dark grey for primary text, readable against white or light backgrounds -->
     <color name="text_secondary">#757575</color> <!-- Lighter grey for secondary text, such as hints and secondary information -->
+
+    <!-- Semantic Colors (Light Mode Defaults) -->
+    <color name="app_background">#F5F5F5</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="text_primary_semantic">#000000</color>
+    <color name="text_secondary_semantic">#666666</color>
+    <color name="text_inverse_semantic">#FFFFFF</color>
+    <color name="icon_tint">#2E7D32</color>
+    <color name="input_field_background">#FFFFFF</color>
+    <color name="bottom_nav_background">#F0FFFFFF</color>
+    <color name="divider_semantic">#DDDDDD</color>
 
 </resources>

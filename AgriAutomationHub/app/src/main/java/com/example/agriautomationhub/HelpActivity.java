@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,15 +16,20 @@ public class HelpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_help);
 
         back = findViewById(R.id.back_btn);
 
         back.setOnClickListener(v -> {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
+                onBackPressed();
+        });
+
+        findViewById(R.id.submit_button).setOnClickListener(v -> {
+            android.widget.Toast.makeText(this, "Support request submitted successfully!", android.widget.Toast.LENGTH_SHORT).show();
+            // Clear fields after submission
+            ((android.widget.EditText)findViewById(R.id.name_input)).setText("");
+            ((android.widget.EditText)findViewById(R.id.email_input)).setText("");
+            ((android.widget.EditText)findViewById(R.id.message_input)).setText("");
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_help);

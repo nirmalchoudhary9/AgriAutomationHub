@@ -1,0 +1,544 @@
+CommodityName,CommodityCode,CommodityGroupCode,CommodityGroupName
+Absinthe,380,12,Forest Products
+Ajwain Husk,454,10,Others
+Ajwan,115,7,Spices
+Alasande Gram,234,2,Pulses
+Almond(Badam),275,8,Dry Fruits
+Aloe Vera,455,6,Vegetables
+Alsandikai,138,6,Vegetables
+Amaranthus,72,6,Vegetables
+Ambada Seed,112,12,Forest Products
+Ambady/Mesta,346,4,Fibre Crops
+Ambat Chuka,456,6,Vegetables
+Amla(Nelli Kai),303,5,Fruits
+Amranthas Red,348,6,Vegetables
+Antawala,169,12,Forest Products
+Anthorium,326,14,Flowers
+Apple,17,5,Fruits
+Apricot(Jardalu/Khumani),276,5,Fruits
+Arecanut(Betelnut/Supari),118,11,Drug and Narcotics
+Arhar Dal(Tur Dal),214,2,Pulses
+Arhar(Tur/Red Gram)(Whole),45,2,Pulses
+Arrowroot,457,6,Vegetables
+Asalia,373,11,Drug and Narcotics
+Asgand,434,7,Spices
+Ashgourd,69,6,Vegetables
+Ashoka,435,11,Drug and Narcotics
+Ashwagandha,372,11,Drug and Narcotics
+Asparagus,363,11,Drug and Narcotics
+Astera,190,14,Flowers
+Atis,436,11,Drug and Narcotics
+Avare Dal,223,2,Pulses
+Avocado,458,5,Fruits
+BOP,327,14,Flowers
+Baby Corn,459,6,Vegetables
+Bael,347,5,Fruits
+Bajji chilli,420,6,Vegetables
+Bajra(Pearl Millet/Cumbu),28,1,Cereals
+Balekai,228,6,Vegetables
+Bamboo,164,12,Forest Products
+Bamboo Shoot,460,6,Vegetables
+Banana,19,5,Fruits
+Banana - Green,76,6,Vegetables
+Banana Leaf,414,6,Vegetables
+Banana flower,412,6,Vegetables
+Banana stem,413,6,Vegetables
+Barley(Jau),29,1,Cereals
+Barnyard Millet,461,1,Cereals
+Bay leaf(Tejpatta),271,12,Forest Products
+Beans,80,2,Pulses
+Beaten Rice,216,1,Cereals
+Beetroot,129,6,Vegetables
+Behada,437,12,Forest Products
+Bengal Gram Dal(Chana Dal),217,2,Pulses
+Bengal Gram(Gram)(Whole),6,2,Pulses
+Ber(Zizyphus/Borehannu),304,5,Fruits
+Betal Leaves,121,11,Drug and Narcotics
+Betelnuts,37,7,Spices
+Bhindi(Ladies Finger),71,6,Vegetables
+Bhui Amlaya,377,12,Forest Products
+Big Gram,97,2,Pulses
+Bilimbi,462,5,Fruits
+Binoula,47,6,Vegetables
+Bitter gourd,67,6,Vegetables
+Black Currant,463,5,Fruits
+Black Gram Dal(Urd Dal),218,2,Pulses
+Black Gram(Urd Beans)(Whole),8,2,Pulses
+Black pepper,34,7,Spices
+Blueberry,464,5,Fruits
+Borehannu,159,5,Fruits
+Bottle gourd,68,6,Vegetables
+Brahmi,378,12,Forest Products
+Bran,242,10,Others
+Bread Fruit,426,5,Fruits
+Brinjal,32,6,Vegetables
+Brocoli,416,6,Vegetables
+Broken Rice,244,10,Others
+Broomstick(Flower Broom),270,12,Forest Products
+Browntop Millet,465,1,Cereals
+Bull,173,13,"Live Stock,Poultry,Fisheries"
+Bullar,237,2,Pulses
+Bunch Beans,183,10,Others
+Butter,226,15,Oils and Fats
+Cabbage,126,6,Vegetables
+Calendula,409,14,Flowers
+Calf,174,13,"Live Stock,Poultry,Fisheries"
+Camel Hair,302,10,Others
+Cane,165,12,Forest Products
+Capsicum,136,6,Vegetables
+Cardamoms,36,7,Spices
+Carissa(Karvand),466,5,Fruits
+Carnation,322,14,Flowers
+Carrot,125,6,Vegetables
+Cashew Kernnel,196,10,Others
+Cashewnuts,33,8,Dry Fruits
+Castor Oil,224,15,Oils and Fats
+Castor Seed,106,3,Oil Seeds
+Cauliflower,31,6,Vegetables
+Chakhao(Black Rice),467,1,Cereals
+Chakotha,158,5,Fruits
+Chandrashoor,367,11,Drug and Narcotics
+Chapparad Avare,141,6,Vegetables
+Chennangi Dal,246,2,Pulses
+Chennangi(Whole),198,2,Pulses
+Cherry,278,5,Fruits
+Chhappan Kaddu,468,6,Vegetables
+Chikoos(Sapota),58,5,Fruits
+Chili Red,26,7,Spices
+Chilly Capsicum,74,6,Vegetables
+Chironji,438,12,Forest Products
+Chow Chow,139,6,Vegetables
+Chrysanthemum,331,14,Flowers
+Chrysanthemum(Loose),189,14,Flowers
+Cinamon(Dalchini),267,7,Spices
+Clarkia,407,14,Flowers
+Cloves,89,7,Spices
+Cluster beans,66,6,Vegetables
+Coca,266,7,Spices
+Cock,315,13,"Live Stock,Poultry,Fisheries"
+Cocoa,88,9,Beverages
+Coconut,116,7,Spices
+Coconut Coir,469,10,Others
+Coconut Oil,220,15,Oils and Fats
+Coconut Seed,96,3,Oil Seeds
+Coffee,41,9,Beverages
+Colacasia,269,6,Vegetables
+Coleus,470,11,Drug and Narcotics
+Copra,111,3,Oil Seeds
+Coriander(Leaves),39,6,Vegetables
+Corriander seed,92,7,Spices
+Cossandra,401,14,Flowers
+Cotton,15,4,Fibre Crops
+Cotton Seed,84,3,Oil Seeds
+Cow,171,13,"Live Stock,Poultry,Fisheries"
+Cowpea(Lobia/Karamani),78,2,Pulses
+Cowpea(Veg),75,6,Vegetables
+Crab,471,13,"Live Stock,Poultry,Fisheries"
+Cucumbar(Kheera),131,6,Vegetables
+Cummin Seed(Jeera),38,7,Spices
+Curry Leaf,415,6,Vegetables
+Custard Apple(Sharifa),300,5,Fruits
+Daila(Chandni),329,14,Flowers
+Dal(Avare),77,2,Pulses
+Dalda,227,15,Oils and Fats
+Dates,472,8,Dry Fruits
+Delha,339,14,Flowers
+Dhaincha,57,10,Others
+Double Beans,421,6,Vegetables
+Dragon fruit,424,5,Fruits
+Drumstick,140,6,Vegetables
+Dry Chillies,113,7,Spices
+Dry Fish,473,13,"Live Stock,Poultry,Fisheries"
+Dry Fodder,293,10,Others
+Dry Grapes,231,8,Dry Fruits
+Duck,317,13,"Live Stock,Poultry,Fisheries"
+Duster Beans,135,6,Vegetables
+Egg,314,13,"Live Stock,Poultry,Fisheries"
+Egypian Clover(Barseem),308,10,Others
+Elephant Yam(Suran)/Amorphophallus,247,6,Vegetables
+Field Bean(Anumulu),474,6,Vegetables
+Field Gram,475,2,Pulses
+Field Pea,53,6,Vegetables
+Fig (Dry),476,8,Dry Fruits
+Fig(Anjura/Anjeer),180,10,Others
+Firewood,166,12,Forest Products
+Fish,313,13,"Live Stock,Poultry,Fisheries"
+Flax seeds,439,10,Others
+Flower Broom,312,12,Forest Products
+Foxtail Millet(Navane),104,1,Cereals
+French Beans(Frasbean),249,6,Vegetables
+Galgal(Lemon),298,6,Vegetables
+Gamphrena,400,14,Flowers
+Garcinia,477,5,Fruits
+Garlic,25,6,Vegetables
+Gerbera,478,14,Flowers
+Ghee,206,15,Oils and Fats
+Gherkin,479,6,Vegetables
+Ghost Pepper(King Chilli),480,6,Vegetables
+Giloy,381,12,Forest Products
+Gingelly Oil,229,15,Oils and Fats
+Ginger Seed,481,7,Spices
+Ginger(Dry),27,7,Spices
+Ginger(Green),87,6,Vegetables
+Gladiolus Bulb,311,14,Flowers
+Gladiolus Cut Flower,310,14,Flowers
+Glardia,391,14,Flowers
+Goat,178,13,"Live Stock,Poultry,Fisheries"
+Goat Hair,301,10,Others
+Gond,440,12,Forest Products
+Goose berry(Nellikkai),423,5,Fruits
+Goosefoot,482,6,Vegetables
+Gram Raw(Chholia),306,6,Vegetables
+Gramflour,245,10,Others
+Grapes,22,5,Fruits
+Green Avare(W),137,6,Vegetables
+Green Chilli,73,6,Vegetables
+Green Fodder,294,10,Others
+Green Gram Dal(Moong Dal),219,2,Pulses
+Green Gram(Moong)(Whole),9,2,Pulses
+Green Peas,46,2,Pulses
+Green Tea,483,9,Beverages
+Grey Fruit,484,5,Fruits
+Ground Nut Oil,221,15,Oils and Fats
+Ground Nut Seed,222,3,Oil Seeds
+Groundnut,10,3,Oil Seeds
+Groundnut pods(raw),263,6,Vegetables
+Groundnut(Split),265,3,Oil Seeds
+Guar,62,6,Vegetables
+Guar Seed(Cluster Beans Seed),342,2,Pulses
+Guava,156,5,Fruits
+Gudmar,382,12,Forest Products
+Guggal,383,12,Forest Products
+Gur(Jaggery),61,10,Others
+Gurellu,232,3,Oil Seeds
+Haralekai,208,10,Others
+Harrah,441,12,Forest Products
+He Buffalo,175,13,"Live Stock,Poultry,Fisheries"
+Heliconia species,403,14,Flowers
+Hen,316,13,"Live Stock,Poultry,Fisheries"
+Hilsa,485,10,Others
+Hippe Seed,108,12,Forest Products
+Hog Plum,486,5,Fruits
+Honey,194,10,Others
+Honge seed,107,3,Oil Seeds
+Hybrid Cumbu,102,1,Cereals
+Indian Beans(Seam),250,6,Vegetables
+Indian Colza(Sarson),292,6,Vegetables
+Indian Sherbet Berry(Phalsa),487,5,Fruits
+Irish,394,14,Flowers
+Isabgul(Psyllium),212,11,Drug and Narcotics
+Isbgol,488,11,Drug and Narcotics
+Jack Fruit,153,5,Fruits
+Jackfruit Seed,489,6,Vegetables
+Jaee,442,1,Cereals
+Jaffri,335,14,Flowers
+Jaggery,123,10,Others
+Jamamkhan,147,6,Vegetables
+Jamun(Narale Hannu),155,5,Fruits
+Jarbara,323,14,Flowers
+Jasmine,187,14,Flowers
+Javi,207,10,Others
+Jowar(Sorghum),5,1,Cereals
+Jute,16,4,Fibre Crops
+Jute Seed,170,12,Forest Products
+Kabuli Chana(Chickpeas-White),309,2,Pulses
+Kacholam,268,7,Spices
+Kagda,490,14,Flowers
+Kakada,188,14,Flowers
+Kalihari,385,12,Forest Products
+Kalmegh,386,12,Forest Products
+Kankambra,191,14,Flowers
+Karamani,99,2,Pulses
+Karbuja(Musk Melon),157,5,Fruits
+Kartali(Kantola),256,6,Vegetables
+Kevda,410,14,Flowers
+Kharif Mash,50,10,Others
+Khirni,443,5,Fruits
+Khoya,319,10,Others
+Kidney Beans(Rajma),491,2,Pulses
+Kinnow,284,5,Fruits
+Kiwi Fruit,492,5,Fruits
+Knool Khol,149,6,Vegetables
+Kodo Millet(Varagu),101,1,Cereals
+Kooth,388,12,Forest Products
+Kuchur,200,10,Others
+Kuchur - Kusum Seed,493,3,Oil Seeds
+Kulthi(Horse Gram),98,2,Pulses
+Kutki,344,1,Cereals
+Ladies Finger,127,6,Vegetables
+Laha,444,3,Oil Seeds
+Lak(Teora),81,2,Pulses
+Large Cardamom,494,7,Spices
+Leafy Vegetable,143,6,Vegetables
+Leek,495,6,Vegetables
+Lemon,261,6,Vegetables
+Lemongrass,496,11,Drug and Narcotics
+Lentil(Masur)(Whole),52,2,Pulses
+Lesser Yam,497,6,Vegetables
+Lilly,325,14,Flowers
+Lime,151,5,Fruits
+Limonia(status),399,14,Flowers
+Linseed,56,3,Oil Seeds
+Lint,233,4,Fibre Crops
+Litchi,299,5,Fruits
+Little Millet ,498,1,Cereals
+Little gourd(Kundru),253,6,Vegetables
+Long Melon(Kakri),255,6,Vegetables
+Lotus,332,14,Flowers
+Lotus Sticks,287,6,Vegetables
+Lukad,285,5,Fruits
+Lupine,408,14,Flowers
+Ma.Inji,433,10,Others
+Mace,91,7,Spices
+Mahedi,340,10,Others
+Mahua,283,11,Drug and Narcotics
+Mahua Seed(Hippe seed),318,12,Forest Products
+Maida Atta,241,10,Others
+Maize,4,1,Cereals
+Mango,20,5,Fruits
+Mango(Raw-Ripe),144,6,Vegetables
+Mangosteen,499,5,Fruits
+Maragensu,184,10,Others
+Marasebu,152,5,Fruits
+Marget,336,14,Flowers
+Marigold(Calcutta),193,14,Flowers
+Marigold(loose),334,14,Flowers
+Marikozhunthu,431,14,Flowers
+Mash,49,10,Others
+Mashrooms,288,6,Vegetables
+Masur Dal,213,2,Pulses
+Mataki,79,2,Pulses
+Meal Maker (Soya Chunks),500,6,Vegetables
+Mentha Oil,501,11,Drug and Narcotics
+Methi Seeds,43,7,Spices
+Methi(Leaves),42,6,Vegetables
+Millets,195,10,Others
+Mint(Pudina),307,6,Vegetables
+Moath Dal,452,2,Pulses
+Mousambi(Sweet Lime),64,5,Fruits
+Muesli,375,11,Drug and Narcotics
+Mulberry,502,5,Fruits
+Muleti,357,11,Drug and Narcotics
+Muskmelon Seeds,445,7,Spices
+Mustard,12,3,Oil Seeds
+Mustard Oil,274,15,Oils and Fats
+Myrobolan(Harad),120,11,Drug and Narcotics
+Nargasi,202,10,Others
+Nearle Hannu,181,5,Fruits
+Neem Fruits,503,11,Drug and Narcotics
+Neem Seed,109,12,Forest Products
+Nelli Kai,182,5,Fruits
+Nerium,429,14,Flowers
+Niger Seed(Ramtil),83,3,Oil Seeds
+Nutmeg,90,7,Spices
+Onion,23,6,Vegetables
+Onion Green,305,6,Vegetables
+Orange,18,5,Fruits
+Orchid,328,14,Flowers
+Other Pulses,82,2,Pulses
+Other green and fresh vegetables,349,6,Vegetables
+Ox,172,13,"Live Stock,Poultry,Fisheries"
+Paddy(Basmati),343,1,Cereals
+Paddy(Common),2,1,Cereals
+Palash flowers,370,11,Drug and Narcotics
+Papaya,59,5,Fruits
+Papaya(Raw),264,6,Vegetables
+Passion Fruit,504,5,Fruits
+Patti Calcutta,333,14,Flowers
+Peach,281,5,Fruits
+Pear(Marasebu),280,5,Fruits
+Peas Wet,146,6,Vegetables
+Peas cod,259,6,Vegetables
+Peas(Dry),295,2,Pulses
+Pegeon Pea(Arhar Fali),252,6,Vegetables
+Pepper garbled,93,7,Spices
+Pepper ungarbled,94,7,Spices
+Perandai,418,6,Vegetables
+Persimon(Japani Fal),277,5,Fruits
+Phuee(Leafy Veg),505,6,Vegetables
+Pigs,179,13,"Live Stock,Poultry,Fisheries"
+Pincushion Flower,506,14,Flowers
+Pine Nut(Chilgoza /Niyoza),507,8,Dry Fruits
+Pineapple,21,5,Fruits
+Pista(Pistachio),508,8,Dry Fruits
+Plum,279,5,Fruits
+Pointed gourd(Parval),254,6,Vegetables
+Pokcha Leafy Veg,509,6,Vegetables
+Polherb,197,10,Others
+Pomegranate,160,5,Fruits
+Poppy capsules,354,11,Drug and Narcotics
+Potato,24,6,Vegetables
+Prawn,510,13,"Live Stock,Poultry,Fisheries"
+Proso Millet,511,1,Cereals
+Pumpkin,70,6,Vegetables
+Pundi,210,10,Others
+Pundi Seed,110,12,Forest Products
+Pupadia,376,11,Drug and Narcotics
+Purslane,512,6,Vegetables
+Quince(Nakh),513,5,Fruits
+Raddish,133,6,Vegetables
+Ragi(Finger Millet),30,1,Cereals
+Raibel,338,14,Flowers
+Rajgir,205,10,Others
+Rala,446,1,Cereals
+Ram,235,13,"Live Stock,Poultry,Fisheries"
+Rambutan,514,5,Fruits
+Ramphal,447,5,Fruits
+Rat Tail Radish(Mogari),258,6,Vegetables
+Ratanjot,389,12,Forest Products
+Raw Biomass(Agro Residue),515,10,Others
+Raya,54,10,Others
+Rayee,448,7,Spices
+Red Cabbage,422,6,Vegetables
+Red Gourd,516,6,Vegetables
+Red Gram,7,2,Pulses
+Resinwood,272,12,Forest Products
+Ribbed Celery,517,6,Vegetables
+Riccbcan,51,10,Others
+Rice,3,1,Cereals
+Rice Bean,518,2,Pulses
+Ridge Gourd(Permal/Hybrid Gourd),519,6,Vegetables
+Ridgeguard(Tori),132,6,Vegetables
+Rose(Local),321,14,Flowers
+Rose(Loose)),186,14,Flowers
+Rose(Tata),320,14,Flowers
+Round Chilli,520,6,Vegetables
+Round gourd,257,6,Vegetables
+Rubber,95,10,Others
+Sabu Dan,243,10,Others
+Safflower,48,3,Oil Seeds
+Saffron,286,7,Spices
+Sajje,225,1,Cereals
+Sal Seeds,521,3,Oil Seeds
+Salix-Pursi(Willow),522,12,Forest Products
+Same/Savi,105,1,Cereals
+Sandalwood,379,12,Forest Products
+Sarasum,204,10,Others
+Season Leaves,230,6,Vegetables
+Seegu,209,10,Others
+Seemebadnekai,148,6,Vegetables
+Seetapal,162,5,Fruits
+Sem,523,6,Vegetables
+"Sesamum(Sesame,Gingelly,Til)",11,3,Oil Seeds
+She Buffalo,176,13,"Live Stock,Poultry,Fisheries"
+She Goat,236,13,"Live Stock,Poultry,Fisheries"
+Sheep,177,13,"Live Stock,Poultry,Fisheries"
+Shrimp,524,13,"Live Stock,Poultry,Fisheries"
+Siddota,154,5,Fruits
+Silk Cocoon,525,13,"Live Stock,Poultry,Fisheries"
+Siru Kizhagu,419,6,Vegetables
+Skin And Hide,185,10,Others
+Snakeguard,128,6,Vegetables
+Snow Mountain Garlic,526,6,Vegetables
+Soanf,114,7,Spices
+Soapnut(Antawala/Retha),167,12,Forest Products
+Soha,449,3,Oil Seeds
+Soji,239,1,Cereals
+Sompu,203,10,Others
+Soursop,527,5,Fruits
+Soyabean,13,3,Oil Seeds
+Spinach,290,6,Vegetables
+Sponge gourd,262,6,Vegetables
+Squash(Chappal Kadoo),282,6,Vegetables
+Star Fruit(Kamraikh),528,5,Fruits
+Strawberry,529,5,Fruits
+Sugar,44,10,Others
+Sugar Snap Peas,530,6,Vegetables
+Sugarcane,122,10,Others
+Sundaikai,417,6,Vegetables
+Sunflower,14,3,Oil Seeds
+Sunflower Seed,238,3,Oil Seeds
+Sunhemp,117,4,Fibre Crops
+Suram,199,10,Others
+Surat Beans(Papadi),251,6,Vegetables
+Suva(Dill Seed),211,3,Oil Seeds
+Suvarna Gadde,150,6,Vegetables
+Swan Phali(Flat Bean),531,6,Vegetables
+Swan Plant (Green Herb),532,11,Drug and Narcotics
+Swanflower,533,14,Flowers
+Sweet Corn ,534,1,Cereals
+Sweet Potato,124,6,Vegetables
+Sweet Pumpkin,145,6,Vegetables
+Sweet Saag,535,6,Vegetables
+Sweet Sultan,395,14,Flowers
+T.V. Cumbu,103,1,Cereals
+Tamarind Fruit,215,12,Forest Products
+Tamarind Seed,168,12,Forest Products
+Tapioca,85,6,Vegetables
+Taramira,63,3,Oil Seeds
+Taro (Arvi) Leaves,537,6,Vegetables
+Taro (Arvi) Stem,538,6,Vegetables
+Tea,40,9,Beverages
+Tender Coconut,161,5,Fruits
+Tevada,539,2,Pulses
+Thinai(Italian Millet),100,2,Pulses
+Thogrikai,142,6,Vegetables
+Thondekai,134,6,Vegetables
+Tinda,297,6,Vegetables
+Tobacco,119,11,Drug and Narcotics
+Tomato,65,6,Vegetables
+Torchwood,273,12,Forest Products
+Toria,55,3,Oil Seeds
+Tube Flower,192,14,Flowers
+Tube Rose(Double),330,14,Flowers
+Tube Rose(Loose),337,14,Flowers
+Tube Rose(Single),324,14,Flowers
+Tulasi,432,10,Others
+Turmeric,35,7,Spices
+Turmeric(raw),260,6,Vegetables
+Turnip,289,6,Vegetables
+Vatsanabha,366,11,Drug and Narcotics
+Walnut,291,8,Dry Fruits
+Water Apple,425,5,Fruits
+Water Melon,60,5,Fruits
+Water Plant(Kaseru),540,10,Others
+Water chestnut,450,10,Others
+Wax,451,12,Forest Products
+Wheat,1,1,Cereals
+Wheat Atta,240,10,Others
+White Muesli,358,11,Drug and Narcotics
+White Peas,341,2,Pulses
+White Pumpkin,130,6,Vegetables
+Wild Bean / Pod,541,2,Pulses
+Wild Cucumber,542,6,Vegetables
+Wild Garlic / Shoots,543,6,Vegetables
+Wild Melon,544,5,Fruits
+Wild Spinach,545,6,Vegetables
+Wild lemon,427,5,Fruits
+Wood,163,12,Forest Products
+Wood Apple,428,5,Fruits
+Wool,296,10,Others
+Yam,201,10,Others
+Yam Bean / Mexican Turnip(Bankla),546,6,Vegetables
+Yam(Ratalu),248,6,Vegetables
+balsam,411,14,Flowers
+basil,364,11,Drug and Narcotics
+buttery,345,2,Pulses
+cineraria,396,14,Flowers
+dhawai flowers,371,11,Drug and Narcotics
+dianthus,405,14,Flowers
+dried mango,352,7,Spices
+golden rod,404,14,Flowers
+gulli,390,12,Forest Products
+gypsophila,398,14,Flowers
+hydrangea,402,14,Flowers
+kakatan,430,14,Flowers
+karanja seeds,368,11,Drug and Narcotics
+kokum,387,12,Forest Products
+kutki,355,11,Drug and Narcotics
+liquor turmeric,361,11,Drug and Narcotics
+macoy,356,11,Drug and Narcotics
+mango powder,351,7,Spices
+nigella,353,7,Spices
+nigella seeds,374,11,Drug and Narcotics
+pippali,360,11,Drug and Narcotics
+poppy seeds,350,7,Spices
+salvia,397,14,Flowers
+sanay,362,11,Drug and Narcotics
+sevanti,393,14,Flowers
+spikenard,384,12,Forest Products
+stevia,369,11,Drug and Narcotics
+stone pulverizer,359,11,Drug and Narcotics
+sweet william,406,14,Flowers
+tulip,392,14,Flowers
+vadang,365,11,Drug and Narcotics

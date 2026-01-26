@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="start"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="4dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_gravity="bottom"
+        android:src="@drawable/ic_grass"
+        android:padding="6dp"
+        android:background="@drawable/green_circle_bg"
+        app:tint="@color/primary_green"
+        app:shapeAppearanceOverlay="@style/CircleImage" />
 
     <TextView
         android:id="@+id/textViewBotMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
         android:background="@drawable/bot_message_background"
-        android:padding="10dp"
-        android:textColor="@android:color/black"
+        android:elevation="2dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:textColor="@color/black"
         android:textSize="16sp"
-        android:justificationMode="inter_word"
-        android:layout_gravity="start|center_vertical" />
+        android:justificationMode="inter_word" />
 </LinearLayout>

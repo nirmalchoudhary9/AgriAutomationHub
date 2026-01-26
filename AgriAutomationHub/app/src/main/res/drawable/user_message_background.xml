@@ -1,7 +1,9 @@
-<!-- res/drawable/user_message_background.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#DCF8C6" />
-    <corners android:radius="16dp" />
-    <padding android:left="12dp" android:right="12dp" android:top="8dp" android:bottom="8dp"/>
-
+    <solid android:color="#E8F5E9" />
+    <corners
+        android:topLeftRadius="16dp"
+        android:bottomLeftRadius="16dp"
+        android:bottomRightRadius="16dp"
+        android:topRightRadius="2dp" />
 </shape>

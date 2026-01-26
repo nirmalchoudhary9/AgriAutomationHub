@@ -30,6 +30,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -39,9 +40,10 @@ public class SellingPriceCalculatorActivity extends AppCompatActivity {
 
     private Spinner spinnerCategory;
     private EditText editTextExpenseName, editTextPrice, editTextYield;
+    private EditText editTextProfitMargin, editTextWastage;
     private Button buttonSaveExpense, buttonAddNewExpense;
-    private LinearLayout layoutNewExpenseForm;
-    private TextView textViewLowestSellingPrice;
+    private MaterialCardView layoutNewExpenseForm;
+    private TextView textViewLowestSellingPrice, textViewBreakEven;
     private RecyclerView recyclerViewExpenses;
     private ExpenseAdapter expenseAdapter;
     private List<Expense> expenseList;
@@ -56,10 +58,13 @@ public class SellingPriceCalculatorActivity extends AppCompatActivity {
         editTextExpenseName = findViewById(R.id.editTextExpenseName);
         editTextPrice = findViewById(R.id.editTextPrice);
         editTextYield = findViewById(R.id.editTextYield);
+        editTextProfitMargin = findViewById(R.id.editTextProfitMargin);
+        editTextWastage = findViewById(R.id.editTextWastage);
         buttonSaveExpense = findViewById(R.id.buttonSaveExpense);
         buttonAddNewExpense = findViewById(R.id.buttonAddNewExpense);
         layoutNewExpenseForm = findViewById(R.id.layoutNewExpenseForm);
         textViewLowestSellingPrice = findViewById(R.id.textViewLowestSellingPrice);
+        textViewBreakEven = findViewById(R.id.textViewBreakEven);
         recyclerViewExpenses = findViewById(R.id.recyclerViewExpenses);
 
         expenseList = new ArrayList<>();
@@ -91,6 +96,8 @@ public class SellingPriceCalculatorActivity extends AppCompatActivity {
 
         editTextPrice.addTextChangedListener(textWatcher);
         editTextYield.addTextChangedListener(textWatcher);
+        editTextProfitMargin.addTextChangedListener(textWatcher);
+        editTextWastage.addTextChangedListener(textWatcher);
         spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -118,11 +125,7 @@ public class SellingPriceCalculatorActivity extends AppCompatActivity {
 
         ImageView back = findViewById(R.id.back_btn_selling_price);
 
-        back.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        });
+        back.setOnClickListener(v -> onBackPressed());
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_selling_price);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -186,13 +189,31 @@ public class SellingPriceCalculatorActivity extends AppCompatActivity {
 
     private void updateLowestSellingPrice() {
         String yieldText = editTextYield.getText().toString();
+        String marginText = editTextProfitMargin.getText().toString();
+        String wastageText = editTextWastage.getText().toString();
+
         if (!yieldText.isEmpty() && !expenseList.isEmpty()) {
-            double yield = Double.parseDouble(yieldText); // Convert kg to quintals
-            double lowestPrice = (totalExpenses / yield);
-            double updatedlowestPrice = lowestPrice + (0.20 * lowestPrice);
-            textViewLowestSellingPrice.setText("Lowest Selling Price: ₹" + String.format("%.2f", updatedlowestPrice));
+            double yield = Double.parseDouble(yieldText);
+            double margin = marginText.isEmpty() ? 0 : Double.parseDouble(marginText);
+            double wastage = wastageText.isEmpty() ? 0 : Double.parseDouble(wastageText);
+
+            // Yield after wastage
+            double adjustedYield = yield * (1 - (wastage / 100.0));
+            
+            if (adjustedYield <= 0) {
+                textViewLowestSellingPrice.setText("₹ 0.00");
+                textViewBreakEven.setText("Yield cannot be zero after wastage");
+                return;
+            }
+
+            double breakEven = totalExpenses / adjustedYield;
+            double targetPrice = breakEven * (1 + (margin / 100.0));
+
+            textViewBreakEven.setText(String.format("Break-even: ₹%.2f", breakEven));
+            textViewLowestSellingPrice.setText(String.format("₹ %.2f", targetPrice));
         } else {
-            textViewLowestSellingPrice.setText("Lowest Selling Price: ₹0.00");
+            textViewLowestSellingPrice.setText("₹ 0.00");
+            textViewBreakEven.setText("Break-even: ₹ 0.00");
         }
     }
 

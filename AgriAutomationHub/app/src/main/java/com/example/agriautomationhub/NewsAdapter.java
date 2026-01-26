@@ -40,37 +40,27 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         NewsThread news = newsList.get(position);
         holder.titleTextView.setText(news.getTitle());
-        holder.urlTextView.setText(news.getUrl());
-        holder.publishedTextView.setText(news.getPublished());
+        holder.sourceTextView.setText(news.getSiteFull());
+        
+        // Simple date formatting or truncation if needed
+        String pub = news.getPublished();
+        if (pub != null && pub.length() > 10) pub = pub.substring(0, 10);
+        holder.publishedTextView.setText("• " + pub);
 
         // Handle the image if available
         if (news.getMainImage() != null && !news.getMainImage().isEmpty()) {
             holder.newsImageView.setVisibility(View.VISIBLE);
-            Glide.with(holder.itemView.getContext())  // Use the context from the itemView
+            Glide.with(holder.itemView.getContext())
                     .load(news.getMainImage())
-                    .listener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            // Hide the ImageView if image loading fails
-                            holder.newsImageView.setVisibility(View.GONE);
-                            return true; // Indicate that we handled the error
-                        }
-
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            // Image loaded successfully, make sure ImageView is visible
-                            holder.newsImageView.setVisibility(View.VISIBLE);
-                            return false; // Glide will handle the display of the image
-                        }
-                    })
+                    .placeholder(R.drawable.rounded_item_selected) // Use a placeholder
+                    .error(R.drawable.rounded_item_selected) // Fallback
                     .into(holder.newsImageView);
-
         } else {
-            holder.newsImageView.setVisibility(View.GONE); // Hide the image if not available
+            holder.newsImageView.setVisibility(View.GONE);
         }
 
-        // Set an OnClickListener on the URL TextView to open it in a browser
-        holder.urlTextView.setOnClickListener(view -> {
+        // Set OnClickListener on the entire CardView
+        holder.itemView.setOnClickListener(view -> {
             String url = news.getUrl();
             if (url != null && !url.isEmpty()) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -86,13 +76,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     }
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView, urlTextView, publishedTextView;
+        TextView titleTextView, sourceTextView, publishedTextView;
         ImageView newsImageView;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.newsTitle);
-            urlTextView = itemView.findViewById(R.id.newsUrl);
+            sourceTextView = itemView.findViewById(R.id.newsSource);
             publishedTextView = itemView.findViewById(R.id.newsPublished);
             newsImageView = itemView.findViewById(R.id.newsImage);
         }

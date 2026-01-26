@@ -1,10 +1,10 @@
 package com.example.agriautomationhub;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,11 +13,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,16 +28,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import android.widget.AutoCompleteTextView;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.datepicker.MaterialDatePicker;
-import com.google.firebase.auth.FirebaseAuth;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class StatewiseMandiActivity extends AppCompatActivity {
+    private static final String TAG = "StatewiseMandiActivity";
 
     private AutoCompleteTextView spinnerState, spinnerDistrict, spinnerCommodity;
     private TextView selectedDateText, mandiOutputTextView;
@@ -54,11 +51,16 @@ public class StatewiseMandiActivity extends AppCompatActivity {
     private String selectedDate = "";
     private final HashMap<String, String[]> stateDistrictMap = new HashMap<>();
     private final HashMap<String, List<String>> stateToDistricts = new HashMap<>();
-    private final HashMap<String, String> commodityMap = new HashMap<>();
+    private final HashMap<String, String[]> commodityMap = new HashMap<>();
+    private final HashMap<String, List<String>> groupToCommodity = new HashMap<>();
 
     private final HashSet<String> stateSet = new HashSet<>();
     private final HashMap<String, String> stateCodeMap = new HashMap<>();
     private final HashMap<String, String> districtCodeMap = new HashMap<>();
+
+    private final HashSet<String> groupSet = new HashSet<>();
+    private final HashMap<String, String> groupCodeMap = new HashMap<>();
+    private final HashMap<String, String> commodityCodeMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +78,7 @@ public class StatewiseMandiActivity extends AppCompatActivity {
         recyclerView.setAdapter(mandiAdapter);
 
 
-        findViewById(R.id.back_btn_mandi).setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-        });
+        findViewById(R.id.back_btn_mandi).setOnClickListener(v -> onBackPressed());
 
         // Date Picker
         MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
@@ -111,23 +110,30 @@ public class StatewiseMandiActivity extends AppCompatActivity {
             String commodity = spinnerCommodity.getText().toString();
             String date = selectedDate;
 
+
             String key = (state + "-" + district).toLowerCase().trim();
+            String key2 = (commodity).toLowerCase().trim();
             if (!stateDistrictMap.containsKey(key)) {
                 mandiOutputTextView.setText("Invalid state-district combination.");
                 return;
             }
 
-            if (!commodityMap.containsKey(commodity.toLowerCase().trim())) {
+            if (!commodityMap.containsKey(key2)) {
                 mandiOutputTextView.setText("Invalid commodity.");
                 return;
             }
 
             String[] codes = stateDistrictMap.get(key);
-            String url = buildUrl(
-                    codes[0], codes[1], commodityMap.get(commodity.toLowerCase().trim()), state, district, commodity, date
-            );
+            String[] codes2 = commodityMap.get(key2);
+            String url = buildUrl(codes[0], codes[1], codes2[1], codes2[0], convertDateFormat(date));
 
-            fetchAndParseHtml(url);
+            Log.d(TAG, url);
+
+            String part2 = url.substring(20);
+
+            Log.w(TAG, part2);
+
+            fetchAndParseApiData(url);
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_mandi);
@@ -149,13 +155,6 @@ public class StatewiseMandiActivity extends AppCompatActivity {
             return false;
         });
     }
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finish(); // finish this activity so it won’t reopen on back
-    }
 
     @Override
     protected void onRestart() {
@@ -164,9 +163,25 @@ public class StatewiseMandiActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.navigation_mandi);
     }
 
+    public static String convertDateFormat(String inputDate) {
+        try {
+            SimpleDateFormat inputFormat =
+                    new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+
+            SimpleDateFormat outputFormat =
+                    new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
+            Date date = inputFormat.parse(inputDate);
+            return outputFormat.format(date);
+
+        } catch (Exception e) {
+            return ""; // or handle error properly
+        }
+    }
+
     private void loadCsvMappings() {
         try {
-            InputStream stateStream = getAssets().open("mandi_state_map.csv");
+            InputStream stateStream = getAssets().open("state_district.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(stateStream));
             reader.readLine(); // skip header
             String line;
@@ -189,13 +204,18 @@ public class StatewiseMandiActivity extends AppCompatActivity {
                 }
             }
 
-            InputStream commStream = getAssets().open("commodity_mapping.csv");
+            InputStream commStream = getAssets().open("commodities.csv");
             BufferedReader reader2 = new BufferedReader(new InputStreamReader(commStream));
             reader2.readLine(); // skip header
             while ((line = reader2.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length >= 2) {
-                    commodityMap.put(parts[0].trim().toLowerCase(), parts[1].trim());
+                if (parts.length >= 4) {
+                    String groupCode = parts[2].trim();
+                    String CommodityCode = parts[1].trim();
+                    String CommodityName = parts[0].trim();
+
+                    String key = (CommodityName).toLowerCase();
+                    commodityMap.put(key, new String[]{groupCode, CommodityCode});
                 }
             }
             reader2.close();
@@ -231,95 +251,93 @@ public class StatewiseMandiActivity extends AppCompatActivity {
     }
 
     private String buildUrl(String stateCode, String districtCode, String commodityCode,
-                            String state, String district, String commodity, String date) {
+                            String group, String date) {
         try {
-            return "https://agmarknet.gov.in/SearchCmmMkt.aspx?" +
-                    "Tx_Commodity=" + URLEncoder.encode(commodityCode, "UTF-8") +
-                    "&Tx_State=" + URLEncoder.encode(stateCode, "UTF-8") +
-                    "&Tx_District=" + URLEncoder.encode(districtCode, "UTF-8") +
-                    "&Tx_Market=0" +
-                    "&DateFrom=" + URLEncoder.encode(date, "UTF-8") +
-                    "&DateTo=" + URLEncoder.encode(date, "UTF-8") +
-                    "&Fr_Date=" + URLEncoder.encode(date, "UTF-8") +
-                    "&To_Date=" + URLEncoder.encode(date, "UTF-8") +
-                    "&Tx_Trend=0" +
-                    "&Tx_CommodityHead=" + URLEncoder.encode(commodity, "UTF-8") +
-                    "&Tx_StateHead=" + URLEncoder.encode(state, "UTF-8") +
-                    "&Tx_DistrictHead=" + URLEncoder.encode(district, "UTF-8") +
-                    "&Tx_MarketHead=" + URLEncoder.encode("--Select--", "UTF-8");
+            return "https://api.agmarknet.gov.in/v1/daily-price-arrival/report?" +
+                    "from_date=" + URLEncoder.encode(date, "UTF-8") +
+                    "&to_date=" + URLEncoder.encode(date, "UTF-8") +
+                    "&data_type=100004" +
+                    "&group=" + group +
+                    "&commodity=" + commodityCode +
+                    "&state=" + URLEncoder.encode("[" + stateCode + "]", "UTF-8") +
+                    "&district=" + URLEncoder.encode("[" + districtCode + "]", "UTF-8") +
+                    "&market=[100002]" +
+                    "&grade=[100003]" +
+                    "&variety=[100007]" +
+                    "&page=1"+
+                    "&limit=10";
         } catch (Exception e) {
             return "";
         }
     }
 
-    private void fetchAndParseHtml(String url) {
+    private void fetchAndParseApiData(String url) {
         OkHttpClient client = new OkHttpClient();
+
         Request request = new Request.Builder()
                 .url(url)
                 .header("User-Agent", "Mozilla/5.0")
+                .header("Accept", "application/json")
                 .build();
 
         new Thread(() -> {
             try (Response response = client.newCall(request).execute()) {
+
                 if (!response.isSuccessful()) {
                     runOnUiThread(() -> showErrorRow("HTTP Error: " + response.code()));
                     return;
                 }
 
-                String html = response.body().string();
-                Document doc = Jsoup.parse(html);
-                Elements tables = doc.select("table");
-                Element mandiTable = null;
+                String jsonResponse = response.body().string();
+                JSONObject root = new JSONObject(jsonResponse);
 
-                for (Element table : tables) {
-                    Elements headerRow = table.select("tr").first() != null ? table.select("tr").first().select("th") : null;
-                    if (headerRow != null) {
-                        for (Element header : headerRow) {
-                            String headerText = header.text().toLowerCase();
-                            if (headerText.contains("market") || headerText.contains("arrival") || headerText.contains("commodity")) {
-                                mandiTable = table;
-                                break;
-                            }
-                        }
-                    }
-                    if (mandiTable != null) break;
-                }
-
-                if (mandiTable == null) {
-                    runOnUiThread(() -> showErrorRow("⚠️ Mandi data table not found."));
+                if (!root.getBoolean("status")) {
+                    runOnUiThread(() -> showErrorRow("API returned no data"));
                     return;
                 }
 
-                Elements rows = mandiTable.select("tr");
-                mandiDataList.clear(); // Clear old data
+                JSONArray records =
+                        root.getJSONObject("data")
+                                .getJSONArray("records");
 
-                for (int i = 1; i < rows.size(); i++) { // skip header
-                    Elements cols = rows.get(i).select("td");
+                mandiDataList.clear();
 
-                    if (cols.size() >= 10) {
-                        String market = cols.get(2).text();
-                        String commodity = cols.get(3).text();
-                        String minPrice = cols.get(6).text();
-                        String maxPrice = cols.get(7).text();
-                        String date = cols.get(9).text();
+                if (records.length() == 0) {
+                    runOnUiThread(() -> showErrorRow("⚠️ No mandi data found."));
+                    return;
+                }
 
-                        MandiData data = new MandiData(market, commodity, minPrice, maxPrice, date);
-                        mandiDataList.add(data);
-                    }
+                JSONArray dataArray =
+                        records.getJSONObject(0)
+                                .getJSONArray("data");
+
+                for (int i = 0; i < dataArray.length(); i++) {
+                    JSONObject item = dataArray.getJSONObject(i);
+
+                    String market = item.optString("market_name");
+                    String commodity = item.optString("cmdt_name");
+                    String minPrice = item.optString("min_price");
+                    String maxPrice = item.optString("max_price");
+                    String date = item.optString("arrival_date");
+
+                    MandiData mandiData =
+                            new MandiData(market, commodity, minPrice, maxPrice, date);
+
+                    mandiDataList.add(mandiData);
                 }
 
                 runOnUiThread(() -> {
                     if (mandiDataList.isEmpty()) {
-                        showErrorRow("⚠️ No mandi data found for this selection.");
+                        showErrorRow("⚠️ No mandi data found.");
                     } else {
                         mandiAdapter.notifyDataSetChanged();
                     }
                 });
 
-            } catch (IOException e) {
-                runOnUiThread(() -> showErrorRow("❌ Request error: " + e.getMessage()));
             } catch (Exception e) {
-                runOnUiThread(() -> showErrorRow("❌ Unexpected error: " + e.getMessage()));
+                runOnUiThread(() ->
+                        showErrorRow("❌ Error: " + e.getMessage())
+                );
             }
         }).start();
     }

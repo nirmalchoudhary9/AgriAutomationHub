@@ -9,7 +9,7 @@
         android:id="@+id/textViewCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Category"
+        android:text="@string/category"
         android:layout_weight="1"
         android:textStyle="bold" />
 
@@ -17,14 +17,14 @@
         android:id="@+id/textViewExpenseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Expense Name"
+        android:text="@string/expense_name"
         android:layout_weight="2" />
 
     <TextView
         android:id="@+id/textViewPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price"
+        android:text="@string/price"
         android:layout_weight="1" />
 
     <ImageButton

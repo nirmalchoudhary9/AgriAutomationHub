@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -38,6 +39,7 @@ import java.util.Map;
 public class ProfilePageActivity extends AppCompatActivity {
     private ImageView profileImage;
     private EditText usernameText, emailText, phoneText;
+    private TextView headerUserName, headerUserEmail;
     private Uri selectedImageUri = null;
 
     private FirebaseUser user;
@@ -86,6 +88,8 @@ public class ProfilePageActivity extends AppCompatActivity {
         usernameText = findViewById(R.id.editTextName);
         emailText = findViewById(R.id.editTextEmail);
         phoneText = findViewById(R.id.editTextPhone);
+        headerUserName = findViewById(R.id.header_user_name);
+        headerUserEmail = findViewById(R.id.header_user_email);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         db = FirebaseFirestore.getInstance("profile-data");
@@ -126,6 +130,21 @@ public class ProfilePageActivity extends AppCompatActivity {
                     });
         });
 
+        findViewById(R.id.btn_logout_profile).setOnClickListener(v -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("Logout")
+                    .setMessage("Are you sure you want to logout?")
+                    .setPositiveButton("Logout", (dialog, which) -> {
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent(ProfilePageActivity.this, LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    })
+                    .setNegativeButton("Cancel", null)
+                    .show();
+        });
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_profile);
         bottomNavigationView.setSelectedItemId(R.id.navigation_profile);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -148,6 +167,8 @@ public class ProfilePageActivity extends AppCompatActivity {
         usernameText.setText(prefs.getName());
         emailText.setText(prefs.getEmail());
         phoneText.setText(prefs.getPhone());
+        headerUserName.setText(prefs.getName());
+        headerUserEmail.setText(prefs.getEmail());
 
         String imageUrl = prefs.getImageUrl();
         if (!imageUrl.isEmpty()) {
@@ -170,6 +191,8 @@ public class ProfilePageActivity extends AppCompatActivity {
                         usernameText.setText(name);
                         emailText.setText(email);
                         phoneText.setText(phone);
+                        headerUserName.setText(name);
+                        headerUserEmail.setText(email);
 
                         if (imageUrl != null && !imageUrl.isEmpty()) {
                             Glide.with(this).load(imageUrl).circleCrop().into(profileImage);
@@ -235,7 +258,7 @@ public class ProfilePageActivity extends AppCompatActivity {
         cropImageOptions.fixAspectRatio = true;
         cropImageOptions.allowFlipping = false;
         cropImageOptions.allowRotation = true;
-        cropImageOptions.toolbarColor = getColor(R.color.purple_700);
+        cropImageOptions.toolbarColor = getColor(R.color.primary_green_dark);
         cropImageOptions.activityBackgroundColor = getColor(android.R.color.black);
 
         cropImage.launch(new CropImageContractOptions(sourceUri, cropImageOptions));

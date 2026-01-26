@@ -4,262 +4,520 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="@color/app_background">
 
     <!-- MAIN CONTENT -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- AppBarLayout with Toolbar -->
+        <!-- Custom Header / Top Bar -->
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:background="@android:color/transparent"
+            app:elevation="0dp">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/primary_color"
-                app:title="AgriAutomationHub" />
+                app:contentInsetStart="0dp"
+                app:contentInsetLeft="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-black"
+                    android:text="AgriAutomationHub"
+                    android:textColor="@color/icon_tint"
+                    android:letterSpacing="0.02"
+                    android:textSize="22sp" />
+
+            </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Scrollable Content -->
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="70dp"
-            android:padding="16dp"
+            android:clipToPadding="false"
+            android:paddingBottom="100dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:gravity="center_horizontal">
+                android:padding="20dp">
 
-                <!-- Weather Card -->
-                <androidx.cardview.widget.CardView
+                <!-- Welcome Section -->
+                <TextView
+                    android:id="@+id/greeting_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/welcome_back"
+                    android:textColor="@color/text_secondary_semantic"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/dashboard_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/default_user_name"
+                    android:textColor="@color/icon_tint"
+                    android:textSize="24sp" />
+
+                <!-- Weather Card Redesign -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="14dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp">
+                    android:layout_marginTop="24dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp"
+                    app:strokeWidth="0dp">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_weather_card"
+                        android:padding="20dp">
 
                         <TextView
                             android:id="@+id/weather_location"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="City, Date"
-                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-black"
+                            android:text="@string/fetching_location"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/weather_info"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Unable to get location"
-                            android:textColor="@android:color/darker_gray"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/weather_data_sync"
+                            android:textColor="#E0F2F1"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/weather_location" />
 
-                <!-- Smart Support -->
+                        <ImageView
+                            android:id="@+id/weather_icon_main"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/weather_gradient"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Smart Services Header -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Smart Support"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:textColor="@android:color/black" />
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.05"
+                    android:text="@string/smart_services_title"
+                    android:textColor="@color/icon_tint"
+                    android:textSize="14sp" />
 
-                <!-- Grid of Services -->
+                <!-- Grid Redesign with Material Cards -->
                 <GridLayout
                     android:id="@+id/grid_smart_support"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:columnCount="2"
+                    android:layout_marginTop="12dp"
                     android:alignmentMode="alignMargins"
+                    android:columnCount="2"
                     android:useDefaultMargins="true">
 
-                    <!-- Example Service Card -->
-                    <LinearLayout
+                    <!-- Index 0: Auto Irrigation -->
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
-                        android:layout_height="180dp"
+                        android:layout_height="160dp"
                         android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="16dp"
-                        android:background="@drawable/card_bg"
+                        android:layout_margin="6dp"
                         android:clickable="true"
-                        android:elevation="6dp"
-                        android:focusable="true">
+                        android:focusable="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_background">
 
-                        <ImageView
-                            android:layout_width="86dp"
-                            android:layout_height="86dp"
-                            android:src="@drawable/ic_auto_irrigation" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Auto Irrigation"
-                            android:textSize="18sp"
-                            android:textColor="@color/black"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:gravity="center"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
-                    <!-- Disease Detection -->
-                    <LinearLayout
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="#10000000">
+                                
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_auto_irrigation" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/service_auto_irrigation"
+                                android:textColor="@color/text_primary_semantic"
+                                android:textSize="14sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Index 1: Crop Health (Disease Detection) -->
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
-                        android:layout_height="180dp"
+                        android:layout_height="160dp"
                         android:layout_columnWeight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="16dp"
-                        android:elevation="6dp"
-                        android:background="@drawable/card_bg"
+                        android:layout_margin="6dp"
                         android:clickable="true"
-                        android:focusable="true">
+                        android:focusable="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_background">
 
-                        <ImageView
-                            android:layout_width="86dp"
-                            android:layout_height="86dp"
-                            android:src="@drawable/ic_crop_disease" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Disease Detection"
-                            android:textSize="18sp"
-                            android:textColor="@color/black"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:gravity="center"
-                            android:layout_marginTop="8dp" />
-                    </LinearLayout>
+                            android:orientation="vertical"
+                            android:padding="8dp">
 
-                <!-- Crop Recommendation -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:background="@drawable/card_bg"
-                    android:clickable="true"
-                    android:elevation="6dp"
-                    android:focusable="true">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="#10000000">
 
-                    <ImageView
-                        android:layout_width="86dp"
-                        android:layout_height="86dp"
-                        android:src="@drawable/ic_recommender" />
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_crop_disease" />
+                            </com.google.android.material.card.MaterialCardView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Crop Recommender"
-                        android:textSize="18sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/service_crop_health"
+                                android:textColor="@color/text_primary_semantic"
+                                android:textSize="14sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-                <!-- Selling Price Calculator -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:elevation="6dp"
-                    android:background="@drawable/card_bg"
-                    android:clickable="true"
-                    android:focusable="true">
+                    <!-- Index 2: Crop Advisor (Crop Recommendation) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_background">
 
-                    <ImageView
-                        android:layout_width="86dp"
-                        android:layout_height="86dp"
-                        android:src="@drawable/ic_sell_price" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Selling Price Calculator"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="#10000000">
 
-                <!-- News -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:background="@drawable/card_bg"
-                    android:clickable="true"
-                    android:elevation="6dp"
-                    android:focusable="true">
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_recommender" />
+                            </com.google.android.material.card.MaterialCardView>
 
-                    <ImageView
-                        android:layout_width="86dp"
-                        android:layout_height="86dp"
-                        android:src="@drawable/ic_news" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/service_crop_advisor"
+                                android:textColor="@color/text_primary_semantic"
+                                android:textSize="14sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="News"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:gravity="center"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
+                    <!-- Index 3: Market Price (Selling Price Calculator) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_background">
 
-                <!-- Mandi View -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:background="@drawable/card_bg"
-                    android:clickable="true"
-                    android:elevation="6dp"
-                    android:focusable="true">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
 
-                    <ImageView
-                        android:layout_width="86dp"
-                        android:layout_height="86dp"
-                        android:src="@drawable/ic_mandi" />
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="#10000000">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mandi View"
-                        android:textSize="18sp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_sell_price" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/service_market_price"
+                                android:textColor="@color/text_primary_semantic"
+                                android:textSize="14sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Index 4: Agri News (News) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_background">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="#10000000">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_news" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/service_agri_news"
+                                android:textColor="@color/text_primary_semantic"
+                                android:textSize="14sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Index 5: Mandi View -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_background">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="#10000000">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_mandi" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/service_mandi_view"
+                                android:textColor="@color/text_primary_semantic"
+                                android:textSize="14sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Index 6: Field Measure -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_background">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="#10000000">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_field" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/service_field_area"
+                                android:textColor="@color/text_primary_semantic"
+                                android:textSize="14sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Index 7: Market Trend -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="160dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_background">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                app:cardCornerRadius="32dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="#10000000">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:padding="12dp"
+                                    android:src="@drawable/ic_market" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="@string/service_market_trend"
+                                android:textColor="@color/text_primary_semantic"
+                                android:textSize="14sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
                 </GridLayout>
             </LinearLayout>
@@ -271,34 +529,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="?android:attr/windowBackground"
+            android:background="@color/bottom_nav_background"
+            app:elevation="16dp"
+            app:itemIconTint="@color/primary_green"
+            app:itemTextColor="@color/primary_green"
             app:menu="@menu/bottom_nav_menu" />
 
-        <!-- Floating Action Button -->
+        <!-- Floating ChatBot FAB -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabChatBot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="80dp"
-            android:contentDescription="ChatBot"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="90dp"
             android:src="@drawable/ic_chatbot"
-            app:tint="@null"
-            app:backgroundTint="@android:color/transparent"
-            app:rippleColor="@android:color/transparent"
-            android:stateListAnimator="@null"
-            android:elevation="0dp"
-            app:maxImageSize="120dp"/>
+            app:backgroundTint="@color/white"
+            app:elevation="8dp"
+            app:fabSize="normal"
+            app:maxImageSize="36dp"
+            app:tint="@null" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="320dp"
+        android:layout_width="310dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="?attr/colorSurface"
+        app:itemIconTint="@color/primary_green"
+        app:itemTextColor="@color/text_primary_semantic"
+        app:itemTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:itemBackground="@drawable/drawer_item_selector"
+        app:itemHorizontalPadding="20dp"
+        app:itemIconPadding="16dp"
+        app:itemIconSize="24dp"
+        app:itemShapeAppearanceOverlay="@style/ShapeAppearance.Agri.SmallComponent"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
 

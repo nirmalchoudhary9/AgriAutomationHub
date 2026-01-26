@@ -41,8 +41,15 @@ public class WeatherResponse {
     }
 
     public static class Weather {
+        @SerializedName("id")
+        private int id;
         @SerializedName("description")
         private String description;
+
+        public int getId() {
+            return id;
+        }
+
 
         public String getDescription() {
             return description;

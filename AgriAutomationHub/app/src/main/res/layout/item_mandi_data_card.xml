@@ -1,44 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="6dp">
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="1dp"
+    app:cardBackgroundColor="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp"
-        android:background="@drawable/card_bg"
-        android:elevation="4dp">
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/variety"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textSize="16dp"
-            android:text="फसल: " />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
 
-        <TextView
-            android:id="@+id/min_price"
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_grass"
+                app:tint="@color/primary_green"
+                android:background="@drawable/green_circle_bg"
+                android:padding="8dp"
+                android:layout_marginEnd="12dp"/>
+
+            <TextView
+                android:id="@+id/variety"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Variety Name"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1B5E20"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EFF3F1"
+            android:layout_marginBottom="12dp"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textSize="16dp"
-            android:text="न्यूनतम: " />
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
-        <TextView
-            android:id="@+id/max_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textSize="16dp"
-            android:text="अधिकतम: " />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Min Price"
+                    android:textSize="12sp"
+                    android:textColor="#757575"/>
+                
+                <TextView
+                    android:id="@+id/min_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹ 0000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#388E3C"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Max Price"
+                    android:textSize="12sp"
+                    android:textColor="#757575"/>
+                
+                <TextView
+                    android:id="@+id/max_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹ 0000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#D32F2F"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+
+</com.google.android.material.card.MaterialCardView>
