@@ -25,12 +25,13 @@ public class PrivacyTermsActivity extends AppCompatActivity {
         // Retrieve which document to load
         String type = getIntent().getStringExtra("type");
 
-        if (type == null) type = "privacy"; // default
+        if (type == null)
+            type = "privacy"; // default
 
         switch (type) {
             case "terms":
-                titleText.setText(getString(R.string.terms_title));
-                contentText.setText(Html.fromHtml(getString(R.string.terms_content), Html.FROM_HTML_MODE_LEGACY));
+                titleText.setText("Terms & Conditions");
+                contentText.setText(loadFromAssets("TERMS AND CONDITIONS.txt"));
                 break;
 
             case "support":
@@ -40,11 +41,9 @@ public class PrivacyTermsActivity extends AppCompatActivity {
 
             case "privacy":
             default:
-                titleText.setText(getString(R.string.privacy_title));
-                contentText.setText(Html.fromHtml(getString(R.string.privacy_content), Html.FROM_HTML_MODE_LEGACY));
+                titleText.setText("Privacy Policy");
+                contentText.setText(loadFromAssets("privacy_policy.txt"));
                 break;
-
-
         }
 
         findViewById(R.id.back_btn_legal).setOnClickListener(v -> {
@@ -70,5 +69,19 @@ public class PrivacyTermsActivity extends AppCompatActivity {
             return false;
         });
     }
-}
 
+    private String loadFromAssets(String fileName) {
+        StringBuilder stringBuilder = new StringBuilder();
+        try (java.io.BufferedReader reader = new java.io.BufferedReader(
+                new java.io.InputStreamReader(getAssets().open(fileName)))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line).append("\n");
+            }
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+            return "Error loading document.";
+        }
+        return stringBuilder.toString();
+    }
+}

@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.example.agriautomationhub.utils.PrefsManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -37,6 +38,7 @@ public class Register extends AppCompatActivity {
     Uri selectedImageUri = null;
     FirebaseFirestore db;
     StorageReference storageRef;
+    PrefsManager prefs;
 
     // Image picker launcher
     ActivityResultLauncher<String> imagePickerLauncher;
@@ -58,18 +60,18 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance("profile-data");
+        db = FirebaseFirestore.getInstance(); // Default instance matching Login
         storageRef = FirebaseStorage.getInstance().getReference("profile_pics");
-
+        prefs = new PrefsManager(this);
 
         nameInput = findViewById(R.id.name_input);
         emailInput = findViewById(R.id.register_email_input);
-        phoneInput = findViewById(R.id.phone_input);  // Add this in XML
+        phoneInput = findViewById(R.id.phone_input);
         passwordInput = findViewById(R.id.password_input);
         registerButton = findViewById(R.id.register_btn);
         progressBar = findViewById(R.id.progressBar);
         loginLink = findViewById(R.id.login_text);
-        profileImage = findViewById(R.id.profile_image); // Add ImageView in XML
+        profileImage = findViewById(R.id.profile_image);
 
         // Setup image picker
         imagePickerLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
@@ -89,23 +91,46 @@ public class Register extends AppCompatActivity {
         });
 
         registerButton.setOnClickListener(view -> {
-            progressBar.setVisibility(View.VISIBLE);
+            String name = String.valueOf(nameInput.getText()).trim();
+            String email = String.valueOf(emailInput.getText()).trim();
+            String phone = String.valueOf(phoneInput.getText()).trim();
+            String password = String.valueOf(passwordInput.getText()).trim();
 
-            String name = String.valueOf(nameInput.getText());
-            String email = String.valueOf(emailInput.getText());
-            String phone = String.valueOf(phoneInput.getText());
-            String password = String.valueOf(passwordInput.getText());
-
-            if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(phone)) {
-                Toast.makeText(Register.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                progressBar.setVisibility(View.GONE);
+            // Validation
+            if (TextUtils.isEmpty(name)) {
+                nameInput.setError("Name is required");
                 return;
             }
+            if (TextUtils.isEmpty(email)) {
+                emailInput.setError("Email is required");
+                return;
+            }
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                emailInput.setError("Invalid email address");
+                return;
+            }
+            if (TextUtils.isEmpty(phone)) {
+                phoneInput.setError("Phone number is required");
+                return;
+            }
+            if (phone.length() < 10) {
+                phoneInput.setError("Phone number must be at least 10 digits");
+                return;
+            }
+            if (TextUtils.isEmpty(password)) {
+                passwordInput.setError("Password is required");
+                return;
+            }
+            if (password.length() < 6) {
+                passwordInput.setError("Password must be at least 6 characters");
+                return;
+            }
+
+            progressBar.setVisibility(View.VISIBLE);
 
             // Create account in FirebaseAuth
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
-                        progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             if (user != null) {
@@ -116,7 +141,9 @@ public class Register extends AppCompatActivity {
                                 }
                             }
                         } else {
-                            Toast.makeText(Register.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(Register.this, "Authentication failed: " + task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
                         }
                     });
         });
@@ -140,15 +167,20 @@ public class Register extends AppCompatActivity {
         userMap.put("name", name);
         userMap.put("email", email);
         userMap.put("phone", phone);
-        if (photoUrl != null) userMap.put("photoUrl", photoUrl);
+        if (photoUrl != null)
+            userMap.put("photoUrl", photoUrl);
 
         db.collection("users").document(uid).set(userMap)
                 .addOnSuccessListener(aVoid -> {
+                    // ✅ Save to cache immediately
+                    prefs.saveUser(name, phone, email, photoUrl);
+
                     Toast.makeText(Register.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 })
-                .addOnFailureListener(e ->
-                        Toast.makeText(Register.this, "Failed to save profile: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                .addOnFailureListener(e -> Toast
+                        .makeText(Register.this, "Failed to save profile: " + e.getMessage(), Toast.LENGTH_SHORT)
+                        .show());
     }
 }

@@ -16,11 +16,11 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Check if the user is already logged in
-                SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-                boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+                // Check if the user is already logged in using FirebaseAuth
+                com.google.firebase.auth.FirebaseUser currentUser = com.google.firebase.auth.FirebaseAuth.getInstance()
+                        .getCurrentUser();
 
-                if (isLoggedIn) {
+                if (currentUser != null) {
                     // Navigate to MainActivity if logged in
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);

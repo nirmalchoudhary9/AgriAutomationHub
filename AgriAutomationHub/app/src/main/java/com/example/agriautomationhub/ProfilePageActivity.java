@@ -50,26 +50,26 @@ public class ProfilePageActivity extends AppCompatActivity {
     private static final int CAMERA_PERMISSION_CODE = 101;
 
     // Pick from gallery
-    private final ActivityResultLauncher<String> pickImage =
-            registerForActivityResult(new ActivityResultContracts.GetContent(),
-                    uri -> {
-                        if (uri != null) {
-                            launchImageCropper(uri);
-                        }
-                    });
+    private final ActivityResultLauncher<String> pickImage = registerForActivityResult(
+            new ActivityResultContracts.GetContent(),
+            uri -> {
+                if (uri != null) {
+                    launchImageCropper(uri);
+                }
+            });
 
     // Take photo from camera
-    private final ActivityResultLauncher<Uri> takePhoto =
-            registerForActivityResult(new ActivityResultContracts.TakePicture(),
-                    success -> {
-                        if (success && selectedImageUri != null) {
-                            launchImageCropper(selectedImageUri);
-                        }
-                    });
+    private final ActivityResultLauncher<Uri> takePhoto = registerForActivityResult(
+            new ActivityResultContracts.TakePicture(),
+            success -> {
+                if (success && selectedImageUri != null) {
+                    launchImageCropper(selectedImageUri);
+                }
+            });
 
     // Crop image
-    private final ActivityResultLauncher<CropImageContractOptions> cropImage =
-            registerForActivityResult(new CropImageContract(), result -> {
+    private final ActivityResultLauncher<CropImageContractOptions> cropImage = registerForActivityResult(
+            new CropImageContract(), result -> {
                 if (result.isSuccessful() && result.getUriContent() != null) {
                     selectedImageUri = result.getUriContent();
                     Glide.with(this).load(selectedImageUri).circleCrop().into(profileImage);
@@ -92,8 +92,8 @@ public class ProfilePageActivity extends AppCompatActivity {
         headerUserEmail = findViewById(R.id.header_user_email);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        db = FirebaseFirestore.getInstance("profile-data");
-        storageRef = FirebaseStorage.getInstance().getReference("profile_pics/");
+        db = FirebaseFirestore.getInstance();
+        storageRef = FirebaseStorage.getInstance().getReference("-default-/");
         prefs = new PrefsManager(this);
 
         findViewById(R.id.back_btn_profile).setOnClickListener(v -> {
@@ -116,16 +116,19 @@ public class ProfilePageActivity extends AppCompatActivity {
         changePassword.setOnClickListener(view -> {
             String email = emailText.getText().toString().trim();
             if (TextUtils.isEmpty(email)) {
-                Toast.makeText(ProfilePageActivity.this, "Please enter your email to reset password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfilePageActivity.this, "Please enter your email to reset password",
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
 
             FirebaseAuth.getInstance().sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(ProfilePageActivity.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProfilePageActivity.this, "Password reset email sent", Toast.LENGTH_SHORT)
+                                    .show();
                         } else {
-                            Toast.makeText(ProfilePageActivity.this, "Failed to send reset email", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProfilePageActivity.this, "Failed to send reset email", Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     });
         });
@@ -137,7 +140,8 @@ public class ProfilePageActivity extends AppCompatActivity {
                     .setPositiveButton("Logout", (dialog, which) -> {
                         FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent(ProfilePageActivity.this, LoginActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
+                                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         finish();
                     })
@@ -200,8 +204,13 @@ public class ProfilePageActivity extends AppCompatActivity {
 
                         // ✅ Save to local cache
                         prefs.saveUser(name, phone, email, imageUrl);
+                    } else {
+                        Toast.makeText(ProfilePageActivity.this, "No profile data found in database", Toast.LENGTH_LONG)
+                                .show();
                     }
-                });
+                })
+                .addOnFailureListener(e -> Toast.makeText(ProfilePageActivity.this,
+                        "Error fetching profile: " + e.getMessage(), Toast.LENGTH_LONG).show());
     }
 
     private void saveUserData(DocumentReference userRef, String name, String email, String phone, String imageUrl) {
@@ -209,7 +218,8 @@ public class ProfilePageActivity extends AppCompatActivity {
         updates.put("name", name);
         updates.put("email", email);
         updates.put("phone", phone);
-        if (imageUrl != null) updates.put("photoUrl", imageUrl);
+        if (imageUrl != null)
+            updates.put("photoUrl", imageUrl);
 
         userRef.update(updates)
                 .addOnSuccessListener(aVoid -> {
@@ -217,13 +227,11 @@ public class ProfilePageActivity extends AppCompatActivity {
                     // ✅ Update cache instantly
                     prefs.saveUser(name, phone, email, imageUrl);
                 })
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, "Failed to update profile", Toast.LENGTH_SHORT).show()
-                );
+                .addOnFailureListener(e -> Toast.makeText(this, "Failed to update profile", Toast.LENGTH_SHORT).show());
     }
 
     private void showImageSourceDialog() {
-        String[] options = {"Take Photo", "Choose from Gallery"};
+        String[] options = { "Take Photo", "Choose from Gallery" };
         new AlertDialog.Builder(this)
                 .setTitle("Select Image")
                 .setItems(options, (DialogInterface dialog, int which) -> {
@@ -237,7 +245,8 @@ public class ProfilePageActivity extends AppCompatActivity {
 
     private void checkPermissionsAndOpenCamera() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA },
+                    CAMERA_PERMISSION_CODE);
         } else {
             openCamera();
         }
@@ -273,7 +282,8 @@ public class ProfilePageActivity extends AppCompatActivity {
             return;
         }
 
-        if (user == null) return;
+        if (user == null)
+            return;
 
         DocumentReference userRef = db.collection("users").document(user.getUid());
 
@@ -288,6 +298,7 @@ public class ProfilePageActivity extends AppCompatActivity {
             saveUserData(userRef, newName, user.getEmail(), newPhone, null);
         }
     }
+
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, MainActivity.class);

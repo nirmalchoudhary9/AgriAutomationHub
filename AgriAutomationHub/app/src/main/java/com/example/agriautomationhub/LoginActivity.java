@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.example.agriautomationhub.utils.PrefsManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView registerLink, forgotPasswordText;
 
     FirebaseFirestore db;
+    PrefsManager prefs;
 
     @Override
     public void onStart() {
@@ -52,7 +54,8 @@ public class LoginActivity extends AppCompatActivity {
         forgotPasswordText = findViewById(R.id.forgot_password_text);
 
         mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance("profile-data");
+        db = FirebaseFirestore.getInstance(); // Use default instance
+        prefs = new PrefsManager(this);
 
         // Go to Register screen
         registerLink.setOnClickListener(view -> {
@@ -65,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         forgotPasswordText.setOnClickListener(view -> {
             Editable editable = usernameInput.getText();
             if (editable == null || TextUtils.isEmpty(editable.toString())) {
-                Toast.makeText(LoginActivity.this, "Please enter your email to reset password", Toast.LENGTH_SHORT).show();
+                usernameInput.setError("Enter email to reset password");
                 return;
             }
 
@@ -75,37 +78,54 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Failed to send reset email", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,
+                                    "Failed to send reset email: " + task.getException().getMessage(),
+                                    Toast.LENGTH_SHORT).show();
                         }
                     });
         });
 
         // Login button
         loginButton.setOnClickListener(view -> {
-            progressBar.setVisibility(View.VISIBLE);
-            String email = String.valueOf(usernameInput.getText());
-            String password = String.valueOf(passwordInput.getText());
+            String email = String.valueOf(usernameInput.getText()).trim();
+            String password = String.valueOf(passwordInput.getText()).trim();
 
-            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                Toast.makeText(LoginActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                progressBar.setVisibility(View.GONE);
+            if (TextUtils.isEmpty(email)) {
+                usernameInput.setError("Email is required");
+                return;
+            }
+            if (TextUtils.isEmpty(password)) {
+                passwordInput.setError("Password is required");
                 return;
             }
 
+            progressBar.setVisibility(View.VISIBLE);
+
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
-                        progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             if (user != null) {
-                                // Fetch user profile from Firestore
-                                DocumentReference docRef = db.collection("profile-data").document(user.getUid());
+                                // Fetch user profile from Firestore "users" collection
+                                DocumentReference docRef = db.collection("users").document(user.getUid());
                                 docRef.get().addOnSuccessListener(document -> {
+                                    progressBar.setVisibility(View.GONE);
                                     if (document.exists()) {
-                                        String name = document.getString("name");
-                                        Toast.makeText(LoginActivity.this, "Welcome back " + name, Toast.LENGTH_SHORT).show();
+                                        String pName = document.getString("name");
+                                        String pPhone = document.getString("phone");
+                                        String pEmail = document.getString("email");
+                                        String photoUrl = document.getString("photoUrl");
+
+                                        // ✅ Save to cache immediately
+                                        prefs.saveUser(pName, pPhone, pEmail, photoUrl);
+
+                                        Toast.makeText(LoginActivity.this,
+                                                "Welcome back " + (pName != null ? pName : ""),
+                                                Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(LoginActivity.this, "Login Successful (No profile found)", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginActivity.this, "Profile not found in 'users' collection",
+                                                Toast.LENGTH_LONG)
+                                                .show();
                                     }
 
                                     // Go to MainActivity
@@ -113,13 +133,18 @@ public class LoginActivity extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 }).addOnFailureListener(e -> {
-                                    Toast.makeText(LoginActivity.this, "Error loading profile: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
+                                    Toast.makeText(LoginActivity.this, "Error loading profile: " + e.getMessage(),
+                                            Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     finish();
                                 });
                             }
                         } else {
-                            Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(LoginActivity.this,
+                                    "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_LONG)
+                                    .show();
                         }
                     });
         });

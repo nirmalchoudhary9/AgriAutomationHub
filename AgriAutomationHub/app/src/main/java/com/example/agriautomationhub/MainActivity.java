@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView greetingText, dashboardUserName;
     private CircleImageView navUserImage;
 
-//    private static final String API_KEY = "7e23b9a25a90846111d856e437e11535";
+    // private static final String API_KEY = "7e23b9a25a90846111d856e437e11535";
     private static final String API_KEY = BuildConfig.OPENWEATHER_API_KEY;
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Firebase init
         mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance("profile-data");
+        db = FirebaseFirestore.getInstance();
         prefs = new PrefsManager(this);
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
@@ -115,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
         android.view.MenuItem logoutItem = navigationView.getMenu().findItem(R.id.nav_logout);
         if (logoutItem != null) {
             android.text.SpannableString s = new android.text.SpannableString(logoutItem.getTitle());
-            s.setSpan(new android.text.style.ForegroundColorSpan(android.graphics.Color.parseColor("#C62828")), 0, s.length(), 0);
+            s.setSpan(new android.text.style.ForegroundColorSpan(android.graphics.Color.parseColor("#C62828")), 0,
+                    s.length(), 0);
             logoutItem.setTitle(s);
             if (logoutItem.getIcon() != null) {
                 logoutItem.getIcon().setTint(android.graphics.Color.parseColor("#C62828"));
@@ -188,13 +190,13 @@ public class MainActivity extends AppCompatActivity {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         // Location Permission
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                        != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this,
+                        Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.ACCESS_COARSE_LOCATION},
+                    new String[] { Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION },
                     LOCATION_PERMISSION_REQUEST_CODE);
         } else {
             getLastLocation();
@@ -224,7 +226,18 @@ public class MainActivity extends AppCompatActivity {
 
                         // Update NavDrawer immediately
                         loadUserProfile(uid);
+                        // Debug Toast
+                        // Toast.makeText(MainActivity.this, "Profile Loaded: " + name,
+                        // Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Document missing
+                        Toast.makeText(MainActivity.this, "Profile missing in DB for: " + uid, Toast.LENGTH_LONG)
+                                .show();
                     }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(MainActivity.this, "Failed to fetch profile: " + e.getMessage(), Toast.LENGTH_LONG)
+                            .show();
                 });
     }
 
@@ -262,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showLanguageSelectionDialog() {
-        String[] languages = {"English", "Hindi"};
+        String[] languages = { "English", "Hindi" };
         new androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("Select Language")
                 .setItems(languages, (dialog, which) -> {
@@ -312,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
             serviceView.setOnClickListener(v -> {
                 switch (index) {
                     case 0:
-                        startActivity(new Intent(MainActivity.this, Automatic_Irrigation.class));
+                        startActivity(new Intent(MainActivity.this, DeviceLinkActivity.class));
                         break;
                     case 1:
                         startActivity(new Intent(MainActivity.this, CropCareActivity.class));
@@ -361,11 +374,13 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void getLastLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this,
+                        Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.ACCESS_COARSE_LOCATION},
+                    new String[] { Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION },
                     LOCATION_PERMISSION_REQUEST_CODE);
             return;
         }
@@ -392,7 +407,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(@NonNull Call<WeatherResponse> call,
-                                   @NonNull Response<WeatherResponse> response) {
+                    @NonNull Response<WeatherResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     WeatherResponse weatherResponse = response.body();
                     double temp = weatherResponse.getMain().getTemp();
@@ -406,7 +421,8 @@ public class MainActivity extends AppCompatActivity {
                     int conditionId = weatherResponse.getWeather()[0].getId();
                     updateWeatherIcon(conditionId);
 
-                    weatherInfo.setText(getString(R.string.weather_format, String.valueOf(temp), String.valueOf(humidity), description));
+                    weatherInfo.setText(getString(R.string.weather_format, String.valueOf(temp),
+                            String.valueOf(humidity), description));
                     weatherLocation.setText(getString(R.string.weather_location_format, location, currentDate));
                 } else {
                     weatherInfo.setText(R.string.weather_fetch_failed);
@@ -422,7 +438,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -434,7 +451,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateWeatherIcon(int conditionId) {
-        if (weatherIcon == null) return;
+        if (weatherIcon == null)
+            return;
 
         int iconRes;
         if (conditionId >= 200 && conditionId <= 232) {

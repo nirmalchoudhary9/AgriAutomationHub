@@ -73,6 +73,9 @@
         <activity
             android:name=".HelpActivity"
             android:exported="false" />
+        <activity
+            android:name=".DeviceLinkActivity"
+            android:exported="false" />
 
         <activity
             android:name=".Register"

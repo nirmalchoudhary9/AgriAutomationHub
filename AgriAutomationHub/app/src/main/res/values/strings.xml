@@ -227,7 +227,7 @@
     <string name="service_auto_irrigation">Auto Irrigation</string>
     <string name="service_crop_health">Crop Health</string>
     <string name="service_crop_advisor">Crop Advisor</string>
-    <string name="service_market_price">Market Price</string>
+    <string name="service_market_price">Selling Price Calculator</string>
     <string name="service_agri_news">Agri News</string>
     <string name="service_mandi_view">Mandi View</string>
     <string name="service_field_area">Field Area</string>

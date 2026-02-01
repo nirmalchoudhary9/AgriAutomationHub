@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -41,11 +42,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,28 +57,18 @@ import java.util.Map;
 public class MarketViewActivity extends AppCompatActivity {
     private static final String TAG = "MarketViewActivity";
 
-    private Spinner districtSpinner, mandiSpinner, commGroupSpinner, cropSpinner;
+    private AutoCompleteTextView districtSpinner, mandiSpinner, commGroupSpinner, cropSpinner;
     private Button fetchDataButton;
     private ProgressBar progressBar;
     private LineChart priceChart;
     private TextView percentageChangeTextView;
     private ImageView back, percentageChangeIcon;
-    private LinearLayout percentageChangeSection;
+    private com.google.android.material.card.MaterialCardView percentageChangeSection;
 
     private Map<String, List<String>> districtMandiMap = new HashMap<>();
     private Map<String, List<String>> commGroupCommMap = new HashMap<>();
 
-    // ODBC Connection String
-    String ConnectionURL = "jdbc:jtds:sqlserver://database-agriautomationhub.database.windows.net:1433;DatabaseName=crop_price_dataset;user=AgriAutomationHub@database-agriautomationhub;password=Agri@2024;ssl=require;sslProtocol=TLSv1.2;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-    // Load the JDBC Driver
-    static {
-        try {
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+    private static final String API_BASE = "https://agri-marketview-hpfvhzdaa6hrdyeb.canadacentral-01.azurewebsites.net";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +84,7 @@ public class MarketViewActivity extends AppCompatActivity {
         priceChart = findViewById(R.id.priceChart);
         percentageChangeSection = findViewById(R.id.percentageChangeSection);
         percentageChangeTextView = findViewById(R.id.percentageChangeTextView);
-        percentageChangeIcon = findViewById(R.id.percentageChangeIcon);// Add this in your XML layout
+        percentageChangeIcon = findViewById(R.id.percentageChangeIcon);
 
         // Hide the chart initially
         priceChart.setVisibility(View.GONE);
@@ -102,18 +94,16 @@ public class MarketViewActivity extends AppCompatActivity {
         setupCommGroupSpinner();
 
         fetchDataButton.setOnClickListener(v -> {
-            String district = districtSpinner.getSelectedItem().toString();
-            String mandi = mandiSpinner.getSelectedItem().toString();
-            String crop = cropSpinner.getSelectedItem().toString();
+            String district = districtSpinner.getText().toString();
+            String mandi = mandiSpinner.getText().toString();
+            String crop = cropSpinner.getText().toString();
 
-            // Clear the previous chart before fetching new data
             priceChart.clear();
-            priceChart.setVisibility(View.GONE); // Hide the chart while new data is fetched
+            priceChart.setVisibility(View.GONE);
             new FetchDataTask().execute(district, mandi, crop);
         });
 
         back = findViewById(R.id.back_btn_market_view);
-
         back.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
@@ -127,7 +117,6 @@ public class MarketViewActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return false;
             } else if (id == R.id.navigation_news) {
-                // Handle News navigation
                 startActivity(new Intent(getApplicationContext(), NewsActivity.class));
                 return false;
             } else if (id == R.id.navigation_mandi) {
@@ -140,7 +129,7 @@ public class MarketViewActivity extends AppCompatActivity {
 
     private void loadJsonData() {
         try {
-            // Load and parse mandi_data.json
+            // Load mandi_data.json
             InputStream mandiInputStream = getAssets().open("mandi_data.json");
             byte[] mandiBuffer = new byte[mandiInputStream.available()];
             mandiInputStream.read(mandiBuffer);
@@ -159,7 +148,7 @@ public class MarketViewActivity extends AppCompatActivity {
                 districtMandiMap.get(districtName).add(mandiName);
             }
 
-            // Load and parse crop_data.json
+            // Load crop_data.json
             InputStream cropInputStream = getAssets().open("crop_data_full.json");
             byte[] cropBuffer = new byte[cropInputStream.available()];
             cropInputStream.read(cropBuffer);
@@ -184,64 +173,71 @@ public class MarketViewActivity extends AppCompatActivity {
     }
 
     private void setupDistrictSpinner() {
-        // Get district names from the array.xml
         String[] districtsArray = getResources().getStringArray(R.array.districts);
         List<String> districts = Arrays.asList(districtsArray);
 
-        ArrayAdapter<String> districtAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, districts);
-        districtAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> districtAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line,
+                districts);
         districtSpinner.setAdapter(districtAdapter);
 
-        districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedDistrict = districts.get(position);
-                List<String> mandis = districtMandiMap.get(selectedDistrict);
-
-                // Check if mandis list is null or empty to avoid NullPointerException
-                if (mandis != null && !mandis.isEmpty()) {
-                    updateMandiSpinner(mandis);
-                }
+        // Set first item as default
+        if (!districts.isEmpty()) {
+            districtSpinner.setText(districts.get(0), false);
+            List<String> mandis = districtMandiMap.get(districts.get(0));
+            if (mandis != null && !mandis.isEmpty()) {
+                updateMandiSpinner(mandis);
             }
+        }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // No action needed here
+        districtSpinner.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedDistrict = parent.getItemAtPosition(position).toString();
+            List<String> mandis = districtMandiMap.get(selectedDistrict);
+            if (mandis != null && !mandis.isEmpty()) {
+                updateMandiSpinner(mandis);
             }
         });
-
     }
 
     private void updateMandiSpinner(List<String> mandis) {
-        ArrayAdapter<String> mandiAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, mandis);
-        mandiAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> mandiAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line,
+                mandis);
         mandiSpinner.setAdapter(mandiAdapter);
+
+        // Set first item as default
+        if (!mandis.isEmpty()) {
+            mandiSpinner.setText(mandis.get(0), false);
+        }
     }
 
     private void setupCommGroupSpinner() {
         List<String> commGroups = new ArrayList<>(commGroupCommMap.keySet());
-        ArrayAdapter<String> commGroupAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, commGroups);
-        commGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> commGroupAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line,
+                commGroups);
         commGroupSpinner.setAdapter(commGroupAdapter);
 
-        commGroupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedCommGroup = commGroups.get(position);
-                List<String> commNames = commGroupCommMap.get(selectedCommGroup);
-                updateCropSpinner(commNames);
-            }
+        // Set first item as default
+        if (!commGroups.isEmpty()) {
+            commGroupSpinner.setText(commGroups.get(0), false);
+            List<String> commNames = commGroupCommMap.get(commGroups.get(0));
+            updateCropSpinner(commNames);
+        }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
+        commGroupSpinner.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedCommGroup = parent.getItemAtPosition(position).toString();
+            List<String> commNames = commGroupCommMap.get(selectedCommGroup);
+            updateCropSpinner(commNames);
         });
     }
 
     private void updateCropSpinner(List<String> commNames) {
-        ArrayAdapter<String> commAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, commNames);
-        commAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> commAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line,
+                commNames);
         cropSpinner.setAdapter(commAdapter);
+
+        // Set first item as default
+        if (commNames != null && !commNames.isEmpty()) {
+            cropSpinner.setText(commNames.get(0), false);
+        }
     }
 
     public class DataPoint {
@@ -254,174 +250,234 @@ public class MarketViewActivity extends AppCompatActivity {
         }
     }
 
-
-
     private class FetchDataTask extends AsyncTask<String, Void, ArrayList<DataPoint>> {
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);  // Show progress bar
-            priceChart.setVisibility(View.GONE);      // Hide the chart while loading
-            percentageChangeSection.setVisibility(View.GONE); // Hide percentage change section
+            progressBar.setVisibility(View.VISIBLE);
+            priceChart.setVisibility(View.GONE);
+            percentageChangeSection.setVisibility(View.GONE);
         }
+
         @Override
         protected ArrayList<DataPoint> doInBackground(String... params) {
             String district = params[0];
             String mandi = params[1];
             String crop = params[2];
-            ArrayList<DataPoint> dataPoints = new ArrayList<>();  // Collect DataPoints here
 
-            try (Connection conn = DriverManager.getConnection(ConnectionURL)) {
-                String query = "SELECT TOP 7 Date, maxValue FROM crop_prices WHERE districtName = ? AND mandiName = ? AND commName = ? ORDER BY Date DESC";
-                PreparedStatement statement = conn.prepareStatement(query);
-                statement.setString(1, district);
-                statement.setString(2, mandi);
-                statement.setString(3, crop);
-                ResultSet rs = statement.executeQuery();
+            ArrayList<DataPoint> dataPoints = new ArrayList<>();
+            HttpURLConnection conn = null;
 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                while (rs.next()) {
-                    String dateStr = rs.getString("Date");
-                    float maxValue = rs.getFloat("maxValue");
+            try {
+                String urlStr = API_BASE + "/api/prices"
+                        + "?district=" + URLEncoder.encode(district, "UTF-8")
+                        + "&mandi=" + URLEncoder.encode(mandi, "UTF-8")
+                        + "&crop=" + URLEncoder.encode(crop, "UTF-8");
 
-                    // Parse date and add to dataPoints
-                    Date date = sdf.parse(dateStr);
+                URL url = new URL(urlStr);
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setUseCaches(false);
+                conn.setDoInput(true);
+                conn.setConnectTimeout(30000); // ⬅ 30 sec
+                conn.setReadTimeout(30000); // ⬅ 30 sec
+                conn.setRequestProperty("Connection", "keep-alive");
+
+                int responseCode = conn.getResponseCode();
+                InputStream is = (responseCode >= 200 && responseCode < 300)
+                        ? conn.getInputStream()
+                        : conn.getErrorStream();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                reader.close();
+
+                JSONArray jsonArray = new JSONArray(response.toString());
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject obj = jsonArray.getJSONObject(i);
+                    Date date = sdf.parse(obj.getString("Date"));
+                    float maxValue = (float) obj.getDouble("maxValue");
                     dataPoints.add(new DataPoint(date, maxValue));
                 }
 
-                Collections.sort(dataPoints, new Comparator<DataPoint>() {
-                    @Override
-                    public int compare(DataPoint dp1, DataPoint dp2) {
-                        return dp1.date.compareTo(dp2.date);  // Sort by date
-                    }
-                });
-                rs.close();
-            } catch (SQLException | ParseException e) {
-                e.printStackTrace();
+                Collections.sort(dataPoints, (a, b) -> a.date.compareTo(b.date));
+
+            } catch (Exception e) {
+                Log.e("MarketView", "Network error", e);
+            } finally {
+                if (conn != null)
+                    conn.disconnect();
             }
-            return dataPoints;  // Return DataPoint list instead of Entry list
+
+            return dataPoints;
         }
 
         @Override
         protected void onPostExecute(ArrayList<DataPoint> dataPoints) {
-            super.onPostExecute(dataPoints);
-
             progressBar.setVisibility(View.GONE);
 
-            if (dataPoints.isEmpty()) {
-                Toast.makeText(MarketViewActivity.this, "No data found for the selected options.", Toast.LENGTH_LONG).show();
-                priceChart.setVisibility(View.GONE);  // Hide the chart if no data
-                percentageChangeSection.setVisibility(View.GONE); // Hide percentage change if no data
+            if (dataPoints == null || dataPoints.isEmpty()) {
+                Toast.makeText(MarketViewActivity.this,
+                        "Server is slow or unavailable. Please try again.",
+                        Toast.LENGTH_LONG).show();
+                priceChart.setVisibility(View.GONE);
+                percentageChangeSection.setVisibility(View.GONE);
             } else {
-                // Proceed with displaying the chart
-                ArrayList<Entry> entries = new ArrayList<>();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd MMM");  // Format for displaying dates
-                final List<String> xLabels = new ArrayList<>();  // List to hold date labels for the X-axis
-
-                for (int i = 0; i < dataPoints.size(); i++) {
-                    DataPoint dp = dataPoints.get(i);
-                    entries.add(new Entry(i, dp.maxValue));  // Max value for the chart
-                    xLabels.add(sdf.format(dp.date));  // Add date label to X-axis
-                }
-
-                // Customize the line chart data set for better visualization
-                LineDataSet dataSet = new LineDataSet(entries, "Price Over Time");
-                dataSet.setLineWidth(3f);  // Line thickness
-                dataSet.setCircleRadius(5f);  // Circle size
-                dataSet.setCircleColor(Color.parseColor("#1D9A85"));  // Circle color
-                dataSet.setColor(Color.parseColor("#1D9A85"));  // Line color
-                dataSet.setDrawCircleHole(true);  // Hollow circle
-                dataSet.setCircleHoleColor(Color.WHITE);  // Hollow center color
-                dataSet.setValueTextSize(10f);  // Value size
-                dataSet.setDrawValues(true);  // Show value labels on points
-
-                LineData lineData = new LineData(dataSet);
-                priceChart.setData(lineData);
-
-                // Customize the chart appearance
-                priceChart.getDescription().setEnabled(false);  // Disable description
-                priceChart.getLegend().setEnabled(false);  // Disable legend
-                priceChart.setExtraBottomOffset(20f);  // Extra space at the bottom to avoid label clipping
-
-                // Customize the X-axis
-                XAxis xAxis = priceChart.getXAxis();
-                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);  // X-axis at the bottom
-                xAxis.setGranularity(1f);  // Show 1 value at a time
-                xAxis.setLabelRotationAngle(-45);  // Rotate labels for better visibility
-                xAxis.setAvoidFirstLastClipping(true);  // Prevent clipping of first/last labels
-                xAxis.setDrawLabels(true);  // Ensure labels are drawn
-
-                // Set date labels on the X-axis using ValueFormatter
-                xAxis.setValueFormatter(new ValueFormatter() {
-                    @Override
-                    public String getFormattedValue(float value) {
-                        if (value >= 0 && value < xLabels.size()) {
-                            return xLabels.get((int) value);  // Return date label
-                        } else {
-                            return "";  // Return empty string if out of range
-                        }
-                    }
-                });
-
-                // Customize the Y-axis (left side)
-                YAxis leftAxis = priceChart.getAxisLeft();
-                leftAxis.setGranularity(1f);  // 1-unit step for price
-                float maxY = Float.MIN_VALUE;
-                for (Entry entry : entries) {
-                    maxY = Math.max(maxY, entry.getY());
-                }
-                leftAxis.setAxisMaximum(maxY + 5);  // Set a buffer above max value
-                leftAxis.setDrawGridLines(true);
-                leftAxis.setValueFormatter(new ValueFormatter() {
-                    @Override
-                    public String getFormattedValue(float value) {
-                        return String.format(Locale.getDefault(), "%.0f", value);  // Format without decimals
-                    }
-                });
-
-                // Disable the right Y-axis
-                priceChart.getAxisRight().setEnabled(false);
-
-                // Show the chart and refresh it
-                priceChart.setVisibility(View.VISIBLE);
-                priceChart.invalidate();  // Redraw the chart
-
-                // Calculate and display the percentage change between the last two prices
-                if (dataPoints.size() >= 2) {
-                    float lastPrice = dataPoints.get(dataPoints.size() - 1).maxValue;
-                    float secondLastPrice = dataPoints.get(dataPoints.size() - 2).maxValue;
-                    float percentageChange = ((lastPrice - secondLastPrice) / secondLastPrice) * 100;
-
-                    // Display the percentage change
-                    percentageChangeTextView.setText(String.format(Locale.getDefault(), "%.2f%%", percentageChange));
-                    percentageChangeIcon.setVisibility(View.VISIBLE); // Show the icon
-                    percentageChangeSection.setVisibility(View.VISIBLE);
-
-                    // Set icon based on percentage change direction
-                    if (percentageChange > 0) {
-                        percentageChangeIcon.setImageResource(R.drawable.ic_arrow_up); // Add your icon for increase
-                        percentageChangeTextView.setTextColor(Color.parseColor("#1D9A85")); // Change text color for increase
-                    } else if (percentageChange < 0) {
-                        percentageChangeIcon.setImageResource(R.drawable.ic_arrow_down); // Add your icon for decrease
-                        percentageChangeTextView.setTextColor(Color.parseColor("#FF0000")); // Change text color for decrease
-                    } else {
-//                        percentageChangeIcon.setImageResource(R.drawable.ic_no_change); // Add icon for no change
-                        percentageChangeTextView.setTextColor(Color.parseColor("#808080")); // Change text color for no change
-                    }
-                } else {
-                    percentageChangeSection.setVisibility(View.GONE); // Hide if there's not enough data
-                }
-
-                // Show the chart and refresh it
-                priceChart.setVisibility(View.VISIBLE);
-                priceChart.invalidate();  // Redraw the chart
+                renderChart(dataPoints);
             }
+        }
+    }
+
+    private void renderChart(ArrayList<DataPoint> dataPoints) {
+        ArrayList<Entry> entries = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM", Locale.getDefault());
+        final List<String> xLabels = new ArrayList<>();
+
+        for (int i = 0; i < dataPoints.size(); i++) {
+            DataPoint dp = dataPoints.get(i);
+            entries.add(new Entry(i, dp.maxValue));
+            xLabels.add(sdf.format(dp.date));
+        }
+
+        LineDataSet dataSet = new LineDataSet(entries, "Price Over Time");
+
+        // Line styling
+        dataSet.setLineWidth(3f);
+        dataSet.setColor(Color.parseColor("#1D9A85"));
+        dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER); // Smooth curves
+        dataSet.setCubicIntensity(0.2f);
+
+        // Circle (point) styling
+        dataSet.setCircleRadius(6f);
+        dataSet.setCircleColor(Color.parseColor("#1D9A85"));
+        dataSet.setCircleHoleRadius(3f);
+        dataSet.setDrawCircleHole(true);
+        dataSet.setCircleHoleColor(Color.WHITE);
+
+        // Gradient fill under the line
+        dataSet.setDrawFilled(true);
+        dataSet.setFillColor(Color.parseColor("#1D9A85"));
+        dataSet.setFillAlpha(50);
+
+        // Value styling
+        dataSet.setValueTextSize(10f);
+        dataSet.setValueTextColor(Color.parseColor("#2C3E50"));
+        dataSet.setDrawValues(true);
+        dataSet.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return String.format(Locale.getDefault(), "₹%.0f", value);
+            }
+        });
+
+        LineData lineData = new LineData(dataSet);
+        priceChart.setData(lineData);
+
+        // Chart general settings
+        priceChart.getDescription().setEnabled(false);
+        priceChart.getLegend().setEnabled(false);
+        priceChart.setExtraBottomOffset(15f);
+        priceChart.setExtraTopOffset(15f);
+        priceChart.setDrawGridBackground(false);
+        priceChart.setTouchEnabled(true);
+        priceChart.setDragEnabled(true);
+        priceChart.setScaleEnabled(false);
+        priceChart.setPinchZoom(false);
+
+        // Animate the chart
+        priceChart.animateXY(1000, 1000);
+
+        // X-Axis styling
+        XAxis xAxis = priceChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setGranularity(1f);
+        xAxis.setLabelRotationAngle(-45);
+        xAxis.setAvoidFirstLastClipping(true);
+        xAxis.setDrawLabels(true);
+        xAxis.setDrawGridLines(false);
+        xAxis.setTextColor(Color.parseColor("#7F8C8D"));
+        xAxis.setTextSize(10f);
+        xAxis.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                if (value >= 0 && value < xLabels.size()) {
+                    return xLabels.get((int) value);
+                }
+                return "";
+            }
+        });
+
+        // Y-Axis (Left) styling
+        YAxis leftAxis = priceChart.getAxisLeft();
+        leftAxis.setGranularity(1f);
+        leftAxis.setTextColor(Color.parseColor("#7F8C8D"));
+        leftAxis.setTextSize(10f);
+        leftAxis.setDrawGridLines(true);
+        leftAxis.setGridColor(Color.parseColor("#ECF0F1"));
+        leftAxis.setGridLineWidth(0.5f);
+
+        float maxY = Float.MIN_VALUE;
+        float minY = Float.MAX_VALUE;
+        for (Entry entry : entries) {
+            maxY = Math.max(maxY, entry.getY());
+            minY = Math.min(minY, entry.getY());
+        }
+        leftAxis.setAxisMaximum(maxY + (maxY - minY) * 0.1f);
+        leftAxis.setAxisMinimum(minY - (maxY - minY) * 0.1f);
+
+        leftAxis.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return String.format(Locale.getDefault(), "₹%.0f", value);
+            }
+        });
+
+        // Disable right Y-axis
+        priceChart.getAxisRight().setEnabled(false);
+
+        priceChart.setVisibility(View.VISIBLE);
+        priceChart.invalidate();
+
+        // Calculate and display percentage change
+        if (dataPoints.size() >= 2) {
+            float lastPrice = dataPoints.get(dataPoints.size() - 1).maxValue;
+            float secondLastPrice = dataPoints.get(dataPoints.size() - 2).maxValue;
+            float percentageChange = ((lastPrice - secondLastPrice) / secondLastPrice) * 100;
+
+            percentageChangeTextView.setText(String.format(Locale.getDefault(),
+                    "%.2f%%", Math.abs(percentageChange)));
+            percentageChangeIcon.setVisibility(View.VISIBLE);
+            percentageChangeSection.setVisibility(View.VISIBLE);
+
+            if (percentageChange > 0) {
+                percentageChangeIcon.setImageResource(R.drawable.ic_arrow_up);
+                percentageChangeTextView.setTextColor(Color.parseColor("#1D9A85"));
+                percentageChangeTextView.setText("+" + String.format(Locale.getDefault(),
+                        "%.2f%%", percentageChange));
+            } else if (percentageChange < 0) {
+                percentageChangeIcon.setImageResource(R.drawable.ic_arrow_down);
+                percentageChangeTextView.setTextColor(Color.parseColor("#E74C3C"));
+                percentageChangeTextView.setText(String.format(Locale.getDefault(),
+                        "%.2f%%", percentageChange));
+            } else {
+                percentageChangeIcon.setVisibility(View.GONE);
+                percentageChangeTextView.setTextColor(Color.parseColor("#95A5A6"));
+                percentageChangeTextView.setText("0.00%");
+            }
+        } else {
+            percentageChangeSection.setVisibility(View.GONE);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -429,16 +485,10 @@ public class MarketViewActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_logout) {
+        if (id == R.id.action_logout)
             return logoutUser();
-        }
-        if (id == R.id.action_profile) {
+        if (id == R.id.action_profile)
             return settings();
-        }
-        if (id == R.id.action_help) {
-            Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
-            startActivity(intent);
-        }
         return super.onOptionsItemSelected(item);
     }
 

@@ -18,7 +18,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary_green">
+            android:background="@color/primary_green"
+            android:elevation="4dp">
 
             <ImageView
                 android:id="@+id/back_btn_market_view"
@@ -37,7 +38,7 @@
                 android:text="@string/marketview"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:fontFamily="sans-serif-black" />
+                android:fontFamily="sans-serif-medium" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -45,6 +46,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_market_view">
 
@@ -58,9 +60,209 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/select_market_options"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_green_dark"
+                        android:layout_marginBottom="20dp"/>
+
+                    <!-- District -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/districtInputLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/district"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxStrokeColor="@color/primary_green"
+                        app:hintTextColor="@color/primary_green">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/districtSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:padding="16dp"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Mandi -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/mandiInputLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/mandi"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxStrokeColor="@color/primary_green"
+                        app:hintTextColor="@color/primary_green">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/mandiSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:padding="16dp"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Category -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/commGroupInputLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="@string/category"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxStrokeColor="@color/primary_green"
+                        app:hintTextColor="@color/primary_green">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/commGroupSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:padding="16dp"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Crop -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cropInputLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:hint="@string/crop"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxStrokeColor="@color/primary_green"
+                        app:hintTextColor="@color/primary_green">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/cropSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:padding="16dp"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/fetchDataButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="@string/fetch_data"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        app:cornerRadius="16dp"
+                        app:backgroundTint="@color/primary_green"
+                        app:elevation="2dp"
+                        app:icon="@drawable/ic_search"
+                        app:iconGravity="textStart"
+                        app:iconPadding="8dp"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Loading Indicator -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary_green"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:visibility="gone" />
+
+            <!-- Price Change Indicator -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/percentageChangeSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/white"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price Change (Last 2 Days)"
+                        android:textSize="14sp"
+                        android:textColor="@color/secondaryTextColor"
+                        android:layout_marginBottom="8dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:id="@+id/percentageChangeIcon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_arrow_up"
+                            android:layout_marginEnd="12dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/percentageChangeTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_green"
+                            tools:text="+5.23%" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Chart Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/chartCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
                 app:cardBackgroundColor="@color/white">
 
                 <LinearLayout
@@ -70,158 +272,20 @@
                     android:padding="16dp">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/select_market_options"
+                        android:text="Price Trend"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/primary_green"
-                        android:layout_marginBottom="16dp"/>
+                        android:textColor="@color/primary_green_dark"
+                        android:layout_marginBottom="12dp"/>
 
-                    <!-- District Spinner with Label -->
-                    <TextView
-                        android:id="@+id/districtTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/district"
-                        android:textColor="@color/secondaryTextColor"
-                        android:layout_marginBottom="4dp"/>
-                    
-                    <FrameLayout
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/priceChart"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_edittext_background"
-                        android:layout_marginBottom="16dp">
-                        <Spinner
-                            android:id="@+id/districtSpinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp" />
-                    </FrameLayout>
-
-
-                    <!-- Mandi Spinner with Label -->
-                    <TextView
-                        android:id="@+id/mandiTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mandi"
-                        android:textColor="@color/secondaryTextColor"
-                        android:layout_marginBottom="4dp"/>
-
-                     <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_edittext_background"
-                        android:layout_marginBottom="16dp">
-                        <Spinner
-                            android:id="@+id/mandiSpinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp" />
-                    </FrameLayout>
-
-                    <!-- Category Spinner with Label -->
-                    <TextView
-                        android:id="@+id/commGroupTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/category"
-                        android:textColor="@color/secondaryTextColor"
-                        android:layout_marginBottom="4dp"/>
-
-                     <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_edittext_background"
-                        android:layout_marginBottom="16dp">
-                        <Spinner
-                            android:id="@+id/commGroupSpinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp" />
-                    </FrameLayout>
-
-                    <!-- Crop Spinner with Label -->
-                    <TextView
-                        android:id="@+id/cropTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/crop"
-                        android:textColor="@color/secondaryTextColor"
-                        android:layout_marginBottom="4dp"/>
-
-                     <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_edittext_background"
-                        android:layout_marginBottom="24dp">
-                        <Spinner
-                            android:id="@+id/cropSpinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp" />
-                    </FrameLayout>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/fetchDataButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:text="@string/fetch_data"
-                        android:textSize="16sp"
-                        app:cornerRadius="20dp"
-                        app:backgroundTint="@color/primary_green"
-                        app:elevation="4dp"/>
-
+                        android:layout_height="320dp"
+                        android:visibility="gone" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone" />
-
-            <!-- Percentage Change Section -->
-            <LinearLayout
-                android:id="@+id/percentageChangeSection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal"
-                android:gravity="center"
-                 android:padding="12dp"
-                android:background="@drawable/bg_dashboard_card"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/percentageChangeIcon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_arrow_up"
-                     android:layout_marginEnd="8dp"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/percentageChangeTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black" />
-            </LinearLayout>
-
-            <!-- Line Chart Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="@color/white">
-
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/priceChart"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:padding="8dp"
-                    android:visibility="gone" />
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
@@ -231,8 +295,8 @@
         android:id="@+id/bottom_navigation_market_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F0FFFFFF"
-        app:elevation="16dp"
+        android:background="@color/white"
+        app:elevation="8dp"
         app:itemIconTint="@color/primary_green"
         app:itemTextColor="@color/primary_green"
         app:menu="@menu/bottom_nav_menu"
